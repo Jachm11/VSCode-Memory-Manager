@@ -1,7 +1,7 @@
 {
 	"name": "heap-visualizer",
-	"displayName": "Heap Visualizer",
-	"description": "This is the visual implementation fo the Memory Manager library",
+	"displayName": "heap visualizer",
+	"description": "visulizardor del heap",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.45.0"

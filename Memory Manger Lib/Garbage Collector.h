@@ -1,5 +1,5 @@
 #include "linkedlist.cpp"
-#include "VSPtr.cpp"
+#include "VSPtr.h"
 
 ///
 /// @brief Clase Singleton que simula un Garbage collector
@@ -12,12 +12,13 @@ public:
     ///
     /// @brief Metodo que inicializa el thread de la clase
     /// @author Jose
-    ///
-    void GCInit();
+    /// @attention Se usa al iniciar el programa en el main (como tkinter)
+    static void GCInit();
 
     ///
     /// @brief Metodo que inicializa la clase como un singleton o retorna la instacia ya existente
     /// @author Jose
+    /// @attention La insignia de un singleton. Se usa antes de cada funcion. i.e GarbageCollector.getInstance()->funcion() (creo jeje)
     ///
     static GarbageCollector* getInstance();
 
@@ -25,15 +26,17 @@ public:
     /// @brief Metodo que se ejecuta cuando un nuevo VSPtr es creado
     /// @param La direccion de memoria de un VSPtr
     /// @author Jose
+    /// @attention Cada vez que se crea un nuevo VSPtr (con NEW() y con "=")
     ///
-    void update (int ref);
+    static void update (int ref);
 
     ///
     /// @brief Metodo que se ejecuta cuando un VSPtr es eliminado
     /// @param La direccion de memoria de un VSPtr
     /// @author Jose
+    /// @attention Se usa cuando se llama al destructor del VSPtr
     ///
-    void clear(int ref);
+     static void clear(int ref);
 
     GarbageCollector(const GarbageCollector&) = delete;
 
@@ -50,31 +53,31 @@ private:
     /// @brief Implemetacion de GCInit
     /// @author Jose
     ///
-    void GCInitImp();
+    static void GCInitImp();
 
     ///
     /// @brief Metodo que se ejecuta en el thread, busca aquellos VSPtr cuya referencia es 0
     /// @author Jose
     ///
-    void inspect();
+    static void* inspect(void* arg);
 
     ///
     /// @brief Implemetacion de update
     /// @author Jose
     ///
-    void updateImp (int ref);
+    static void updateImp (int ref);
 
     ///
     /// @brief Genera un ID para un nuevo VSPtr con base en IDref
     /// @author Jose
     ///
-    int generateID();
+    static int generateID();
 
     ///
     /// @brief Implemetacion de clear
     /// @author Jose
     ///
-    void clearImp(int ref);
+    static void clearImp(int ref);
 
     ///
     /// @brief Accede a la lista enlazada y busca los datos del VSPointr cuya dir de memoria sea igual a ref
@@ -82,7 +85,7 @@ private:
     /// @return Un array con los datos del VSPtr
     /// @author Jose
     ///
-    int* searchByRef(int ref);
+    static int* searchByRef(int ref);
 
 
 };

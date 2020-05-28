@@ -1,5 +1,8 @@
 #include "Garbage Collector.h"
-#include <thread>
+#include <pthread.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <future>
 
 
 GarbageCollector :: GarbageCollector(){
@@ -7,34 +10,45 @@ GarbageCollector :: GarbageCollector(){
 }
 
 void GarbageCollector :: GCInit(){
-    if (!init){
+    if (getInstance()->init == false){
         getInstance()->GCInitImp();
-        init = true;
+        getInstance()->init = true;
     }
 }
 
 void GarbageCollector :: GCInitImp(){
     
-    std::thread inspector(inspect); 
+    void* arg;
+    std::async(std::launch::async,inspect,arg);
+
+    //void* arg;
+    //pthread_t inspector;
+    //pthread_attr_t attr;
+    //pthread_attr_init(&attr);
+    //pthread_create(&inspector,&attr,inspect,arg);
+
+    //std::thread inspector(inspect); 
 }
 
-void GarbageCollector :: inspect(){
+void* GarbageCollector :: inspect(void* arg){
 
-    using namespace std::literals::chrono_literals;
+    //using namespace std::literals::chrono_literals;
     
     while(true){
+        std::cout<<"searching..."<<std::endl;
         
-        if (VSptrs.getHead() != 0 ){
-            for(int i = 0; i <= VSptrs.getSize(); i++){
-                int* dato = VSptrs.searchByIndex(i)->getData();
+        if (getInstance()->VSptrs.getHead() != 0 ){
+            for(int i = 0; i <= getInstance()->VSptrs.getSize(); i++){
+                int* dato = getInstance()->VSptrs.searchByIndex(i)->getData();
                     if (*(dato+2)  == 0){
-                        VSptrs.deleteByIndex(i);
+                        getInstance()->VSptrs.deleteByIndex(i);
                         i--;
-                        std::free((void*)*(dato+1));
+                        //std::free((void*)*(dato+1));
                     }
             }
         }
-        std::this_thread::sleep_for(5s);
+        sleep(1);
+        
     }
 
 }
@@ -51,14 +65,15 @@ void GarbageCollector :: update(int ref){
 void GarbageCollector :: updateImp (int ref){
     int* arr = searchByRef(ref);
     if (arr == NULL){
-        int newPtr [generateID(),ref,1];
-        VSptrs.insertFirst(newPtr);
+        int id = generateID();
+        int newPtr [3] = {id,ref,1};
+        getInstance()->VSptrs.insertFirst(newPtr);
     }
 }
 
 int GarbageCollector :: generateID(){
-    int x = IDref;
-    IDref++;
+    int x = getInstance()->IDref;
+    getInstance()->IDref++;
     return x;
 }
 
@@ -74,9 +89,9 @@ void GarbageCollector :: clearImp(int ref){
 }
 
 int* GarbageCollector :: searchByRef(int ref){
-    if (VSptrs.getHead() != 0 ){
-        for(int i = 0; i <= VSptrs.getSize(); i++){
-            int* dato = VSptrs.searchByIndex(i)->getData();
+    if (getInstance()->VSptrs.getHead() != 0 ){
+        for(int i = 0; i <= getInstance()->VSptrs.getSize(); i++){
+            int* dato = getInstance()->VSptrs.searchByIndex(i)->getData();
                 if (*(dato+1)  == ref){
                     return dato;
                 }
