@@ -7,12 +7,17 @@ using namespace std;
 template <class T>
 VSPtr<T>::VSPtr()
 {
-    dato = (int *)malloc(sizeof(T));
+    dato = (T*)malloc(sizeof(T*));
 }
 template <class T>
-void VSPtr<T>::New()
+VSPtr<T> VSPtr<T>::New()
 {
-
+    VSPtr<T> *address;
+    VSPtr<T> myPtr;
+    address =addressof(myPtr);
+    myPtr.setRef(address);
+    cout << "HEELP: " << addressof(myPtr)  << endl;
+    return myPtr;
 }
 template <class T>
 void VSPtr<T>::operator =(T data)
@@ -33,11 +38,12 @@ T VSPtr<T>::operator &()
     return *dato;
 }
 
+// Necesito retornar un vspointer pero para eso necesito la direccion donde esta guardado
 template <class T>
-T VSPtr<T>::operator *()
+ VSPtr<T> VSPtr<T>::operator *()
 {
     cout << "prueba *";
-    return *dato;
+    return *direccion;
 }
 
 template <class T>
@@ -47,11 +53,18 @@ void VSPtr<T>::freeMemory()
 }
 
 template <class T>
+void VSPtr<T>::setRef(VSPtr<T> *ref)
+{
+    direccion = ref;
+}
+
+template <class T>
 void VSPtr<T>::hola()
 {
 
     cout << "Numero" << *dato << endl;
     cout << "Espacio del puntero" << &dato << endl;
     cout << "Espacio del numero" << &*dato << endl;
+    cout << "Espacio del VSPtr" << direccion << endl;
 
 }
