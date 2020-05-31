@@ -6,17 +6,18 @@ template <class T>
 class VSPtr
 {
 private:
-    VSPtr<T> *direccion;
+
+    
     
 public:
     T *dato;
+    VSPtr();
     static VSPtr<T> New();
+    void init();
     void operator =(T data);
     void operator =(VSPtr<T> ptr2);
     VSPtr<T> operator *();
     T operator &();
-    void setRef(VSPtr<T> *ref);
-    void saveSize();
-    void freeMemory();
+    void destroy();
     void hola();
 };

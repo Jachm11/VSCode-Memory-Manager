@@ -1,27 +1,31 @@
 #include "VSPtr.h"
 #include <iostream>
+#include "Garbage Collector.cpp"
 
 using namespace std;
 
-
-
-
 template <class T>
-void VSPtr<T>::saveSize()
-{
+VSPtr<T>::VSPtr(){
     dato = (T*)malloc(sizeof(T*));
-
 }
+
 template <class T>
 VSPtr<T> VSPtr<T>::New()
 {
     
     VSPtr<T> myPtr;
-    VSPtr<T>* address;
-    address = addressof(myPtr);
+    //VSPtr<T>* address;
+    //address = addressof(myPtr);
     // enviar a garbage collector
-    cout << "HELP: " <<  address << endl;
+    //cout << "HELP: " <<  address << endl;
     return myPtr;
+}
+
+template <class T>
+void VSPtr<T>::init()
+{
+    GarbageCollector::newPtr(this,&dato);
+    cout << "ref de dato" << &dato <<endl;
 }
 template <class T>
 void VSPtr<T>::operator =(T data)
@@ -33,7 +37,8 @@ void VSPtr<T>::operator =(T data)
 template <class T>
 void VSPtr<T>::operator =(VSPtr<T> ptr2)
 {
-    dato = ptr2.dato;
+    dato = &*ptr2.dato;
+    GarbageCollector::newPtr(this,&dato);
 }
 
 template <class T>
@@ -50,24 +55,20 @@ VSPtr<T> VSPtr<T>::operator *()
 }
 
 template <class T>
-void VSPtr<T>::freeMemory()
+void VSPtr<T>::destroy()
 {
-    free(dato);
+    GarbageCollector::clear(this, &dato);
+    free(this);
 }
 
-template <class T>
-void VSPtr<T>::setRef(VSPtr<T> *ref)
-{
-    direccion = ref;
-}
 
 template <class T>
 void VSPtr<T>::hola()
 {
 
-    cout << "Numero" << *dato << endl;
-    cout << "Espacio del puntero" << &dato << endl;
-    cout << "Espacio del numero" << dato << endl;
-    cout << "Espacio del VSPtr" << this << endl;
+    cout << "Número: " << *dato << endl;
+    cout << "Espacio del puntero: " << &dato << endl;
+    cout << "Espacio del numero: " << dato << endl;
+    cout << "Espacio del VSPtr: " << this << endl;
 
 }
