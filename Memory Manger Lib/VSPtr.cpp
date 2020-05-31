@@ -1,22 +1,26 @@
-#include "vsptr.h"
+#include "VSPtr.h"
 #include <iostream>
 
 using namespace std;
 
 
+
+
 template <class T>
-VSPtr<T>::VSPtr()
+void VSPtr<T>::saveSize()
 {
     dato = (T*)malloc(sizeof(T*));
+
 }
 template <class T>
 VSPtr<T> VSPtr<T>::New()
 {
-    VSPtr<T> *address;
+    
     VSPtr<T> myPtr;
-    address =addressof(myPtr);
-    myPtr.setRef(address);
-    cout << "HEELP: " << addressof(myPtr)  << endl;
+    VSPtr<T>* address;
+    address = addressof(myPtr);
+    // enviar a garbage collector
+    cout << "HELP: " <<  address << endl;
     return myPtr;
 }
 template <class T>
@@ -38,12 +42,12 @@ T VSPtr<T>::operator &()
     return *dato;
 }
 
-// Necesito retornar un vspointer pero para eso necesito la direccion donde esta guardado
 template <class T>
  VSPtr<T> VSPtr<T>::operator *()
 {
     cout << "prueba *";
     return *direccion;
+    
 }
 
 template <class T>

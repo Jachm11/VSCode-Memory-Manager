@@ -1,4 +1,4 @@
-#include "Garbage Collector.cpp"
+//#include "Garbage Collector.cpp"
 #include <iostream>
 
 #include "VSPtr.cpp"
@@ -40,20 +40,17 @@ int main(int argc, char const *argv[])
 
     //print(hola.getSize());
 
+    
     cout << "Puntero1" << endl;
-    VSPtr<int> myPtr;
-    myPtr = 34;
+    VSPtr<int> myPtr= VSPtr<int>::New();
+    
+    int var =34;
+    myPtr.dato = &var;
     myPtr.hola();
+    cout << "desdemain referencia: "<< addressof(myPtr) << endl;
+    cout << "desdemain valor: " <<  &myPtr << endl;
 
-    cout << "Puntero 2" << endl;
-
-    VSPtr<int> myPtr2;
-    myPtr2 = myPtr;
-    //myPtr2.freeMemory();
-    myPtr2.hola();
-
-    int val = &myPtr;
-    cout << val << endl;
-
+    
+    
     return 0;
 }
