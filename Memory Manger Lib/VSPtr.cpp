@@ -43,10 +43,9 @@ T VSPtr<T>::operator &()
 }
 
 template <class T>
- VSPtr<T> VSPtr<T>::operator *()
+VSPtr<T> VSPtr<T>::operator *()
 {
-    cout << "prueba *";
-    return *direccion;
+    return *this;
     
 }
 
@@ -68,7 +67,7 @@ void VSPtr<T>::hola()
 
     cout << "Numero" << *dato << endl;
     cout << "Espacio del puntero" << &dato << endl;
-    cout << "Espacio del numero" << &*dato << endl;
-    cout << "Espacio del VSPtr" << direccion << endl;
+    cout << "Espacio del numero" << dato << endl;
+    cout << "Espacio del VSPtr" << this << endl;
 
 }
