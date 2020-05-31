@@ -61,6 +61,11 @@ void VSPtr<T>::destroy()
     free(this);
 }
 
+template <class T>
+int VSPtr<T>::getIDref()
+{
+    return IDref;
+}
 
 template <class T>
 void VSPtr<T>::hola()
