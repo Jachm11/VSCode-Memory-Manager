@@ -1,4 +1,4 @@
-#define VSPTR_H
+#pragma once
 #include <iostream>
 using namespace std;
 

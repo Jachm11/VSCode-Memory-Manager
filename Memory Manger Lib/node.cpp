@@ -8,8 +8,8 @@ Node<T> :: Node(T Data){
 }
 
 template<class T>
-T Node<T> :: getData(){
-    return data;
+T* Node<T> :: getData(){
+    return &data;
 }
 
 template<class T>

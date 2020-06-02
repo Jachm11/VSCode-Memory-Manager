@@ -1,7 +1,5 @@
-//#include "Garbage Collector.cpp"
+#include "Garbage Collector.cpp"
 #include <iostream>
-
-#include "VSPtr.cpp"
 
 using namespace std;
 
@@ -22,7 +20,7 @@ int main(int argc, char const *argv[])
     //LinkedList<int> hola;
     //LinkedList<int> hola2;
 
-    //(GarbageCollector :: GCInit());
+    (GarbageCollector :: GCInit());
 
     //hola.insertFirst(10);
 
@@ -41,14 +39,14 @@ int main(int argc, char const *argv[])
     //print(hola.getSize());
 
     
-    cout << "Puntero1" << endl;
-    VSPtr<int> myPtr= VSPtr<int>::New();
+    //cout << "Puntero1" << endl;
+    //VSPtr<int> myPtr= VSPtr<int>::New();
     
-    int var =34;
-    myPtr.dato = &var;
-    myPtr.hola();
-    cout << "desdemain referencia: "<< addressof(myPtr) << endl;
-    cout << "desdemain valor: " <<  &myPtr << endl;
+    //int var =34;
+    //myPtr.dato = &var;
+    //myPtr.hola();
+    //cout << "desdemain referencia: "<< addressof(myPtr) << endl;
+    //cout << "desdemain valor: " <<  &myPtr << endl;
 
     
     

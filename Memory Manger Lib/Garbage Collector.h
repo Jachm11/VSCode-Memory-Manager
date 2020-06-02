@@ -1,5 +1,6 @@
+#pragma once
 #include "linkedlist.cpp"
-#include "VSPtr.h"
+#include "GCStructs.h"
 
 ///
 /// @brief Clase Singleton que simula un Garbage collector
@@ -26,9 +27,25 @@ public:
     /// @brief Metodo que se ejecuta cuando un nuevo VSPtr es creado
     /// @param La direccion de memoria de un VSPtr
     /// @author Jose
-    /// @attention Cada vez que se crea un nuevo VSPtr (con NEW() y con "=")
+    /// @attention Cada vez que se crea un nuevo VSPtr
     ///
-    static void update (int ref);
+    template <class T>
+    static void newPtr (VSPtr<T>* VSDir,void* TDir);
+
+    ///
+    /// @brief Genera un ID para un nuevo VSPtr con base en IDref
+    /// @author Jose
+    ///
+    static int generateID();
+
+    ///
+    /// @brief Metodo que se ejecuta se cambia la referencia de VSPtr
+    /// @param La direccion de memoria de un VSPtr
+    /// @author Jose
+    /// @attention Cada vez que se cambia la referencia de VSPtr
+    ///
+    template <typename T>
+    static void update (T* oldDir,T* newDir);
 
     ///
     /// @brief Metodo que se ejecuta cuando un VSPtr es eliminado
@@ -36,14 +53,16 @@ public:
     /// @author Jose
     /// @attention Se usa cuando se llama al destructor del VSPtr
     ///
-     static void clear(int ref);
+    template <class T>
+    static void clear(VSPtr<T>* VSDir,void* TDir);
 
     GarbageCollector(const GarbageCollector&) = delete;
 
 private:
 
     
-    LinkedList<int*> VSptrs;
+    LinkedList<VSPointers> VSptrs;
+    LinkedList<VSData> Data;
     int IDref;
     bool init = false;
 
@@ -59,25 +78,34 @@ private:
     /// @brief Metodo que se ejecuta en el thread, busca aquellos VSPtr cuya referencia es 0
     /// @author Jose
     ///
-    static void* inspect(void* arg);
+    static void inspect();
+
+    ///
+    /// @brief Implemetacion de newPtr
+    /// @author Jose
+    ///
+    template <class T>
+    static void newPtrImp (VSPtr<T>* VSDir,void* TDir);
 
     ///
     /// @brief Implemetacion de update
     /// @author Jose
     ///
-    static void updateImp (int ref);
+    template <typename T>
+    static void updateImp (T* oldDir,T* newDir);
 
     ///
-    /// @brief Genera un ID para un nuevo VSPtr con base en IDref
+    /// @brief Implemetacion de generateID
     /// @author Jose
     ///
-    static int generateID();
+    static int generateIDImp();
 
     ///
     /// @brief Implemetacion de clear
     /// @author Jose
     ///
-    static void clearImp(int ref);
+    template <class T>
+    static void clearImp(VSPtr<T>* VSDir,void* TDir);
 
     ///
     /// @brief Accede a la lista enlazada y busca los datos del VSPointr cuya dir de memoria sea igual a ref
@@ -85,7 +113,9 @@ private:
     /// @return Un array con los datos del VSPtr
     /// @author Jose
     ///
-    static int* searchByRef(int ref);
+    static VSData* searchInData(void*);
+
+    static VSPointers* searchInPtrs(void*);
 
 
 };

@@ -30,20 +30,16 @@ void GarbageCollector :: inspect(){
         
         if (getInstance()->Data.getHead() != 0 ){
             for(int i = 0; i <= getInstance()->Data.getSize(); i++){
-                void* arr = (getInstance()->Data.searchByIndex(i)->getData());
-                    if (*((int*)arr)  == 0){
-                        void* ptr =  (int*)arr; //HAAAAALLLPPPPP
-                        getInstance()->Data.deleteByIndex(i);
-                        delete(ptr);
-                        i--;
-                        std::cout<<"Exterminated"<<std::endl;
-                    }
+                VSData* dato = getInstance()->Data.searchByIndex(i)->getData();
+                if ( dato->refs  <= 0){
+                    delete((decltype(dato->dir)*)dato->dir);
+                    i--;
+                    std::cout<<"Exterminated"<<std::endl;
+                }
             }
         }
-        sleep(3);
-        
+        sleep(3);   
     }
-
 }
 
 GarbageCollector* GarbageCollector :: getInstance(){
@@ -58,36 +54,47 @@ void GarbageCollector :: newPtr(VSPtr<T>* VSDir,void* TDir){
 
 template <class T>
 void GarbageCollector :: newPtrImp(VSPtr<T>* VSDir,void* TDir){
-    int id = generateID();
-    void* newVSPtr[2] = {VSDir,&id};
-    getInstance()->VSptrs.insertFirst(*newVSPtr);
 
-    void* DataInfo = (searchByRef(TDir,(getInstance()->Data),false))->getData();
+    VSPointers newPointer;
+    newPointer.dir = VSDir;
+    newPointer.ID = *(VSDir)->ID;
+    getInstance()->VSptrs.insertFirst(newPointer);
+
+    VSData* DataInfo = searchInData(TDir);
     if (DataInfo == NULL){
         int refrences = 1;
-        void* newDataInfo[2] = {TDir,&refrences};
-        getInstance()->Data.insertFirst(*newDataInfo);
+        VSData newVar;
+        newVar.dir = TDir;
+        newVar.refs = 1;
+        getInstance()->Data.insertFirst(newVar);
+    }else{
+        DataInfo->refs++;
     }
-
 }
+
+/***
 template <typename T>
 void GarbageCollector :: update(T* oldDir,T* newDir){
     getInstance()->updateImp(oldDir,newDir);
 }
 template <typename T>
 void GarbageCollector :: updateImp (T* oldDir,T* newDir){
-    void* oldDato = (searchByRef(oldDir,getInstance()->Data,false))->getData();
-    (*((int*)oldDato))--;
 
-    void* newDato = (searchByRef(newDir,getInstance()->Data,false))->getData();
-    if (newDato == NULL){
+    VSData* OldData = searchInData(oldDir);
+    OldData->refs--; //Could mean nothing
+
+    VSData* NewData = searchInData(newDir);
+    if (NewData == NULL){
         int refrences = 1;
-        void* newDataInfo[2] = {newDir,&refrences};
-        getInstance()->Data.insertFirst(*newDataInfo);
+        VSData newVar;
+        newVar.dir = TDir;
+        newVar.refs = 1;
+        getInstance()->Data.insertFirst(newVar);
     }else{
-        (*((int*)newDato))++;
+        NewData->refs++; //Could mean nothing
     }
 }
+***/
 
 int GarbageCollector :: generateID(){
     int x = getInstance()->IDref;
@@ -102,34 +109,43 @@ void GarbageCollector :: clear(VSPtr<T>* VSDir,void* TDir){
 
 template <class T>
 void GarbageCollector :: clearImp(VSPtr<T>* VSDir,void* TDir){
+
     //Borrar de la lista de VsPtrs
-    void* VSPtrInfo = (searchByRef(VSDir,getInstance()->VSptrs,true))->getData();
-    (getInstance()->VSptrs).deleteByData(VSPtrInfo);
+    VSPointers pointerData = *(searchInPtrs(VSDir));
+    (getInstance()->VSptrs).deleteByData(pointerData);
+
     //Decremento de referencias para el dato
-    void* DataInfo = (searchByRef(TDir,getInstance()->Data,false))->getData();
-    (*((int*)DataInfo))--;
+    VSData* VarData = searchInData(TDir);
+    VarData->refs--;
+
 }
 
-//La referecia tiene que estar el primer espacio de lista de cada nodo
- template <typename T>
- Node<void*> GarbageCollector :: searchByRef(T* ref, LinkedList<void*> list,bool VS){
-    if (list.getHead() != 0 ){
-        for(int i = 0; i <= list.getSize(); i++){
-            void* arr = list.searchByIndex(i)->getData();
-            if(VS){
-                if ( (*(VSPtr<T>*)arr) == (VSPtr<T>*) ref){
-                    return list.searchByIndex(i);
-                }
-            }else{
-                if ( (*(T*)arr) == (T*)ref){
-                    return list.searchByIndex(i);
-                }
+ VSData* GarbageCollector :: searchInData(void* ref){
+    //LinkedList<VSData>* list = &(getInstance()->Data);  
+    if (getInstance()->Data.getHead() != 0 ){
+        for(int i = 0; i <= getInstance()->Data.getSize(); i++){
+            VSData* data = getInstance()->Data.searchByIndex(i)->getData();
+            if ( data->dir == ref){ //talvez casteo necesario
+                return getInstance()->Data.searchByIndex(i)->getData();
             }
         }
         return NULL;
     }
     return NULL;
+}
 
+VSPointers* GarbageCollector :: searchInPtrs(void* ref){
+    //LinkedList<VSPointers>* list = &(getInstance()->VSptrs);  
+    if (getInstance()->VSptrs.getHead() != 0 ){
+        for(int i = 0; i <= getInstance()->VSptrs.getSize(); i++){
+            VSPointers* pointer = getInstance()->VSptrs.searchByIndex(i)->getData();
+            if ( pointer->dir == ref){ //talvez casteo necesario
+                return getInstance()->VSptrs.searchByIndex(i)->getData();
+            }
+        }
+        return NULL;
+    }
+    return NULL;
 }
 
 
