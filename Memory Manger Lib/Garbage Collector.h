@@ -106,7 +106,7 @@ private:
     ///
     static VSData* searchInData(void*);
 
-    static VSPointers* searchInPtrs(void*);
+    static int searchInPtrs(void*);
 
 
 };

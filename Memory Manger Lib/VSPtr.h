@@ -41,18 +41,18 @@ public:
     /// @author Natalia
     ///
     T operator &();
-     ///
+    ///
     /// @brief Obtener el mismo objeto
     /// @return El mismo VSPtr
     /// @author Natalia
     ///
     VSPtr<T> operator *();
-     ///
+    ///
     /// @brief Le avisa al Garbage Collector que se eliminó el puntero y vacía el espacio de referencia en el que estaba
     /// @author Natalia
     ///
     void destroy();
-     ///
+    ///
     /// @brief Obtener el ID del VSPtr
     /// @return IDRef
     /// @author Natalia

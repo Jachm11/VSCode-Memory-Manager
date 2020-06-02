@@ -4,7 +4,9 @@
 #include <unistd.h>
 #include <future>
 #include <typeinfo>
+#include <vector>
 
+std::vector<std::future<void>> thread_thing;
 
 GarbageCollector :: GarbageCollector(){
     IDref = 0;
@@ -19,26 +21,27 @@ void GarbageCollector :: GCInit(){
 
 void GarbageCollector :: GCInitImp(){
 
-    std::async(std::launch::async,inspect);
- 
+    thread_thing.push_back(std::async(std::launch::async,inspect));
+    std::cout<<"GC is ON"<<std::endl;
 }
 
 void GarbageCollector :: inspect(){
 
     while(true){
+        sleep(3);
         std::cout<<"searching..."<<std::endl;
         
         if (getInstance()->Data.getHead() != 0 ){
-            for(int i = 0; i <= getInstance()->Data.getSize(); i++){
+            for(int i = 0; i < getInstance()->Data.getSize(); i++){
                 VSData* dato = getInstance()->Data.searchByIndex(i)->getData();
                 if ( dato->refs  <= 0){
                     delete((decltype(dato->dir)*)dato->dir);
+                    getInstance()->Data.deleteByIndex(i);
                     i--;
-                    std::cout<<"Exterminated"<<std::endl;
+                    std::cout<<"GC deleted a unreferenced varible"<<std::endl;
                 }
             }
-        }
-        sleep(3);   
+        }   
     }
 }
 
@@ -59,18 +62,18 @@ void GarbageCollector :: newPtrImp(VSPtr<T>* VSDir,void* TDir){
     newPointer.dir = VSDir;
     newPointer.ID = (VSDir)->getIDref();
     getInstance()->VSptrs.insertFirst(newPointer);
-    std::cout<< "Puntero Agregado"<<std::endl;
+    std::cout<< "New VSPointer added in GC"<<std::endl;
 
     VSData* DataInfo = searchInData(TDir);
     if (DataInfo == NULL){
-        std::cout<< "Dato Agregado"<<std::endl;
+        std::cout<< "New variable added in GC"<<std::endl;
         VSData newVar;
         newVar.dir = TDir;
         newVar.refs = 1;
         getInstance()->Data.insertFirst(newVar);
     }else{
         DataInfo->refs++;
-        std::cout<< "Referencia aumentada a: "<<std::endl;
+        std::cout<< "Active references of: "<<DataInfo->dir << " increased to: "<< DataInfo->refs<< std::endl;
     }
 }
 
@@ -83,27 +86,32 @@ int GarbageCollector :: generateID(){
 
 template <class T>
 void GarbageCollector :: clear(VSPtr<T>* VSDir,void* TDir){
-    getInstance()->clear(VSDir,TDir);
+    getInstance()->clearImp(VSDir,TDir);
 }
 
 template <class T>
 void GarbageCollector :: clearImp(VSPtr<T>* VSDir,void* TDir){
 
     //Borrar de la lista de VsPtrs
-    VSPointers pointerData = *(searchInPtrs(VSDir));
-    (getInstance()->VSptrs).deleteByData(pointerData);
+    int pointerDataPos = searchInPtrs(VSDir);
+    if (pointerDataPos > 0){
+    (getInstance()->VSptrs).deleteByIndex(pointerDataPos);
+    std::cout<<"VSPointer succesfully deleted from GC"<<std::endl;
+    }else{
+        std::cout<<"VSPointer to delete not found"<<std::endl;
+    }
 
     //Decremento de referencias para el dato
     VSData* VarData = searchInData(TDir);
     VarData->refs--;
-    std::cout<< "Referencia disminuida a: "<< VarData->refs <<std::endl;
+    std::cout<< "Active references of: "<<VarData->dir << " decreased to: "<< VarData->refs<< std::endl;
 
 }
 
  VSData* GarbageCollector :: searchInData(void* ref){
     //LinkedList<VSData>* list = &(getInstance()->Data);  
     if (getInstance()->Data.getHead() != 0 ){
-        for(int i = 0; i <= getInstance()->Data.getSize(); i++){
+        for(int i = 0; i < getInstance()->Data.getSize(); i++){
             VSData* data = getInstance()->Data.searchByIndex(i)->getData();
             if ( data->dir == ref){ //talvez casteo necesario
                 return getInstance()->Data.searchByIndex(i)->getData();
@@ -114,18 +122,17 @@ void GarbageCollector :: clearImp(VSPtr<T>* VSDir,void* TDir){
     return NULL;
 }
 
-VSPointers* GarbageCollector :: searchInPtrs(void* ref){
-    //LinkedList<VSPointers>* list = &(getInstance()->VSptrs);  
+int GarbageCollector :: searchInPtrs(void* ref){ 
     if (getInstance()->VSptrs.getHead() != 0 ){
-        for(int i = 0; i <= getInstance()->VSptrs.getSize(); i++){
+        for(int i = 0; i < getInstance()->VSptrs.getSize(); i++){
             VSPointers* pointer = getInstance()->VSptrs.searchByIndex(i)->getData();
-            if ( pointer->dir == ref){ //talvez casteo necesario
-                return getInstance()->VSptrs.searchByIndex(i)->getData();
+            if ( pointer->dir == ref){
+                return i;
             }
         }
-        return NULL;
+        return -1;
     }
-    return NULL;
+    return -1;
 }
 
 

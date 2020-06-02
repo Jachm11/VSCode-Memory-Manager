@@ -22,19 +22,38 @@ int main(int argc, char const *argv[])
     //cout << "Puntero1" << endl;
 
 
-    //(GarbageCollector :: GCInit());
+    (GarbageCollector :: GCInit());
+
+    int var = 34;
+    int var2 = 1;
 
     VSPtr<int> myPtr= VSPtr<int>::New();
+    VSPtr<int> myPtr2= VSPtr<int>::New();
+    VSPtr<int> myPtr3= VSPtr<int>::New();
+    VSPtr<int> myPtr4= VSPtr<int>::New();
+
     myPtr.init();
-    int var = 34;
-    myPtr = 34;
+    myPtr4.init();
+
+    myPtr = var;
     myPtr.hola();
 
-    VSPtr<int> hola;
-    myPtr = hola;
+    myPtr4 = var;
+    myPtr4.hola();
 
-    //myPtr.destroy();
+    myPtr2 = myPtr;
+    myPtr2.hola();
+    myPtr3 = myPtr2;
 
+    myPtr.destroy();
+
+    sleep(5);
+
+    myPtr2.destroy();
+
+    sleep(5);
+
+    myPtr3.destroy();
 
     return 0;
 }

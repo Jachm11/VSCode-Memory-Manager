@@ -12,8 +12,9 @@ VSPtr<T>::VSPtr(){
 template <class T>
 VSPtr<T> VSPtr<T>::New()
 {
-    
-    VSPtr<T> myPtr;
+    //VSPtr<T> *myPtr = new VSPtr<T>;
+    VSPtr<T> myPtr; 
+    //myPtr = (VSPtr<T>)malloc(sizeof(VSPtr<T>));
     //VSPtr<T>* address;
     //address = addressof(*myPtr);
     // enviar a garbage collector
@@ -37,7 +38,7 @@ void VSPtr<T>::operator =(T data)
 template <class T>
 void VSPtr<T>::operator =(VSPtr<T> ptr2)
 {
-    dato = &*ptr2.dato;
+    dato = ptr2.dato;
     GarbageCollector::newPtr((VSPtr<void*>*)this,dato);
 }
 
@@ -57,9 +58,12 @@ VSPtr<T> VSPtr<T>::operator *()
 template <class T>
 void VSPtr<T>::destroy()
 {
-    GarbageCollector::clear(this, &dato);
+    GarbageCollector::clear(this, dato);
     free(this);
+    //delete(this);
 }
+
+
 
 template <class T>
 int VSPtr<T>::getIDref()
