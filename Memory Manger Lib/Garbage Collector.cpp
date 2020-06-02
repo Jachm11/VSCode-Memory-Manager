@@ -57,48 +57,27 @@ void GarbageCollector :: newPtrImp(VSPtr<T>* VSDir,void* TDir){
 
     VSPointers newPointer;
     newPointer.dir = VSDir;
-    newPointer.ID = *(VSDir)->ID;
+    newPointer.ID = (VSDir)->IDref;
     getInstance()->VSptrs.insertFirst(newPointer);
+    std::cout<< "Puntero Agregado"<<std::endl;
 
     VSData* DataInfo = searchInData(TDir);
     if (DataInfo == NULL){
-        int refrences = 1;
+        std::cout<< "Dato Agregado"<<std::endl;
         VSData newVar;
         newVar.dir = TDir;
         newVar.refs = 1;
         getInstance()->Data.insertFirst(newVar);
     }else{
         DataInfo->refs++;
+        std::cout<< "Referencia aumentada a: "<<std::endl;
     }
 }
-
-/***
-template <typename T>
-void GarbageCollector :: update(T* oldDir,T* newDir){
-    getInstance()->updateImp(oldDir,newDir);
-}
-template <typename T>
-void GarbageCollector :: updateImp (T* oldDir,T* newDir){
-
-    VSData* OldData = searchInData(oldDir);
-    OldData->refs--; //Could mean nothing
-
-    VSData* NewData = searchInData(newDir);
-    if (NewData == NULL){
-        int refrences = 1;
-        VSData newVar;
-        newVar.dir = TDir;
-        newVar.refs = 1;
-        getInstance()->Data.insertFirst(newVar);
-    }else{
-        NewData->refs++; //Could mean nothing
-    }
-}
-***/
 
 int GarbageCollector :: generateID(){
     int x = getInstance()->IDref;
     getInstance()->IDref++;
+    std::cout<< "ID generado es: "<< x <<std::endl;
     return x;
 }
 
@@ -117,6 +96,7 @@ void GarbageCollector :: clearImp(VSPtr<T>* VSDir,void* TDir){
     //Decremento de referencias para el dato
     VSData* VarData = searchInData(TDir);
     VarData->refs--;
+    std::cout<< "Referencia disminuida a: "<< VarData->refs <<std::endl;
 
 }
 

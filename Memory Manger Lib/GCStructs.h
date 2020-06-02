@@ -1,5 +1,5 @@
 #pragma once
-#include "VSPtr.cpp"
+#include "VSPtr.h"
 
 struct VSPointers
 {

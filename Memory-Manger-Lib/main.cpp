@@ -1,13 +1,20 @@
 #include <iostream>
-#include "VSPtr.cpp"
+#include "GarbageCollector.h"
 
 using namespace std;
 
+void print(int x){
 
-///
-    /// @attention LINEA PARA COMPILAR EL CODIGO EL AL TERMINAL: g++ main.cpp -o main -pthread
-    /// @attention LINEA PARA CORRER EL CODIGO EN LA TERMINAL: ./main
-    ///
+    //std::cout<< x << std::endl;
+
+}
+
+void print(char* x){
+
+    //std::cout<< x << std::endl;
+
+}
+
 int main(int argc, char const *argv[])
 {
     //LinkedList<int> hola;
@@ -20,21 +27,19 @@ int main(int argc, char const *argv[])
     //print(hola.searchByIndex(1)->getData());
     //print(hola.getSize());
     //cout << "Puntero1" << endl;
+    //VSPtr<int> myPtr= VSPtr<int>::New();
+    //int var =34;
+    //myPtr.dato = &var;
+    //myPtr.hola();
+    //cout << "desdemain referencia: "<< addressof(myPtr) << endl;
+    //cout << "desdemain valor: " <<  &myPtr << endl;
 
 
-    //(GarbageCollector :: GCInit());
 
-    VSPtr<int> myPtr= VSPtr<int>::New();
-    myPtr.init();
-    int var = 34;
-    myPtr = 34;
-    myPtr.hola();
-
-    VSPtr<int> hola;
-    myPtr = hola;
-
-    //myPtr.destroy();
+    (GarbageCollector :: GCInit());
 
 
+    
+    
     return 0;
 }

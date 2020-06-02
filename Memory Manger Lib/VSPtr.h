@@ -6,17 +6,60 @@ template <class T>
 class VSPtr
 {
 private:
-    VSPtr<T> *direccion;
+    T *dato;
+
+    
     
 public:
-    T *dato;
+
+    int IDref;
+
+    VSPtr();
+    ///
+    /// @brief 
+    /// @author Natalia
+    ///
     static VSPtr<T> New();
+    ///
+    /// @brief Inicializa el VSPtr y envía su referencia y la del puntero dato al Garbage Collector
+    /// @author Natalia
+    ///
+    void init();
+    ///
+    /// @brief Le asigna data a la dirección de memoria reservada a la que apunta dato
+    /// @param Un dato tipo T
+    /// @author Natalia
+    ///
     void operator =(T data);
+    ///
+    /// @brief Pone a ambos punteros a apuntar a la misma dirección de memoria
+    /// @param Un VSPtr
+    /// @author Natalia
+    ///
     void operator =(VSPtr<T> ptr2);
-    VSPtr<T> operator *();
+    ///
+    /// @brief Obtener el valor al que apunta el puntero
+    /// @return El valor al que apunta dato
+    /// @author Natalia
+    ///
     T operator &();
-    void setRef(VSPtr<T> *ref);
-    void saveSize();
-    void freeMemory();
+     ///
+    /// @brief Obtener el mismo objeto
+    /// @return El mismo VSPtr
+    /// @author Natalia
+    ///
+    VSPtr<T> operator *();
+     ///
+    /// @brief Le avisa al Garbage Collector que se eliminó el puntero y vacía el espacio de referencia en el que estaba
+    /// @author Natalia
+    ///
+    void destroy();
+     ///
+    /// @brief Obtener el ID del VSPtr
+    /// @return IDRef
+    /// @author Natalia
+    ///
+    int getIDref();
+    
     void hola();
 };

@@ -39,15 +39,6 @@ public:
     static int generateID();
 
     ///
-    /// @brief Metodo que se ejecuta se cambia la referencia de VSPtr
-    /// @param La direccion de memoria de un VSPtr
-    /// @author Jose
-    /// @attention Cada vez que se cambia la referencia de VSPtr
-    ///
-    template <typename T>
-    static void update (T* oldDir,T* newDir);
-
-    ///
     /// @brief Metodo que se ejecuta cuando un VSPtr es eliminado
     /// @param La direccion de memoria de un VSPtr
     /// @author Jose
