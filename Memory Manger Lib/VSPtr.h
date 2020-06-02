@@ -7,12 +7,10 @@ class VSPtr
 {
 private:
     T *dato;
-
+    int IDref;
     
     
 public:
-
-    int IDref;
 
     VSPtr();
     ///

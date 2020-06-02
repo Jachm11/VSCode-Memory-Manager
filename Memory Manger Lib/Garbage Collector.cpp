@@ -57,7 +57,7 @@ void GarbageCollector :: newPtrImp(VSPtr<T>* VSDir,void* TDir){
 
     VSPointers newPointer;
     newPointer.dir = VSDir;
-    newPointer.ID = (VSDir)->IDref;
+    newPointer.ID = (VSDir)->getIDref();
     getInstance()->VSptrs.insertFirst(newPointer);
     std::cout<< "Puntero Agregado"<<std::endl;
 
