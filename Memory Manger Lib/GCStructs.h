@@ -1,14 +1,17 @@
 #pragma once
+#include "VSPtr.h"
 
 struct VSPointers
 {
-    
+    VSPtr<void*>* dir;
+    int ID;
+
 };
 
-template< class T> 
-struct Data
+
+struct VSData
 {
-    T* dir;
+    void* dir;
     int refs;
 };
 

@@ -1,5 +1,4 @@
-#ifndef LINKEDLIST_H
-#define LINKEDLIST_H
+#pragma once
 #include "node.cpp"
 
 ///
@@ -124,5 +123,3 @@ public:
     void clearList();
 
 };
-
-#endif // LINKEDLIST_H

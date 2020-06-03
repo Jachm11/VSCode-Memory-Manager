@@ -1,7 +1,6 @@
 #include "VSPtr.h"
-#include "Garbage Collector.cpp"
+#include "GarbageCollector.h"
 #include <iostream>
-#include "Garbage Collector.cpp"
 
 using namespace std;
 
@@ -13,11 +12,10 @@ VSPtr<T>::VSPtr(){
 template <class T>
 VSPtr<T> VSPtr<T>::New()
 {
-    //VSPtr<T> *myPtr = new VSPtr<T>;
-    VSPtr<T> myPtr; 
-    //myPtr = (VSPtr<T>)malloc(sizeof(VSPtr<T>));
+    
+    VSPtr<T> myPtr;
     //VSPtr<T>* address;
-    //address = addressof(*myPtr);
+    //address = addressof(myPtr);
     // enviar a garbage collector
     //cout << "HELP: " <<  address << endl;
     return myPtr;
@@ -26,8 +24,8 @@ VSPtr<T> VSPtr<T>::New()
 template <class T>
 void VSPtr<T>::init()
 {
-    GarbageCollector::newPtr((VSPtr<void*>*)this,dato);
-    //cout << "ref de dato: " << dato <<endl;
+    GarbageCollector::newPtr(this,&dato);
+    cout << "ref de dato" << &dato <<endl;
 }
 template <class T>
 void VSPtr<T>::operator =(T data)
@@ -39,8 +37,8 @@ void VSPtr<T>::operator =(T data)
 template <class T>
 void VSPtr<T>::operator =(VSPtr<T> ptr2)
 {
-    dato = ptr2.dato;
-    GarbageCollector::newPtr((VSPtr<void*>*)this,dato);
+    dato = &*ptr2.dato;
+    GarbageCollector::newPtr(this,&dato);
 }
 
 template <class T>
@@ -59,12 +57,9 @@ VSPtr<T> VSPtr<T>::operator *()
 template <class T>
 void VSPtr<T>::destroy()
 {
-    GarbageCollector::clear(this, dato);
+    GarbageCollector::clear(this, &dato);
     free(this);
-    //delete(this);
 }
-
-
 
 template <class T>
 int VSPtr<T>::getIDref()
@@ -80,4 +75,5 @@ void VSPtr<T>::hola()
     cout << "Espacio del puntero: " << &dato << endl;
     cout << "Espacio del numero: " << dato << endl;
     cout << "Espacio del VSPtr: " << this << endl;
+
 }

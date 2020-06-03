@@ -1,56 +1,59 @@
-//#include "Garbage Collector.cpp"
 #include <iostream>
-
 #include "VSPtr.cpp"
 
 using namespace std;
 
-void print(int x){
 
-    //std::cout<< x << std::endl;
-
-}
-
-void print(char* x){
-
-    //std::cout<< x << std::endl;
-
-}
-
+///
+    /// @attention LINEA PARA COMPILAR EL CODIGO EL AL TERMINAL: g++ main.cpp -o main -pthread
+    /// @attention LINEA PARA CORRER EL CODIGO EN LA TERMINAL: ./main
+    ///
 int main(int argc, char const *argv[])
 {
     //LinkedList<int> hola;
     //LinkedList<int> hola2;
-
-    //(GarbageCollector :: GCInit());
-
     //hola.insertFirst(10);
-
     //std::cout<< "hola" << std::endl;
     //std::cout<< hola2.getHead() << std::endl;
-
-
-
-
     //int var = hola.getHead()->getData();
-
     //print(var);
-
     //print(hola.searchByIndex(1)->getData());
-
     //print(hola.getSize());
+    //cout << "Puntero1" << endl;
 
-    
-    cout << "Puntero1" << endl;
+
+    (GarbageCollector :: GCInit());
+
+    int var = 34;
+    int var2 = 1;
+
     VSPtr<int> myPtr= VSPtr<int>::New();
-    
-    int var =34;
-    myPtr.dato = &var;
-    myPtr.hola();
-    cout << "desdemain referencia: "<< addressof(myPtr) << endl;
-    cout << "desdemain valor: " <<  &myPtr << endl;
+    VSPtr<int> myPtr2= VSPtr<int>::New();
+    VSPtr<int> myPtr3= VSPtr<int>::New();
+    VSPtr<int> myPtr4= VSPtr<int>::New();
 
-    
-    
+    myPtr.init();
+    myPtr4.init();
+
+    myPtr = var;
+    myPtr.hola();
+
+    myPtr4 = var;
+    myPtr4.hola();
+
+    myPtr2 = myPtr;
+    myPtr2.hola();
+    myPtr3 = myPtr2;
+
+    myPtr.destroy();
+
+    sleep(5);
+
+    myPtr2.destroy();
+
+    sleep(5);
+
+    myPtr3.destroy();
+
     return 0;
 }
