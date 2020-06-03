@@ -11,8 +11,17 @@ private:
     
     
 public:
-
+    ///
+    /// @brief Constructor de la clase
+    /// @author Natalia
+    ///
     VSPtr();
+    ///
+    /// @brief Destructor de la clase, le avisa al Garbage Collector que se eliminó el puntero y vacía el espacio de referencia en el que estaba
+    /// @author Natalia
+    ///
+    ~VSPtr<T>();
+
     ///
     /// @brief 
     /// @author Natalia
@@ -47,11 +56,7 @@ public:
     /// @author Natalia
     ///
     VSPtr<T> operator *();
-    ///
-    /// @brief Le avisa al Garbage Collector que se eliminó el puntero y vacía el espacio de referencia en el que estaba
-    /// @author Natalia
-    ///
-    void destroy();
+    
     ///
     /// @brief Obtener el ID del VSPtr
     /// @return IDRef

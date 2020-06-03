@@ -1,7 +1,7 @@
 #include "VSPtr.h"
 #include "Garbage Collector.cpp"
 #include <iostream>
-#include "Garbage Collector.cpp"
+//#include "Garbage Collector.cpp"
 
 using namespace std;
 
@@ -9,17 +9,17 @@ template <class T>
 VSPtr<T>::VSPtr(){
     dato = (T*)malloc(sizeof(T*));
 }
+template <class T>
+VSPtr<T>::~VSPtr<T>()
+{
+    cout << "Se eliminó el VSPtr " <<  IDref << endl;
+    GarbageCollector::clear(this, dato);
 
+}
 template <class T>
 VSPtr<T> VSPtr<T>::New()
 {
-    //VSPtr<T> *myPtr = new VSPtr<T>;
     VSPtr<T> myPtr; 
-    //myPtr = (VSPtr<T>)malloc(sizeof(VSPtr<T>));
-    //VSPtr<T>* address;
-    //address = addressof(*myPtr);
-    // enviar a garbage collector
-    //cout << "HELP: " <<  address << endl;
     return myPtr;
 }
 
@@ -55,16 +55,6 @@ VSPtr<T> VSPtr<T>::operator *()
     return *this;
     
 }
-
-template <class T>
-void VSPtr<T>::destroy()
-{
-    GarbageCollector::clear(this, dato);
-    free(this);
-    //delete(this);
-}
-
-
 
 template <class T>
 int VSPtr<T>::getIDref()

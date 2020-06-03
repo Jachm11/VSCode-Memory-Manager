@@ -28,14 +28,17 @@ int main(int argc, char const *argv[])
     int var2 = 1;
 
     VSPtr<int> myPtr= VSPtr<int>::New();
-    VSPtr<int> myPtr2= VSPtr<int>::New();
-    VSPtr<int> myPtr3= VSPtr<int>::New();
-    VSPtr<int> myPtr4= VSPtr<int>::New();
+    //VSPtr<int> myPtr2= VSPtr<int>::New();
+    //VSPtr<int> myPtr3= VSPtr<int>::New();
+    //VSPtr<int> myPtr4= VSPtr<int>::New();
 
     myPtr.init();
-    myPtr4.init();
+    myPtr =3;
+    myPtr.hola();
+    //myPtr.destroy();
+    //myPtr4.init();
 
-    myPtr = var;
+    /*myPtr = var;
     myPtr.hola();
 
     myPtr4 = var;
@@ -53,7 +56,7 @@ int main(int argc, char const *argv[])
 
     sleep(5);
 
-    myPtr3.destroy();
+    myPtr3.destroy();*/
 
     return 0;
 }
