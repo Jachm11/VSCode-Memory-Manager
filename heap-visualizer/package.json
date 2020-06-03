@@ -10,7 +10,7 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:heap-visualizer.helloWorld"
+		"*"
 	],
 	"main": "./extension.js",
 	"contributes": {
@@ -18,14 +18,25 @@
 			{
 				"command": "heap-visualizer.helloWorld",
 				"title": "Hello World"
+				
+			},
+			{
+				"command": "heap-visualizer.start",
+				"title": "Heap Visualizer Init",
+				"category": "HV"
 			}
 		]
+			
+		
 	},
 	"scripts": {
 		"lint": "eslint .",
 		"pretest": "npm run lint",
 		"test": "node ./test/runTest.js"
 	},
+	"dependencies": {
+		"vscode": "*"
+	  },
 	"devDependencies": {
 		"@types/vscode": "^1.45.0",
 		"@types/glob": "^7.1.1",

@@ -19,12 +19,39 @@ function activate(context) {
 	// The commandId parameter must match the command field in package.json
 	let disposable = vscode.commands.registerCommand('heap-visualizer.helloWorld', function () {
 		// The code you place here will be executed every time your command is executed
-
 		// Display a message box to the user
 		vscode.window.showInformationMessage('Hello World from heap visualizer!');
 	});
 
+	let init = vscode.commands.registerCommand('heap-visualizer.start',function(){
+
+		const panel = vscode.window.createWebviewPanel(
+			'HS',
+			'Heap Visualizer',
+			vscode.ViewColumn.One,
+			{}
+		);
+		
+		const loop = ()=>{
+			console.log("hola");
+			
+		}
+		vscode.window.showInformationMessage('Heap Visualizer initialized!');
+		const interval = setInterval(loop , 1000);
+		panel.onDidDispose(
+			()=>{
+				clearInterval(interval);
+				console.log("loop exited");
+				
+			},
+			null,
+			context.subscriptions
+		);
+	});
+
 	context.subscriptions.push(disposable);
+	context.subscriptions.push(init);
+
 }
 exports.activate = activate;
 
