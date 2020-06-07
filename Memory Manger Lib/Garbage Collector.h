@@ -30,7 +30,7 @@ public:
     /// @attention Cada vez que se crea un nuevo VSPtr
     ///
     template <class T>
-    static void newPtr (VSPtr<T>* VSDir,void* TDir);
+    static void newPtr (VSPtr<T>*,void*);
 
     ///
     /// @brief Genera un ID para un nuevo VSPtr con base en IDref
@@ -45,7 +45,7 @@ public:
     /// @attention Se usa cuando se llama al destructor del VSPtr
     ///
     template <class T>
-    static void clear(VSPtr<T>* VSDir,void* TDir);
+    static void clear(VSPtr<T>*, void*);
 
     GarbageCollector(const GarbageCollector&) = delete;
 
@@ -66,6 +66,13 @@ private:
     static void GCInitImp();
 
     ///
+    /// @brief inicializa el servidor para la comunicacion con la extension
+    /// @author Jose
+    static void startServer();
+
+    static string dataTosend();
+
+    ///
     /// @brief Metodo que se ejecuta en el thread, busca aquellos VSPtr cuya referencia es 0
     /// @author Jose
     ///
@@ -76,14 +83,14 @@ private:
     /// @author Jose
     ///
     template <class T>
-    static void newPtrImp (VSPtr<T>* VSDir,void* TDir);
+    static void newPtrImp (VSPtr<T>*,void*);
 
     ///
     /// @brief Implemetacion de update
     /// @author Jose
     ///
     template <typename T>
-    static void updateImp (T* oldDir,T* newDir);
+    static void updateImp (T*,T*);
 
     ///
     /// @brief Implemetacion de generateID

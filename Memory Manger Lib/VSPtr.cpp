@@ -1,7 +1,6 @@
 #include "VSPtr.h"
 #include "Garbage Collector.cpp"
 #include <iostream>
-//#include "Garbage Collector.cpp"
 
 using namespace std;
 
@@ -27,6 +26,7 @@ template <class T>
 void VSPtr<T>::init()
 {
     GarbageCollector::newPtr((VSPtr<void*>*)this,dato);
+    IDref = GarbageCollector:: generateID();
     //cout << "ref de dato: " << dato <<endl;
 }
 template <class T>

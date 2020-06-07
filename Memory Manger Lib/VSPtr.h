@@ -11,6 +11,7 @@ private:
     
     
 public:
+
     ///
     /// @brief Constructor de la clase
     /// @author Natalia

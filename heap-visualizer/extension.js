@@ -1,6 +1,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require('vscode');
+const net = require('net');
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -104,12 +105,34 @@ function activate(context) {
 		panel.onDidDispose(
 			()=>{
 				clearInterval(interval);
+				client.end();
 				console.log("loop exited");
 				
 			},
 			null,
 			context.subscriptions
 		);
+
+		const client = net.createConnection({port:54000},()=>{
+			if ( !client.address){
+				console.log("Failed to connect")
+			}else{
+				client.write('1');
+				console.log('Connected yay!')
+			}
+		});
+
+		console.log(client.address);
+
+		client.on('data',(data)=>{
+			console.log(data.toString());
+		});
+		client.on('end',()=>{
+			console.log('Disconneted!');
+			});
+
+
+
 	});
 
 	context.subscriptions.push(disposable);

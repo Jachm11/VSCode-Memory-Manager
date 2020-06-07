@@ -1,7 +1,10 @@
 #include <iostream>
 #include "VSPtr.cpp"
 
+
 using namespace std;
+
+
 
 
 ///
@@ -24,17 +27,21 @@ int main(int argc, char const *argv[])
 
     (GarbageCollector :: GCInit());
 
-    int var = 34;
-    int var2 = 1;
+    //int var = 34;
+    //int var2 = 1;
 
     VSPtr<int> myPtr= VSPtr<int>::New();
-    //VSPtr<int> myPtr2= VSPtr<int>::New();
+    VSPtr<string> myPtr2= VSPtr<string>::New();
     //VSPtr<int> myPtr3= VSPtr<int>::New();
     //VSPtr<int> myPtr4= VSPtr<int>::New();
 
     myPtr.init();
+    myPtr2.init();
     myPtr =3;
-    myPtr.hola();
+    myPtr2 = "holas";
+
+    sleep(30);
+    //myPtr.hola();
     //myPtr.destroy();
     //myPtr4.init();
 
@@ -57,6 +64,8 @@ int main(int argc, char const *argv[])
     sleep(5);
 
     myPtr3.destroy();*/
+    
+
 
     return 0;
 }
