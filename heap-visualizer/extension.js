@@ -1,9 +1,14 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require('vscode');
+const net = require('net');
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
+
+//legend: {
+	//onClick: info
+//},
 
 /**
  * @param {vscode.ExtensionContext} context
@@ -37,16 +42,15 @@ function activate(context) {
 			}
 		);
 
+		//let iteration = 0;
+		//const loop = ()=>{
+			//const msg = iteration++ % 2 ? '19' : '2';
+        	//panel.webview.html = getWebviewContent(msg);
+		//}
 
-		let iteration = 0;
-		const loop = ()=>{
-			const msg = iteration++ % 2 ? '19' : '2';
-        	panel.webview.html = getWebviewContent(msg);
-		}
+		//const interval = setInterval(loop , 5000);
 
-		const interval = setInterval(loop , 3000);
-
-		function getWebviewContent(msg) {
+		function getWebviewContent(labels,data,dirs) {
 			return `<!DOCTYPE html>
 			<html lang="en">
 			<head>
@@ -62,28 +66,8 @@ function activate(context) {
                 var myChart = new Chart(ctx, {
                     type: 'bar',
                     data: {
-                        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                        datasets: [{
-                            label: '# of Votes',
-                            data: [[5,6], ${msg}, 3, 5, 2, 3],
-                            backgroundColor: [
-                                'rgba(255, 99, 132, 0.2)',
-                                'rgba(54, 162, 235, 0.2)',
-                                'rgba(255, 206, 86, 0.2)',
-                                'rgba(75, 192, 192, 0.2)',
-                                'rgba(153, 102, 255, 0.2)',
-                                'rgba(255, 159, 64, 0.2)'
-                            ],
-                            borderColor: [
-                                'rgba(255, 99, 132, 1)',
-                                'rgba(54, 162, 235, 1)',
-                                'rgba(255, 206, 86, 1)',
-                                'rgba(75, 192, 192, 1)',
-                                'rgba(153, 102, 255, 1)',
-                                'rgba(255, 159, 64, 1)'
-                            ],
-                            borderWidth: 1
-                        }]
+                        labels: [${labels}],
+                        datasets: [${data}]
                     },
                     options: {
                         scales: {
@@ -93,8 +77,16 @@ function activate(context) {
                                 }
                             }]
                         }
-                    }
-                });</script>
+					}
+					
+					
+				});
+
+
+				</script>
+				<p>Direcciones de memoria por dato:<br>${dirs}</p>
+				<p></p>
+				<button style="background-color:#007bcd; border-color:#007bcd; color:white">Connect to server</button>
 			</body>
 			</html>`;
 		}
@@ -103,13 +95,85 @@ function activate(context) {
 		vscode.window.showInformationMessage('Heap Visualizer initialized!');
 		panel.onDidDispose(
 			()=>{
-				clearInterval(interval);
+				//clearInterval(interval);
+				clearInterval(dataRetrive);
+				client.end();
 				console.log("loop exited");
 				
 			},
 			null,
 			context.subscriptions
 		);
+
+		const client = net.createConnection({port:54000},()=>{
+			if ( !client.address){
+				console.log("Failed to connect")
+			}else{
+				client.write('1');
+				console.log('Connected yay!')
+			}
+		});
+
+		client.on('data',(data)=>{
+			//console.log(data.toString());
+			console.log(parseData(data.toString()));
+		});
+		client.on('end',()=>{
+			console.log('Disconneted!');
+			});
+
+
+		const getData= ()=>{
+			client.write('1');
+		}
+
+		const dataRetrive = setInterval(getData,3000);
+
+	
+
+		function parseData(info){
+			var x = info.split(";");
+			x = x.slice(0,(x.length)-1);
+			var dir ="" ;
+			var data = "";
+			
+			x.forEach(e => {
+				var y = e.split(",");
+
+				var bg = getRandomRgb();
+				var dataSet;
+				//labelsList.push(y[0]);
+
+				dataSet = "{\nlabel:'"+y[1]+"',\ndata:["+y[3]+"],\nbackgroundColor:['"+bg+"'],\nborderColor:['"+bg+"'],\nborderWidth:1\n},";
+				
+				dir = dir + y[1] + ":" + y[2] + "<br>";
+
+				console.log(y);
+				console.log(dataSet);
+
+				data = data + dataSet;
+			});
+
+			//console.log(data);
+			//console.log(data.substring(0, data.length - 1));
+			var labels = "'Heap Data'";
+			//labelsList.forEach(e=>{
+				//labels = labels + "'"+e+"',";
+			//})
+			
+			panel.webview.html = getWebviewContent(labels,data.substring(0, data.length - 1),dir);
+
+		}
+
+		function getRandomRgb() {
+			//var num = Math.round(0xffffff * Math.random());
+			var r = 0;
+			var g = 122;
+			var b = 205;
+			return 'rgb(' + r + ', ' + g + ', ' + b + ', 0.5'+ ')';
+		  }
+
+
 	});
 
 	context.subscriptions.push(disposable);

@@ -1,13 +1,44 @@
 #include "VSPtr.h"
 #include "Garbage Collector.cpp"
 #include <iostream>
-//#include "Garbage Collector.cpp"
+#include <typeinfo>
+#include <typeindex>
+#include <unordered_map>
+#include <string>
+#include <memory>
 
 using namespace std;
+
+
 
 template <class T>
 VSPtr<T>::VSPtr(){
     dato = (T*)malloc(sizeof(T*));
+    IDref = GarbageCollector:: generateID();
+
+    std::unordered_map<std::type_index, std::string> type_names;
+    type_names[std::type_index(typeid(int))] = "int";
+    type_names[std::type_index(typeid(double))] = "double";
+    type_names[std::type_index(typeid(char))] = "char";
+    type_names[std::type_index(typeid(string))] = "string";
+    type_names[std::type_index(typeid(bool))] = "bool";
+    type_names[std::type_index(typeid(float))] = "float";
+    type_names[std::type_index(typeid(short))] = "short";
+    type_names[std::type_index(typeid(unsigned))] = "unsigned";
+    string tipos[] = {"int","double","char","string","bool","float","short","unsigned"};
+
+    tipo = type_names[std::type_index(typeid(T))];
+    //string temp = tipo;
+    //for (int i = 0; i<8;i++){ 
+       // if (tipo != tipos[i]){
+          //  tipo = "other";
+       // }else{
+           // tipo = temp;
+           // break;
+       // }
+    //}
+    cout<< tipo <<endl;
+
 }
 template <class T>
 VSPtr<T>::~VSPtr<T>()
@@ -26,21 +57,26 @@ VSPtr<T> VSPtr<T>::New()
 template <class T>
 void VSPtr<T>::init()
 {
-    GarbageCollector::newPtr((VSPtr<void*>*)this,dato);
+    GarbageCollector::newPtr((VSPtr<void*>*)this,dato,tipo);
+    IDref = GarbageCollector:: generateID();
     //cout << "ref de dato: " << dato <<endl;
 }
 template <class T>
 void VSPtr<T>::operator =(T data)
-{
+{   
+
     *dato = data;
+
 }
 
 
 template <class T>
-void VSPtr<T>::operator =(VSPtr<T> ptr2)
+void VSPtr<T>::operator =(VSPtr<T>* ptr2)
 {
-    dato = ptr2.dato;
-    GarbageCollector::newPtr((VSPtr<void*>*)this,dato);
+    //VSPtr<T>* ptr = ptr2;
+    dato = ptr2->dato;
+    IDref = ptr2->IDref;
+    GarbageCollector::newPtr((VSPtr<void*>*)this,dato,tipo);
 }
 
 template <class T>

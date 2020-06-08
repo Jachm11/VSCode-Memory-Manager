@@ -8,9 +8,11 @@ class VSPtr
 private:
     T *dato;
     int IDref;
+    string tipo = "any";
     
     
 public:
+
     ///
     /// @brief Constructor de la clase
     /// @author Natalia
@@ -43,7 +45,7 @@ public:
     /// @param Un VSPtr
     /// @author Natalia
     ///
-    void operator =(VSPtr<T> ptr2);
+    void operator =(VSPtr<T> *ptr2);
     ///
     /// @brief Obtener el valor al que apunta el puntero
     /// @return El valor al que apunta dato

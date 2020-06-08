@@ -1,7 +1,10 @@
 #include <iostream>
 #include "VSPtr.cpp"
 
+
 using namespace std;
+
+
 
 
 ///
@@ -27,36 +30,45 @@ int main(int argc, char const *argv[])
     int var = 34;
     int var2 = 1;
 
-    VSPtr<int> myPtr= VSPtr<int>::New();
-    //VSPtr<int> myPtr2= VSPtr<int>::New();
-    //VSPtr<int> myPtr3= VSPtr<int>::New();
-    //VSPtr<int> myPtr4= VSPtr<int>::New();
+    VSPtr<int> myPtr0= VSPtr<int>::New();
+    VSPtr<string> myPtr1= VSPtr<string>::New();
+    VSPtr<int> myPtr2= VSPtr<int>::New();
+    VSPtr<int> myPtr3= VSPtr<int>::New();
+    VSPtr<int> myPtr4= VSPtr<int>::New();
+    VSPtr<int> myPtr5= VSPtr<int>::New();
+    VSPtr<int> myPtr6= VSPtr<int>::New();
 
-    myPtr.init();
-    myPtr =3;
-    myPtr.hola();
+
+    myPtr0.init();
+    myPtr1.init();
+    myPtr0 = 3;
+    myPtr1 = "holas";
+
+
+    sleep(1);
+    //myPtr.hola();
     //myPtr.destroy();
+    myPtr2.init();
+    //myPtr3.init();
     //myPtr4.init();
 
-    /*myPtr = var;
-    myPtr.hola();
+    myPtr2 = var;
+    myPtr3 = addressof(myPtr2);
+    myPtr4 = addressof(myPtr2);
 
-    myPtr4 = var;
-    myPtr4.hola();
+    sleep(1);
 
-    myPtr2 = myPtr;
-    myPtr2.hola();
-    myPtr3 = myPtr2;
+    myPtr5.init();
+    myPtr5 = 54.43;
 
-    myPtr.destroy();
+    sleep(1);
 
-    sleep(5);
+    myPtr6 = addressof(myPtr5);
 
-    myPtr2.destroy();
+    cout<< GarbageCollector :: toJson() <<endl;
 
-    sleep(5);
-
-    myPtr3.destroy();*/
+    sleep(1000);
+    
 
     return 0;
 }
