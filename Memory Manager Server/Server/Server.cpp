@@ -11,19 +11,26 @@
 #include <netinet/in.h>
 #include <sys/time.h> //FD_SET, FD_ISSET, FD_ZERO macros
 #include <iostream>
-#include "md5.h"
+
+
+#include "ServerManager.cpp"
+
 
 using namespace std;
+
 #define TRUE   1
 #define FALSE  0
 #define PORT 8888
+
 using std::cout; using std::endl;
 
 int main(int argc , char *argv[])
 {
-    cout << "md5 of 'grape': " << md5("grape") << endl;
-    // g++ Server.cpp md5.cpp -o md5_sample && ./md5_sample
+    ServerManager manager;
+    //cout << "md5 of password: " << md5("suryrulz") << endl;
+    // g++ Server.cpp md5.cpp -o server && ./server
     // ./server
+    
     int opt = TRUE;
     int master_socket , addrlen , new_socket , client_socket[30] ,
           max_clients = 30 , activity, i , valread , sd;
@@ -124,6 +131,7 @@ int main(int argc , char *argv[])
             if ((new_socket = accept(master_socket,
                     (struct sockaddr *)&address, (socklen_t*)&addrlen))<0)
             {
+                
                 perror("accept");
                 exit(EXIT_FAILURE);
             }
@@ -147,6 +155,10 @@ int main(int argc , char *argv[])
                 if( client_socket[i] == 0 )
                 {
                     client_socket[i] = new_socket;
+
+                    User usr= User(i);
+                    manager.addUser(usr);
+
                     printf("Adding to list of sockets as %d\n" , i);
 
                     break;
@@ -182,16 +194,20 @@ int main(int argc , char *argv[])
                     //set the string terminating NULL byte on the end
                     //of the data read
                     buffer[valread] = '\0';
+                    
+                    string response = manager.serverResponse((string)buffer, i);
                     //send(sd, "message", strlen("message"), 0);
-                    send(sd , buffer , strlen(buffer) , 0 );
+                    send(sd , response.c_str() , response.size() , 0 );
+                    //send(sd , buffer , strlen(buffer) , 0 );
+                    
                     
 
                 }
 
             }
-            //send(client_socket[1] , "client2" , strlen("client2") , 0 );
         }
     }
+    
 
     return 0;
 }

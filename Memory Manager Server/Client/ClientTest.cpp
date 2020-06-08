@@ -9,9 +9,8 @@
 #include <string>
 
 using namespace std;
+int connect(){
 
-int main()
-{
     cout << "mainClientTest";
     //	Create a socket
     int sock = socket(AF_INET, SOCK_STREAM, 0);
@@ -47,8 +46,8 @@ int main()
         getline(cin, userInput);
 
         //		Send to server
-        //int sendRes = send(sock, userInput.c_str(), userInput.size() + 1, 0);
-        int sendRes = send(sock, "hola", strlen("hola"), 0);
+        int sendRes = send(sock, userInput.c_str(), userInput.size() + 1, 0);
+        //int sendRes = send(sock, "hola", strlen("hola"), 0);
         if (sendRes == -1)
         {
             cout << "Could not send to server! Whoops!\r\n";
@@ -72,5 +71,12 @@ int main()
     //	Close the socket
     close(sock);
 
-    return 0;
+    
+}
+
+
+int main()
+{
+    connect();
+    return 0; 
 }
