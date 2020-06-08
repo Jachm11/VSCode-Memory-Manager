@@ -15,7 +15,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
-#include <experimental/any>
+
 
 
 std::vector<std::future<void>> thread_thing;
@@ -98,7 +98,7 @@ void GarbageCollector :: startServer(){
 
         if ((int)buffer[0] - 48 == 1){
 
-         string res = dataTosend();
+            string res = dataTosend();
 
             send(clt_socket,res.c_str(),res.size(), 0 );
 
@@ -131,31 +131,87 @@ string GarbageCollector :: dataTosend(){
     string valor;
     string dir;
     string ref;
-    string json = "hola";
+    string info;
 
+    if (getInstance()->Data.getHead() != 0 ){
+        for(int i = 0; i < getInstance()->Data.getSize(); i++){
 
-    for (int i=0; i < getInstance()->Data.getSize(); i++){
-        VSData *dato = getInstance()->Data.searchByIndex(i)->getData();
-        //tipo = typeid(*((decltype(dato->dir)*)dato->dir)).name();
-
-        
-
-        
-        cout<<tipo<<endl;
-        
-        //(typeid(*((decltype(dato->dir)*)dato->dir))) * x = *((decltype(dato->dir)*)dato->dir);
-
-        //valor = to_string(((decltype(dato->dir)*)dato->dir)));
-
-
-        dir = to_string((long)dato->dir);
-        ref = to_string(dato->refs);
+            VSData* dato = getInstance()->Data.searchByIndex(i)->getData();
+            tipo = dato->tipo;
+            dir = to_string((long)dato->dir);
+            ref = to_string(dato->refs);
 
 
 
+            if (tipo == "int") 
+                valor = to_string((*(int*)dato->dir));
+            else if(tipo == "double")
+                valor = to_string((*(double*)dato->dir));
+            else if(tipo == "char")
+                valor = to_string((*(char*)dato->dir));
+            else if(tipo == "string")
+                valor = (*(string*)dato->dir);
+            else if(tipo == "bool")
+                valor = to_string((*(bool*)dato->dir));
+            else if(tipo == "float")
+                valor = to_string((*(float*)dato->dir));
+            else if(tipo == "short")
+                valor = to_string((*(short*)dato->dir));
+            else if(tipo == "unsingned")
+                valor = to_string((*(unsigned*)dato->dir));
+            else{
+                valor = "object";
+            }
+            info = info + tipo + "," + valor + "," + dir + "," + ref+";";
+        }
+        cout<<info<<endl;
+        return info;
+    }
+    return "vacio";
+
+}
+
+string GarbageCollector :: toJson(){
+    string json = "{\n";
+    for(int i = 0; i < getInstance()->VSptrs.getSize(); i++){
+        VSPointers* pointer = getInstance()->VSptrs.searchByIndex(i)->getData();
+
+        string tipo = pointer->tipo;
+        string ID = to_string( pointer->ID);
+
+        string valor;
+        if (tipo == "int")
+                valor = to_string((*(int*)pointer->dato));
+            else if(tipo == "double")
+                valor = to_string((*(double*)pointer->dato));
+            else if(tipo == "char")
+                valor = to_string((*(char*)pointer->dato));
+            else if(tipo == "string")
+                valor = (*(string*)pointer->dato);
+            else if(tipo == "bool")
+                valor = to_string((*(bool*)pointer->dato));
+            else if(tipo == "float")
+                valor = to_string((*(float*)pointer->dato));
+            else if(tipo == "short")
+                valor = to_string((*(short*)pointer->dato));
+            else if(tipo == "unsingned")
+                valor = to_string((*(unsigned*)pointer->dato));
+            else{
+                valor = "object";
+            }
+
+            string type = "tipo";
+            string value = "valor";
+            string id = "id";
+
+        json = json + '"' + type + '"'+  ":" + '"' + tipo + '"'+","+ "\n" +'"' + value + '"'+  ":" + '"' + valor + '"'+","+ "\n" + '"' + id + '"' +  ":" + '"' + ID + '"'+ "\n},\n"  ;
+    }
+    if(!json.empty()){
+        return json.substr(0,json.size()-2);
+    }else{
+        return "error";
     }
 
-    return json;
 }
 
 
@@ -187,16 +243,18 @@ GarbageCollector* GarbageCollector :: getInstance(){
 }
 
 template <class T>
-void GarbageCollector :: newPtr(VSPtr<T>* VSDir,void* TDir){
-    getInstance()->newPtrImp(VSDir,TDir);
+void GarbageCollector :: newPtr(VSPtr<T>* VSDir,void* TDir,string tipo){
+    getInstance()->newPtrImp(VSDir,TDir,tipo);
 }
 
 template <class T>
-void GarbageCollector :: newPtrImp(VSPtr<T>* VSDir,void* TDir){
+void GarbageCollector :: newPtrImp(VSPtr<T>* VSDir,void* TDir,string tipo){
 
     VSPointers newPointer;
     newPointer.dir = VSDir;
     newPointer.ID = (VSDir)->getIDref();
+    newPointer.tipo = tipo;
+    newPointer.dato = TDir;
     getInstance()->VSptrs.insertFirst(newPointer);
     std::cout<< "New VSPointer added in GC"<<std::endl;
 
@@ -206,6 +264,7 @@ void GarbageCollector :: newPtrImp(VSPtr<T>* VSDir,void* TDir){
         VSData newVar;
         newVar.dir = TDir;
         newVar.refs = 1;
+        newVar.tipo = tipo;
         getInstance()->Data.insertFirst(newVar);
     }else{
         DataInfo->refs++;

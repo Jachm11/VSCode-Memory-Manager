@@ -16,6 +16,8 @@ public:
     /// @attention Se usa al iniciar el programa en el main (como tkinter)
     static void GCInit();
 
+    static string toJson();
+
     ///
     /// @brief Metodo que inicializa la clase como un singleton o retorna la instacia ya existente
     /// @author Jose
@@ -30,7 +32,7 @@ public:
     /// @attention Cada vez que se crea un nuevo VSPtr
     ///
     template <class T>
-    static void newPtr (VSPtr<T>*,void*);
+    static void newPtr (VSPtr<T>*,void*,string);
 
     ///
     /// @brief Genera un ID para un nuevo VSPtr con base en IDref
@@ -72,6 +74,8 @@ private:
 
     static string dataTosend();
 
+    //static string toJson();
+
     ///
     /// @brief Metodo que se ejecuta en el thread, busca aquellos VSPtr cuya referencia es 0
     /// @author Jose
@@ -83,7 +87,7 @@ private:
     /// @author Jose
     ///
     template <class T>
-    static void newPtrImp (VSPtr<T>*,void*);
+    static void newPtrImp (VSPtr<T>*,void*,string);
 
     ///
     /// @brief Implemetacion de update
