@@ -58,7 +58,7 @@ string ServerManager::toJson(string ptr)
     
 
 }
-
+/*
 string ServerManager::ptrFormat(string ptr)
 {
     
@@ -74,6 +74,19 @@ string ServerManager::ptrFormat(string ptr)
     ptr.replace(ptr.find("+"),1,".");
 
     return ptr;
+}*/
+string ServerManager::ptrFormat(string ptrLindo)
+{
+    //{\ntipo:3,\nvalor:4,\nid:3246766\n}
+    string ptrFeo;
+    ptrLindo=ptrLindo.substr(2);
+    ptrLindo.pop_back();
+    ptrLindo.pop_back();
+    ptrLindo.replace(ptrLindo.find(","),2,".");
+    ptrLindo.replace(ptrLindo.find(","),2,".");
+    //ptrFeo= ptrLindo.erase(ptrLindo.find("\n"));
+    //ptrFeo= ptrFeo+ptrLindo.erase(ptrLindo.find("\n"));
+    return ptrLindo;
 }
 string ServerManager::getIdfromPtr(string ptr)
 {
