@@ -28,11 +28,14 @@ function activate(context) {
 		vscode.window.showInformationMessage('Hello World from heap visualizer!');
 	});
 
-
-
-
+	
 	let init = vscode.commands.registerCommand('heap-visualizer.start',function(){
 
+		// Message for user
+		vscode.window.showInformationMessage('Heap Visualizer initialized!');
+
+
+		// Create the webview panel
 		const panel = vscode.window.createWebviewPanel(
 			'HS',
 			'Heap Visualizer',
@@ -42,14 +45,49 @@ function activate(context) {
 			}
 		);
 
-		//let iteration = 0;
-		//const loop = ()=>{
-			//const msg = iteration++ % 2 ? '19' : '2';
-        	//panel.webview.html = getWebviewContent(msg);
-		//}
 
-		//const interval = setInterval(loop , 5000);
+		// Set the webview panel to a HTML
+		panel.webview.html = getWebviewContent();
 
+
+
+		// Handle messages from the webview
+		var registered = false;  
+      	panel.webview.onDidReceiveMessage(
+        	message => {
+          		switch (message.command) {
+            	case 'connect':
+					if (!registered){
+						clientSrv.write("p "+message.text);
+						//vscode.window.showInformationMessage(message.text);
+						return;
+					}else{
+						vscode.window.showInformationMessage("You are already logged!");
+					  	return;
+					}
+				case 'empty':
+					vscode.window.showErrorMessage("Password field is empty!");
+					return;
+
+				case 'empty2':
+					vscode.window.showErrorMessage("Id field is empty!");
+					return;
+					  
+				case 'save':
+					clientLib.write('2');
+					return;
+
+				case 'asked':
+					vscode.window.showInformationMessage("Asked for VSPtr Id="+message.text);
+					clientSrv.write("id "+message.text);
+					return;
+				}
+        	},
+        	undefined,
+        	context.subscriptions
+      	);
+
+		// Create a complete HTML for the webView
 		function getWebviewContent(labels,data,dirs) {
 			return `<!DOCTYPE html>
 			<html lang="en">
@@ -61,7 +99,8 @@ function activate(context) {
 			</head>
 			<body>
             <canvas id="myChart" width="400" height="400"></canvas>
-            <script>
+			<script>
+				const vscode = acquireVsCodeApi();
                 var ctx = document.getElementById('myChart').getContext('2d');
                 var myChart = new Chart(ctx, {
                     type: 'bar',
@@ -84,54 +123,176 @@ function activate(context) {
 
 
 				</script>
-				<p>Direcciones de memoria por dato:<br>${dirs}</p>
+				<p>Direcciones de memoria por dato:<br><br>${dirs}</p>
 				<p></p>
-				<button style="background-color:#007bcd; border-color:#007bcd; color:white">Connect to server</button>
+                <button style="background-color:#007bcd; border-color:#007bcd; color:white", onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Connect to server</button>
+	
+                <div id="id01" class="modal" style="display: none">
+
+					<div class="container">
+                    <p></p>
+
+                    <label><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" id="psw">
+                    <button id= "passwordLogin", style="background-color:#007bcd; border-color:#007bcd; color:white">Login</button>
+
+                    </div>
+                    <div class="container">
+                    <button type="button", style="background-color:#007bcd; border-color:#007bcd; color:white" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+					</div>	
+				</div>
+				
+
+				<p>Funciones de servidor:<br></p>
+				<button id="save" disabled>Save pointers</button>
+				<button id="ask", onclick="document.getElementById('id02').style.display='block'" disabled>Ask for VSPtr data</button>
+
+				<div id="id02" class="modal" style="display: none">
+
+					<div class="container">
+					<br>
+					<label ><b>VSPtr ID</b></label>
+					<input placeholder="Enter VSPtr ID" id="id">
+					<button id= "idSend", style="background-color:#007bcd; border-color:#007bcd; color:white">Send</button>
+
+					</div>
+					<div class="container">
+					<button type="button", style="background-color:#007bcd; border-color:#007bcd; color:white" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+					</div>
+				</div>
+				
+
+                
+                <script>
+
+  					document.getElementById("passwordLogin").addEventListener('click',function(){
+						var pws = document.getElementById("psw").value;
+						if (pws != ''){
+							var modal = document.getElementById('id01');
+							modal.style.display = "none";
+							vscode.postMessage({
+								command : 'connect',
+								text : ""+pws+""
+							})
+							document.getElementById("passwordLogin").clear;
+						}else{
+							vscode.postMessage({
+								command : 'empty'
+							})
+						}
+					});
+
+					document.getElementById("save").addEventListener('click',function(){
+						vscode.postMessage({
+							command : 'save'
+						})
+					});
+
+					document.getElementById("idSend").addEventListener('click',function(){
+						var ask = document.getElementById("id").value;
+						if (ask != ''){
+							var modal = document.getElementById('id02');
+							modal.style.display = "none";
+							vscode.postMessage({
+								command : 'asked',
+								text : ""+ask+""
+							})
+						}else{
+							vscode.postMessage({
+								command : 'empty2'
+							})
+						}
+					});
+
+					window.addEventListener('message', event => {
+
+						const message = event.data; // The JSON data our extension sent
+			
+						switch (message.command) {
+							case 'connected':
+								var save = document.getElementById("save");
+								save.style.background ='#007bcd';
+								save.style.borderColor = '#007bcd';
+								save.style.color = 'white';
+								save.disabled = false;
+
+								var ask = document.getElementById("ask");
+								ask.style.background ='#007bcd';
+                                ask.style.borderColor = '#007bcd';
+                                ask.style.color = 'white';
+								ask.disabled = false;
+								
+								break;
+						}
+					});
+
+
+                </script>
 			</body>
 			</html>`;
 		}
 
+		
+	//              _________________________________
+	//_____________/Create a client for the library
 
-		vscode.window.showInformationMessage('Heap Visualizer initialized!');
-		panel.onDidDispose(
-			()=>{
-				//clearInterval(interval);
-				clearInterval(dataRetrive);
-				client.end();
-				console.log("loop exited");
-				
-			},
-			null,
-			context.subscriptions
-		);
-
-		const client = net.createConnection({port:54000},()=>{
-			if ( !client.address){
+		const clientLib = net.createConnection({port:54000},()=>{
+			if ( !clientLib.address){
 				console.log("Failed to connect")
 			}else{
-				client.write('1');
-				console.log('Connected yay!')
+				clientLib.write('1');
+				console.log('Connected to lib!');
 			}
 		});
 
-		client.on('data',(data)=>{
-			//console.log(data.toString());
-			console.log(parseData(data.toString()));
+		clientLib.on('data',(data)=>{
+			parseData(data.toString());
 		});
-		client.on('end',()=>{
-			console.log('Disconneted!');
+		clientLib.on('end',()=>{
+			console.log('Disconneted frim library!');
+			vscode.window.showErrorMessage("Disconnected from library");
+
 			});
 
 
 		const getData= ()=>{
-			client.write('1');
+			clientLib.write('1');
 		}
 
 		const dataRetrive = setInterval(getData,3000);
+	//_________________________________________________________________________
 
+	//              _________________________________
+	//_____________/Create a client for the server
+
+		const clientSrv = net.createConnection({port:8888},()=>{
+			if ( !clientSrv.address){
+				console.log("Failed to connect")
+			}else{
+				console.log('Connected to server!')
+			}
+		});
+
+		clientSrv.on('data',(data)=>{
+			parseSrvData(data.toString());
+		});
+		clientSrv.on('end',()=>{
+			console.log('Disconneted from server!');
+			vscode.window.showErrorMessage("Disconnected from server")
+			});
+	//_________________________________________________________________________
 	
 
+
+	//                ___________________________________
+	//_______________/Date treatment for HTML display
+
 		function parseData(info){
+
+			if (info[0] == "{"){
+				sendPtr(info);
+				return;
+			}
 			var x = info.split(";");
 			x = x.slice(0,(x.length)-1);
 			var dir ="" ;
@@ -140,39 +301,173 @@ function activate(context) {
 			x.forEach(e => {
 				var y = e.split(",");
 
-				var bg = getRandomRgb();
+				var dataArr = makeDataArr(y[0],y[3]);
 				var dataSet;
-				//labelsList.push(y[0]);
 
-				dataSet = "{\nlabel:'"+y[1]+"',\ndata:["+y[3]+"],\nbackgroundColor:['"+bg+"'],\nborderColor:['"+bg+"'],\nborderWidth:1\n},";
+				dataSet = "{\nlabel:'"+y[1]+"',\ndata:["+dataArr+"],\nbackgroundColor:['"+getRandomRgb(0)+"','"+getRandomRgb(1)+
+				"','"+getRandomRgb(2)+"','"+getRandomRgb(3)+"','"+getRandomRgb(4)+"','"+getRandomRgb(5)+"','"+getRandomRgb(6)+"','"+
+				getRandomRgb(7)+"','"+getRandomRgb(8)+"'],\nborderColor:['"+getRandomRgb(0)+"','"+getRandomRgb(1)+"','"+getRandomRgb(2)+
+				"','"+getRandomRgb(3)+"','"+getRandomRgb(4)+"','"+getRandomRgb(5)+"','"+getRandomRgb(6)+"','"+getRandomRgb(7)+"','"+
+				getRandomRgb(8)+"'],\nborderWidth:1\n},";
 				
-				dir = dir + y[1] + ":" + y[2] + "<br>";
-
-				console.log(y);
-				console.log(dataSet);
+				dir = dir + y[1] + " : " + y[2] + " (long)"+"<br>";
 
 				data = data + dataSet;
 			});
 
-			//console.log(data);
-			//console.log(data.substring(0, data.length - 1));
-			var labels = "'Heap Data'";
-			//labelsList.forEach(e=>{
-				//labels = labels + "'"+e+"',";
-			//})
+			var labels = "'int','double','char','string','bool','float','short','unsigned','class'";
+
 			
 			panel.webview.html = getWebviewContent(labels,data.substring(0, data.length - 1),dir);
 
 		}
 
-		function getRandomRgb() {
-			//var num = Math.round(0xffffff * Math.random());
-			var r = 0;
-			var g = 122;
-			var b = 205;
-			return 'rgb(' + r + ', ' + g + ', ' + b + ', 0.5'+ ')';
-		  }
+		function makeDataArr(tipo,dato){
+			if (tipo == "int"){
+                var valor = [dato,'','','','','','','',''];
+			}else if(tipo == "double"){
+                var valor = ['',dato,'','','','','','',''];
+			}else if(tipo == "char"){
+                var valor = ['','',dato,'','','','','',''];
+			}else if(tipo == "string"){
+                var valor = ['','','',dato,'','','','',''];
+			}else if(tipo == "bool"){
+                var valor = ['','','','',dato,'','','',''];
+			}else if(tipo == "float"){
+                var valor = ['','','','','',dato,'','',''];
+			}else if(tipo == "short"){
+                var valor = ['','','','','','',dato,'',''];
+			}else if(tipo == "unsigned"){
+                var valor = ['','','','','','','',dato,''];
+			}else{
+                var valor = ['','','','','','','','',dato];
+			}
+			return valor;
+		}
 
+		function getRandomRgb(x) {
+			if (x == 0){
+				var r = 0;
+				var g = 122;
+				var b = 205;
+				return 'rgb(' + r + ', ' + g + ', ' + b + ', 0.5'+ ')';
+			}else if (x==1){
+				var r = 52;
+				var g = 235;
+				var b = 219;
+				return 'rgb(' + r + ', ' + g + ', ' + b + ', 0.5'+ ')';
+			} else if (x==2){
+				var r = 52;
+				var g = 235;
+				var b = 155;
+				return 'rgb(' + r + ', ' + g + ', ' + b + ', 0.5'+ ')';
+			}else if(x==3){
+				var r = 52;
+				var g = 235;
+				var b = 91;
+				return 'rgb(' + r + ', ' + g + ', ' + b + ', 0.5'+ ')';
+			}else if(x==4){
+				var r = 164;
+				var g = 235;
+				var b = 52;
+				return 'rgb(' + r + ', ' + g + ', ' + b + ', 0.5'+ ')';
+			}else if(x==5){
+				var r = 229;
+				var g = 235;
+				var b = 52;
+				return 'rgb(' + r + ', ' + g + ', ' + b + ', 0.5'+ ')';
+			}else if(x==6){
+				var r = 230;
+				var g = 147;
+				var b = 39;
+				return 'rgb(' + r + ', ' + g + ', ' + b + ', 0.5'+ ')';
+			}else if(x==7){
+				var r = 164;
+				var g = 74;
+				var b = 237;
+				return 'rgb(' + r + ', ' + g + ', ' + b + ', 0.5'+ ')';
+			}else{
+				var r = 209;
+				var g = 8;
+				var b = 8;
+				return 'rgb(' + r + ', ' + g + ', ' + b + ', 0.5'+ ')';
+			}
+		}
+
+	//___________________________________________________________________________
+
+
+	//                _____________________________________
+	//_______________/Date treatment for server interaction
+
+
+	function parseSrvData(data){
+		switch (data){
+			case 'goodpass':
+				vscode.window.showInformationMessage("Succesfully connected!");
+				registered = true;
+				panel.webview.postMessage({ command: 'connected' });
+				return;
+
+			case 'badpass':
+				vscode.window.showErrorMessage("Incorrect password");
+				return;
+
+			case 'hasaccess':
+				vscode.window.showErrorMessage("Already logged in!");
+				return;
+
+			case 'ptrssaved':
+				vscode.window.showInformationMessage("VSPtr's saved in server!");
+				return;
+
+			case 'noptrs':
+				vscode.window.showErrorMessage("Server is empty: Please save some VSPtr's first");
+				return;
+
+			case 'notfound':
+				vscode.window.showInformationMessage("VSPtr not found");
+				return;
+
+			case 'noaccess':
+				vscode.window.showInformationMessage("You dont have accesses to the server!");
+				return;
+
+			case 'notrecognized':
+				vscode.window.showInformationMessage("Unknown request to server");
+				return;
+
+			default:
+				showJson(data);
+				return;
+				
+		}
+		
+	}
+
+	function showJson(data){
+		vscode.window.showInformationMessage("Pointer data is: "+data);
+		console.log(data);
+	}
+
+	//Echoes the Lib ptrs to the server
+	function sendPtr(info){
+		console.log(info);
+		clientSrv.write(info);
+	}
+
+	// When the webview is closed
+	panel.onDidDispose(
+		()=>{
+			clearInterval(dataRetrive);
+			clientLib.end();
+			clientSrv.end();
+			console.log("loop exited");
+				
+		},
+		null,
+		context.subscriptions
+	);
 
 	});
 

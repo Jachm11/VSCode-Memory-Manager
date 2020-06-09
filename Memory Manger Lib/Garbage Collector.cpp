@@ -54,7 +54,7 @@ void GarbageCollector :: startServer(){
     inet_pton(AF_INET,"0.0.0.0",&hint.sin_addr);
 
     if (bind(srv_socket,(sockaddr*) &hint, sizeof(hint)) == -1){
-         cerr << "No se pudo enlazar al IP/puerto";
+         cerr << "No se pudo enlazar al IP/puerto" <<endl;
          //return -2;
     }
 
@@ -102,6 +102,12 @@ void GarbageCollector :: startServer(){
 
             send(clt_socket,res.c_str(),res.size(), 0 );
 
+        }else if((int)buffer[0] - 48 == 2){
+
+            string res = toJson();
+
+            send(clt_socket,res.c_str(),res.size(), 0 );
+            
         }else{
             send(clt_socket,"ERROR",5, 0 );
         }
@@ -114,19 +120,6 @@ void GarbageCollector :: startServer(){
 }
 
 string GarbageCollector :: dataTosend(){
-    /**
-     * {
-     * "tipo" : "var ",
-     * "valor" : "var2",
-     * "dir" : "var3",
-     * "ref" : "var4" 
-     * },
-     * "tipo" : "var ",
-     * "valor" : "var2",
-     * "dir" : "var3",
-     * "ref" : "var4"
-     * }
-     */
     string tipo;
     string valor;
     string dir;
@@ -140,8 +133,6 @@ string GarbageCollector :: dataTosend(){
             tipo = dato->tipo;
             dir = to_string((long)dato->dir);
             ref = to_string(dato->refs);
-
-
 
             if (tipo == "int") 
                 valor = to_string((*(int*)dato->dir));
@@ -164,7 +155,6 @@ string GarbageCollector :: dataTosend(){
             }
             info = info + tipo + "," + valor + "," + dir + "," + ref+";";
         }
-        cout<<info<<endl;
         return info;
     }
     return "vacio";
@@ -194,7 +184,7 @@ string GarbageCollector :: toJson(){
                 valor = to_string((*(float*)pointer->dato));
             else if(tipo == "short")
                 valor = to_string((*(short*)pointer->dato));
-            else if(tipo == "unsingned")
+            else if(tipo == "unsigned")
                 valor = to_string((*(unsigned*)pointer->dato));
             else{
                 valor = "object";
@@ -204,7 +194,8 @@ string GarbageCollector :: toJson(){
             string value = "valor";
             string id = "id";
 
-        json = json + '"' + type + '"'+  ":" + '"' + tipo + '"'+","+ "\n" +'"' + value + '"'+  ":" + '"' + valor + '"'+","+ "\n" + '"' + id + '"' +  ":" + '"' + ID + '"'+ "\n},\n"  ;
+        //json = json + '"' + type + '"'+  ":" + '"' + tipo + '"'+","+ "\n" +'"' + value + '"'+  ":" + '"' + valor + '"'+","+ "\n" + '"' + id + '"' +  ":" + '"' + ID + '"'+ "\n},\n"  ;
+        json = json + type +  ":" + tipo +","+ "\n" + value +  ":"  + valor +","+ "\n" + id +  ":"  + ID + "\n},\n"  ;
     }
     if(!json.empty()){
         return json.substr(0,json.size()-2);
@@ -213,8 +204,6 @@ string GarbageCollector :: toJson(){
     }
 
 }
-
-
 
 
 void GarbageCollector :: inspect(){
@@ -308,7 +297,7 @@ void GarbageCollector :: clearImp(VSPtr<T>* VSDir,void* TDir){
     if (getInstance()->Data.getHead() != 0 ){
         for(int i = 0; i < getInstance()->Data.getSize(); i++){
             VSData* data = getInstance()->Data.searchByIndex(i)->getData();
-            if ( data->dir == ref){ //talvez casteo necesario
+            if ( data->dir == ref){
                 return getInstance()->Data.searchByIndex(i)->getData();
             }
         }
