@@ -5,14 +5,17 @@ using namespace std;
 class ServerManager
 {
     private:
-        //{\n"tipo":"int",\n"valor":"54",\n"id":"10"\n},\n"tipo":"int",\n"valor":"54",\n"id":"5"\n},\n"tipo":"int",\n"valor":"34",\n"id":"9"\n}
+        
+
         bool hasAccess(int socket);
         string passwordResponse(string attempt, int socket);//responde si esta correcta o incorrecta
         string jsonResponse(string ptrInfo, int socket);// responde con el ID que se le asigna
-        string idResponse(string clientRequest,string ptrId, int socket);// responde con el json del puntero con el ID solicitado
+        string idResponse(string ptrId, int socket);// responde con el json del puntero con el ID solicitado
         Node<User>* getUserBySocket(int socket);
         bool checkId(string ptrInfo, string ptrId);
-        int getPtrIndex(Node<User>* user, string id);
+        string getPtrById(string allPtr, string id);
+        string ptrFeo(string ptrLindo);
+        string newGetPtr(string allPtr, string id);
         
     public:
         LinkedList<User> users;
