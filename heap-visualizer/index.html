@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+			<html lang="en">
+			<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>Heap Visualizer</title>
+			<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+			</head>
+			<body>
+            <canvas id="myChart" width="400" height="400"></canvas>
+			<script>
+				const vscode = acquireVsCodeApi();
+                var ctx = document.getElementById('myChart').getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: [${labels}],
+                        datasets: [${data}]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+					}
+					
+					
+				});
+
+
+				</script>
+				<p>Direcciones de memoria por dato:<br><br>${dirs}</p>
+				<p></p>
+                <button style="background-color:#007bcd; border-color:#007bcd; color:white", onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Connect to server</button>
+	
+                <div id="id01" class="modal" style="display: none">
+
+					<div class="container">
+                    <p></p>
+
+                    <label><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" id="psw">
+                    <button id= "passwordLogin", style="background-color:#007bcd; border-color:#007bcd; color:white">Login</button>
+
+                    </div>
+                    <div class="container">
+                    <button type="button", style="background-color:#007bcd; border-color:#007bcd; color:white" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+					</div>	
+				</div>
+				
+
+				<p>Funciones de servidor:<br><br></p>
+				<button id="save" disabled>Save pointers</button>
+				<button id="ask", onclick="document.getElementById('id02').style.display='block'" disabled>Ask for VSPtr data</button>
+
+				<div id="id02" class="modal" style="display: none">
+
+					<div class="container">
+					<p></p>
+
+					<label ><b>VSPtr ID</b></label>
+					<input placeholder="Enter VSPtr ID" id="id">
+					<button id= "idSend", style="background-color:#007bcd; border-color:#007bcd; color:white">Send</button>
+
+					</div>
+					<div class="container">
+					<button type="button", style="background-color:#007bcd; border-color:#007bcd; color:white" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+					</div>
+				</div>
+				
+
+                
+                <script>
+
+  					document.getElementById("passwordLogin").addEventListener('click',function(){
+						var pws = document.getElementById("psw").value;
+						if (pws != ''){
+							var modal = document.getElementById('id01');
+							modal.style.display = "none";
+							vscode.postMessage({
+								command : 'connect',
+								text : ""+pws+""
+							})
+						}else{
+							vscode.postMessage({
+								command : 'empty'
+							})
+						}
+					});
+
+					window.addEventListener('message', event => {
+
+						const message = event.data; // The JSON data our extension sent
+			
+						switch (message.command) {
+							case 'connected':
+								var save = document.getElementById("save");
+								save.style.background ='#007bcd';
+								save.style.border-color = '#007bcd';
+								save.disabled = false;
+
+								var ask = document.getElementById("ask");
+								ask.style.background ='#007bcd';
+                                ask.style.borderColor = '#007bcd';
+                                ask.style.color = 'white';
+								ask.disabled = false;
+								
+								break;
+						}
+					});
+
+
+                </script>
+			</body>
+			</html>

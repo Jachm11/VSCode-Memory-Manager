@@ -102,6 +102,12 @@ void GarbageCollector :: startServer(){
 
             send(clt_socket,res.c_str(),res.size(), 0 );
 
+        }else if((int)buffer[0] - 48 == 2){
+
+            string res = toJson();
+
+            send(clt_socket,res.c_str(),res.size(), 0 );
+            
         }else{
             send(clt_socket,"ERROR",5, 0 );
         }
@@ -194,7 +200,7 @@ string GarbageCollector :: toJson(){
                 valor = to_string((*(float*)pointer->dato));
             else if(tipo == "short")
                 valor = to_string((*(short*)pointer->dato));
-            else if(tipo == "unsingned")
+            else if(tipo == "unsigned")
                 valor = to_string((*(unsigned*)pointer->dato));
             else{
                 valor = "object";

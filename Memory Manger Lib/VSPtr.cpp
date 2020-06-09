@@ -14,7 +14,6 @@ using namespace std;
 template <class T>
 VSPtr<T>::VSPtr(){
     dato = (T*)malloc(sizeof(T*));
-    IDref = GarbageCollector:: generateID();
 
     std::unordered_map<std::type_index, std::string> type_names;
     type_names[std::type_index(typeid(int))] = "int";
@@ -28,16 +27,7 @@ VSPtr<T>::VSPtr(){
     string tipos[] = {"int","double","char","string","bool","float","short","unsigned"};
 
     tipo = type_names[std::type_index(typeid(T))];
-    //string temp = tipo;
-    //for (int i = 0; i<8;i++){ 
-       // if (tipo != tipos[i]){
-          //  tipo = "other";
-       // }else{
-           // tipo = temp;
-           // break;
-       // }
-    //}
-    cout<< tipo <<endl;
+
 
 }
 template <class T>
@@ -57,9 +47,9 @@ VSPtr<T> VSPtr<T>::New()
 template <class T>
 void VSPtr<T>::init()
 {
-    GarbageCollector::newPtr((VSPtr<void*>*)this,dato,tipo);
     IDref = GarbageCollector:: generateID();
-    //cout << "ref de dato: " << dato <<endl;
+    GarbageCollector::newPtr((VSPtr<void*>*)this,dato,tipo);
+
 }
 template <class T>
 void VSPtr<T>::operator =(T data)
@@ -73,7 +63,7 @@ void VSPtr<T>::operator =(T data)
 template <class T>
 void VSPtr<T>::operator =(VSPtr<T>* ptr2)
 {
-    //VSPtr<T>* ptr = ptr2;
+
     dato = ptr2->dato;
     IDref = ptr2->IDref;
     GarbageCollector::newPtr((VSPtr<void*>*)this,dato,tipo);
