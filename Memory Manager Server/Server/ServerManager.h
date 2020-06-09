@@ -8,17 +8,16 @@ class ServerManager
         
 
         LinkedList<User> users;
-        bool hasAccess(int socket);
-        string passwordResponse(string attempt, int socket);//responde si esta correcta o incorrecta
-        string jsonResponse(string ptrInfo, int socket);// responde con el ID que se le asigna
-        string idResponse(string ptrId, int socket);// responde con el json del puntero con el ID solicitado
+
         Node<User>* getUserBySocket(int socket);
-        bool checkId(string ptrInfo, string ptrId);
-        string getPtrById(string allPtr, string id);
-        string ptrFeo(string ptrLindo);
-        string getIdfromPtr(string ptr);
-        string newGetPtr(string allPtr, string id);
+        int getUserIndex(int socket);
         string toJson(string ptr);
+        string ptrFormat(string ptr);
+        string getIdfromPtr(string ptr);
+        string getPtr(string allPtr, string id);
+        string idResponse(string ptrId, int socket);
+        string passwordResponse(string attempt, int socket);
+        string jsonResponse(string ptrInfo, int socket);
 
     public:
         

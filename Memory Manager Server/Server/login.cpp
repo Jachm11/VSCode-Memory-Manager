@@ -20,6 +20,7 @@ bool Login::checkPassword(string attempt)
     
 
 }
+
 User::User()
 {}
 
@@ -27,11 +28,6 @@ User::User(int socket)
 {
     socketNumb=socket;
     access = false;
-}
-
-void User::addData(string ptrData)
-{
-    pointerData.insertLast(ptrData);
 }
 
 bool User::tryPassword(string attempt)
@@ -55,20 +51,13 @@ int User::getSocketNumb()
 {
     return socketNumb;
 }
-
+string User::getPointerInfo()
+{
+    return pointerInfo;
+}
 bool User::getAccess()
 {
     return access;
-}
-
-void User::setAccess(bool acc)
-{
-    access = acc;
-}
-
-LinkedList<string> User::getPointerData()
-{
-    return pointerData;
 }
 
 void User::setPointerInfo(string info)
@@ -76,7 +65,4 @@ void User::setPointerInfo(string info)
     pointerInfo=info;
 }
 
-string User::getPointerInfo()
-{
-    return pointerInfo;
-}
+

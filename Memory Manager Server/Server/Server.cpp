@@ -27,9 +27,7 @@ using std::cout; using std::endl;
 int main(int argc , char *argv[])
 {
     ServerManager manager;
-    //cout << "md5 of password: " << md5("suryrulz") << endl;
-    // g++ Server.cpp md5.cpp -o server && ./server
-    // ./server
+    
     
     int opt = TRUE;
     int master_socket , addrlen , new_socket , client_socket[30] ,
@@ -42,8 +40,6 @@ int main(int argc , char *argv[])
     //set of socket descriptors
     fd_set readfds;
 
-    //a message
-    //char *message = "ECHO Daemon v1.0 \r\n";
 
     //initialise all client_socket[] to 0 so not checked
     for (i = 0; i < max_clients; i++)
@@ -58,8 +54,7 @@ int main(int argc , char *argv[])
         exit(EXIT_FAILURE);
     }
 
-    //set master socket to allow multiple connections ,
-    //this is just a good habit, it will work without this
+    //set master socket to allow multiple connections 
     if( setsockopt(master_socket, SOL_SOCKET, SO_REUSEADDR, (char *)&opt,
           sizeof(opt)) < 0 )
     {
@@ -138,16 +133,7 @@ int main(int argc , char *argv[])
 
             //inform user of socket number - used in send and receive commands
             printf("New connection , socket fd is %d , ip is : %s , port : %d\n" , new_socket , inet_ntoa(address.sin_addr) , ntohs(address.sin_port));
-            /*
-            //send new connection greeting message
-
-            if( send(new_socket, "message", strlen("message"), 0) != strlen("message") )
-            {
-                perror("send");
-            }
-
-            puts("Welcome message sent successfully");
-            */
+            
             //add new socket to array of sockets
             for (i = 0; i < max_clients; i++)
             {
@@ -197,9 +183,8 @@ int main(int argc , char *argv[])
                     buffer[valread] = '\0';
                     
                     string response = manager.serverResponse(string(buffer), i);
-                    //send(sd, "message", strlen("message"), 0);
+                    
                     send(sd , response.c_str() , response.size() , 0 );
-                    //send(sd , buffer , strlen(buffer) , 0 );
                     
                     
 
