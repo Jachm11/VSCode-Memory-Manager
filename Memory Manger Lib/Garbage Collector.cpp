@@ -93,7 +93,7 @@ void GarbageCollector :: startServer(){
             cout << "El cliente se ha desconectado" << endl;
             break;
         }
-        cout << buffer[0] << endl; //print mesaje que llega
+        //cout << buffer[0] << endl; //print mesaje que llega
 
 
         if ((int)buffer[0] - 48 == 1){
@@ -190,6 +190,9 @@ string GarbageCollector :: toJson(){
                 valor = "object";
             }
 
+            if(tipo == ""){
+                tipo = "clase";
+            } 
             string type = "tipo";
             string value = "valor";
             string id = "id";
@@ -209,9 +212,7 @@ string GarbageCollector :: toJson(){
 void GarbageCollector :: inspect(){
 
     while(true){
-        sleep(3);
-        std::cout<<"searching..."<<std::endl;
-        
+        sleep(3);     
         if (getInstance()->Data.getHead() != 0 ){
             for(int i = 0; i < getInstance()->Data.getSize(); i++){
                 VSData* dato = getInstance()->Data.searchByIndex(i)->getData();

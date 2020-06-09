@@ -59,7 +59,6 @@ function activate(context) {
             	case 'connect':
 					if (!registered){
 						clientSrv.write("p "+message.text);
-						//vscode.window.showInformationMessage(message.text);
 						return;
 					}else{
 						vscode.window.showInformationMessage("You are already logged!");
@@ -163,7 +162,8 @@ function activate(context) {
 				
 
                 
-                <script>
+				<script>
+				
 
   					document.getElementById("passwordLogin").addEventListener('click',function(){
 						var pws = document.getElementById("psw").value;
@@ -218,14 +218,14 @@ function activate(context) {
 
 								var ask = document.getElementById("ask");
 								ask.style.background ='#007bcd';
-                                ask.style.borderColor = '#007bcd';
-                                ask.style.color = 'white';
+								ask.style.borderColor = '#007bcd';
+								ask.style.color = 'white';
 								ask.disabled = false;
 								
 								break;
 						}
 					});
-
+					
 
                 </script>
 			</body>
@@ -319,6 +319,9 @@ function activate(context) {
 
 			
 			panel.webview.html = getWebviewContent(labels,data.substring(0, data.length - 1),dir);
+			if (registered){
+				panel.webview.postMessage({ command: 'connected' });
+			}
 
 		}
 
