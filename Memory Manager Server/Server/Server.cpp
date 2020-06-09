@@ -184,6 +184,7 @@ int main(int argc , char *argv[])
                           inet_ntoa(address.sin_addr) , ntohs(address.sin_port));
 
                     //Close the socket and mark as 0 in list for reuse
+                    manager.deleteUser(i);
                     close( sd );
                     client_socket[i] = 0;
                 }
@@ -195,7 +196,7 @@ int main(int argc , char *argv[])
                     //of the data read
                     buffer[valread] = '\0';
                     
-                    string response = manager.serverResponse((string)buffer, i);
+                    string response = manager.serverResponse(string(buffer), i);
                     //send(sd, "message", strlen("message"), 0);
                     send(sd , response.c_str() , response.size() , 0 );
                     //send(sd , buffer , strlen(buffer) , 0 );

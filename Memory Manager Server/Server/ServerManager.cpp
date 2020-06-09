@@ -24,6 +24,13 @@ Node<User>* ServerManager::getUserBySocket(int socket)
     cout << "what"<<endl;
 
 }
+void ServerManager::deleteUser(int socket)
+{
+    Node<User> *temp = getUserBySocket(socket);
+    User usertemp= *temp->getData();
+    users.deleteByData(usertemp);
+    
+}
 bool ServerManager::hasAccess(int socket)
 {
     //User usertemp = getUserBySocket(socket);
@@ -34,12 +41,12 @@ bool ServerManager::hasAccess(int socket)
 }
 bool ServerManager::checkId(string ptrData, string ptrId)
 {
-   //string ptrData ="{\ntipo:3,\nvalor:4,\nid:3246766\n}";
+   //string ptrData ="{\nXtipo:3,\nXvalor:4,\nXid:3246766\nX}";
     for(int i =0;i<3;i++)
     {
         ptrData=ptrData.substr(ptrData.find("\n")+2);
     }
-    ptrData=ptrData.substr(0, ptrData.find("}")-3);
+    ptrData=ptrData.substr(0, ptrData.find("}")-2);
     ptrData= ptrData.substr(3);
     //cout <<ptrData << endl;
     if(ptrData==ptrId)
@@ -61,13 +68,19 @@ string ServerManager::getPtrById(string allPtr, string id)
 	for (int i = 0; (i = allPtr.find("}", i)) !=string::npos; i++) {
 		count++;
 	}
-    if(checkId(allPtr.substr(0,allPtr.find("}")),id))
+    if(checkId(allPtr.substr(0,allPtr.find("}")+1),id))
     {
         //return "yes";
-        return ptrFeo(allPtr.substr(0,allPtr.find("}")));
+        return allPtr.substr(0,allPtr.find("}")+1);
+        //return ptrFeo(allPtr.substr(0,allPtr.find("}")+1));
     }
     else
     {
+        /*
+        string allPtr= "{\ntipo:3,\nvalor:4,\nid:3246766\n},\ntipo:1,\nvalor:6,\nid:76766\n},
+        \ntipo:0,\nvalor:4,\nid:653\n},\ntipo:ib,\nvalor:54,\nid:vb\n}";   */ 
+
+        //string p= "{\ntipo:3,\nvalor:4,\nid:3246766\n}";
         
         for(int k=1;k<count;k++){
             string allPtrtemp=allPtr;
@@ -76,14 +89,14 @@ string ServerManager::getPtrById(string allPtr, string id)
             {
                 allPtrtemp=allPtrtemp.substr(allPtrtemp.find(",")+3);
             }
-            allPtrtemp=allPtrtemp.substr(0, allPtrtemp.find("}")-3);
-            allPtrtemp="{"+allPtrtemp+"\n}";
+            allPtrtemp=allPtrtemp.substr(0, allPtrtemp.find("}")-2);
+            allPtrtemp="{\n"+allPtrtemp+"\n}";
             //cout << p.size() <<endl;
             //cout << allPtrtemp <<endl;
             if (checkId(allPtrtemp,id))
             {
-                return ptrFeo(allPtrtemp);
-                //return allPtrtemp;
+                //return ptrFeo(allPtrtemp);
+                return allPtrtemp;
             }
         }
     }
@@ -132,6 +145,22 @@ string ServerManager::jsonResponse(string ptrInfo, int socket)
     
 
 }
+
+string ServerManager::toJson(string ptr)
+{
+    //tipo:1.valor:6.id:76766
+    //{\ntipo:3,\nvalor:4,\nid:3246766\n}
+    string json="{\n";
+    for(int i=0;i<2;i++){
+    json= json+ ptr.substr(0,ptr.find("."))+",\n";
+    ptr =ptr.substr(ptr.find(".")+1);
+    }
+    json= json+ptr+"\n}";
+    return json;
+    
+
+}
+
 string ServerManager::ptrFeo(string ptrLindo)
 {
     //{\ntipo:3,\nvalor:4,\nid:3246766\n}
@@ -143,11 +172,28 @@ string ServerManager::ptrFeo(string ptrLindo)
     ptrLindo.replace(ptrLindo.find(","),2,".");
     //ptrFeo= ptrLindo.erase(ptrLindo.find("\n"));
     //ptrFeo= ptrFeo+ptrLindo.erase(ptrLindo.find("\n"));
+    ptrLindo= ptrLindo.substr(1);
+    ptrLindo.pop_back();
+    ptrLindo.replace(ptrLindo.find("."),2,"+");
+    ptrLindo.replace(ptrLindo.find("."),2,".");
+    ptrLindo.replace(ptrLindo.find("+"),1,".");
+
     return ptrLindo;
+}
+//tipo:3.valor:4.id:3246766
+string ServerManager::getIdfromPtr(string ptr)
+{
+    for(int i=0;i<3;i++)
+    {
+        ptr=ptr.substr(ptr.find(":")+1);
+    }
+    return ptr;
 }
 
 string ServerManager::newGetPtr(string allPtr, string id)
 {
+        //string allPtr= "{\ntipo:3,\nvalor:4,\nid:3246766\n},\ntipo:1,\nvalor:6,\nid:76766\n},\ntipo:0,\nvalor:4,\nid:653\n},\ntipo:ib,\nvalor:54,\nid:vb\n}";    
+   
     int count = 0;
 	for (int i = 0; (i = allPtr.find("}", i)) !=string::npos; i++) {
 		count++;
@@ -161,10 +207,17 @@ string ServerManager::newGetPtr(string allPtr, string id)
         
         newPtr=newPtr+ptrFeo(current)+";";
         allPtr="{"+allPtr.substr(allPtr.find("}")+2);
+        if (getIdfromPtr(ptrFeo(current)).compare(id)==0){return toJson(ptrFeo(current));}
         count=count-1;
     } 
+        string current=allPtr;
+        current= current.substr(0, current.find("}")+1);
+        
+        newPtr=newPtr+ptrFeo(current)+";";
+        if (getIdfromPtr(ptrFeo(current)).compare(id)==0){return toJson(ptrFeo(current));}
     
-    return newPtr; 
+    return "notfound";
+    
 
 }
 string ServerManager::idResponse(string ptrId, int socket)
@@ -176,7 +229,7 @@ string ServerManager::idResponse(string ptrId, int socket)
     {
         return "noptrs";
     }
-    return getPtrById(usertemp.getPointerInfo(),ptrId);
+    return newGetPtr(usertemp.getPointerInfo(),ptrId);
 
 }
 
@@ -206,10 +259,9 @@ string ServerManager::serverResponse(string clientRequest, int socket)
             if (usertemp.getPointerInfo()== ""){return "noptrs";}
             //return "Solicito id";
             //cout << clientRequest.substr(3)<< endl;
-            return "{\ntipo:3,\nvalor:4,\nid:3246766\n}";
-            
-            
-            //return idResponse(clientRequest.substr(3), socket);
+            //return "{\ntipo:3,\nvalor:4,\nid:3246766\n}";
+                      
+            return idResponse(clientRequest.substr(3), socket);
         }
         else
         {
@@ -224,4 +276,5 @@ string ServerManager::serverResponse(string clientRequest, int socket)
     
 
 }
+
 

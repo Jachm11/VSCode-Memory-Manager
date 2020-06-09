@@ -2,16 +2,21 @@
 using namespace std;
 
 #include "linkedlist.cpp"
-
+///
+/// @brief  Clase que guarda la contraseña del servidor y verifica si está correcta
+/// @author Natalia
 class Login
 {
     private:
-    
         string password;//= "8d4ce490f740cc9b6d50a2bc33625797";
+        ///
+        /// @brief Costructor de Login
+        /// @author Natalia
+        Login();
+        
         
 
     public:
-        Login();
         bool checkPassword(string attempt);
         
 
