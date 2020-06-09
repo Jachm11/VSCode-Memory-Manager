@@ -48,8 +48,6 @@ int ServerManager::getUserIndex(int socket)
 
 string ServerManager::toJson(string ptr)
 {
-    //tipo:1.valor:6.id:76766
-    //{\ntipo:3,\nvalor:4,\nid:3246766\n}
     string json="{\n";
     for(int i=0;i<2;i++){
     json= json+ ptr.substr(0,ptr.find("."))+",\n";
@@ -77,7 +75,6 @@ string ServerManager::ptrFormat(string ptr)
 
     return ptr;
 }
-//tipo:3.valor:4.id:3246766
 string ServerManager::getIdfromPtr(string ptr)
 {
     for(int i=0;i<3;i++)
@@ -89,7 +86,7 @@ string ServerManager::getIdfromPtr(string ptr)
 
 string ServerManager::getPtr(string allPtr, string id)
 {
-        //string allPtr= "{\ntipo:3,\nvalor:4,\nid:3246766\n},\ntipo:1,\nvalor:6,\nid:76766\n},\ntipo:0,\nvalor:4,\nid:653\n},\ntipo:ib,\nvalor:54,\nid:vb\n}";    
+        
    
     int count = 0;
 	for (int i = 0; (i = allPtr.find("}", i)) !=string::npos; i++) {
@@ -139,7 +136,6 @@ string ServerManager::passwordResponse(string attempt, int socket)
     {
         if (usertemp.tryPassword(attempt))
         {
-            //usertemp.setAccess(true);
             getUserBySocket(socket)->setData(usertemp);
             
             
