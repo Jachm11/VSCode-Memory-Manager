@@ -83,7 +83,7 @@ int main(int argc, char const *argv[])
     sleep(1);
 
 
-    cout<< GarbageCollector :: toJson() <<endl;
+    //cout<< GarbageCollector :: toJson() <<endl;
 
     sleep(1000);
     

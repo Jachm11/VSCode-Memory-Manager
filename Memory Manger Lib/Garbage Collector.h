@@ -13,15 +13,11 @@ public:
     ///
     /// @brief Metodo que inicializa el thread de la clase
     /// @author Jose
-    /// @attention Se usa al iniciar el programa en el main (como tkinter)
     static void GCInit();
-
-    static string toJson();
 
     ///
     /// @brief Metodo que inicializa la clase como un singleton o retorna la instacia ya existente
     /// @author Jose
-    /// @attention La insignia de un singleton. Se usa antes de cada funcion. i.e GarbageCollector.getInstance()->funcion() (creo jeje)
     ///
     static GarbageCollector* getInstance();
 
@@ -29,7 +25,6 @@ public:
     /// @brief Metodo que se ejecuta cuando un nuevo VSPtr es creado
     /// @param La direccion de memoria de un VSPtr
     /// @author Jose
-    /// @attention Cada vez que se crea un nuevo VSPtr
     ///
     template <class T>
     static void newPtr (VSPtr<T>*,void*,string);
@@ -44,7 +39,6 @@ public:
     /// @brief Metodo que se ejecuta cuando un VSPtr es eliminado
     /// @param La direccion de memoria de un VSPtr
     /// @author Jose
-    /// @attention Se usa cuando se llama al destructor del VSPtr
     ///
     template <class T>
     static void clear(VSPtr<T>*, void*);
@@ -68,13 +62,22 @@ private:
     static void GCInitImp();
 
     ///
-    /// @brief inicializa el servidor para la comunicacion con la extension
+    /// @brief Inicializa el servidor para la comunicacion con la extension
     /// @author Jose
     static void startServer();
 
+
+    ///
+    /// @brief Funcion que se encarga de tomar los datos registrados en el GC y darles formato para ser enviados a la extension
+    /// @return Un string con todos los daros de las varibles guardadas
+    /// @author Jose
     static string dataTosend();
 
-    //static string toJson();
+    ///
+    /// @brief Funcion que tomas los datos de los punteros registrados y los pasa a un string JSON
+    /// @return JSON de los VSptr's
+    /// @author Jose
+    static string toJson();
 
     ///
     /// @brief Metodo que se ejecuta en el thread, busca aquellos VSPtr cuya referencia es 0

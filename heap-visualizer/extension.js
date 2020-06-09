@@ -29,7 +29,6 @@ function activate(context) {
 	});
 
 	
-
 	let init = vscode.commands.registerCommand('heap-visualizer.start',function(){
 
 		// Message for user
@@ -59,10 +58,9 @@ function activate(context) {
           		switch (message.command) {
             	case 'connect':
 					if (!registered){
-						//clientSrv.write("p "+message.text);
-						vscode.window.showInformationMessage(message.text);
-						parseSrvData('goodpass');
-						break;
+						clientSrv.write("p "+message.text);
+						//vscode.window.showInformationMessage(message.text);
+						return;
 					}else{
 						vscode.window.showInformationMessage("You are already logged!");
 					  	return;
@@ -81,7 +79,7 @@ function activate(context) {
 
 				case 'asked':
 					vscode.window.showInformationMessage("Asked for VSPtr Id="+message.text);
-					clientSrv.write(message.text);
+					clientSrv.write("id "+message.text);
 					return;
 				}
         	},
@@ -176,6 +174,7 @@ function activate(context) {
 								command : 'connect',
 								text : ""+pws+""
 							})
+							document.getElementById("passwordLogin").clear;
 						}else{
 							vscode.postMessage({
 								command : 'empty'
@@ -242,7 +241,7 @@ function activate(context) {
 				console.log("Failed to connect")
 			}else{
 				clientLib.write('1');
-				console.log('Connected yay!');
+				console.log('Connected to lib!');
 			}
 		});
 
@@ -250,7 +249,9 @@ function activate(context) {
 			parseData(data.toString());
 		});
 		clientLib.on('end',()=>{
-			console.log('Disconneted!');
+			console.log('Disconneted frim library!');
+			vscode.window.showErrorMessage("Disconnected from library");
+
 			});
 
 
@@ -273,10 +274,11 @@ function activate(context) {
 		});
 
 		clientSrv.on('data',(data)=>{
-			parseSrvData(data.toString);
+			parseSrvData(data.toString());
 		});
 		clientSrv.on('end',()=>{
-			console.log('Disconneted!');
+			console.log('Disconneted from server!');
+			vscode.window.showErrorMessage("Disconnected from server")
 			});
 	//_________________________________________________________________________
 	
@@ -309,9 +311,6 @@ function activate(context) {
 				getRandomRgb(8)+"'],\nborderWidth:1\n},";
 				
 				dir = dir + y[1] + " : " + y[2] + " (long)"+"<br>";
-
-				console.log(y);
-				console.log(dataSet);
 
 				data = data + dataSet;
 			});
@@ -434,6 +433,10 @@ function activate(context) {
 				vscode.window.showInformationMessage("You dont have accesses to the server!");
 				return;
 
+			case 'notrecognized':
+				vscode.window.showInformationMessage("Unknown request to server");
+				return;
+
 			default:
 				showJson(data);
 				return;
@@ -443,6 +446,7 @@ function activate(context) {
 	}
 
 	function showJson(data){
+		vscode.window.showInformationMessage("Pointer data is: "+data);
 		console.log(data);
 	}
 
@@ -457,6 +461,7 @@ function activate(context) {
 		()=>{
 			clearInterval(dataRetrive);
 			clientLib.end();
+			clientSrv.end();
 			console.log("loop exited");
 				
 		},
