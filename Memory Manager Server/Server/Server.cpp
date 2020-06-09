@@ -182,7 +182,10 @@ int main(int argc , char *argv[])
                     //of the data read
                     buffer[valread] = '\0';
                     
+                    
                     string response = manager.serverResponse(string(buffer), i);
+                    cout<<"El cliente dice:"+(string)buffer<<endl;
+                    cout<<"El server dice:"+response<<endl;
                     
                     send(sd , response.c_str() , response.size() , 0 );
                     

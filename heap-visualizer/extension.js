@@ -426,7 +426,7 @@ function activate(context) {
 				return;
 
 			case 'notfound':
-				vscode.window.showInformationMessage("VSPtr not found");
+				vscode.window.showErrorMessage("VSPtr not found");
 				return;
 
 			case 'noaccess':
