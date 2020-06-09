@@ -25,6 +25,11 @@ GarbageCollector :: GarbageCollector(){
     IDref = 0;
 }
 
+GarbageCollector* GarbageCollector :: getInstance(){
+    static GarbageCollector instance;
+    return &instance;
+}
+
 void GarbageCollector :: GCInit(){
     if (getInstance()->init == false){
         getInstance()->GCInitImp();
@@ -227,10 +232,6 @@ void GarbageCollector :: inspect(){
     }
 }
 
-GarbageCollector* GarbageCollector :: getInstance(){
-    static GarbageCollector instance;
-    return &instance;
-}
 
 template <class T>
 void GarbageCollector :: newPtr(VSPtr<T>* VSDir,void* TDir,string tipo){

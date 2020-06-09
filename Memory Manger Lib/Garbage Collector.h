@@ -93,13 +93,6 @@ private:
     static void newPtrImp (VSPtr<T>*,void*,string);
 
     ///
-    /// @brief Implemetacion de update
-    /// @author Jose
-    ///
-    template <typename T>
-    static void updateImp (T*,T*);
-
-    ///
     /// @brief Implemetacion de generateID
     /// @author Jose
     ///
