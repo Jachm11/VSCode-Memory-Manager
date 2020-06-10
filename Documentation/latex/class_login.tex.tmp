@@ -1,0 +1,72 @@
+\hypertarget{class_login}{}\doxysection{Referencia de la Clase Login}
+\label{class_login}\index{Login@{Login}}
+
+
+Clase que guarda la contraseña del servidor y verifica si esta correcta.  
+
+
+
+
+{\ttfamily \#include $<$login.\+h$>$}
+
+
+
+Diagrama de herencias de Login
+% FIG 0
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_login_a56d6b16da20dc1c5d8aa652d99427fb9}{check\+Password}} (string attempt)
+\item 
+\mbox{\hyperlink{class_login_a4847f3e07e43b540d3339392346f87ff}{Login}} ()
+\begin{DoxyCompactList}\small\item\em Costructor de \mbox{\hyperlink{class_login}{Login}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_login_a9dd646708576bfabc5c78ac9c3364215}\label{class_login_a9dd646708576bfabc5c78ac9c3364215}} 
+string {\bfseries password}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Clase que guarda la contraseña del servidor y verifica si esta correcta. 
+
+\begin{DoxyAuthor}{Autor}
+Natalia 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{class_login_a4847f3e07e43b540d3339392346f87ff}\label{class_login_a4847f3e07e43b540d3339392346f87ff}} 
+\index{Login@{Login}!Login@{Login}}
+\index{Login@{Login}!Login@{Login}}
+\doxysubsubsection{\texorpdfstring{Login()}{Login()}}
+{\footnotesize\ttfamily Login\+::\+Login (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Costructor de \mbox{\hyperlink{class_login}{Login}}. 
+
+\begin{DoxyAuthor}{Autor}
+Natalia 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{class_login_a56d6b16da20dc1c5d8aa652d99427fb9}\label{class_login_a56d6b16da20dc1c5d8aa652d99427fb9}} 
+\index{Login@{Login}!checkPassword@{checkPassword}}
+\index{checkPassword@{checkPassword}!Login@{Login}}
+\doxysubsubsection{\texorpdfstring{checkPassword()}{checkPassword()}}
+{\footnotesize\ttfamily bool Login\+::check\+Password (\begin{DoxyParamCaption}\item[{string}]{attempt }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parámetros}
+{\em } & \\
+\hline
+\end{DoxyParams}
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+Memory Manager Server/\+Server/login.\+h\item 
+Memory Manager Server/\+Server/login.\+cpp\end{DoxyCompactItemize}

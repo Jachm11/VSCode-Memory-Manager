@@ -1,0 +1,506 @@
+\hypertarget{class_linked_list}{}\doxysection{Referencia de la plantilla de la Clase Linked\+List$<$ T $>$}
+\label{class_linked_list}\index{LinkedList$<$ T $>$@{LinkedList$<$ T $>$}}
+
+
+Clase Lista enlazada implementada en C++.  
+
+
+
+
+{\ttfamily \#include $<$linkedlist.\+h$>$}
+
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_node}{Node}}$<$ T $>$ $\ast$ \mbox{\hyperlink{class_linked_list_a66e8657412447dfe945f5234e072b20f}{get\+Head}} ()
+\begin{DoxyCompactList}\small\item\em devuelve la cabeza EL N\+O\+DO \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_linked_list_a6ce69384caa781e77378cacef718374e}{set\+Head}} (\mbox{\hyperlink{class_node}{Node}}$<$ T $>$ head)
+\begin{DoxyCompactList}\small\item\em cambia el nodo cabeza de la lista(debe ingresar un nodo) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_node}{Node}}$<$ T $>$ $\ast$ \mbox{\hyperlink{class_linked_list_a0ab66d5b6fa180ad2d207e5b975c3d71}{get\+Tail}} ()
+\begin{DoxyCompactList}\small\item\em retorna la cola de la lista ES UN N\+O\+DO \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_linked_list_a803aa995e67b0c5e5796a36e89f05823}{set\+Tail}} (\mbox{\hyperlink{class_node}{Node}}$<$ T $>$ tail)
+\begin{DoxyCompactList}\small\item\em cambia el nodo de la cola (D\+E\+BE S\+ER UN N\+O\+DO) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_linked_list_ab56d59b74c8d24cd223a4a49a2b5cfb1}{get\+Size}} ()
+\begin{DoxyCompactList}\small\item\em funcion que retorna la amplitud de la lista \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_linked_list_a7ecbb28e82117a680839ed0dc28ebdce}{is\+Empty}} ()
+\begin{DoxyCompactList}\small\item\em is\+Empty Funcion que responde a\+: \char`\"{}is it empty?\char`\"{} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_linked_list_a1946dfce2d2a1c4e9051684eab1b5156}{insert\+First}} (T data)
+\begin{DoxyCompactList}\small\item\em Metodo que se encarga de insertar un nodo con un dato al inicio de la lista enlazada. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_linked_list_a198d17af17b1715eb7336d7e75272964}{insert\+Last}} (T data)
+\begin{DoxyCompactList}\small\item\em Funcion qe crea un nodo a partir de los datos que se ingresen y lo pone al inicio de la lista. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_linked_list_afc8c97b11fc314a75d9798233bad8441}\label{class_linked_list_afc8c97b11fc314a75d9798233bad8441}} 
+void \mbox{\hyperlink{class_linked_list_afc8c97b11fc314a75d9798233bad8441}{delete\+First}} ()
+\begin{DoxyCompactList}\small\item\em Metodo que se encarga de eliminar el nodo al inicio de la lista enlazada. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_linked_list_a9c86197e1049e0337e0d821d3fa05c05}\label{class_linked_list_a9c86197e1049e0337e0d821d3fa05c05}} 
+void \mbox{\hyperlink{class_linked_list_a9c86197e1049e0337e0d821d3fa05c05}{delete\+Last}} ()
+\begin{DoxyCompactList}\small\item\em Metodo que se encarga de eliminar el nodo al final de la lista enlazada. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_linked_list_a58166a9c70c587b14ea1059872299d3e}{delete\+By\+Index}} (int index)
+\begin{DoxyCompactList}\small\item\em Metodo para eliminar un elemento de una lista segun el indice que se le digite. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_node}{Node}}$<$ T $>$ $\ast$ \mbox{\hyperlink{class_linked_list_a28c60899283fa51067f54f8ce8b92f30}{search\+By\+Index}} (int index)
+\begin{DoxyCompactList}\small\item\em Funcion que permite buscar un nodo de la lista por el indice en el que se encuentra. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_linked_list_ae99b61488511d918deeb58eb23cf7d61}{delete\+By\+Data}} (T data)
+\item 
+void \mbox{\hyperlink{class_linked_list_af360d4c51f63b7756ac555efbfd5d4b6}{print\+List}} ()
+\item 
+void \mbox{\hyperlink{class_linked_list_a9bf9f644bd0f936763be58dc4f762518}{merge\+Linked\+List}} (\mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$ to\+Merge)
+\begin{DoxyCompactList}\small\item\em merge\+Linked\+List Une dos listas enlazadas \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_linked_list_a8bcfc5327a5e93cb1bce3e680ab6915e}\label{class_linked_list_a8bcfc5327a5e93cb1bce3e680ab6915e}} 
+void \mbox{\hyperlink{class_linked_list_a8bcfc5327a5e93cb1bce3e680ab6915e}{delete\+Reapeated\+Data}} ()
+\begin{DoxyCompactList}\small\item\em delete\+Reapeated\+Data Elimina todos los datos iguales/repetidos de la lista enlazada, conserva la primer repeticion \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_linked_list_aa6802d9353deeba02ea7154aa0133993}\label{class_linked_list_aa6802d9353deeba02ea7154aa0133993}} 
+void \mbox{\hyperlink{class_linked_list_aa6802d9353deeba02ea7154aa0133993}{clear\+List}} ()
+\begin{DoxyCompactList}\small\item\em Funcion para vaciar una lista. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_node}{Node}}$<$ T $>$ $\ast$ \mbox{\hyperlink{class_linked_list_aa4614ce35a543b74afb3c5bff8b018d4}{get\+Head}} ()
+\begin{DoxyCompactList}\small\item\em devuelve la cabeza EL N\+O\+DO \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_linked_list_a6ce69384caa781e77378cacef718374e}{set\+Head}} (\mbox{\hyperlink{class_node}{Node}}$<$ T $>$ head)
+\begin{DoxyCompactList}\small\item\em cambia el nodo cabeza de la lista(debe ingresar un nodo) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_node}{Node}}$<$ T $>$ $\ast$ \mbox{\hyperlink{class_linked_list_abe32c4c1e8c9f373a77421938276a284}{get\+Tail}} ()
+\begin{DoxyCompactList}\small\item\em retorna la cola de la lista ES UN N\+O\+DO \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_linked_list_a803aa995e67b0c5e5796a36e89f05823}{set\+Tail}} (\mbox{\hyperlink{class_node}{Node}}$<$ T $>$ tail)
+\begin{DoxyCompactList}\small\item\em cambia el nodo de la cola (D\+E\+BE S\+ER UN N\+O\+DO) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_linked_list_ab56d59b74c8d24cd223a4a49a2b5cfb1}{get\+Size}} ()
+\begin{DoxyCompactList}\small\item\em funcion que retorna la amplitud de la lista \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_linked_list_a7ecbb28e82117a680839ed0dc28ebdce}{is\+Empty}} ()
+\begin{DoxyCompactList}\small\item\em is\+Empty Funcion que responde a\+: \char`\"{}is it empty?\char`\"{} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_linked_list_a1946dfce2d2a1c4e9051684eab1b5156}{insert\+First}} (T data)
+\begin{DoxyCompactList}\small\item\em Metodo que se encarga de insertar un nodo con un dato al inicio de la lista enlazada. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_linked_list_a198d17af17b1715eb7336d7e75272964}{insert\+Last}} (T data)
+\begin{DoxyCompactList}\small\item\em Funcion qe crea un nodo a partir de los datos que se ingresen y lo pone al inicio de la lista. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_linked_list_afc8c97b11fc314a75d9798233bad8441}\label{class_linked_list_afc8c97b11fc314a75d9798233bad8441}} 
+void \mbox{\hyperlink{class_linked_list_afc8c97b11fc314a75d9798233bad8441}{delete\+First}} ()
+\begin{DoxyCompactList}\small\item\em Metodo que se encarga de eliminar el nodo al inicio de la lista enlazada. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_linked_list_a9c86197e1049e0337e0d821d3fa05c05}\label{class_linked_list_a9c86197e1049e0337e0d821d3fa05c05}} 
+void \mbox{\hyperlink{class_linked_list_a9c86197e1049e0337e0d821d3fa05c05}{delete\+Last}} ()
+\begin{DoxyCompactList}\small\item\em Metodo que se encarga de eliminar el nodo al final de la lista enlazada. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_linked_list_a58166a9c70c587b14ea1059872299d3e}{delete\+By\+Index}} (int index)
+\begin{DoxyCompactList}\small\item\em Metodo para eliminar un elemento de una lista segun el indice que se le digite. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_node}{Node}}$<$ T $>$ $\ast$ \mbox{\hyperlink{class_linked_list_a99157ac3aff71aab67d71eecd5ba63aa}{search\+By\+Index}} (int index)
+\begin{DoxyCompactList}\small\item\em Funcion que permite buscar un nodo de la lista por el indice en el que se encuentra. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_linked_list_ae99b61488511d918deeb58eb23cf7d61}{delete\+By\+Data}} (T data)
+\item 
+void \mbox{\hyperlink{class_linked_list_af360d4c51f63b7756ac555efbfd5d4b6}{print\+List}} ()
+\item 
+void \mbox{\hyperlink{class_linked_list_a9bf9f644bd0f936763be58dc4f762518}{merge\+Linked\+List}} (\mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$ to\+Merge)
+\begin{DoxyCompactList}\small\item\em merge\+Linked\+List Une dos listas enlazadas \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_linked_list_a8bcfc5327a5e93cb1bce3e680ab6915e}\label{class_linked_list_a8bcfc5327a5e93cb1bce3e680ab6915e}} 
+void \mbox{\hyperlink{class_linked_list_a8bcfc5327a5e93cb1bce3e680ab6915e}{delete\+Reapeated\+Data}} ()
+\begin{DoxyCompactList}\small\item\em delete\+Reapeated\+Data Elimina todos los datos iguales/repetidos de la lista enlazada, conserva la primer repeticion \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_linked_list_aa6802d9353deeba02ea7154aa0133993}\label{class_linked_list_aa6802d9353deeba02ea7154aa0133993}} 
+void \mbox{\hyperlink{class_linked_list_aa6802d9353deeba02ea7154aa0133993}{clear\+List}} ()
+\begin{DoxyCompactList}\small\item\em Funcion para vaciar una lista. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_linked_list_af25fb2c7cf9fac60f0b5c1a86814b7b3}\label{class_linked_list_af25fb2c7cf9fac60f0b5c1a86814b7b3}} 
+\mbox{\hyperlink{class_node}{Node}}$<$ T $>$ $\ast$ {\bfseries head}
+\item 
+\mbox{\Hypertarget{class_linked_list_a6e5ac9c484288a22858b7c5a588cf9d1}\label{class_linked_list_a6e5ac9c484288a22858b7c5a588cf9d1}} 
+\mbox{\hyperlink{class_node}{Node}}$<$ T $>$ $\ast$ {\bfseries tail}
+\item 
+\mbox{\Hypertarget{class_linked_list_a18f1a30371a80bc8626b0c7762517d0b}\label{class_linked_list_a18f1a30371a80bc8626b0c7762517d0b}} 
+int {\bfseries size}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+\subsubsection*{template$<$class T$>$\newline
+class Linked\+List$<$ T $>$}
+
+Clase Lista enlazada implementada en C++. 
+
+\begin{DoxyAuthor}{Autor}
+Jose y Natalia 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{class_linked_list_ae99b61488511d918deeb58eb23cf7d61}\label{class_linked_list_ae99b61488511d918deeb58eb23cf7d61}} 
+\index{LinkedList$<$ T $>$@{LinkedList$<$ T $>$}!deleteByData@{deleteByData}}
+\index{deleteByData@{deleteByData}!LinkedList$<$ T $>$@{LinkedList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{deleteByData()}{deleteByData()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$\+::delete\+By\+Data (\begin{DoxyParamCaption}\item[{T}]{data }\end{DoxyParamCaption})}
+
+Metodo que se encarga de eliminar el nodo con un dato especifico en la primer posicion en que lo encuentre en lista enlazada.
+
+
+\begin{DoxyParams}{Parámetros}
+{\em data} & Dato tipo Object que se desea eliminar en una posicion desconocida. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_linked_list_ae99b61488511d918deeb58eb23cf7d61}\label{class_linked_list_ae99b61488511d918deeb58eb23cf7d61}} 
+\index{LinkedList$<$ T $>$@{LinkedList$<$ T $>$}!deleteByData@{deleteByData}}
+\index{deleteByData@{deleteByData}!LinkedList$<$ T $>$@{LinkedList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{deleteByData()}{deleteByData()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$\+::delete\+By\+Data (\begin{DoxyParamCaption}\item[{T}]{data }\end{DoxyParamCaption})}
+
+Metodo que se encarga de eliminar el nodo con un dato especifico en la primer posicion en que lo encuentre en lista enlazada.
+
+
+\begin{DoxyParams}{Parámetros}
+{\em data} & Dato tipo Object que se desea eliminar en una posicion desconocida. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_linked_list_a58166a9c70c587b14ea1059872299d3e}\label{class_linked_list_a58166a9c70c587b14ea1059872299d3e}} 
+\index{LinkedList$<$ T $>$@{LinkedList$<$ T $>$}!deleteByIndex@{deleteByIndex}}
+\index{deleteByIndex@{deleteByIndex}!LinkedList$<$ T $>$@{LinkedList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{deleteByIndex()}{deleteByIndex()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$\+::delete\+By\+Index (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Metodo para eliminar un elemento de una lista segun el indice que se le digite. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em index} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_linked_list_a58166a9c70c587b14ea1059872299d3e}\label{class_linked_list_a58166a9c70c587b14ea1059872299d3e}} 
+\index{LinkedList$<$ T $>$@{LinkedList$<$ T $>$}!deleteByIndex@{deleteByIndex}}
+\index{deleteByIndex@{deleteByIndex}!LinkedList$<$ T $>$@{LinkedList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{deleteByIndex()}{deleteByIndex()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$\+::delete\+By\+Index (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Metodo para eliminar un elemento de una lista segun el indice que se le digite. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em index} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_linked_list_aa4614ce35a543b74afb3c5bff8b018d4}\label{class_linked_list_aa4614ce35a543b74afb3c5bff8b018d4}} 
+\index{LinkedList$<$ T $>$@{LinkedList$<$ T $>$}!getHead@{getHead}}
+\index{getHead@{getHead}!LinkedList$<$ T $>$@{LinkedList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getHead()}{getHead()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_node}{Node}}$<$T$>$$\ast$ \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$\+::get\+Head (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+devuelve la cabeza EL N\+O\+DO 
+
+\begin{DoxyReturn}{Devuelve}
+cabeza 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_linked_list_a66e8657412447dfe945f5234e072b20f}\label{class_linked_list_a66e8657412447dfe945f5234e072b20f}} 
+\index{LinkedList$<$ T $>$@{LinkedList$<$ T $>$}!getHead@{getHead}}
+\index{getHead@{getHead}!LinkedList$<$ T $>$@{LinkedList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getHead()}{getHead()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_node}{Node}}$<$ T $>$ $\ast$ \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$\+::get\+Head}
+
+
+
+devuelve la cabeza EL N\+O\+DO 
+
+\begin{DoxyReturn}{Devuelve}
+cabeza 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_linked_list_ab56d59b74c8d24cd223a4a49a2b5cfb1}\label{class_linked_list_ab56d59b74c8d24cd223a4a49a2b5cfb1}} 
+\index{LinkedList$<$ T $>$@{LinkedList$<$ T $>$}!getSize@{getSize}}
+\index{getSize@{getSize}!LinkedList$<$ T $>$@{LinkedList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getSize()}{getSize()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+int \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$\+::get\+Size}
+
+
+
+funcion que retorna la amplitud de la lista 
+
+\begin{DoxyReturn}{Devuelve}
+size 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_linked_list_ab56d59b74c8d24cd223a4a49a2b5cfb1}\label{class_linked_list_ab56d59b74c8d24cd223a4a49a2b5cfb1}} 
+\index{LinkedList$<$ T $>$@{LinkedList$<$ T $>$}!getSize@{getSize}}
+\index{getSize@{getSize}!LinkedList$<$ T $>$@{LinkedList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getSize()}{getSize()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+int \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$\+::get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+funcion que retorna la amplitud de la lista 
+
+\begin{DoxyReturn}{Devuelve}
+size 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_linked_list_abe32c4c1e8c9f373a77421938276a284}\label{class_linked_list_abe32c4c1e8c9f373a77421938276a284}} 
+\index{LinkedList$<$ T $>$@{LinkedList$<$ T $>$}!getTail@{getTail}}
+\index{getTail@{getTail}!LinkedList$<$ T $>$@{LinkedList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getTail()}{getTail()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_node}{Node}}$<$T$>$$\ast$ \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$\+::get\+Tail (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+retorna la cola de la lista ES UN N\+O\+DO 
+
+\begin{DoxyReturn}{Devuelve}
+tail 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_linked_list_a0ab66d5b6fa180ad2d207e5b975c3d71}\label{class_linked_list_a0ab66d5b6fa180ad2d207e5b975c3d71}} 
+\index{LinkedList$<$ T $>$@{LinkedList$<$ T $>$}!getTail@{getTail}}
+\index{getTail@{getTail}!LinkedList$<$ T $>$@{LinkedList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getTail()}{getTail()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_node}{Node}}$<$ T $>$ $\ast$ \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$\+::get\+Tail}
+
+
+
+retorna la cola de la lista ES UN N\+O\+DO 
+
+\begin{DoxyReturn}{Devuelve}
+tail 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_linked_list_a1946dfce2d2a1c4e9051684eab1b5156}\label{class_linked_list_a1946dfce2d2a1c4e9051684eab1b5156}} 
+\index{LinkedList$<$ T $>$@{LinkedList$<$ T $>$}!insertFirst@{insertFirst}}
+\index{insertFirst@{insertFirst}!LinkedList$<$ T $>$@{LinkedList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{insertFirst()}{insertFirst()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$\+::insert\+First (\begin{DoxyParamCaption}\item[{T}]{data }\end{DoxyParamCaption})}
+
+
+
+Metodo que se encarga de insertar un nodo con un dato al inicio de la lista enlazada. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em data} & Dato tipo Object que se desea que el nuevo nodo contenga. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_linked_list_a1946dfce2d2a1c4e9051684eab1b5156}\label{class_linked_list_a1946dfce2d2a1c4e9051684eab1b5156}} 
+\index{LinkedList$<$ T $>$@{LinkedList$<$ T $>$}!insertFirst@{insertFirst}}
+\index{insertFirst@{insertFirst}!LinkedList$<$ T $>$@{LinkedList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{insertFirst()}{insertFirst()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$\+::insert\+First (\begin{DoxyParamCaption}\item[{T}]{data }\end{DoxyParamCaption})}
+
+
+
+Metodo que se encarga de insertar un nodo con un dato al inicio de la lista enlazada. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em data} & Dato tipo Object que se desea que el nuevo nodo contenga. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_linked_list_a198d17af17b1715eb7336d7e75272964}\label{class_linked_list_a198d17af17b1715eb7336d7e75272964}} 
+\index{LinkedList$<$ T $>$@{LinkedList$<$ T $>$}!insertLast@{insertLast}}
+\index{insertLast@{insertLast}!LinkedList$<$ T $>$@{LinkedList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{insertLast()}{insertLast()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$\+::insert\+Last (\begin{DoxyParamCaption}\item[{T}]{data }\end{DoxyParamCaption})}
+
+
+
+Funcion qe crea un nodo a partir de los datos que se ingresen y lo pone al inicio de la lista. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em data} & Dato tipo Object que se desea que el nuevo nodo contenga. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_linked_list_a198d17af17b1715eb7336d7e75272964}\label{class_linked_list_a198d17af17b1715eb7336d7e75272964}} 
+\index{LinkedList$<$ T $>$@{LinkedList$<$ T $>$}!insertLast@{insertLast}}
+\index{insertLast@{insertLast}!LinkedList$<$ T $>$@{LinkedList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{insertLast()}{insertLast()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$\+::insert\+Last (\begin{DoxyParamCaption}\item[{T}]{data }\end{DoxyParamCaption})}
+
+
+
+Funcion qe crea un nodo a partir de los datos que se ingresen y lo pone al inicio de la lista. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em data} & Dato tipo Object que se desea que el nuevo nodo contenga. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_linked_list_a7ecbb28e82117a680839ed0dc28ebdce}\label{class_linked_list_a7ecbb28e82117a680839ed0dc28ebdce}} 
+\index{LinkedList$<$ T $>$@{LinkedList$<$ T $>$}!isEmpty@{isEmpty}}
+\index{isEmpty@{isEmpty}!LinkedList$<$ T $>$@{LinkedList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{isEmpty()}{isEmpty()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$\+::is\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+is\+Empty Funcion que responde a\+: \char`\"{}is it empty?\char`\"{} 
+
+\begin{DoxyReturn}{Devuelve}
+True si esta vacia, false de lo contrario 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_linked_list_a7ecbb28e82117a680839ed0dc28ebdce}\label{class_linked_list_a7ecbb28e82117a680839ed0dc28ebdce}} 
+\index{LinkedList$<$ T $>$@{LinkedList$<$ T $>$}!isEmpty@{isEmpty}}
+\index{isEmpty@{isEmpty}!LinkedList$<$ T $>$@{LinkedList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{isEmpty()}{isEmpty()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$\+::is\+Empty}
+
+
+
+is\+Empty Funcion que responde a\+: \char`\"{}is it empty?\char`\"{} 
+
+\begin{DoxyReturn}{Devuelve}
+True si esta vacia, false de lo contrario 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_linked_list_a9bf9f644bd0f936763be58dc4f762518}\label{class_linked_list_a9bf9f644bd0f936763be58dc4f762518}} 
+\index{LinkedList$<$ T $>$@{LinkedList$<$ T $>$}!mergeLinkedList@{mergeLinkedList}}
+\index{mergeLinkedList@{mergeLinkedList}!LinkedList$<$ T $>$@{LinkedList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{mergeLinkedList()}{mergeLinkedList()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$\+::merge\+Linked\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$}]{to\+Merge }\end{DoxyParamCaption})}
+
+
+
+merge\+Linked\+List Une dos listas enlazadas 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em to\+Merge} & es la lista que tomara posicion justo despues del ultimo elemento de la lista donde se aplica el metodo \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_linked_list_a9bf9f644bd0f936763be58dc4f762518}\label{class_linked_list_a9bf9f644bd0f936763be58dc4f762518}} 
+\index{LinkedList$<$ T $>$@{LinkedList$<$ T $>$}!mergeLinkedList@{mergeLinkedList}}
+\index{mergeLinkedList@{mergeLinkedList}!LinkedList$<$ T $>$@{LinkedList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{mergeLinkedList()}{mergeLinkedList()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$\+::merge\+Linked\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$}]{to\+Merge }\end{DoxyParamCaption})}
+
+
+
+merge\+Linked\+List Une dos listas enlazadas 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em to\+Merge} & es la lista que tomara posicion justo despues del ultimo elemento de la lista donde se aplica el metodo \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_linked_list_af360d4c51f63b7756ac555efbfd5d4b6}\label{class_linked_list_af360d4c51f63b7756ac555efbfd5d4b6}} 
+\index{LinkedList$<$ T $>$@{LinkedList$<$ T $>$}!printList@{printList}}
+\index{printList@{printList}!LinkedList$<$ T $>$@{LinkedList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{printList()}{printList()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$\+::print\+List}
+
+Metodo para imprimir en consola una lista \mbox{\Hypertarget{class_linked_list_af360d4c51f63b7756ac555efbfd5d4b6}\label{class_linked_list_af360d4c51f63b7756ac555efbfd5d4b6}} 
+\index{LinkedList$<$ T $>$@{LinkedList$<$ T $>$}!printList@{printList}}
+\index{printList@{printList}!LinkedList$<$ T $>$@{LinkedList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{printList()}{printList()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$\+::print\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Metodo para imprimir en consola una lista \mbox{\Hypertarget{class_linked_list_a28c60899283fa51067f54f8ce8b92f30}\label{class_linked_list_a28c60899283fa51067f54f8ce8b92f30}} 
+\index{LinkedList$<$ T $>$@{LinkedList$<$ T $>$}!searchByIndex@{searchByIndex}}
+\index{searchByIndex@{searchByIndex}!LinkedList$<$ T $>$@{LinkedList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{searchByIndex()}{searchByIndex()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_node}{Node}}$<$ T $>$ $\ast$ \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$\+::search\+By\+Index (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Funcion que permite buscar un nodo de la lista por el indice en el que se encuentra. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em index} & Indice de la lista que se quiere buscar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+El nodo que se encuetra en ese indice. Null si la lista esta vacia. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_linked_list_a99157ac3aff71aab67d71eecd5ba63aa}\label{class_linked_list_a99157ac3aff71aab67d71eecd5ba63aa}} 
+\index{LinkedList$<$ T $>$@{LinkedList$<$ T $>$}!searchByIndex@{searchByIndex}}
+\index{searchByIndex@{searchByIndex}!LinkedList$<$ T $>$@{LinkedList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{searchByIndex()}{searchByIndex()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_node}{Node}}$<$T$>$$\ast$ \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$\+::search\+By\+Index (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Funcion que permite buscar un nodo de la lista por el indice en el que se encuentra. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em index} & Indice de la lista que se quiere buscar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+El nodo que se encuetra en ese indice. Null si la lista esta vacia. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_linked_list_a6ce69384caa781e77378cacef718374e}\label{class_linked_list_a6ce69384caa781e77378cacef718374e}} 
+\index{LinkedList$<$ T $>$@{LinkedList$<$ T $>$}!setHead@{setHead}}
+\index{setHead@{setHead}!LinkedList$<$ T $>$@{LinkedList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setHead()}{setHead()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$\+::set\+Head (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_node}{Node}}$<$ T $>$}]{head }\end{DoxyParamCaption})}
+
+
+
+cambia el nodo cabeza de la lista(debe ingresar un nodo) 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em head} & es la cabeza \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_linked_list_a6ce69384caa781e77378cacef718374e}\label{class_linked_list_a6ce69384caa781e77378cacef718374e}} 
+\index{LinkedList$<$ T $>$@{LinkedList$<$ T $>$}!setHead@{setHead}}
+\index{setHead@{setHead}!LinkedList$<$ T $>$@{LinkedList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setHead()}{setHead()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$\+::set\+Head (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_node}{Node}}$<$ T $>$}]{head }\end{DoxyParamCaption})}
+
+
+
+cambia el nodo cabeza de la lista(debe ingresar un nodo) 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em head} & es la cabeza \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_linked_list_a803aa995e67b0c5e5796a36e89f05823}\label{class_linked_list_a803aa995e67b0c5e5796a36e89f05823}} 
+\index{LinkedList$<$ T $>$@{LinkedList$<$ T $>$}!setTail@{setTail}}
+\index{setTail@{setTail}!LinkedList$<$ T $>$@{LinkedList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setTail()}{setTail()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$\+::set\+Tail (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_node}{Node}}$<$ T $>$}]{tail }\end{DoxyParamCaption})}
+
+
+
+cambia el nodo de la cola (D\+E\+BE S\+ER UN N\+O\+DO) 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em tail} & la colita de la lista \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_linked_list_a803aa995e67b0c5e5796a36e89f05823}\label{class_linked_list_a803aa995e67b0c5e5796a36e89f05823}} 
+\index{LinkedList$<$ T $>$@{LinkedList$<$ T $>$}!setTail@{setTail}}
+\index{setTail@{setTail}!LinkedList$<$ T $>$@{LinkedList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setTail()}{setTail()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$\+::set\+Tail (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_node}{Node}}$<$ T $>$}]{tail }\end{DoxyParamCaption})}
+
+
+
+cambia el nodo de la cola (D\+E\+BE S\+ER UN N\+O\+DO) 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em tail} & la colita de la lista \\
+\hline
+\end{DoxyParams}
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+Memory Manager Server/\+Server/linkedlist.\+h\item 
+Memory Manager Server/\+Server/linkedlist.\+cpp\end{DoxyCompactItemize}

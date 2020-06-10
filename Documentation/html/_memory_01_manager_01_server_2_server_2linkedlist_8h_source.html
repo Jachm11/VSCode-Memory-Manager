@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.18"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Heap Visualizer: Fichero Fuente Memory Manager Server/Server/linkedlist.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Heap Visualizer
+   &#160;<span id="projectnumber">1.0.0</span>
+   </div>
+   <div id="projectbrief">Extesion y libreria para visualizacion del heap en VSCode</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.18 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_3b57f80bf26cf994613cc594dc417b2b.html">Memory Manager Server</a></li><li class="navelem"><a class="el" href="dir_caf4407d52bc2a9d44dbdfbedafc31e2.html">Server</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">linkedlist.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;node.cpp&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_linked_list.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_linked_list.html">LinkedList</a></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="class_node.html">Node&lt;T&gt;</a> *head;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="class_node.html">Node&lt;T&gt;</a> *tail;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">int</span> size;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="class_linked_list.html">LinkedList</a>();       </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">//    __________________</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">//__/Getters n&#39; Setters</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"></span>    <a class="code" href="class_node.html">Node&lt;T&gt;</a>* <a class="code" href="class_linked_list.html#a66e8657412447dfe945f5234e072b20f">getHead</a>();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_linked_list.html#a6ce69384caa781e77378cacef718374e">setHead</a>(<a class="code" href="class_node.html">Node&lt;T&gt;</a> head);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="class_node.html">Node&lt;T&gt;</a>* <a class="code" href="class_linked_list.html#a0ab66d5b6fa180ad2d207e5b975c3d71">getTail</a>();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_linked_list.html#a803aa995e67b0c5e5796a36e89f05823">setTail</a>(<a class="code" href="class_node.html">Node&lt;T&gt;</a> tail);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_linked_list.html#ab56d59b74c8d24cd223a4a49a2b5cfb1">getSize</a>();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">//   _____________________</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">//__/Funciones de la lista</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_linked_list.html#a7ecbb28e82117a680839ed0dc28ebdce">isEmpty</a>();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_linked_list.html#a1946dfce2d2a1c4e9051684eab1b5156">insertFirst</a>(T data);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_linked_list.html#a198d17af17b1715eb7336d7e75272964">insertLast</a>(T data);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_linked_list.html#afc8c97b11fc314a75d9798233bad8441">deleteFirst</a>();</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_linked_list.html#a9c86197e1049e0337e0d821d3fa05c05">deleteLast</a>();</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_linked_list.html#a58166a9c70c587b14ea1059872299d3e">deleteByIndex</a>(<span class="keywordtype">int</span> index);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <a class="code" href="class_node.html">Node&lt;T&gt;</a>* <a class="code" href="class_linked_list.html#a28c60899283fa51067f54f8ce8b92f30">searchByIndex</a>(<span class="keywordtype">int</span> index);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_linked_list.html#ae99b61488511d918deeb58eb23cf7d61">deleteByData</a>(T data);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_linked_list.html#af360d4c51f63b7756ac555efbfd5d4b6">printList</a>();</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_linked_list.html#a9bf9f644bd0f936763be58dc4f762518">mergeLinkedList</a>(<a class="code" href="class_linked_list.html">LinkedList&lt;T&gt;</a> toMerge);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_linked_list.html#a8bcfc5327a5e93cb1bce3e680ab6915e">deleteReapeatedData</a>();</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_linked_list.html#aa6802d9353deeba02ea7154aa0133993">clearList</a>();</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;};</div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclass_linked_list_html_afc8c97b11fc314a75d9798233bad8441"><div class="ttname"><a href="class_linked_list.html#afc8c97b11fc314a75d9798233bad8441">LinkedList::deleteFirst</a></div><div class="ttdeci">void deleteFirst()</div><div class="ttdoc">Metodo que se encarga de eliminar el nodo al inicio de la lista enlazada.</div><div class="ttdef"><b>Definition:</b> linkedlist.cpp:81</div></div>
+<div class="ttc" id="aclass_linked_list_html_a803aa995e67b0c5e5796a36e89f05823"><div class="ttname"><a href="class_linked_list.html#a803aa995e67b0c5e5796a36e89f05823">LinkedList::setTail</a></div><div class="ttdeci">void setTail(Node&lt; T &gt; tail)</div><div class="ttdoc">cambia el nodo de la cola (DEBE SER UN NODO)</div><div class="ttdef"><b>Definition:</b> linkedlist.cpp:29</div></div>
+<div class="ttc" id="aclass_linked_list_html_ae99b61488511d918deeb58eb23cf7d61"><div class="ttname"><a href="class_linked_list.html#ae99b61488511d918deeb58eb23cf7d61">LinkedList::deleteByData</a></div><div class="ttdeci">void deleteByData(T data)</div><div class="ttdef"><b>Definition:</b> linkedlist.cpp:139</div></div>
+<div class="ttc" id="aclass_linked_list_html_af360d4c51f63b7756ac555efbfd5d4b6"><div class="ttname"><a href="class_linked_list.html#af360d4c51f63b7756ac555efbfd5d4b6">LinkedList::printList</a></div><div class="ttdeci">void printList()</div><div class="ttdef"><b>Definition:</b> linkedlist.cpp:177</div></div>
+<div class="ttc" id="aclass_linked_list_html_a28c60899283fa51067f54f8ce8b92f30"><div class="ttname"><a href="class_linked_list.html#a28c60899283fa51067f54f8ce8b92f30">LinkedList::searchByIndex</a></div><div class="ttdeci">Node&lt; T &gt; * searchByIndex(int index)</div><div class="ttdoc">Funcion que permite buscar un nodo de la lista por el indice en el que se encuentra.</div><div class="ttdef"><b>Definition:</b> linkedlist.cpp:124</div></div>
+<div class="ttc" id="aclass_linked_list_html_aa6802d9353deeba02ea7154aa0133993"><div class="ttname"><a href="class_linked_list.html#aa6802d9353deeba02ea7154aa0133993">LinkedList::clearList</a></div><div class="ttdeci">void clearList()</div><div class="ttdoc">Funcion para vaciar una lista.</div><div class="ttdef"><b>Definition:</b> linkedlist.cpp:222</div></div>
+<div class="ttc" id="aclass_linked_list_html_a0ab66d5b6fa180ad2d207e5b975c3d71"><div class="ttname"><a href="class_linked_list.html#a0ab66d5b6fa180ad2d207e5b975c3d71">LinkedList::getTail</a></div><div class="ttdeci">Node&lt; T &gt; * getTail()</div><div class="ttdoc">retorna la cola de la lista ES UN NODO</div><div class="ttdef"><b>Definition:</b> linkedlist.cpp:24</div></div>
+<div class="ttc" id="aclass_linked_list_html_ab56d59b74c8d24cd223a4a49a2b5cfb1"><div class="ttname"><a href="class_linked_list.html#ab56d59b74c8d24cd223a4a49a2b5cfb1">LinkedList::getSize</a></div><div class="ttdeci">int getSize()</div><div class="ttdoc">funcion que retorna la amplitud de la lista</div><div class="ttdef"><b>Definition:</b> linkedlist.cpp:34</div></div>
+<div class="ttc" id="aclass_linked_list_html_a9bf9f644bd0f936763be58dc4f762518"><div class="ttname"><a href="class_linked_list.html#a9bf9f644bd0f936763be58dc4f762518">LinkedList::mergeLinkedList</a></div><div class="ttdeci">void mergeLinkedList(LinkedList&lt; T &gt; toMerge)</div><div class="ttdoc">mergeLinkedList Une dos listas enlazadas</div><div class="ttdef"><b>Definition:</b> linkedlist.cpp:193</div></div>
+<div class="ttc" id="aclass_linked_list_html_a7ecbb28e82117a680839ed0dc28ebdce"><div class="ttname"><a href="class_linked_list.html#a7ecbb28e82117a680839ed0dc28ebdce">LinkedList::isEmpty</a></div><div class="ttdeci">bool isEmpty()</div><div class="ttdoc">isEmpty Funcion que responde a: &quot;is it empty?&quot;</div><div class="ttdef"><b>Definition:</b> linkedlist.cpp:42</div></div>
+<div class="ttc" id="aclass_linked_list_html_a6ce69384caa781e77378cacef718374e"><div class="ttname"><a href="class_linked_list.html#a6ce69384caa781e77378cacef718374e">LinkedList::setHead</a></div><div class="ttdeci">void setHead(Node&lt; T &gt; head)</div><div class="ttdoc">cambia el nodo cabeza de la lista(debe ingresar un nodo)</div><div class="ttdef"><b>Definition:</b> linkedlist.cpp:19</div></div>
+<div class="ttc" id="aclass_node_html"><div class="ttname"><a href="class_node.html">Node</a></div><div class="ttdoc">Clase Nodo ligada a la clase LinkedList que guarda una referencia al nodo siguiente y el dato que gua...</div><div class="ttdef"><b>Definition:</b> node.h:8</div></div>
+<div class="ttc" id="aclass_linked_list_html_a9c86197e1049e0337e0d821d3fa05c05"><div class="ttname"><a href="class_linked_list.html#a9c86197e1049e0337e0d821d3fa05c05">LinkedList::deleteLast</a></div><div class="ttdeci">void deleteLast()</div><div class="ttdoc">Metodo que se encarga de eliminar el nodo al final de la lista enlazada.</div><div class="ttdef"><b>Definition:</b> linkedlist.cpp:89</div></div>
+<div class="ttc" id="aclass_linked_list_html_a58166a9c70c587b14ea1059872299d3e"><div class="ttname"><a href="class_linked_list.html#a58166a9c70c587b14ea1059872299d3e">LinkedList::deleteByIndex</a></div><div class="ttdeci">void deleteByIndex(int index)</div><div class="ttdoc">Metodo para eliminar un elemento de una lista segun el indice que se le digite.</div><div class="ttdef"><b>Definition:</b> linkedlist.cpp:105</div></div>
+<div class="ttc" id="aclass_linked_list_html_a198d17af17b1715eb7336d7e75272964"><div class="ttname"><a href="class_linked_list.html#a198d17af17b1715eb7336d7e75272964">LinkedList::insertLast</a></div><div class="ttdeci">void insertLast(T data)</div><div class="ttdoc">Funcion qe crea un nodo a partir de los datos que se ingresen y lo pone al inicio de la lista.</div><div class="ttdef"><b>Definition:</b> linkedlist.cpp:62</div></div>
+<div class="ttc" id="aclass_linked_list_html_a8bcfc5327a5e93cb1bce3e680ab6915e"><div class="ttname"><a href="class_linked_list.html#a8bcfc5327a5e93cb1bce3e680ab6915e">LinkedList::deleteReapeatedData</a></div><div class="ttdeci">void deleteReapeatedData()</div><div class="ttdoc">deleteReapeatedData Elimina todos los datos iguales/repetidos de la lista enlazada,...</div><div class="ttdef"><b>Definition:</b> linkedlist.cpp:204</div></div>
+<div class="ttc" id="aclass_linked_list_html_a66e8657412447dfe945f5234e072b20f"><div class="ttname"><a href="class_linked_list.html#a66e8657412447dfe945f5234e072b20f">LinkedList::getHead</a></div><div class="ttdeci">Node&lt; T &gt; * getHead()</div><div class="ttdoc">devuelve la cabeza EL NODO</div><div class="ttdef"><b>Definition:</b> linkedlist.cpp:14</div></div>
+<div class="ttc" id="aclass_linked_list_html"><div class="ttname"><a href="class_linked_list.html">LinkedList</a></div><div class="ttdoc">Clase Lista enlazada implementada en C++.</div><div class="ttdef"><b>Definition:</b> linkedlist.h:9</div></div>
+<div class="ttc" id="aclass_linked_list_html_a1946dfce2d2a1c4e9051684eab1b5156"><div class="ttname"><a href="class_linked_list.html#a1946dfce2d2a1c4e9051684eab1b5156">LinkedList::insertFirst</a></div><div class="ttdeci">void insertFirst(T data)</div><div class="ttdoc">Metodo que se encarga de insertar un nodo con un dato al inicio de la lista enlazada.</div><div class="ttdef"><b>Definition:</b> linkedlist.cpp:51</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.18
+</small></address>
+</body>
+</html>

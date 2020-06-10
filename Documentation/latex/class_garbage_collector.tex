@@ -1,0 +1,296 @@
+\hypertarget{class_garbage_collector}{}\doxysection{Referencia de la Clase Garbage\+Collector}
+\label{class_garbage_collector}\index{GarbageCollector@{GarbageCollector}}
+
+
+Clase Singleton que simula un Garbage collector.  
+
+
+
+
+{\ttfamily \#include $<$Garbage Collector.\+h$>$}
+
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_garbage_collector_a89dc88b4cba74aad422464a07f34ccab}\label{class_garbage_collector_a89dc88b4cba74aad422464a07f34ccab}} 
+{\bfseries Garbage\+Collector} (const \mbox{\hyperlink{class_garbage_collector}{Garbage\+Collector}} \&)=delete
+\end{DoxyCompactItemize}
+\doxysubsection*{Métodos públicos estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_garbage_collector_a42699623204a45b75225e14fa1ed5fc7}{G\+C\+Init}} ()
+\begin{DoxyCompactList}\small\item\em Metodo que inicializa el thread de la clase. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_garbage_collector}{Garbage\+Collector}} $\ast$ \mbox{\hyperlink{class_garbage_collector_ade4bccdf41223cc395b646db3f60ac8b}{get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Metodo que inicializa la clase como un singleton o retorna la instacia ya existente. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\static void \mbox{\hyperlink{class_garbage_collector_a02eedf4429c541cde5c8c53f69732668}{new\+Ptr}} (\mbox{\hyperlink{class_v_s_ptr}{V\+S\+Ptr}}$<$ T $>$ $\ast$, void $\ast$, string)
+\begin{DoxyCompactList}\small\item\em Metodo que se ejecuta cuando un nuevo \mbox{\hyperlink{class_v_s_ptr}{V\+S\+Ptr}} es creado. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{class_garbage_collector_a2a283013e15237ccb8f438dd9a28fc52}{generate\+ID}} ()
+\begin{DoxyCompactList}\small\item\em Genera un ID para un nuevo \mbox{\hyperlink{class_v_s_ptr}{V\+S\+Ptr}} con base en I\+Dref. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\static void \mbox{\hyperlink{class_garbage_collector_a0e2f7b2ce7b6af3f3b1ee9b52d3d1b01}{clear}} (\mbox{\hyperlink{class_v_s_ptr}{V\+S\+Ptr}}$<$ T $>$ $\ast$, void $\ast$)
+\begin{DoxyCompactList}\small\item\em Metodo que se ejecuta cuando un \mbox{\hyperlink{class_v_s_ptr}{V\+S\+Ptr}} es eliminado. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Métodos privados estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_garbage_collector_a3507b62b07ddddfd2791c1d15461246c}{G\+C\+Init\+Imp}} ()
+\begin{DoxyCompactList}\small\item\em Implemetacion de G\+C\+Init. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_garbage_collector_a7897fcb6051fce6fc8881cc7f44fa85e}{start\+Server}} ()
+\begin{DoxyCompactList}\small\item\em Inicializa el servidor para la comunicacion con la extension. \end{DoxyCompactList}\item 
+static string \mbox{\hyperlink{class_garbage_collector_a8157a28186e130133ddbede1b7fabb22}{data\+Tosend}} ()
+\begin{DoxyCompactList}\small\item\em Funcion que se encarga de tomar los datos registrados en el GC y darles formato para ser enviados a la extension. \end{DoxyCompactList}\item 
+static string \mbox{\hyperlink{class_garbage_collector_a766bd932f172ae8c32764dd522270311}{to\+Json}} ()
+\begin{DoxyCompactList}\small\item\em Funcion que tomas los datos de los punteros registrados y los pasa a un string J\+S\+ON. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_garbage_collector_a0d326343e58b0b9b88780c1fe205e3a9}{inspect}} ()
+\begin{DoxyCompactList}\small\item\em Metodo que se ejecuta en el thread, busca aquellos \mbox{\hyperlink{class_v_s_ptr}{V\+S\+Ptr}} cuya referencia es 0. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\static void \mbox{\hyperlink{class_garbage_collector_af26a05dc75dbb5b607a8cef584947012}{new\+Ptr\+Imp}} (\mbox{\hyperlink{class_v_s_ptr}{V\+S\+Ptr}}$<$ T $>$ $\ast$, void $\ast$, string)
+\begin{DoxyCompactList}\small\item\em Implemetacion de new\+Ptr. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{class_garbage_collector_a1bd6d244e06a8a64255c3312e2736f4f}{generate\+I\+D\+Imp}} ()
+\begin{DoxyCompactList}\small\item\em Implemetacion de generate\+ID. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\static void \mbox{\hyperlink{class_garbage_collector_a5d0f6f54cf32e4d2685a1a19e60f6454}{clear\+Imp}} (\mbox{\hyperlink{class_v_s_ptr}{V\+S\+Ptr}}$<$ T $>$ $\ast$V\+S\+Dir, void $\ast$T\+Dir)
+\begin{DoxyCompactList}\small\item\em Implemetacion de clear. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{struct_v_s_data}{V\+S\+Data}} $\ast$ \mbox{\hyperlink{class_garbage_collector_a6a140ed885e7793ed236096ce5862ec0}{search\+In\+Data}} (void $\ast$)
+\begin{DoxyCompactList}\small\item\em Accede a la lista enlazada y busca los datos del V\+S\+Pointr cuya dir de memoria sea igual a ref. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_garbage_collector_a0516bd7acd8a250112ec301f425e3fdd}\label{class_garbage_collector_a0516bd7acd8a250112ec301f425e3fdd}} 
+static int {\bfseries search\+In\+Ptrs} (void $\ast$)
+\end{DoxyCompactItemize}
+\doxysubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_garbage_collector_a1dddd648ec8351fd37c94e8b477f1971}\label{class_garbage_collector_a1dddd648ec8351fd37c94e8b477f1971}} 
+\mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ \mbox{\hyperlink{struct_v_s_pointers}{V\+S\+Pointers}} $>$ {\bfseries V\+Sptrs}
+\item 
+\mbox{\Hypertarget{class_garbage_collector_a03fcd944fc7226109c8aa2a8ab96a741}\label{class_garbage_collector_a03fcd944fc7226109c8aa2a8ab96a741}} 
+\mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ \mbox{\hyperlink{struct_v_s_data}{V\+S\+Data}} $>$ {\bfseries Data}
+\item 
+\mbox{\Hypertarget{class_garbage_collector_a7da6fa44dab988f9dc420df779f34cdb}\label{class_garbage_collector_a7da6fa44dab988f9dc420df779f34cdb}} 
+int {\bfseries I\+Dref}
+\item 
+\mbox{\Hypertarget{class_garbage_collector_ae2a37029765fdb6f64d89a120a9cd2b8}\label{class_garbage_collector_ae2a37029765fdb6f64d89a120a9cd2b8}} 
+bool {\bfseries init} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Clase Singleton que simula un Garbage collector. 
+
+\begin{DoxyAuthor}{Autor}
+Jose 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{class_garbage_collector_a0e2f7b2ce7b6af3f3b1ee9b52d3d1b01}\label{class_garbage_collector_a0e2f7b2ce7b6af3f3b1ee9b52d3d1b01}} 
+\index{GarbageCollector@{GarbageCollector}!clear@{clear}}
+\index{clear@{clear}!GarbageCollector@{GarbageCollector}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void Garbage\+Collector\+::clear (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_v_s_ptr}{V\+S\+Ptr}}$<$ T $>$ $\ast$}]{V\+S\+Dir,  }\item[{void $\ast$}]{T\+Dir }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Metodo que se ejecuta cuando un \mbox{\hyperlink{class_v_s_ptr}{V\+S\+Ptr}} es eliminado. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em La} & direccion de memoria de un \mbox{\hyperlink{class_v_s_ptr}{V\+S\+Ptr}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Autor}
+Jose 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_garbage_collector_a5d0f6f54cf32e4d2685a1a19e60f6454}\label{class_garbage_collector_a5d0f6f54cf32e4d2685a1a19e60f6454}} 
+\index{GarbageCollector@{GarbageCollector}!clearImp@{clearImp}}
+\index{clearImp@{clearImp}!GarbageCollector@{GarbageCollector}}
+\doxysubsubsection{\texorpdfstring{clearImp()}{clearImp()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void Garbage\+Collector\+::clear\+Imp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_v_s_ptr}{V\+S\+Ptr}}$<$ T $>$ $\ast$}]{V\+S\+Dir,  }\item[{void $\ast$}]{T\+Dir }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Implemetacion de clear. 
+
+\begin{DoxyAuthor}{Autor}
+Jose 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_garbage_collector_a8157a28186e130133ddbede1b7fabb22}\label{class_garbage_collector_a8157a28186e130133ddbede1b7fabb22}} 
+\index{GarbageCollector@{GarbageCollector}!dataTosend@{dataTosend}}
+\index{dataTosend@{dataTosend}!GarbageCollector@{GarbageCollector}}
+\doxysubsubsection{\texorpdfstring{dataTosend()}{dataTosend()}}
+{\footnotesize\ttfamily string Garbage\+Collector\+::data\+Tosend (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Funcion que se encarga de tomar los datos registrados en el GC y darles formato para ser enviados a la extension. 
+
+\begin{DoxyReturn}{Devuelve}
+Un string con todos los daros de las varibles guardadas 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Autor}
+Jose 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_garbage_collector_a42699623204a45b75225e14fa1ed5fc7}\label{class_garbage_collector_a42699623204a45b75225e14fa1ed5fc7}} 
+\index{GarbageCollector@{GarbageCollector}!GCInit@{GCInit}}
+\index{GCInit@{GCInit}!GarbageCollector@{GarbageCollector}}
+\doxysubsubsection{\texorpdfstring{GCInit()}{GCInit()}}
+{\footnotesize\ttfamily void Garbage\+Collector\+::\+G\+C\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Metodo que inicializa el thread de la clase. 
+
+\begin{DoxyAuthor}{Autor}
+Jose 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_garbage_collector_a3507b62b07ddddfd2791c1d15461246c}\label{class_garbage_collector_a3507b62b07ddddfd2791c1d15461246c}} 
+\index{GarbageCollector@{GarbageCollector}!GCInitImp@{GCInitImp}}
+\index{GCInitImp@{GCInitImp}!GarbageCollector@{GarbageCollector}}
+\doxysubsubsection{\texorpdfstring{GCInitImp()}{GCInitImp()}}
+{\footnotesize\ttfamily void Garbage\+Collector\+::\+G\+C\+Init\+Imp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Implemetacion de G\+C\+Init. 
+
+\begin{DoxyAuthor}{Autor}
+Jose 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_garbage_collector_a2a283013e15237ccb8f438dd9a28fc52}\label{class_garbage_collector_a2a283013e15237ccb8f438dd9a28fc52}} 
+\index{GarbageCollector@{GarbageCollector}!generateID@{generateID}}
+\index{generateID@{generateID}!GarbageCollector@{GarbageCollector}}
+\doxysubsubsection{\texorpdfstring{generateID()}{generateID()}}
+{\footnotesize\ttfamily int Garbage\+Collector\+::generate\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Genera un ID para un nuevo \mbox{\hyperlink{class_v_s_ptr}{V\+S\+Ptr}} con base en I\+Dref. 
+
+\begin{DoxyAuthor}{Autor}
+Jose 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_garbage_collector_a1bd6d244e06a8a64255c3312e2736f4f}\label{class_garbage_collector_a1bd6d244e06a8a64255c3312e2736f4f}} 
+\index{GarbageCollector@{GarbageCollector}!generateIDImp@{generateIDImp}}
+\index{generateIDImp@{generateIDImp}!GarbageCollector@{GarbageCollector}}
+\doxysubsubsection{\texorpdfstring{generateIDImp()}{generateIDImp()}}
+{\footnotesize\ttfamily static int Garbage\+Collector\+::generate\+I\+D\+Imp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Implemetacion de generate\+ID. 
+
+\begin{DoxyAuthor}{Autor}
+Jose 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_garbage_collector_ade4bccdf41223cc395b646db3f60ac8b}\label{class_garbage_collector_ade4bccdf41223cc395b646db3f60ac8b}} 
+\index{GarbageCollector@{GarbageCollector}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!GarbageCollector@{GarbageCollector}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_garbage_collector}{Garbage\+Collector}} $\ast$ Garbage\+Collector\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Metodo que inicializa la clase como un singleton o retorna la instacia ya existente. 
+
+\begin{DoxyAuthor}{Autor}
+Jose 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_garbage_collector_a0d326343e58b0b9b88780c1fe205e3a9}\label{class_garbage_collector_a0d326343e58b0b9b88780c1fe205e3a9}} 
+\index{GarbageCollector@{GarbageCollector}!inspect@{inspect}}
+\index{inspect@{inspect}!GarbageCollector@{GarbageCollector}}
+\doxysubsubsection{\texorpdfstring{inspect()}{inspect()}}
+{\footnotesize\ttfamily void Garbage\+Collector\+::inspect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Metodo que se ejecuta en el thread, busca aquellos \mbox{\hyperlink{class_v_s_ptr}{V\+S\+Ptr}} cuya referencia es 0. 
+
+\begin{DoxyAuthor}{Autor}
+Jose 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_garbage_collector_a02eedf4429c541cde5c8c53f69732668}\label{class_garbage_collector_a02eedf4429c541cde5c8c53f69732668}} 
+\index{GarbageCollector@{GarbageCollector}!newPtr@{newPtr}}
+\index{newPtr@{newPtr}!GarbageCollector@{GarbageCollector}}
+\doxysubsubsection{\texorpdfstring{newPtr()}{newPtr()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void Garbage\+Collector\+::new\+Ptr (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_v_s_ptr}{V\+S\+Ptr}}$<$ T $>$ $\ast$}]{V\+S\+Dir,  }\item[{void $\ast$}]{T\+Dir,  }\item[{string}]{tipo }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Metodo que se ejecuta cuando un nuevo \mbox{\hyperlink{class_v_s_ptr}{V\+S\+Ptr}} es creado. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em La} & direccion de memoria de un \mbox{\hyperlink{class_v_s_ptr}{V\+S\+Ptr}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Autor}
+Jose 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_garbage_collector_af26a05dc75dbb5b607a8cef584947012}\label{class_garbage_collector_af26a05dc75dbb5b607a8cef584947012}} 
+\index{GarbageCollector@{GarbageCollector}!newPtrImp@{newPtrImp}}
+\index{newPtrImp@{newPtrImp}!GarbageCollector@{GarbageCollector}}
+\doxysubsubsection{\texorpdfstring{newPtrImp()}{newPtrImp()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void Garbage\+Collector\+::new\+Ptr\+Imp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_v_s_ptr}{V\+S\+Ptr}}$<$ T $>$ $\ast$}]{V\+S\+Dir,  }\item[{void $\ast$}]{T\+Dir,  }\item[{string}]{tipo }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Implemetacion de new\+Ptr. 
+
+\begin{DoxyAuthor}{Autor}
+Jose 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_garbage_collector_a6a140ed885e7793ed236096ce5862ec0}\label{class_garbage_collector_a6a140ed885e7793ed236096ce5862ec0}} 
+\index{GarbageCollector@{GarbageCollector}!searchInData@{searchInData}}
+\index{searchInData@{searchInData}!GarbageCollector@{GarbageCollector}}
+\doxysubsubsection{\texorpdfstring{searchInData()}{searchInData()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_v_s_data}{V\+S\+Data}} $\ast$ Garbage\+Collector\+::search\+In\+Data (\begin{DoxyParamCaption}\item[{void $\ast$}]{ref }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Accede a la lista enlazada y busca los datos del V\+S\+Pointr cuya dir de memoria sea igual a ref. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em La} & direccion de memoria de un \mbox{\hyperlink{class_v_s_ptr}{V\+S\+Ptr}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Un array con los datos del \mbox{\hyperlink{class_v_s_ptr}{V\+S\+Ptr}} 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Autor}
+Jose 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_garbage_collector_a7897fcb6051fce6fc8881cc7f44fa85e}\label{class_garbage_collector_a7897fcb6051fce6fc8881cc7f44fa85e}} 
+\index{GarbageCollector@{GarbageCollector}!startServer@{startServer}}
+\index{startServer@{startServer}!GarbageCollector@{GarbageCollector}}
+\doxysubsubsection{\texorpdfstring{startServer()}{startServer()}}
+{\footnotesize\ttfamily void Garbage\+Collector\+::start\+Server (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Inicializa el servidor para la comunicacion con la extension. 
+
+\begin{DoxyAuthor}{Autor}
+Jose 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_garbage_collector_a766bd932f172ae8c32764dd522270311}\label{class_garbage_collector_a766bd932f172ae8c32764dd522270311}} 
+\index{GarbageCollector@{GarbageCollector}!toJson@{toJson}}
+\index{toJson@{toJson}!GarbageCollector@{GarbageCollector}}
+\doxysubsubsection{\texorpdfstring{toJson()}{toJson()}}
+{\footnotesize\ttfamily string Garbage\+Collector\+::to\+Json (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Funcion que tomas los datos de los punteros registrados y los pasa a un string J\+S\+ON. 
+
+\begin{DoxyReturn}{Devuelve}
+J\+S\+ON de los V\+Sptr\textquotesingle{}s 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Autor}
+Jose 
+\end{DoxyAuthor}
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+Memory Manger Lib/Garbage Collector.\+h\item 
+Memory Manger Lib/Garbage Collector.\+cpp\end{DoxyCompactItemize}

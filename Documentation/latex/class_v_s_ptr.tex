@@ -1,0 +1,214 @@
+\hypertarget{class_v_s_ptr}{}\doxysection{Referencia de la plantilla de la Clase V\+S\+Ptr$<$ T $>$}
+\label{class_v_s_ptr}\index{VSPtr$<$ T $>$@{VSPtr$<$ T $>$}}
+
+
+Implementacion especial del concepto de punteros para la libreria.  
+
+
+
+
+{\ttfamily \#include $<$V\+S\+Ptr.\+h$>$}
+
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_v_s_ptr_a3f9256a7afba8e671e188c87103b4570}{V\+S\+Ptr}} ()
+\begin{DoxyCompactList}\small\item\em Constructor de la clase. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_v_s_ptr_a3868ebe6b47b27b0e1397a75407d08f8}{$\sim$\+V\+S\+Ptr}} ()
+\begin{DoxyCompactList}\small\item\em Destructor de la clase, le avisa al Garbage Collector que se eliminó el puntero y vacía el espacio de referencia en el que estaba. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_v_s_ptr_aa3f335227734158803829ac95f3d6458}{init}} ()
+\begin{DoxyCompactList}\small\item\em Inicializa el \mbox{\hyperlink{class_v_s_ptr}{V\+S\+Ptr}} y envía su referencia y la del puntero dato al Garbage Collector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_v_s_ptr_ae1cdd73e2116e115149e517b4045b7f9}{operator=}} (T data)
+\begin{DoxyCompactList}\small\item\em Le asigna data a la dirección de memoria reservada a la que apunta dato. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_v_s_ptr_a99d9a42debfd0303d3d1ce9f766eae7d}{operator=}} (\mbox{\hyperlink{class_v_s_ptr}{V\+S\+Ptr}}$<$ T $>$ $\ast$ptr2)
+\begin{DoxyCompactList}\small\item\em Pone a ambos punteros a apuntar a la misma dirección de memoria. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{class_v_s_ptr_a769b084abcc1725044d662b540a3344e}{operator\&}} ()
+\begin{DoxyCompactList}\small\item\em Obtener el valor al que apunta el puntero. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_v_s_ptr}{V\+S\+Ptr}}$<$ T $>$ \mbox{\hyperlink{class_v_s_ptr_a99bd5070f565cc570d55b441c6d78bda}{operator$\ast$}} ()
+\begin{DoxyCompactList}\small\item\em Obtener el mismo objeto. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_v_s_ptr_a65989459453b58264a3e2e9c4bbed22b}{get\+I\+Dref}} ()
+\begin{DoxyCompactList}\small\item\em Obtener el ID del \mbox{\hyperlink{class_v_s_ptr}{V\+S\+Ptr}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_v_s_ptr_a3778977d9e815021aff33b9522f4439c}\label{class_v_s_ptr_a3778977d9e815021aff33b9522f4439c}} 
+void {\bfseries hola} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Métodos públicos estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_v_s_ptr}{V\+S\+Ptr}}$<$ T $>$ \mbox{\hyperlink{class_v_s_ptr_a4dbf1c0d3ac694fef78baa8d15ec7eb1}{New}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_v_s_ptr_a664e7527956fadc169023e77751f1008}\label{class_v_s_ptr_a664e7527956fadc169023e77751f1008}} 
+T $\ast$ {\bfseries dato}
+\item 
+\mbox{\Hypertarget{class_v_s_ptr_a8aa19ab3239402a73d51021ac051a9eb}\label{class_v_s_ptr_a8aa19ab3239402a73d51021ac051a9eb}} 
+int {\bfseries I\+Dref}
+\item 
+\mbox{\Hypertarget{class_v_s_ptr_ad46f2327c87d351eabcff408df8d6cb4}\label{class_v_s_ptr_ad46f2327c87d351eabcff408df8d6cb4}} 
+string {\bfseries tipo} = \char`\"{}any\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+\subsubsection*{template$<$class T$>$\newline
+class V\+S\+Ptr$<$ T $>$}
+
+Implementacion especial del concepto de punteros para la libreria. 
+
+\begin{DoxyAuthor}{Autor}
+Natalia 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{class_v_s_ptr_a3f9256a7afba8e671e188c87103b4570}\label{class_v_s_ptr_a3f9256a7afba8e671e188c87103b4570}} 
+\index{VSPtr$<$ T $>$@{VSPtr$<$ T $>$}!VSPtr@{VSPtr}}
+\index{VSPtr@{VSPtr}!VSPtr$<$ T $>$@{VSPtr$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{VSPtr()}{VSPtr()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_v_s_ptr}{V\+S\+Ptr}}$<$ T $>$\+::\mbox{\hyperlink{class_v_s_ptr}{V\+S\+Ptr}}}
+
+
+
+Constructor de la clase. 
+
+\begin{DoxyAuthor}{Autor}
+Natalia 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_v_s_ptr_a3868ebe6b47b27b0e1397a75407d08f8}\label{class_v_s_ptr_a3868ebe6b47b27b0e1397a75407d08f8}} 
+\index{VSPtr$<$ T $>$@{VSPtr$<$ T $>$}!````~VSPtr@{$\sim$VSPtr}}
+\index{````~VSPtr@{$\sim$VSPtr}!VSPtr$<$ T $>$@{VSPtr$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$VSPtr()}{~VSPtr()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_v_s_ptr}{V\+S\+Ptr}}$<$ T $>$\+::$\sim$\mbox{\hyperlink{class_v_s_ptr}{V\+S\+Ptr}}$<$ T $>$}
+
+
+
+Destructor de la clase, le avisa al Garbage Collector que se eliminó el puntero y vacía el espacio de referencia en el que estaba. 
+
+\begin{DoxyAuthor}{Autor}
+Natalia 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{class_v_s_ptr_a65989459453b58264a3e2e9c4bbed22b}\label{class_v_s_ptr_a65989459453b58264a3e2e9c4bbed22b}} 
+\index{VSPtr$<$ T $>$@{VSPtr$<$ T $>$}!getIDref@{getIDref}}
+\index{getIDref@{getIDref}!VSPtr$<$ T $>$@{VSPtr$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getIDref()}{getIDref()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+int \mbox{\hyperlink{class_v_s_ptr}{V\+S\+Ptr}}$<$ T $>$\+::get\+I\+Dref}
+
+
+
+Obtener el ID del \mbox{\hyperlink{class_v_s_ptr}{V\+S\+Ptr}}. 
+
+\begin{DoxyReturn}{Devuelve}
+I\+D\+Ref 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Autor}
+Natalia 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_v_s_ptr_aa3f335227734158803829ac95f3d6458}\label{class_v_s_ptr_aa3f335227734158803829ac95f3d6458}} 
+\index{VSPtr$<$ T $>$@{VSPtr$<$ T $>$}!init@{init}}
+\index{init@{init}!VSPtr$<$ T $>$@{VSPtr$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_v_s_ptr}{V\+S\+Ptr}}$<$ T $>$\+::init}
+
+
+
+Inicializa el \mbox{\hyperlink{class_v_s_ptr}{V\+S\+Ptr}} y envía su referencia y la del puntero dato al Garbage Collector. 
+
+\begin{DoxyAuthor}{Autor}
+Natalia 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_v_s_ptr_a4dbf1c0d3ac694fef78baa8d15ec7eb1}\label{class_v_s_ptr_a4dbf1c0d3ac694fef78baa8d15ec7eb1}} 
+\index{VSPtr$<$ T $>$@{VSPtr$<$ T $>$}!New@{New}}
+\index{New@{New}!VSPtr$<$ T $>$@{VSPtr$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{New()}{New()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_v_s_ptr}{V\+S\+Ptr}}$<$ T $>$ \mbox{\hyperlink{class_v_s_ptr}{V\+S\+Ptr}}$<$ T $>$\+::New\hspace{0.3cm}{\ttfamily [static]}}
+
+\begin{DoxyAuthor}{Autor}
+Natalia 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_v_s_ptr_a769b084abcc1725044d662b540a3344e}\label{class_v_s_ptr_a769b084abcc1725044d662b540a3344e}} 
+\index{VSPtr$<$ T $>$@{VSPtr$<$ T $>$}!operator\&@{operator\&}}
+\index{operator\&@{operator\&}!VSPtr$<$ T $>$@{VSPtr$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator\&()}{operator\&()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_v_s_ptr}{V\+S\+Ptr}}$<$ T $>$\+::operator\&}
+
+
+
+Obtener el valor al que apunta el puntero. 
+
+\begin{DoxyReturn}{Devuelve}
+El valor al que apunta dato 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Autor}
+Natalia 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_v_s_ptr_a99bd5070f565cc570d55b441c6d78bda}\label{class_v_s_ptr_a99bd5070f565cc570d55b441c6d78bda}} 
+\index{VSPtr$<$ T $>$@{VSPtr$<$ T $>$}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!VSPtr$<$ T $>$@{VSPtr$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_v_s_ptr}{V\+S\+Ptr}}$<$ T $>$ \mbox{\hyperlink{class_v_s_ptr}{V\+S\+Ptr}}$<$ T $>$\+::operator$\ast$}
+
+
+
+Obtener el mismo objeto. 
+
+\begin{DoxyReturn}{Devuelve}
+El mismo \mbox{\hyperlink{class_v_s_ptr}{V\+S\+Ptr}} 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Autor}
+Natalia 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_v_s_ptr_ae1cdd73e2116e115149e517b4045b7f9}\label{class_v_s_ptr_ae1cdd73e2116e115149e517b4045b7f9}} 
+\index{VSPtr$<$ T $>$@{VSPtr$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!VSPtr$<$ T $>$@{VSPtr$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_v_s_ptr}{V\+S\+Ptr}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{T}]{data }\end{DoxyParamCaption})}
+
+
+
+Le asigna data a la dirección de memoria reservada a la que apunta dato. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em Un} & dato tipo T \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Autor}
+Natalia 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_v_s_ptr_a99d9a42debfd0303d3d1ce9f766eae7d}\label{class_v_s_ptr_a99d9a42debfd0303d3d1ce9f766eae7d}} 
+\index{VSPtr$<$ T $>$@{VSPtr$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!VSPtr$<$ T $>$@{VSPtr$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_v_s_ptr}{V\+S\+Ptr}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_v_s_ptr}{V\+S\+Ptr}}$<$ T $>$ $\ast$}]{ptr2 }\end{DoxyParamCaption})}
+
+
+
+Pone a ambos punteros a apuntar a la misma dirección de memoria. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em Un} & \mbox{\hyperlink{class_v_s_ptr}{V\+S\+Ptr}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Autor}
+Natalia 
+\end{DoxyAuthor}
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+Memory Manger Lib/V\+S\+Ptr.\+h\item 
+Memory Manger Lib/V\+S\+Ptr.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,177 @@
+\hypertarget{class_user}{}\doxysection{Referencia de la Clase User}
+\label{class_user}\index{User@{User}}
+
+
+Clase que crea un usuario en el servidor.  
+
+
+
+
+{\ttfamily \#include $<$login.\+h$>$}
+
+
+
+Diagrama de herencias de User
+% FIG 0
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_user_a4a0137053e591fbb79d9057dd7d2283d}{User}} ()
+\begin{DoxyCompactList}\small\item\em Constructor de la clase \mbox{\hyperlink{class_user}{User}} sin parametros. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_user_a863c20ef793bbd4b9c182e926dfa078f}{User}} (int socket)
+\begin{DoxyCompactList}\small\item\em Constructor de la clase \mbox{\hyperlink{class_user}{User}} asignando el numero de socket. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_user_acdebc93e15c08734b57b32e96713027e}{try\+Password}} (string attempt)
+\begin{DoxyCompactList}\small\item\em Verifica si la contraseña que escribio el usuario es valida y cambia la variable de acceso inicialmente en false. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_user_a77a41d50325065e4c81a59affe845fb1}{get\+Socket\+Numb}} ()
+\begin{DoxyCompactList}\small\item\em Retorna el numero de socket. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_user_a3f2ef7fd069efd4caf005db9778a413b}{get\+Pointer\+Info}} ()
+\begin{DoxyCompactList}\small\item\em Retorna la informacion de los punteros. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_user_a85b0ba19108255a3bf4bb4f96ccc6d97}{get\+Access}} ()
+\begin{DoxyCompactList}\small\item\em Retorna si el usuario tiene acceso o no. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_user_aac471544dcf2be12514b6d3160bab4df}{set\+Pointer\+Info}} (string info)
+\begin{DoxyCompactList}\small\item\em Asigna el valor de la informacion de los punteros. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_user_ac1d50472757677ef2014717be73263bc}\label{class_user_ac1d50472757677ef2014717be73263bc}} 
+int {\bfseries socket\+Numb}
+\item 
+\mbox{\Hypertarget{class_user_a4d66948932feaa8b7a2c48d9d87c354b}\label{class_user_a4d66948932feaa8b7a2c48d9d87c354b}} 
+bool {\bfseries access}
+\item 
+\mbox{\Hypertarget{class_user_afe8332f681c8f8dee4e097f10efb32cc}\label{class_user_afe8332f681c8f8dee4e097f10efb32cc}} 
+string {\bfseries pointer\+Info}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Clase que crea un usuario en el servidor. 
+
+\begin{DoxyAuthor}{Autor}
+Natalia 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{class_user_a4a0137053e591fbb79d9057dd7d2283d}\label{class_user_a4a0137053e591fbb79d9057dd7d2283d}} 
+\index{User@{User}!User@{User}}
+\index{User@{User}!User@{User}}
+\doxysubsubsection{\texorpdfstring{User()}{User()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily User\+::\+User (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor de la clase \mbox{\hyperlink{class_user}{User}} sin parametros. 
+
+\begin{DoxyAuthor}{Autor}
+Natalia 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_user_a863c20ef793bbd4b9c182e926dfa078f}\label{class_user_a863c20ef793bbd4b9c182e926dfa078f}} 
+\index{User@{User}!User@{User}}
+\index{User@{User}!User@{User}}
+\doxysubsubsection{\texorpdfstring{User()}{User()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily User\+::\+User (\begin{DoxyParamCaption}\item[{int}]{socket }\end{DoxyParamCaption})}
+
+
+
+Constructor de la clase \mbox{\hyperlink{class_user}{User}} asignando el numero de socket. 
+
+\begin{DoxyAuthor}{Autor}
+Natalia 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{class_user_a85b0ba19108255a3bf4bb4f96ccc6d97}\label{class_user_a85b0ba19108255a3bf4bb4f96ccc6d97}} 
+\index{User@{User}!getAccess@{getAccess}}
+\index{getAccess@{getAccess}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getAccess()}{getAccess()}}
+{\footnotesize\ttfamily bool User\+::get\+Access (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retorna si el usuario tiene acceso o no. 
+
+\begin{DoxyReturn}{Devuelve}
+access 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Autor}
+Natalia 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_user_a3f2ef7fd069efd4caf005db9778a413b}\label{class_user_a3f2ef7fd069efd4caf005db9778a413b}} 
+\index{User@{User}!getPointerInfo@{getPointerInfo}}
+\index{getPointerInfo@{getPointerInfo}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getPointerInfo()}{getPointerInfo()}}
+{\footnotesize\ttfamily string User\+::get\+Pointer\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retorna la informacion de los punteros. 
+
+\begin{DoxyReturn}{Devuelve}
+pointer\+Info 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Autor}
+Natalia 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_user_a77a41d50325065e4c81a59affe845fb1}\label{class_user_a77a41d50325065e4c81a59affe845fb1}} 
+\index{User@{User}!getSocketNumb@{getSocketNumb}}
+\index{getSocketNumb@{getSocketNumb}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getSocketNumb()}{getSocketNumb()}}
+{\footnotesize\ttfamily int User\+::get\+Socket\+Numb (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retorna el numero de socket. 
+
+\begin{DoxyReturn}{Devuelve}
+socket\+Numb 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Autor}
+Natalia 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_user_aac471544dcf2be12514b6d3160bab4df}\label{class_user_aac471544dcf2be12514b6d3160bab4df}} 
+\index{User@{User}!setPointerInfo@{setPointerInfo}}
+\index{setPointerInfo@{setPointerInfo}!User@{User}}
+\doxysubsubsection{\texorpdfstring{setPointerInfo()}{setPointerInfo()}}
+{\footnotesize\ttfamily void User\+::set\+Pointer\+Info (\begin{DoxyParamCaption}\item[{string}]{info }\end{DoxyParamCaption})}
+
+
+
+Asigna el valor de la informacion de los punteros. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em info} & de los punteros \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Autor}
+Natalia 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_user_acdebc93e15c08734b57b32e96713027e}\label{class_user_acdebc93e15c08734b57b32e96713027e}} 
+\index{User@{User}!tryPassword@{tryPassword}}
+\index{tryPassword@{tryPassword}!User@{User}}
+\doxysubsubsection{\texorpdfstring{tryPassword()}{tryPassword()}}
+{\footnotesize\ttfamily bool User\+::try\+Password (\begin{DoxyParamCaption}\item[{string}]{attempt }\end{DoxyParamCaption})}
+
+
+
+Verifica si la contraseña que escribio el usuario es valida y cambia la variable de acceso inicialmente en false. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em intento} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+true si es correcta, false de lo contrario 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Autor}
+Natalia 
+\end{DoxyAuthor}
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+Memory Manager Server/\+Server/login.\+h\item 
+Memory Manager Server/\+Server/login.\+cpp\end{DoxyCompactItemize}

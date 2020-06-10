@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.18"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Heap Visualizer: Fichero Fuente Memory Manger Lib/Garbage Collector.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Heap Visualizer
+   &#160;<span id="projectnumber">1.0.0</span>
+   </div>
+   <div id="projectbrief">Extesion y libreria para visualizacion del heap en VSCode</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.18 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_8a95f8fd3c22c2da1483ffd2b230c9dc.html">Memory Manger Lib</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Garbage Collector.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;linkedlist.cpp&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;GCStructs.h&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_garbage_collector.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_garbage_collector.html">GarbageCollector</a>{</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_garbage_collector.html#a42699623204a45b75225e14fa1ed5fc7">GCInit</a>();</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">static</span> <a class="code" href="class_garbage_collector.html">GarbageCollector</a>* <a class="code" href="class_garbage_collector.html#ade4bccdf41223cc395b646db3f60ac8b">getInstance</a>();</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_garbage_collector.html#a02eedf4429c541cde5c8c53f69732668">newPtr</a> (<a class="code" href="class_v_s_ptr.html">VSPtr&lt;T&gt;</a>*,<span class="keywordtype">void</span>*,<span class="keywordtype">string</span>);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="class_garbage_collector.html#a2a283013e15237ccb8f438dd9a28fc52">generateID</a>();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_garbage_collector.html#a0e2f7b2ce7b6af3f3b1ee9b52d3d1b01">clear</a>(<a class="code" href="class_v_s_ptr.html">VSPtr&lt;T&gt;</a>*, <span class="keywordtype">void</span>*);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="class_garbage_collector.html">GarbageCollector</a>(<span class="keyword">const</span> <a class="code" href="class_garbage_collector.html">GarbageCollector</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="class_linked_list.html">LinkedList&lt;VSPointers&gt;</a> VSptrs;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="class_linked_list.html">LinkedList&lt;VSData&gt;</a> Data;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">int</span> IDref;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">bool</span> init = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="class_garbage_collector.html">GarbageCollector</a>();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_garbage_collector.html#a3507b62b07ddddfd2791c1d15461246c">GCInitImp</a>();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_garbage_collector.html#a7897fcb6051fce6fc8881cc7f44fa85e">startServer</a>();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">string</span> <a class="code" href="class_garbage_collector.html#a8157a28186e130133ddbede1b7fabb22">dataTosend</a>();</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">string</span> <a class="code" href="class_garbage_collector.html#a766bd932f172ae8c32764dd522270311">toJson</a>();</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_garbage_collector.html#a0d326343e58b0b9b88780c1fe205e3a9">inspect</a>();</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_garbage_collector.html#af26a05dc75dbb5b607a8cef584947012">newPtrImp</a> (<a class="code" href="class_v_s_ptr.html">VSPtr&lt;T&gt;</a>*,<span class="keywordtype">void</span>*,<span class="keywordtype">string</span>);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="class_garbage_collector.html#a1bd6d244e06a8a64255c3312e2736f4f">generateIDImp</a>();</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_garbage_collector.html#a5d0f6f54cf32e4d2685a1a19e60f6454">clearImp</a>(<a class="code" href="class_v_s_ptr.html">VSPtr&lt;T&gt;</a>* VSDir,<span class="keywordtype">void</span>* TDir);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keyword">static</span> <a class="code" href="struct_v_s_data.html">VSData</a>* <a class="code" href="class_garbage_collector.html#a6a140ed885e7793ed236096ce5862ec0">searchInData</a>(<span class="keywordtype">void</span>*);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> searchInPtrs(<span class="keywordtype">void</span>*);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;};</div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclass_garbage_collector_html_a0d326343e58b0b9b88780c1fe205e3a9"><div class="ttname"><a href="class_garbage_collector.html#a0d326343e58b0b9b88780c1fe205e3a9">GarbageCollector::inspect</a></div><div class="ttdeci">static void inspect()</div><div class="ttdoc">Metodo que se ejecuta en el thread, busca aquellos VSPtr cuya referencia es 0.</div><div class="ttdef"><b>Definition:</b> Garbage Collector.cpp:217</div></div>
+<div class="ttc" id="aclass_garbage_collector_html_a766bd932f172ae8c32764dd522270311"><div class="ttname"><a href="class_garbage_collector.html#a766bd932f172ae8c32764dd522270311">GarbageCollector::toJson</a></div><div class="ttdeci">static string toJson()</div><div class="ttdoc">Funcion que tomas los datos de los punteros registrados y los pasa a un string JSON.</div><div class="ttdef"><b>Definition:</b> Garbage Collector.cpp:169</div></div>
+<div class="ttc" id="aclass_garbage_collector_html_a0e2f7b2ce7b6af3f3b1ee9b52d3d1b01"><div class="ttname"><a href="class_garbage_collector.html#a0e2f7b2ce7b6af3f3b1ee9b52d3d1b01">GarbageCollector::clear</a></div><div class="ttdeci">static void clear(VSPtr&lt; T &gt; *, void *)</div><div class="ttdoc">Metodo que se ejecuta cuando un VSPtr es eliminado.</div><div class="ttdef"><b>Definition:</b> Garbage Collector.cpp:274</div></div>
+<div class="ttc" id="aclass_garbage_collector_html_af26a05dc75dbb5b607a8cef584947012"><div class="ttname"><a href="class_garbage_collector.html#af26a05dc75dbb5b607a8cef584947012">GarbageCollector::newPtrImp</a></div><div class="ttdeci">static void newPtrImp(VSPtr&lt; T &gt; *, void *, string)</div><div class="ttdoc">Implemetacion de newPtr.</div><div class="ttdef"><b>Definition:</b> Garbage Collector.cpp:242</div></div>
+<div class="ttc" id="aclass_garbage_collector_html_a6a140ed885e7793ed236096ce5862ec0"><div class="ttname"><a href="class_garbage_collector.html#a6a140ed885e7793ed236096ce5862ec0">GarbageCollector::searchInData</a></div><div class="ttdeci">static VSData * searchInData(void *)</div><div class="ttdoc">Accede a la lista enlazada y busca los datos del VSPointr cuya dir de memoria sea igual a ref.</div><div class="ttdef"><b>Definition:</b> Garbage Collector.cpp:297</div></div>
+<div class="ttc" id="aclass_garbage_collector_html_a8157a28186e130133ddbede1b7fabb22"><div class="ttname"><a href="class_garbage_collector.html#a8157a28186e130133ddbede1b7fabb22">GarbageCollector::dataTosend</a></div><div class="ttdeci">static string dataTosend()</div><div class="ttdoc">Funcion que se encarga de tomar los datos registrados en el GC y darles formato para ser enviados a l...</div><div class="ttdef"><b>Definition:</b> Garbage Collector.cpp:127</div></div>
+<div class="ttc" id="aclass_garbage_collector_html_a02eedf4429c541cde5c8c53f69732668"><div class="ttname"><a href="class_garbage_collector.html#a02eedf4429c541cde5c8c53f69732668">GarbageCollector::newPtr</a></div><div class="ttdeci">static void newPtr(VSPtr&lt; T &gt; *, void *, string)</div><div class="ttdoc">Metodo que se ejecuta cuando un nuevo VSPtr es creado.</div><div class="ttdef"><b>Definition:</b> Garbage Collector.cpp:237</div></div>
+<div class="ttc" id="aclass_garbage_collector_html_a42699623204a45b75225e14fa1ed5fc7"><div class="ttname"><a href="class_garbage_collector.html#a42699623204a45b75225e14fa1ed5fc7">GarbageCollector::GCInit</a></div><div class="ttdeci">static void GCInit()</div><div class="ttdoc">Metodo que inicializa el thread de la clase.</div><div class="ttdef"><b>Definition:</b> Garbage Collector.cpp:33</div></div>
+<div class="ttc" id="aclass_garbage_collector_html_a2a283013e15237ccb8f438dd9a28fc52"><div class="ttname"><a href="class_garbage_collector.html#a2a283013e15237ccb8f438dd9a28fc52">GarbageCollector::generateID</a></div><div class="ttdeci">static int generateID()</div><div class="ttdoc">Genera un ID para un nuevo VSPtr con base en IDref.</div><div class="ttdef"><b>Definition:</b> Garbage Collector.cpp:266</div></div>
+<div class="ttc" id="aclass_garbage_collector_html_ade4bccdf41223cc395b646db3f60ac8b"><div class="ttname"><a href="class_garbage_collector.html#ade4bccdf41223cc395b646db3f60ac8b">GarbageCollector::getInstance</a></div><div class="ttdeci">static GarbageCollector * getInstance()</div><div class="ttdoc">Metodo que inicializa la clase como un singleton o retorna la instacia ya existente.</div><div class="ttdef"><b>Definition:</b> Garbage Collector.cpp:28</div></div>
+<div class="ttc" id="aclass_v_s_ptr_html"><div class="ttname"><a href="class_v_s_ptr.html">VSPtr</a></div><div class="ttdoc">Implementacion especial del concepto de punteros para la libreria.</div><div class="ttdef"><b>Definition:</b> VSPtr.h:11</div></div>
+<div class="ttc" id="aclass_garbage_collector_html_a3507b62b07ddddfd2791c1d15461246c"><div class="ttname"><a href="class_garbage_collector.html#a3507b62b07ddddfd2791c1d15461246c">GarbageCollector::GCInitImp</a></div><div class="ttdeci">static void GCInitImp()</div><div class="ttdoc">Implemetacion de GCInit.</div><div class="ttdef"><b>Definition:</b> Garbage Collector.cpp:40</div></div>
+<div class="ttc" id="aclass_garbage_collector_html_a7897fcb6051fce6fc8881cc7f44fa85e"><div class="ttname"><a href="class_garbage_collector.html#a7897fcb6051fce6fc8881cc7f44fa85e">GarbageCollector::startServer</a></div><div class="ttdeci">static void startServer()</div><div class="ttdoc">Inicializa el servidor para la comunicacion con la extension.</div><div class="ttdef"><b>Definition:</b> Garbage Collector.cpp:47</div></div>
+<div class="ttc" id="aclass_garbage_collector_html"><div class="ttname"><a href="class_garbage_collector.html">GarbageCollector</a></div><div class="ttdoc">Clase Singleton que simula un Garbage collector.</div><div class="ttdef"><b>Definition:</b> Garbage Collector.h:9</div></div>
+<div class="ttc" id="aclass_linked_list_html"><div class="ttname"><a href="class_linked_list.html">LinkedList&lt; VSPointers &gt;</a></div></div>
+<div class="ttc" id="aclass_garbage_collector_html_a5d0f6f54cf32e4d2685a1a19e60f6454"><div class="ttname"><a href="class_garbage_collector.html#a5d0f6f54cf32e4d2685a1a19e60f6454">GarbageCollector::clearImp</a></div><div class="ttdeci">static void clearImp(VSPtr&lt; T &gt; *VSDir, void *TDir)</div><div class="ttdoc">Implemetacion de clear.</div><div class="ttdef"><b>Definition:</b> Garbage Collector.cpp:279</div></div>
+<div class="ttc" id="aclass_garbage_collector_html_a1bd6d244e06a8a64255c3312e2736f4f"><div class="ttname"><a href="class_garbage_collector.html#a1bd6d244e06a8a64255c3312e2736f4f">GarbageCollector::generateIDImp</a></div><div class="ttdeci">static int generateIDImp()</div><div class="ttdoc">Implemetacion de generateID.</div></div>
+<div class="ttc" id="astruct_v_s_data_html"><div class="ttname"><a href="struct_v_s_data.html">VSData</a></div><div class="ttdoc">Estructura para almacenar los datos de una variable en el heap.</div><div class="ttdef"><b>Definition:</b> GCStructs.h:21</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.18
+</small></address>
+</body>
+</html>

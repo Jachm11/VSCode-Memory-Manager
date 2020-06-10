@@ -1,0 +1,133 @@
+\hypertarget{class_m_d5}{}\doxysection{Referencia de la Clase M\+D5}
+\label{class_m_d5}\index{MD5@{MD5}}
+
+
+small class for calculating \mbox{\hyperlink{class_m_d5}{M\+D5}} hashes of strings or byte arrays it is not meant to be fast or secure  
+
+
+
+
+{\ttfamily \#include $<$md5.\+h$>$}
+
+\doxysubsection*{Tipos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_m_d5_aa836972700679dbcff6ae8337f6db464}\label{class_m_d5_aa836972700679dbcff6ae8337f6db464}} 
+typedef unsigned int {\bfseries size\+\_\+type}
+\end{DoxyCompactItemize}
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_m_d5_a155356ffd713345e69e6dcbd9f8da6ce}\label{class_m_d5_a155356ffd713345e69e6dcbd9f8da6ce}} 
+{\bfseries M\+D5} (const std\+::string \&text)
+\item 
+\mbox{\Hypertarget{class_m_d5_ac5ddf6cd8f940422396d321ea90ed045}\label{class_m_d5_ac5ddf6cd8f940422396d321ea90ed045}} 
+void {\bfseries update} (const unsigned char $\ast$buf, size\+\_\+type length)
+\item 
+\mbox{\Hypertarget{class_m_d5_ac5ccba375539b993958fb235f8ac849c}\label{class_m_d5_ac5ccba375539b993958fb235f8ac849c}} 
+void {\bfseries update} (const char $\ast$buf, size\+\_\+type length)
+\item 
+\mbox{\Hypertarget{class_m_d5_a10f607494a3f2e3e515fc4b99d1a06cc}\label{class_m_d5_a10f607494a3f2e3e515fc4b99d1a06cc}} 
+\mbox{\hyperlink{class_m_d5}{M\+D5}} \& {\bfseries finalize} ()
+\item 
+\mbox{\Hypertarget{class_m_d5_aaf466f683b4bd8b1b66544f48bf09608}\label{class_m_d5_aaf466f683b4bd8b1b66544f48bf09608}} 
+std\+::string {\bfseries hexdigest} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Tipos privados}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_m_d5_a227e6f16f2409956b516b453e6bc7429}\label{class_m_d5_a227e6f16f2409956b516b453e6bc7429}} 
+enum \{ {\bfseries blocksize} = 64
+ \}
+\item 
+\mbox{\Hypertarget{class_m_d5_a3b1c4901139aef256ee49c4ab14d09f9}\label{class_m_d5_a3b1c4901139aef256ee49c4ab14d09f9}} 
+typedef unsigned char {\bfseries uint1}
+\item 
+\mbox{\Hypertarget{class_m_d5_a2e5b84a3d7db292f49873061214a0444}\label{class_m_d5_a2e5b84a3d7db292f49873061214a0444}} 
+typedef unsigned int {\bfseries uint4}
+\end{DoxyCompactItemize}
+\doxysubsection*{Métodos privados}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_m_d5_a65ddaecdd0bd0b09043a2f3b2601bc2e}\label{class_m_d5_a65ddaecdd0bd0b09043a2f3b2601bc2e}} 
+void {\bfseries init} ()
+\item 
+\mbox{\Hypertarget{class_m_d5_a9d569ab2a3e564793e116f774a3ad269}\label{class_m_d5_a9d569ab2a3e564793e116f774a3ad269}} 
+void {\bfseries transform} (const uint1 block\mbox{[}blocksize\mbox{]})
+\end{DoxyCompactItemize}
+\doxysubsection*{Métodos privados estáticos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_m_d5_a7eef3463c43a2cdfb56a0261b640f873}\label{class_m_d5_a7eef3463c43a2cdfb56a0261b640f873}} 
+static void {\bfseries decode} (uint4 output\mbox{[}$\,$\mbox{]}, const uint1 input\mbox{[}$\,$\mbox{]}, size\+\_\+type len)
+\item 
+\mbox{\Hypertarget{class_m_d5_a52603a1b589b2863cad4caae7f259b7e}\label{class_m_d5_a52603a1b589b2863cad4caae7f259b7e}} 
+static void {\bfseries encode} (uint1 output\mbox{[}$\,$\mbox{]}, const uint4 input\mbox{[}$\,$\mbox{]}, size\+\_\+type len)
+\item 
+\mbox{\Hypertarget{class_m_d5_a95b7adf4602b92e84ca5f34084859e79}\label{class_m_d5_a95b7adf4602b92e84ca5f34084859e79}} 
+static uint4 {\bfseries F} (uint4 x, uint4 y, uint4 z)
+\item 
+\mbox{\Hypertarget{class_m_d5_afbc3ab3591fca4e780f647dac3952bc8}\label{class_m_d5_afbc3ab3591fca4e780f647dac3952bc8}} 
+static uint4 {\bfseries G} (uint4 x, uint4 y, uint4 z)
+\item 
+\mbox{\Hypertarget{class_m_d5_a59392e8552045b37628a48497ede9cf0}\label{class_m_d5_a59392e8552045b37628a48497ede9cf0}} 
+static uint4 {\bfseries H} (uint4 x, uint4 y, uint4 z)
+\item 
+\mbox{\Hypertarget{class_m_d5_ad2c1682834e38219894728830e3996c3}\label{class_m_d5_ad2c1682834e38219894728830e3996c3}} 
+static uint4 {\bfseries I} (uint4 x, uint4 y, uint4 z)
+\item 
+\mbox{\Hypertarget{class_m_d5_a97ece3d8221e3c9c994aa9d13001b1d9}\label{class_m_d5_a97ece3d8221e3c9c994aa9d13001b1d9}} 
+static uint4 {\bfseries rotate\+\_\+left} (uint4 x, int n)
+\item 
+\mbox{\Hypertarget{class_m_d5_a31479b157441ace2dbc2ae0edd0d2e38}\label{class_m_d5_a31479b157441ace2dbc2ae0edd0d2e38}} 
+static void {\bfseries FF} (uint4 \&a, uint4 b, uint4 c, uint4 d, uint4 x, uint4 s, uint4 ac)
+\item 
+\mbox{\Hypertarget{class_m_d5_a8ebdbe52608e522516d1759a31753212}\label{class_m_d5_a8ebdbe52608e522516d1759a31753212}} 
+static void {\bfseries GG} (uint4 \&a, uint4 b, uint4 c, uint4 d, uint4 x, uint4 s, uint4 ac)
+\item 
+\mbox{\Hypertarget{class_m_d5_aaad039caf0b33abf1bf3f3589166543c}\label{class_m_d5_aaad039caf0b33abf1bf3f3589166543c}} 
+static void {\bfseries HH} (uint4 \&a, uint4 b, uint4 c, uint4 d, uint4 x, uint4 s, uint4 ac)
+\item 
+\mbox{\Hypertarget{class_m_d5_a7af0184654644964ecdb57b1203e5ec7}\label{class_m_d5_a7af0184654644964ecdb57b1203e5ec7}} 
+static void {\bfseries II} (uint4 \&a, uint4 b, uint4 c, uint4 d, uint4 x, uint4 s, uint4 ac)
+\end{DoxyCompactItemize}
+\doxysubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_m_d5_a696e995f7045cf0146a207c720386f9c}\label{class_m_d5_a696e995f7045cf0146a207c720386f9c}} 
+bool {\bfseries finalized}
+\item 
+\mbox{\Hypertarget{class_m_d5_a0df603b8332399d5c1daa08ab5a315ea}\label{class_m_d5_a0df603b8332399d5c1daa08ab5a315ea}} 
+uint1 {\bfseries buffer} \mbox{[}blocksize\mbox{]}
+\item 
+\mbox{\Hypertarget{class_m_d5_a52a9ff26a3de9e831b17c1740aa5388a}\label{class_m_d5_a52a9ff26a3de9e831b17c1740aa5388a}} 
+uint4 {\bfseries count} \mbox{[}2\mbox{]}
+\item 
+\mbox{\Hypertarget{class_m_d5_aae3f861952f5b129463f550170836db0}\label{class_m_d5_aae3f861952f5b129463f550170836db0}} 
+uint4 {\bfseries state} \mbox{[}4\mbox{]}
+\item 
+\mbox{\Hypertarget{class_m_d5_a31058e1dca10bbf29818bb5177ff02ac}\label{class_m_d5_a31058e1dca10bbf29818bb5177ff02ac}} 
+uint1 {\bfseries digest} \mbox{[}16\mbox{]}
+\end{DoxyCompactItemize}
+\doxysubsection*{Amigas}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_m_d5_a0739666fd0f3a7117546f6c50e0783b2}\label{class_m_d5_a0739666fd0f3a7117546f6c50e0783b2}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&, \mbox{\hyperlink{class_m_d5}{M\+D5}} md5)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+small class for calculating \mbox{\hyperlink{class_m_d5}{M\+D5}} hashes of strings or byte arrays it is not meant to be fast or secure 
+
+usage\+: 1) feed it blocks of uchars with update() 2) finalize() 3) get hexdigest() string or \mbox{\hyperlink{class_m_d5}{M\+D5(std\+::string)}}.hexdigest()
+
+assumes that char is 8 bit and int is 32 bit \begin{DoxyAuthor}{Autor}
+Frank Thilo (\href{mailto:thilo@unix-ag.org}{\texttt{ thilo@unix-\/ag.\+org}}) 
+\end{DoxyAuthor}
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+Memory Manager Server/\+Server/md5.\+h\item 
+Memory Manager Server/\+Server/md5.\+cpp\end{DoxyCompactItemize}

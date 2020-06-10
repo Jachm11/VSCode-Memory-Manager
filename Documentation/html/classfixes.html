@@ -1,0 +1,2599 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.18"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Heap Visualizer: Referencia de la Clase fixes</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Heap Visualizer
+   &#160;<span id="projectnumber">1.0.0</span>
+   </div>
+   <div id="projectbrief">Extesion y libreria para visualizacion del heap en VSCode</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.18 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Referencia de la Clase fixes</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>nterface (fixes #4860) (Tim Schaub)</p><ul>
+<li>d43f26c Breaking: migrate from minimatch to node-ignore (fixes #2365) (Stefan Grönke)</li>
+<li>c07ca39 Breaking: merges keyword spacing rules (fixes #3869) (Toru Nagashima)</li>
+<li>871f534 Upgrade: Optionator version to 0.8.1 (fixes #4851) (Eric Johnson)</li>
+<li>82d4cd9 Update: Add atomtest env (fixes #4848) (Andres Suarez)</li>
+<li>9c9beb5 Update: Add "ignore" override for operator-linebreak (fixes #4294) (Rajendra Patil)</li>
+<li>9c03abc Update: Add "allowCall" option (fixes #4011) (Rajendra Patil)</li>
+<li>29516f1 Docs: fix migration guide for no-arrow-condition rule (Peter Newnham)</li>
+<li>2ef7549 Docs: clarify remedy to some prefer-const errors (Turadg Aleahmad)</li>
+<li>1288ba4 Update: Add default limit to <code>complexity</code> (fixes #4808) (Ian VanSchooten)</li>
+<li>d3e8179 Fix: env is rewritten by modules (fixes #4814) (Toru Nagashima)</li>
+<li>fd72aba Docs: Example fix for <code>no-extra-parens</code> rule (fixes #3527) (Gyandeep Singh)</li>
+<li>315f272 Fix: Change max-warnings type to Int (fixes #4660) (George Zahariev)</li>
+<li>5050768 Update: Ask for <code>commonjs</code> under config init (fixes #3553) (Gyandeep Singh)</li>
+<li>4665256 New: Add no-whitespace-before-property rule (fixes #1086) (Kai Cataldo)</li>
+<li>f500d7d Fix: allow extending @scope/eslint/file (fixes #4800) (André Cruz)</li>
+<li>5ab564e New: 'ignoreArrayIndexes' option for 'no-magic-numbers' (fixes #4370) (Christian Schuller)</li>
+<li>97cdb95 New: Add no-useless-constructor rule (fixes #4785) (alberto)</li>
+<li>b9bcbaf Fix: Bug in no-extra-bind (fixes #4806) (Andres Kalle)</li>
+<li>246a6d2 Docs: Documentation fix (Andres Kalle)</li>
+<li>9ea6b36 Update: Ignore case in jsdoc tags (fixes #4576) (alberto)</li>
+<li>acdda24 Fix: ignore argument parens in no-unexpected-multiline (fixes #4658) (alberto)</li>
+<li>4931f56 Update: optionally allow bitwise operators (fixes #4742) (Swaagie)</li>
+</ul>
+<p>v2.0.0-alpha-2 - December 23, 2015</p>
+<ul>
+<li>Build: Add prerelease script (Nicholas C. Zakas)</li>
+<li>Update: Allow to omit semi for one-line blocks (fixes #4385) (alberto)</li>
+<li>Fix: Handle getters and setters in key-spacing (fixes #4792) (Brandon Mills)</li>
+<li>Fix: ObjectRestSpread throws error in key-spacing rule (fixes #4763) (Ziad El Khoury Hanna)</li>
+<li>Docs: Typo in generator-star (alberto)</li>
+<li>Fix: Backtick behavior in quotes rule (fixes #3090) (Nicholas C. Zakas)</li>
+<li>Fix: Empty schemas forbid any options (fixes #4789) (Brandon Mills)</li>
+<li>Fix: Remove <code>isMarkedAsUsed</code> function name (fixes #4783) (Gyandeep Singh)</li>
+<li>Fix: support arrow functions in no-return-assign (fixes #4743) (alberto)</li>
+<li>Docs: Add license header to Working with Rules guide (Brandon Mills)</li>
+<li>Fix: RuleTester to show parsing errors (fixes #4779) (Nicholas C. Zakas)</li>
+<li>Docs: Escape underscores in no-path-concat (alberto)</li>
+<li>Update: configuration for classes in space-before-blocks (fixes #4089) (alberto)</li>
+<li>Docs: Typo in no-useless-concat (alberto)</li>
+<li>Docs: fix typos, suggests (molee1905)</li>
+<li>Docs: Typos in space-before-keywords and space-unary-ops (fixes #4771) (alberto)</li>
+<li>Upgrade: beefy to ^2.0.0, fixes installation errors (fixes #4760) (Kai Cataldo)</li>
+<li>Docs: Typo in no-unexpected-multiline (fixes #4756) (alberto)</li>
+<li>Update: option to ignore top-level max statements (fixes #4309) (alberto)</li>
+<li>Update: Implement auto fix for semi-spacing rule (fixes #3829) (alberto)</li>
+<li>Fix: small typos in code examples (Plusb Preco)</li>
+<li>Docs: Add section on file extensions to user-guide/configuring (adam)</li>
+<li>Fix: Comma first issue in <code>indent</code> (fixes #4739, fixes #3456) (Gyandeep Singh)</li>
+<li>Fix: no-constant-condition false positive (fixes #4737) (alberto)</li>
+<li>Fix: Add source property for fatal errors (fixes #3325) (Gyandeep Singh)</li>
+<li>New: Add a comment length option to the max-len rule (fixes #4665) (Ian)</li>
+<li>Docs: RuleTester doesn't require any tests (fixes #4681) (alberto)</li>
+<li>Fix: Remove path analysis from debug log (fixes #4631) (Ilya Volodin)</li>
+<li>Fix: Set null to property ruleId when fatal is true (fixes #4722) (Sébastien Règne)</li>
+<li>New: Visual Studio compatible formatter (fixes #4708) (rhpijnacker)</li>
+<li>New: Add greasemonkey environment (fixes #4715) (silverwind)</li>
+<li>Fix: always-multiline for comma-dangle import (fixes #4704) (Nicholas C. Zakas)</li>
+<li>Fix: Check 1tbs non-block else (fixes #4692) (Nicholas C. Zakas)</li>
+<li>Fix: Apply environment configs last (fixes #3915) (Nicholas C. Zakas)</li>
+<li>New: <code>no-unmodified-loop-condition</code> rule (fixes #4523) (Toru Nagashima)</li>
+<li>Breaking: deprecate <code>no-arrow-condition</code> rule (fixes #4417) (Luke Karrys)</li>
+<li>Update: Add cwd option for cli-engine (fixes #4472) (Ilya Volodin)</li>
+<li>New: Add no-confusing-arrow rule (refs #4417) (Luke Karrys)</li>
+<li>Fix: ensure <code>ConfigOps.merge</code> do a deep copy (fixes #4682) (Toru Nagashima)</li>
+<li>Fix: <code>no-invalid-this</code> allows this in static method (fixes #4669) (Toru Nagashima)</li>
+<li>Fix: Export class syntax for <code>require-jsdoc</code> rule (fixes #4667) (Gyandeep Singh)</li>
+<li>Update: Add "safe" mode to strict (fixes #3306) (Brandon Mills)</li>
+</ul>
+<p>v2.0.0-alpha-1 - December 11, 2015</p>
+<ul>
+<li>Breaking: Correct links between variables and references (fixes #4615) (Toru Nagashima)</li>
+<li>Fix: Update rule tests for parser options (fixes #4673) (Nicholas C. Zakas)</li>
+<li>Breaking: Implement parserOptions (fixes #4641) (Nicholas C. Zakas)</li>
+<li>Fix: max-len rule overestimates the width of some tabs (fixes #4661) (Nick Evans)</li>
+<li>New: Add no-implicit-globals rule (fixes #4542) (Joshua Peek)</li>
+<li>Update: <code>no-use-before-define</code> checks invalid initializer (fixes #4280) (Toru Nagashima)</li>
+<li>Fix: Use oneValuePerFlag for &ndash;ignore-pattern option (fixes #4507) (George Zahariev)</li>
+<li>New: <code>array-callback-return</code> rule (fixes #1128) (Toru Nagashima)</li>
+<li>Upgrade: Handlebars to &gt;= 4.0.5 for security reasons (fixes #4642) (Jacques Favreau)</li>
+<li>Update: Add class body support to <code>indent</code> rule (fixes #4372) (Gyandeep Singh)</li>
+<li>Breaking: Remove space-after-keyword newline check (fixes #4149) (Nicholas C. Zakas)</li>
+<li>Breaking: Treat package.json like the rest of configs (fixes #4451) (Ilya Volodin)</li>
+<li>Docs: writing mistake (molee1905)</li>
+<li>Update: Add 'method' option to no-empty (fixes #4605) (Kai Cataldo)</li>
+<li>Breaking: Remove autofix from eqeqeq (fixes #4578) (Ilya Volodin)</li>
+<li>Breaking: Remove ES6 global variables from builtins (fixes #4085) (Brandon Mills)</li>
+<li>Fix: Handle forbidden LineTerminators in no-extra-parens (fixes #4229) (Brandon Mills)</li>
+<li>Update: Option to ignore constructor Fns object-shorthand (fixes #4487) (Kai Cataldo)</li>
+<li>Fix: Check YieldExpression argument in no-extra-parens (fixes #4608) (Brandon Mills)</li>
+<li>Fix: Do not cache <code>package.json</code> (fixes #4611) (Spain)</li>
+<li>Build: Consume no-underscore-dangle allowAfterThis option (fixes #4599) (Kevin Partington)</li>
+<li>New: Add no-restricted-imports rule (fixes #3196) (Guy Ellis)</li>
+<li>Docs: no-extra-semi no longer refers to deprecated rule (fixes #4598) (Kevin Partington)</li>
+<li>Fix: <code>consistent-return</code> checks the last (refs #3530, fixes #3373) (Toru Nagashima)</li>
+<li>Update: add class option to <code>no-use-before-define</code> (fixes #3944) (Toru Nagashima)</li>
+<li>Breaking: Simplify rule schemas (fixes #3625) (Nicholas C. Zakas)</li>
+<li>Docs: Update docs/rules/no-plusplus.md (Xiangyun Chi)</li>
+<li>Breaking: added bower_components to default ignore (fixes #3550) (Julian Laval)</li>
+<li>Fix: <code>no-unreachable</code> with the code path (refs #3530, fixes #3939) (Toru Nagashima)</li>
+<li>Fix: <code>no-this-before-super</code> with the code path analysis (refs #3530) (Toru Nagashima)</li>
+<li>Fix: <code>no-fallthrough</code> with the code path analysis (refs #3530) (Toru Nagashima)</li>
+<li>Fix: <code>constructor-super</code> with the code path analysis (refs #3530) (Toru Nagashima)</li>
+<li>Breaking: Switch to Espree 3.0.0 (fixes #4334) (Nicholas C. Zakas)</li>
+<li>Breaking: Freeze context object (fixes #4495) (Nicholas C. Zakas)</li>
+<li>Docs: Add Code of Conduct (fixes #3095) (Nicholas C. Zakas)</li>
+<li>Breaking: Remove warnings of readonly from <code>no-undef</code> (fixes #4504) (Toru Nagashima)</li>
+<li>Update: allowAfterThis option in no-underscore-dangle (fixes #3435) (just-boris)</li>
+<li>Fix: Adding options unit tests for &ndash;ignore-pattern (refs #4507) (Kevin Partington)</li>
+<li>Breaking: Implement yield-star-spacing rule (fixes #4115) (Bryan Smith)</li>
+<li>New: <code>prefer-rest-params</code> rule (fixes #4108) (Toru Nagashima)</li>
+<li>Update: <code>prefer-const</code> begins to cover separating init (fixes #4474) (Toru Nagashima)</li>
+<li>Fix: <code>no-eval</code> come to catch indirect eval (fixes #4399, fixes #4441) (Toru Nagashima)</li>
+<li>Breaking: Default no-magic-numbers to none. (fixes #4193) (alberto)</li>
+<li>Breaking: Allow empty arrow body (fixes #4411) (alberto)</li>
+<li>New: Code Path Analysis (fixes #3530) (Toru Nagashima)</li>
+</ul>
+<p>v1.10.3 - December 1, 2015</p>
+<ul>
+<li>Docs: Update strict rule docs (fixes #4583) (Nicholas C. Zakas)</li>
+<li>Docs: Reference .eslintrc.* in contributing docs (fixes #4532) (Kai Cataldo)</li>
+<li>Fix: Add for-of to <code>curly</code> rule (fixes #4571) (Kai Cataldo)</li>
+<li>Fix: Ignore space before function in array start (fixes #4569) (alberto)</li>
+</ul>
+<p>v1.10.2 - November 27, 2015</p>
+<ul>
+<li>Upgrade: escope@3.3.0 (refs #4485) (Nicholas C. Zakas)</li>
+<li>Upgrade: Pinned down js-yaml to avoid breaking dep (fixes #4553) (alberto)</li>
+<li>Fix: lines-around-comment with multiple comments (fixes #3509) (alberto)</li>
+<li>Upgrade: doctrine@0.7.1 (fixes #4545) (Kevin Partington)</li>
+<li>Fix: Bugfix for eqeqeq autofix (fixes #4540) (Kevin Partington)</li>
+<li>Fix: Add for-in to <code>curly</code> rule (fixes #4436) (Kai Cataldo)</li>
+<li>Fix: <code>valid-jsdoc</code> unneeded require check fix (fixes #4527) (Gyandeep Singh)</li>
+<li>Fix: <code>brace-style</code> ASI fix for if-else condition (fixes #4520) (Gyandeep Singh)</li>
+<li>Build: Add branch update during release process (fixes #4491) (Gyandeep Singh)</li>
+<li>Build: Allow revert commits in commit messages (fixes #4452) (alberto)</li>
+<li>Fix: Incorrect location in no-fallthrough (fixes #4516) (alberto)</li>
+<li>Fix: <code>no-spaced-func</code> had been crashed (fixes #4508) (Toru Nagashima)</li>
+<li>Fix: Add a RestProperty test of <code>no-undef</code> (fixes #3271) (Toru Nagashima)</li>
+<li>Docs: Load badge from HTTPS (Brian J Brennan)</li>
+<li>Build: Update eslint bot messages (fixes #4497) (Nicholas C. Zakas)</li>
+</ul>
+<p>v1.10.1 - November 20, 2015</p>
+<ul>
+<li>Fix: Revert freezing context object (refs #4495) (Nicholas C. Zakas)</li>
+<li>1.10.0 (Nicholas C. Zakas)</li>
+</ul>
+<p>v1.10.0 - November 20, 2015</p>
+<ul>
+<li>Docs: Remove dupes from changelog (Nicholas C. Zakas)</li>
+<li>Update: &ndash;init to create extensioned files (fixes #4476) (Nicholas C. Zakas)</li>
+<li>Docs: Update description of exported comment (fixes #3916) (Nicholas C. Zakas)</li>
+<li>Docs: Move legacy rules to stylistic (files #4111) (Nicholas C. Zakas)</li>
+<li>Docs: Clean up description of recommended rules (fixes #4365) (Nicholas C. Zakas)</li>
+<li>Docs: Fix home directory config description (fixes #4398) (Nicholas C. Zakas)</li>
+<li>Update: Add class support to <code>require-jsdoc</code> rule (fixes #4268) (Gyandeep Singh)</li>
+<li>Update: return type error in <code>valid-jsdoc</code> rule (fixes #4443) (Gyandeep Singh)</li>
+<li>Update: Display errors at the place where fix should go (fixes #4470) (nightwing)</li>
+<li>Docs: Fix typo in default <code>cacheLocation</code> value (Andrew Hutchings)</li>
+<li>Fix: Handle comments in block-spacing (fixes #4387) (alberto)</li>
+<li>Update: Accept array for <code>ignorePattern</code> (fixes #3982) (Jesse McCarthy)</li>
+<li>Update: replace label and break with IIFE and return (fixes #4459) (Ilya Panasenko)</li>
+<li>Fix: space-before-keywords false positive (fixes #4449) (alberto)</li>
+<li>Fix: Improves performance (refs #3530) (Toru Nagashima)</li>
+<li>Fix: Autofix quotes produces invalid javascript (fixes #4380) (nightwing)</li>
+<li>Docs: Update indent.md (Nathan Brown)</li>
+<li>New: Disable comment config option (fixes #3901) (Matthew Riley MacPherson)</li>
+<li>New: Config files with extensions (fixes #4045, fixes #4263) (Nicholas C. Zakas)</li>
+<li>Revert "Update: Add JSX exceptions to no-extra-parens (fixes #4229)" (Brandon Mills)</li>
+<li>Update: Add JSX exceptions to no-extra-parens (fixes #4229) (Brandon Mills)</li>
+<li>Docs: Replace link to deprecated rule with newer rule (Andrew Marshall)</li>
+<li>Fix: <code>no-extend-native</code> crashed at empty defineProperty (fixes #4438) (Toru Nagashima)</li>
+<li>Fix: Support empty if blocks in lines-around-comment (fixes #4339) (alberto)</li>
+<li>Fix: <code>curly</code> warns wrong location for <code>else</code> (fixes #4362) (Toru Nagashima)</li>
+<li>Fix: <code>id-length</code> properties never option (fixes #4347) (Toru Nagashima)</li>
+<li>Docs: missing close rbracket in example (@storkme)</li>
+<li>Revert "Update: Allow empty arrow body (fixes #4411)" (Nicholas C. Zakas)</li>
+<li>Fix: eqeqeq autofix avoids clashes with space-infix-ops (fixes #4423) (Kevin Partington)</li>
+<li>Docs: Document semi-spacing behaviour (fixes #4404) (alberto)</li>
+<li>Update: Allow empty arrow body (fixes #4411) (alberto)</li>
+<li>Fix: Handle comments in comma-spacing (fixes #4389) (alberto)</li>
+<li>Update: Refactor eslint.verify args (fixes #4395) (Nicholas C. Zakas)</li>
+<li>Fix: no-undef-init should ignore const (fixes #4284) (Nicholas C. Zakas)</li>
+<li>Fix: Add the missing "as-needed" docs to the radix rule (fixes #4364) (Michał Gołębiowski)</li>
+<li>Fix: Display singular/plural version of "line" in message (fixes #4359) (Marius Schulz)</li>
+<li>Update: Add Popular Style Guides (fixes #4320) (Jamund Ferguson)</li>
+<li>Fix: eslint.report can be called w/o node if loc provided (fixes #4220) (Kevin Partington)</li>
+<li>Update: no-implicit-coercion validate AssignmentExpression (fixes #4348) (Ilya Panasenko)</li>
+</ul>
+<p>v1.9.0 - November 6, 2015</p>
+<ul>
+<li>Update: Make radix accept a "as-needed" option (fixes #4048) (Michał Gołębiowski)</li>
+<li>Fix: Update the message to include number of lines (fixes #4342) (Brian Delahunty)</li>
+<li>Docs: ASI causes problem whether semicolons are used or not (Thai Pangsakulyanont)</li>
+<li>Fix: Fixer to not overlap ranges among fix objects (fixes #4321) (Gyandeep Singh)</li>
+<li>Update: Add default to <code>max-nested-callbacks</code> (fixes #4297) (alberto)</li>
+<li>Fix: Check comments in space-in-parens (fixes #4302) (alberto)</li>
+<li>Update: Add quotes to error messages to improve clarity (fixes #4313) (alberto)</li>
+<li>Fix: tests failing due to differences in temporary paths (fixes #4324) (alberto)</li>
+<li>Fix: Make tests compatible with Windows (fixes #4315) (Ian VanSchooten)</li>
+<li>Update: Extract glob and filesystem logic from cli-engine (fixes #4305) (Ian VanSchooten)</li>
+<li>Build: Clarify commit-check messages (fixes #4256) (Ian VanSchooten)</li>
+<li>Upgrade: Upgrade various dependencies (fixes #4303) (Gyandeep Singh)</li>
+<li>Build: Add node 5 to travis build (fixes #4310) (Gyandeep Singh)</li>
+<li>Fix: ensure using correct estraverse (fixes #3951) (Toru Nagashima)</li>
+<li>Docs: update docs about using gitignore (Mateusz Derks)</li>
+<li>Update: Detect and fix wrong linebreaks (fixes #3981) (alberto)</li>
+<li>New: Add no-case-declarations rule (fixes #4278) (Erik Arvidsson)</li>
+</ul>
+<p>v1.8.0 - October 30, 2015</p>
+<ul>
+<li>Fix: Check for node property before testing type (fixes #4298) (Ian VanSchooten)</li>
+<li>Docs: Specify 'double' as default for quotes (fixes #4270) (Ian VanSchooten)</li>
+<li>Fix: Missing errors in space-in-parens (fixes #4257, fixes #3996) (alberto)</li>
+<li>Docs: fixed typo (Mathieu M-Gosselin)</li>
+<li>Fix: <code>cacheLocation</code> handles paths in windows style. (fixes #4285) (royriojas)</li>
+<li>Docs: fixed typo (mpal9000)</li>
+<li>Update: Add support for class in <code>valid-jsdoc</code> rule (fixes #4279) (Gyandeep Singh)</li>
+<li>Update: cache-file accepts a directory. (fixes #4241) (royriojas)</li>
+<li>Update: Add <code>maxEOF</code> to no-multiple-empty-lines (fixes #4235) (Adrien Vergé)</li>
+<li>Update: fix option for comma-spacing (fixes #4232) (HIPP Edgar (PRESTA EXT))</li>
+<li>Docs: Fix use of wrong word in configuration doc (Jérémie Astori)</li>
+<li>Fix: Prepare config before verifying SourceCode (fixes #4230) (Ian VanSchooten)</li>
+<li>Update: RuleTester come to check AST was not modified (fixes #4156) (Toru Nagashima)</li>
+<li>Fix: wrong count for 'no-multiple-empty-lines' on last line (fixes #4228) (alberto)</li>
+<li>Update: Add <code>allow</code> option to <code>no-shadow</code> rule (fixes #3035) (Gyandeep Singh)</li>
+<li>Doc: Correct the spelling of Alberto's surname (alberto)</li>
+<li>Docs: Add alberto as a committer (Gyandeep Singh)</li>
+<li>Build: Do not stub console in testing (fixes #1328) (Gyandeep Singh)</li>
+<li>Fix: Check node exists before checking type (fixes #4231) (Ian VanSchooten)</li>
+<li>Update: Option to exclude afterthoughts from no-plusplus (fixes #4093) (Brody McKee)</li>
+<li>New: Add rule no-arrow-condition (fixes #3280) (Luke Karrys)</li>
+<li>Update: Add linebreak style option to eol-last (fixes #4148) (alberto)</li>
+<li>New: arrow-body-style rule (fixes #4109) (alberto)</li>
+</ul>
+<p>v1.7.3 - October 21, 2015</p>
+<ul>
+<li>Fix: Support comma-first style in key-spacing (fixes #3877) (Brandon Mills)</li>
+<li>Fix: no-magic-numbers: variable declarations (fixes #4192) (Ilya Panasenko)</li>
+<li>Fix: Support ES6 shorthand in key-spacing (fixes #3678) (Brandon Mills)</li>
+<li>Fix: <code>indent</code> array with memberExpression (fixes #4203) (Gyandeep Singh)</li>
+<li>Fix: <code>indent</code> param function on sameline (fixes #4174) (Gyandeep Singh)</li>
+<li>Fix: no-multiple-empty-lines fails when empty line at EOF (fixes #4214) (alberto)</li>
+<li>Fix: <code>comma-dangle</code> false positive (fixes #4200) (Nicholas C. Zakas)</li>
+<li>Fix: <code>valid-jsdoc</code> prefer problem (fixes #4205) (Nicholas C. Zakas)</li>
+<li>Docs: Add missing single-quote (Kevin Lamping)</li>
+<li>Fix: correct no-multiple-empty-lines at EOF (fixes #4140) (alberto)</li>
+</ul>
+<p>v1.7.2 - October 19, 2015</p>
+<ul>
+<li>Fix: comma-dangle confused by parens (fixes #4195) (Nicholas C. Zakas)</li>
+<li>Fix: no-mixed-spaces-and-tabs (fixes #4189, fixes #4190) (alberto)</li>
+<li>Fix: no-extend-native disallow using Object.properties (fixes #4180) (Nathan Woltman)</li>
+<li>Fix: no-magic-numbers should ignore Number.parseInt (fixes #4167) (Henry Zhu)</li>
+</ul>
+<p>v1.7.1 - October 16, 2015</p>
+<ul>
+<li>Fix: id-match schema (fixes #4155) (Nicholas C. Zakas)</li>
+<li>Fix: no-magic-numbers should ignore parseInt (fixes #4167) (Nicholas C. Zakas)</li>
+<li>Fix: <code>indent</code> param function fix (fixes #4165, fixes #4164) (Gyandeep Singh)</li>
+</ul>
+<p>v1.7.0 - October 16, 2015</p>
+<ul>
+<li>Fix: array-bracket-spacing for empty array (fixes #4141) (alberto)</li>
+<li>Fix: <code>indent</code> arrow function check fix (fixes #4142) (Gyandeep Singh)</li>
+<li>Update: Support .js files for config (fixes #3102) (Gyandeep Singh)</li>
+<li>Fix: Make eslint-config-eslint work (fixes #4145) (Nicholas C. Zakas)</li>
+<li>Fix: <code>prefer-arrow-callback</code> had been wrong at arguments (fixes #4095) (Toru Nagashima)</li>
+<li>Docs: Update various rules docs (Nicholas C. Zakas)</li>
+<li>New: Create eslint-config-eslint (fixes #3525) (Nicholas C. Zakas)</li>
+<li>Update: RuleTester allows string errors in invalid cases (fixes #4117) (Kevin Partington)</li>
+<li>Docs: Reference no-unexpected-multiline in semi (fixes #4114) (alberto)</li>
+<li>Update: added exceptions to <code>lines-around-comment</code> rule. (fixes #2965) (Mathieu M-Gosselin)</li>
+<li>Update: Add <code>matchDescription</code> option to <code>valid-jsdoc</code> (fixes #2449) (Gyandeep Singh)</li>
+<li>Fix: check for objects or arrays in array-bracket-spacing (fixes #4083) (alberto)</li>
+<li>Docs: Alphabetize Rules lists (Kenneth Chung)</li>
+<li>Fix: message templates fail when no parameters are passed (fixes #4080) (Ilya Volodin)</li>
+<li>Fix: <code>indent</code> multi-line function call (fixes #4073, fixes #4075) (Gyandeep Singh)</li>
+<li>Docs: Improve comma-dangle documentation (Gilad Peleg)</li>
+<li>Fix: no-mixed-tabs-and-spaces fails with some comments (fixes #4086) (alberto)</li>
+<li>Fix: <code>semi</code> to check for do-while loops (fixes #4090) (Gyandeep Singh)</li>
+<li>Build: Fix path related failures on Windows in tests (fixes #4061) (Burak Yigit Kaya)</li>
+<li>Fix: <code>no-unused-vars</code> had been missing some parameters (fixes #4047) (Toru Nagashima)</li>
+<li>Fix: no-mixed-spaces-and-tabs with comments and templates (fixes #4077) (alberto)</li>
+<li>Update: Add <code>allow</code> option for <code>no-underscore-dangle</code> rule (fixes #2135) (Gyandeep Singh)</li>
+<li>Update: <code>allowArrowFunctions</code> option for <code>func-style</code> rule (fixes #1897) (Gyandeep Singh)</li>
+<li>Fix: Ignore template literals in no-mixed-tabs-and-spaces (fixes #4054) (Nicholas C. Zakas)</li>
+<li>Build: Enable CodeClimate (fixes #4068) (Nicholas C. Zakas)</li>
+<li>Fix: <code>no-cond-assign</code> had needed double parens in <code>for</code> (fixes #4023) (Toru Nagashima)</li>
+<li>Update: Ignore end of function in newline-after-var (fixes #3682) (alberto)</li>
+<li>Build: Performance perf to not ignore jshint file (refs #3765) (Gyandeep Singh)</li>
+<li>Fix: id-match bug incorrectly errors on <code>NewExpression</code> (fixes #4042) (Burak Yigit Kaya)</li>
+<li>Fix: <code>no-trailing-spaces</code> autofix to handle linebreaks (fixes #4050) (Gyandeep Singh)</li>
+<li>Fix: renamed no-magic-number to no-magic-numbers (fixes #4053) (Vincent Lemeunier)</li>
+<li>New: add "consistent" option to the "curly" rule (fixes #2390) (Benoît Zugmeyer)</li>
+<li>Update: Option to ignore for loops in init-declarations (fixes #3641) (alberto)</li>
+<li>Update: Add webextensions environment (fixes #4051) (Blake Winton)</li>
+<li>Fix: no-cond-assign should report assignment location (fixes #4040) (alberto)</li>
+<li>New: no-empty-pattern rule (fixes #3668) (alberto)</li>
+<li>Upgrade: Upgrade globals to 8.11.0 (fixes #3599) (Burak Yigit Kaya)</li>
+<li>Docs: Re-tag JSX code fences (fixes #4020) (Brandon Mills)</li>
+<li>New: no-magic-number rule (fixes #4027) (Vincent Lemeunier)</li>
+<li>Docs: Remove list of users from README (fixes #3881) (Brandon Mills)</li>
+<li>Fix: <code>no-redeclare</code> and <code>no-sahadow</code> for builtin globals (fixes #3971) (Toru Nagashima)</li>
+<li>Build: Add <code>.eslintignore</code> file for the project (fixes #3765) (Gyandeep Singh)</li>
+</ul>
+<p>v1.6.0 - October 2, 2015</p>
+<ul>
+<li>Fix: cache is basically not working (fixes #4008) (Richard Hansen)</li>
+<li>Fix: a test failure on Windows (fixes #3968) (Toru Nagashima)</li>
+<li>Fix: <code>no-invalid-this</code> had been missing globals in node (fixes #3961) (Toru Nagashima)</li>
+<li>Fix: <code>curly</code> with <code>multi</code> had false positive (fixes #3856) (Toru Nagashima)</li>
+<li>Build: Add load performance check inside perf function (fixes #3994) (Gyandeep Singh)</li>
+<li>Fix: space-before-keywords fails with super keyword (fixes #3946) (alberto)</li>
+<li>Fix: CLI should not fail on account of ignored files (fixes #3978) (Dominic Barnes)</li>
+<li>Fix: brace-style rule incorrectly flagging switch (fixes #4002) (Aparajita Fishman)</li>
+<li>Update: Implement auto fix for space-unary-ops rule (fixes #3976) (alberto)</li>
+<li>Update: Implement auto fix for computed-property-spacing (fixes #3975) (alberto)</li>
+<li>Update: Implement auto fix for no-multi-spaces rule (fixes #3979) (alberto)</li>
+<li>Fix: Report shorthand method names in complexity rule (fixes #3955) (Tijn Kersjes)</li>
+<li>Docs: Add note about typeof check for isNaN (fixes #3985) (Daniel Lo Nigro)</li>
+<li>Update: ESLint reports parsing errors with clear prefix. (fixes #3555) (Kevin Partington)</li>
+<li>Build: Update markdownlint dependency (fixes #3954) (David Anson)</li>
+<li>Update: <code>no-mixed-require</code> to have non boolean option (fixes #3922) (Gyandeep Singh)</li>
+<li>Fix: trailing spaces auto fix to check for line breaks (fixes #3940) (Gyandeep Singh)</li>
+<li>Update: Add <code>typeof</code> option to <code>no-undef</code> rule (fixes #3684) (Gyandeep Singh)</li>
+<li>Docs: Fix explanation and typos for accessor-pairs (alberto)</li>
+<li>Docs: Fix typos for camelcase (alberto)</li>
+<li>Docs: Fix typos for max-statements (Danny Guo)</li>
+<li>Update: Implement auto fix for object-curly-spacing (fixes #3857) (alberto)</li>
+<li>Update: Implement auto fix for array-bracket-spacing rule (fixes #3858) (alberto)</li>
+<li>Fix: Add schema to <code>global-require</code> rule (fixes #3923) (Gyandeep Singh)</li>
+<li>Update: Apply lazy loading for rules (fixes #3930) (Gyandeep Singh)</li>
+<li>Docs: Fix typo for arrow-spacing (Danny Guo)</li>
+<li>Docs: Fix typos for wrap-regex (Danny Guo)</li>
+<li>Docs: Fix explanation for space-before-keywords (Danny Guo)</li>
+<li>Docs: Fix typos for operator-linebreak (Danny Guo)</li>
+<li>Docs: Fix typos for callback-return (Danny Guo)</li>
+<li>Fix: no-trailing-spaces autofix to account for blank lines (fixes #3912) (Gyandeep Singh)</li>
+<li>Docs: Fix example in no-negated-condition.md (fixes #3908) (alberto)</li>
+<li>Update:warn message use <dl class="section return"><dt>Devuelve</dt><dd>when prefer.returns=return (fixes #3889) (闲耘™)</dd></dl>
+</li>
+<li>Update: Implement auto fix for generator-star-spacing rule (fixes #3873) (alberto)</li>
+<li>Update: Implement auto fix for arrow-spacing rule (fixes #3860) (alberto)</li>
+<li>Update: Implement auto fix for block-spacing rule (fixes #3859) (alberto)</li>
+<li>Fix: Support allman style for switch statement (fixes #3903) (Gyandeep Singh)</li>
+<li>New: no-negated-condition rule (fixes #3740) (alberto)</li>
+<li>Docs: Fix typo in blog post template (Nicholas C. Zakas)</li>
+<li>Update: Add env 'nashorn' to support Java 8 Nashorn Engine (fixes #3874) (Benjamin Winterberg)</li>
+<li>Docs: Prepare for rule doc linting (refs #2271) (Ian VanSchooten)</li>
+</ul>
+<p>v1.5.1 - September 22, 2015</p>
+<ul>
+<li>Fix: valid-jsdoc fix for param with properties (fixes #3476) (Gyandeep Singh)</li>
+<li>Fix: valid-jsdoc error with square braces (fixes #2270) (Gyandeep Singh)</li>
+<li>Upgrade: <code>doctrine</code> to 0.7.0 (fixes #3891) (Gyandeep Singh)</li>
+<li>Fix: <code>space-before-keywords</code> had been wrong on getters (fixes #3854) (Toru Nagashima)</li>
+<li>Fix: <code>no-dupe-args</code> had been wrong for nested destructure (fixes #3867) (Toru Nagashima)</li>
+<li>Docs: io.js is the new Node.js (thefourtheye)</li>
+<li>Docs: Fix method signature on working-with-rules docs (fixes #3862) (alberto)</li>
+<li>Docs: Add related ternary links (refs #3835) (Ian VanSchooten)</li>
+<li>Fix: don’t ignore config if cwd is the home dir (fixes #3846) (Mathias Schreck)</li>
+<li>Fix: <code>func-style</code> had been warning arrows with <code>this</code> (fixes #3819) (Toru Nagashima)</li>
+<li>Fix: <code>space-before-keywords</code>; allow opening curly braces (fixes #3789) (Marko Raatikka)</li>
+<li>Build: Fix broken .gitattributes generation (fixes #3566) (Nicholas C. Zakas)</li>
+<li>Build: Fix formatter docs generation (fixes #3847) (Nicholas C. Zakas)</li>
+</ul>
+<p>v1.5.0 - September 18, 2015</p>
+<ul>
+<li>Fix: invalidate cache when config changes. (fixes #3770) (royriojas)</li>
+<li>Fix: function body indent issues (fixes #3614, fixes #3799) (Gyandeep Singh)</li>
+<li>Update: Add configuration option to <code>space-before-blocks</code> (fixes #3758) (Phil Vargas)</li>
+<li>Fix: space checking between tokens (fixes #2211) (Nicholas C. Zakas)</li>
+<li>Fix: env-specified ecmaFeatures had been wrong (fixes #3735) (Toru Nagashima)</li>
+<li>Docs: Change example wording from warnings to problems (fixes #3676) (Ian VanSchooten)</li>
+<li>Build: Generate formatter example docs (fixes #3560) (Ian VanSchooten)</li>
+<li>New: Add &ndash;debug flag to CLI (fixes #2692) (Nicholas C. Zakas)</li>
+<li>Docs: Update no-undef-init docs (fixes #3170) (Nicholas C. Zakas)</li>
+<li>Docs: Update no-unused-expressions docs (fixes #3685) (Nicholas C. Zakas)</li>
+<li>Docs: Clarify node types in no-multi-spaces (fixes #3781) (Nicholas C. Zakas)</li>
+<li>Docs: Update new-cap docs (fixes #3798) (Nicholas C. Zakas)</li>
+<li>Fix: <code>space-before-blocks</code> had conflicted <code>arrow-spacing</code> (fixes #3769) (Toru Nagashima)</li>
+<li>Fix: <code>comma-dangle</code> had not been checking imports/exports (fixes #3794) (Toru Nagashima)</li>
+<li>Fix: tests fail due to differences in temporary paths. (fixes #3778) (royriojas)</li>
+<li>Fix: Directory ignoring should work (fixes #3812) (Nicholas C. Zakas)</li>
+<li>Fix: Ensure **/node_modules works in ignore files (fixes #3788) (Nicholas C. Zakas)</li>
+<li>Update: Implement auto fix for <code>space-infix-ops</code> rule (fixes #3801) (Gyandeep Singh)</li>
+<li>Fix: <code>no-warning-comments</code> can't be set via config comment (fixes #3619) (Burak Yigit Kaya)</li>
+<li>Update: <code>key-spacing</code> should allow 1+ around colon (fixes #3363) (Burak Yigit Kaya)</li>
+<li>Fix: false alarm of semi-spacing with semi set to never (fixes #1983) (Chen Yicai)</li>
+<li>Fix: Ensure ./ works correctly with CLI (fixes #3792) (Nicholas C. Zakas)</li>
+<li>Docs: add more examples + tests for block-scoped-var (fixes #3791) (JT)</li>
+<li>Update: Implement auto fix for <code>indent</code> rule (fixes #3734) (Gyandeep Singh)</li>
+<li>Fix: <code>space-before-keywords</code> fails to handle some cases (fixes #3756) (Marko Raatikka)</li>
+<li>Docs: Add if-else example (fixes #3722) (Ian VanSchooten)</li>
+<li>Fix: jsx-quotes exception for attributes without value (fixes #3793) (Mathias Schreck)</li>
+<li>Docs: Fix closing code fence on cli docs (Ian VanSchooten)</li>
+<li>Update: Implement auto fix for <code>space-before-blocks</code> rule (fixes #3776) (Gyandeep Singh)</li>
+<li>Update: Implement auto fix for <code>space-after-keywords</code> rule (fixes #3773) (Gyandeep Singh)</li>
+<li>Fix: <code>semi-spacing</code> had conflicted with <code>block-spacing</code> (fixes #3721) (Toru Nagashima)</li>
+<li>Update: Implement auto fix for <code>space-before-keywords</code> rule (fixes #3771) (Gyandeep Singh)</li>
+<li>Update: auto fix for space-before-function-paren rule (fixes #3766) (alberto)</li>
+<li>Update: Implement auto fix for <code>no-extra-semi</code> rule (fixes #3745) (Gyandeep Singh)</li>
+<li>Update: Refactors the traversing logic (refs #3530) (Toru Nagashima)</li>
+<li>Update: Implement auto fix for <code>space-return-throw-case</code> (fixes #3732) (Gyandeep Singh)</li>
+<li>Update: Implement auto fix for <code>no-spaced-func</code> rule (fixes #3728) (Gyandeep Singh)</li>
+<li>Update: Implement auto fix for <code>eol-last</code> rule (fixes #3725) (Gyandeep Singh)</li>
+<li>Update: Implement auto fix for <code>no-trailing-spaces</code> rule (fixes #3723) (Gyandeep Singh)</li>
+</ul>
+<p>v1.4.3 - September 15, 2015</p>
+<ul>
+<li>Fix: Directory ignoring should work (fixes #3812) (Nicholas C. Zakas)</li>
+<li>Fix: jsx-quotes exception for attributes without value (fixes #3793) (Mathias Schreck)</li>
+</ul>
+<p>v1.4.2 - September 15, 2015</p>
+<ul>
+<li>Fix: Ensure **/node_modules works in ignore files (fixes #3788) (Nicholas C. Zakas)</li>
+<li>Fix: Ensure ./ works correctly with CLI (fixes #3792) (Nicholas C. Zakas)</li>
+</ul>
+<p>v1.4.1 - September 11, 2015</p>
+<ul>
+<li>Fix: CLIEngine default cache parameter name (fixes #3755) (Daniel G. Taylor)</li>
+<li>Fix: Glob pattern from .eslintignore not applied (fixes #3750) (Burak Yigit Kaya)</li>
+<li>Fix: Skip JSDoc from NewExpression (fixes #3744) (Nicholas C. Zakas)</li>
+<li>Docs: Shorten and simplify autocomment for new issues (Nicholas C. Zakas)</li>
+</ul>
+<p>v1.4.0 - September 11, 2015</p>
+<ul>
+<li>Docs: Add new formatters to API docs (Ian VanSchooten)</li>
+<li>New: Implement autofixing (fixes #3134) (Nicholas C. Zakas)</li>
+<li>Fix: Remove temporary <code>"allow-null"</code> (fixes #3705) (Toru Nagashima)</li>
+<li>Fix: <code>no-unused-vars</code> had been crashed at <code>/*global $foo*/</code> (fixes #3714) (Toru Nagashima)</li>
+<li>Build: check-commit now checks commit message length. (fixes #3706) (Kevin Partington)</li>
+<li>Fix: make getScope acquire innermost scope (fixes #3700) (voideanvalue)</li>
+<li>Docs: Fix spelling mistake (domharrington)</li>
+<li>Fix: Allow whitespace in rule message parameters. (fixes #3690) (Kevin Partington)</li>
+<li>Fix: Eqeqeq rule with no option does not warn on 'a == null' (fixes #3699) (fediev)</li>
+<li>Fix: <code>no-unused-expressions</code> with <code>allowShortCircuit</code> false positive if left has no effect (fixes #3675) (Toru Nagashima)</li>
+<li>Update: Add <a class="el" href="class_node.html" title="Clase Nodo ligada a la clase LinkedList que guarda una referencia al nodo siguiente y el dato que gua...">Node</a> 4 to travis builds (fixes #3697) (Ian VanSchooten)</li>
+<li>Fix: Not check for punctuator if on same line as last var (fixes #3694) (Gyandeep Singh)</li>
+<li>Docs: Make <code>quotes</code> docs clearer (fixes #3646) (Nicholas C. Zakas)</li>
+<li>Build: Increase mocha timeout (fixes #3692) (Nicholas C. Zakas)</li>
+<li>Fix: <code>no-extra-bind</code> to flag all arrow funcs (fixes #3672) (Nicholas C. Zakas)</li>
+<li>Docs: Update README with release and sponsor info (Nicholas C. Zakas)</li>
+<li>Fix: <code>object-curly-spacing</code> had been crashing on an empty object pattern (fixes #3658) (Toru Nagashima)</li>
+<li>Fix: <code>no-extra-parens</code> false positive at IIFE with member accessing (fixes #3653) (Toru Nagashima)</li>
+<li>Fix: <code>comma-dangle</code> with <code>"always"</code>/<code>"always-multiline"</code> false positive after a rest element (fixes #3627) (Toru Nagashima)</li>
+<li>New: <code>jsx-quotes</code> rule (fixes #2011) (Mathias Schreck)</li>
+<li>Docs: Add linting for second half of rule docs (refs #2271) (Ian VanSchooten)</li>
+<li>Fix: <code>no-unused-vars</code> had not shown correct locations for <code>/*global</code> (fixes #3617) (Toru Nagashima)</li>
+<li>Fix: <code>space-after-keywords</code> not working for <code>catch</code> (fixes #3654) (Burak Yigit Kaya)</li>
+<li>Fix: Incorrectly warning about ignored files (fixes #3649) (Burak Yigit Kaya)</li>
+<li>Fix: Indent rule VariableDeclarator doesn't apply to arrow functions (fixes #3661) (Burak Yigit Kaya)</li>
+<li>Upgrade: Consuming handlebars@^4.0.0 (fixes #3632) (Kevin Partington)</li>
+<li>Docs: Fixing typos in plugin processor section. (fixes #3648) (Kevin Partington)</li>
+<li>Fix: Invalid env keys would cause an unhandled exception.(fixes #3265) (Ray Booysen)</li>
+<li>Docs: Fixing broken link in documentation (Ilya Volodin)</li>
+<li>Update: Check for default assignment in no-unneeded-ternary (fixes #3232) (cjihrig)</li>
+<li>Fix: <code>consistent-as-needed</code> mode with <code>keyword: true</code> (fixes #3636) (Alex Guerrero)</li>
+<li>New: Implement cache in order to only operate on changed files since previous run. (fixes #2998) (Roy Riojas)</li>
+<li>Update: Grouping related CLI options. (fixes #3612) (Kevin Partington)</li>
+<li>Update: Using @override does not require<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">or</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>(fixes #3629) (Whitney Young)</dd></dl>
+</li>
+<li>Docs: Use eslint-env in no-undef (fixes #3616) (Ian VanSchooten)</li>
+<li>New: <code>require-jsdoc</code> rule (fixes #1842) (Gyandeep Singh)</li>
+<li>New: Support glob path on command line (fixes #3402) (Burak Yigit Kaya)</li>
+<li>Update: Short circuit and ternary support in no-unused-expressions (fixes #2733) (David Warkentin)</li>
+<li>Docs: Replace to npmjs.com (Ryuichi Okumura)</li>
+<li>Fix: <code>indent</code> should only indent chain calls if the first call is single line (fixes #3591) (Burak Yigit Kaya)</li>
+<li>Fix: <code>quote-props</code> should not crash for object rest spread syntax (fixes #3595) (Joakim Carlstein)</li>
+<li>Update: Use <code>globals</code> module for the <code>commonjs</code> globals (fixes #3606) (Sindre Sorhus)</li>
+<li>New: <code>no-restricted-syntax</code> rule to forbid certain syntax (fixes #2422) (Burak Yigit Kaya)</li>
+<li>Fix: <code>no-useless-concat</code> false positive at numbers (fixes #3575, fixes #3589) (Toru Nagashima)</li>
+<li>New: Add &ndash;max-warnings flag to CLI (fixes #2769) (Kevin Partington)</li>
+<li>New: Add <code>parser</code> as an option (fixes #3127) (Gyandeep Singh)</li>
+<li>New: <code>space-before-keywords</code> rule (fixes #1631) (Marko Raatikka)</li>
+<li>Update: Allowing inline comments to disable eslint rules (fixes #3472) (Whitney Young)</li>
+<li>Docs: Including for(;;) as valid case in no-constant-condition (Kevin Partington)</li>
+<li>Update: Add quotes around the label in <code>no-redeclare</code> error messages (fixes #3583) (Ian VanSchooten)</li>
+<li>Docs: correct contributing URL (Dieter Luypaert)</li>
+<li>Fix: line number for duplicate object keys error (fixes #3573) (Elliot Lynde)</li>
+<li>New: global-require rule (fixes #2318) (Jamund Ferguson)</li>
+</ul>
+<p>v1.3.1 - August 29, 2015</p>
+<ul>
+<li>Fix: <code>indent</code> to not crash on empty files (fixes #3570) (Gyandeep Singh)</li>
+<li>Fix: Remove unused config file (fixes #2227) (Gyandeep Singh)</li>
+</ul>
+<p>v1.3.0 - August 28, 2015</p>
+<ul>
+<li>Build: Autogenerate release blog post (fixes #3562) (Nicholas C. Zakas)</li>
+<li>New: <code>no-useless-concat</code> rule (fixes #3506) (Henry Zhu)</li>
+<li>Update: Add <code>keywords</code> flag to <code>consistent-as-needed</code> mode in <code>quote-props</code> (fixes #3532) (Burak Yigit Kaya)</li>
+<li>Update: adds <code>numbers</code> option to quote-props (fixes #2914) (Jose Roberto Vidal)</li>
+<li>Fix: <code>quote-props</code> rule should ignore computed and shorthand properties (fixes #3557) (fixes #3544) (Burak Yigit Kaya)</li>
+<li>Docs: Add config comments for rule examples 'accessor-pairs' to 'no-extra-semi' (refs #2271) (Ian VanSchooten)</li>
+<li>Update: Return to accept <code>undefined</code> type (fixes #3382) (Gyandeep Singh)</li>
+<li>New: Added HTML formatter (fixes #3505) (Julian Laval)</li>
+<li>Fix: check space after yield keyword in space-unary-ops (fixes #2707) (Mathias Schreck)</li>
+<li>Docs: (curly) Fix broken code in example (Kent C. Dodds)</li>
+<li>Update: Quote var name in <code>no-unused-vars</code> error messages (refs #3526) (Burak Yigit Kaya)</li>
+<li>Update: Move methods to SourceCode (fixes #3516) (Nicholas C. Zakas)</li>
+<li>Fix: Don't try too hard to find fault in <code>no-implicit-coercion</code> (refs #3402) (Burak Yigit Kaya)</li>
+<li>Fix: Detect ternary operator in operator-linebreak rule (fixes #3274) (Burak Yigit Kaya)</li>
+<li>Docs: Clearer plugin rule configuration (fixes #2022) (Nicholas C. Zakas)</li>
+<li>Update: Add quotes around the label in <code>no-empty-label</code> error reports (fixes #3526) (Burak Yigit Kaya)</li>
+<li>Docs: Turn off Liquid in example (Nicholas C. Zakas)</li>
+<li>Docs: Mention CommonJS along with Node.js (fixes #3388) (Nicholas C. Zakas)</li>
+<li>Docs: Make it clear which rules are recommended (fixes #3398) (Nicholas C. Zakas)</li>
+<li>Docs: Add links to JSON Schema resources (fixes #3411) (Nicholas C. Zakas)</li>
+<li>Docs: Add more info to migration guide (fixes #3439) (Nicholas C. Zakas)</li>
+<li>Fix: ASI indentation issue (fixes #3514) (Burak Yigit Kaya)</li>
+<li>Fix: Make <code>no-implicit-coercion</code> smarter about numerical expressions (fixes #3510) (Burak Yigit Kaya)</li>
+<li>Fix: <code>prefer-template</code> had not been handling TemplateLiteral as literal node (fixes #3507) (Toru Nagashima)</li>
+<li>Update: <code>newline-after-var</code> Allow comment + blank after var (fixes #2852) (Ian VanSchooten)</li>
+<li>Update: Add <code>unnecessary</code> option to <code>quote-props</code> (fixes #3381) (Burak Yigit Kaya)</li>
+<li>Fix: <code>indent</code> shouldn't check the last line unless it is a punctuator (fixes #3498) (Burak Yigit Kaya)</li>
+<li>Fix: <code>indent</code> rule does not indent when doing multi-line chain calls (fixes #3279) (Burak Yigit Kaya)</li>
+<li>Fix: sort-vars rule fails when memo is undefined (fixes #3474) (Burak Yigit Kaya)</li>
+<li>Fix: <code>brace-style</code> doesn't report some closing brace errors (fixes #3486) (Burak Yigit Kaya)</li>
+<li>Update: separate options for block and line comments in <code>spaced-comment</code> rule (fixes #2897) (Burak Yigit Kaya)</li>
+<li>Fix: <code>indent</code> does not check FunctionDeclaration nodes properly (fixes #3173) (Burak Yigit Kaya)</li>
+<li>Update: Added "properties" option to <code>id-length</code> rule to ignore property names. (fixes #3450) (Mathieu M-Gosselin)</li>
+<li>Update: add new ignore pattern options to no-unused-vars (fixes #2321) (Mathias Schreck)</li>
+<li>New: Protractor environment (fixes #3457) (James Whitney)</li>
+<li>Docs: Added section to shareable config (Gregory Waxman)</li>
+<li>Update: Allow pre-parsed code (fixes #1025, fixes #948) (Nicholas C. Zakas)</li>
+</ul>
+<p>v1.2.1 - August 20, 2015</p>
+<ul>
+<li>Fix: "key-spacing" crashes eslint on object literal shorthand properties (fixes #3463) (Burak Yigit Kaya)</li>
+<li>Fix: ignore leading space check for <code>null</code> elements in comma-spacing (fixes #3392) (Mathias Schreck)</li>
+<li>Fix: <code>prefer-arrow-callback</code> false positive at recursive functions (fixes #3454) (Toru Nagashima)</li>
+<li>Fix: one-var rule doesn’t have default options (fixes #3449) (Burak Yigit Kaya)</li>
+<li>Fix: Refactor <code>no-duplicate-case</code> to be simpler and more efficient (fixes #3440) (Burak Yigit Kaya)</li>
+<li>Docs: Fix trailing spaces in README (Nicholas C. Zakas)</li>
+<li>Docs: Update gyandeeps and add byk (Nicholas C. Zakas)</li>
+<li>Docs: Update plugins documentation for 1.0.0 (Nicholas C. Zakas)</li>
+<li>Docs: <code>object-curly-spacing</code> doc is inaccurate about exceptions (Burak Yigit Kaya)</li>
+<li>Fix: <code>object-curly-spacing</code> shows the incorrect column for opening brace (fixes #3438) (Burak Yigit Kaya)</li>
+</ul>
+<p>v1.2.0 - August 18, 2015</p>
+<ul>
+<li>Update: add support for semicolon in comma-first setup in indent rule (fixes #3423) (Burak Yigit Kaya)</li>
+<li>Docs: better JSDoc for indent rule (Burak Yigit Kaya)</li>
+<li>Docs: Document the second argument of <code>CLIEngine.executeOnText()</code> (Sindre Sorhus)</li>
+<li>New: <code>no-dupe-class-members</code> rule (fixes #3294) (Toru Nagashima)</li>
+<li>Fix: exclude <code>AssignmentExpression</code> and <code>Property</code> nodes from extra indentation on first line (fixes #3391) (Burak Yigit Kaya)</li>
+<li>Update: Separate indent options for var, let and const (fixes #3339) (Burak Yigit Kaya)</li>
+<li>Fix: Add AssignmentPattern to space-infix-ops (fixes #3380) (Burak Yigit Kaya)</li>
+<li>Docs: Fix typo: exception label (tienslebien)</li>
+<li>Update: Clean up tests for CLI config support (refs #2543) (Gyandeep Singh)</li>
+<li>New: <code>block-spacing</code> rule (fixes #3303) (Toru Nagashima)</li>
+<li>Docs: Update docs for no-iterator (fixes #3405) (Nicholas C. Zakas)</li>
+<li>Upgrade: bump <code>espree</code> dependency to <code>2.2.4</code> (fixes #3403) (Burak Yigit Kaya)</li>
+<li>Fix: false positive on switch 'no duplicate case', (fixes #3408) (Cristian Carlesso)</li>
+<li>Fix: <code>valid-jsdoc</code> test does not recognize aliases for <code>@param</code> (fixes #3399) (Burak Yigit Kaya)</li>
+<li>New: enable <code>-c</code> flag to accept a shareable config (fixes #2543) (Shinnosuke Watanabe)</li>
+<li>Fix: Apply plugin given in CLI (fixes #3383) (Ian VanSchooten)</li>
+<li>New: Add commonjs environment (fixes #3377) (Nicholas C. Zakas)</li>
+<li>Docs: Update no-unused-var docs (Nicholas C. Zakas)</li>
+<li>Fix: trailing commas in object-curly-spacing for import/export (fixes #3324) (Henry Zhu)</li>
+<li>Update: Make <code>baseConfig</code> to behave as other config options (fixes #3371) (Gyandeep Singh)</li>
+<li>Docs: Add "Compatibility" section to linebreak-style (Vitor Balocco)</li>
+<li>New: <code>prefer-arrow-callback</code> rule (fixes #3140) (Toru Nagashima)</li>
+<li>Docs: Clarify what an unused var is (fixes #2342) (Nicholas C. Zakas)</li>
+<li>Docs: Mention double-byte character limitation in max-len (fixes #2370) (Nicholas C. Zakas)</li>
+<li>Fix: object curly spacing incorrectly warning for import with default and multiple named specifiers (fixes #3370) (Luke Karrys)</li>
+<li>Fix: Indent rule errors with array of objects (fixes #3329) (Burak Yigit Kaya)</li>
+<li>Update: Make it clear that <code>space-infix-ops</code> support <code>const</code> (fixes #3299) (Burak Yigit Kaya)</li>
+<li>New: <code>prefer-template</code> rule (fixes #3014) (Toru Nagashima)</li>
+<li>Docs: Clarify <code>no-process-env</code> docs (fixes #3318) (Nicholas C. Zakas)</li>
+<li>Docs: Fix arrow name typo (fixes #3309) (Nicholas C. Zakas)</li>
+<li>Update: Improve error message for <code>indent</code> rule violation (fixes #3340) (Burak Yigit Kaya)</li>
+<li>Fix: radix rule does not apply for Number.parseInt (ES6) (fixes #3364) (Burak Yigit Kaya)</li>
+<li>Fix: <code>key-spacing.align</code> doesn't pay attention to non-whitespace before key (fixes #3267) (Burak Yigit Kaya)</li>
+<li>Fix: arrow-parens &amp; destructuring/default params (fixes #3353) (Jamund Ferguson)</li>
+<li>Update: Add support for Allman to brace-style rule, brackets on newline (fixes #3347) (Burak Yigit Kaya)</li>
+<li>Fix: Regression no-catch-shadow (1.1.0) (fixes #3322) (Burak Yigit Kaya)</li>
+<li>Docs: remove note outdated in 1.0.0 (Denis Sokolov)</li>
+<li>Build: automatically convert line endings in release script (fixes #2642) (Burak Yigit Kaya)</li>
+<li>Update: allow disabling new-cap on object methods (fixes #3172) (Burak Yigit Kaya)</li>
+<li>Update: Improve checkstyle format (fixes #3183) (Burak Yigit Kaya)</li>
+<li>Fix: Indent rule errors if an array literal starts a new statement (fixes #3328) (Burak Yigit Kaya)</li>
+<li>Update: Improve validation error messages (fixes #3193) (Burak Yigit Kaya)</li>
+<li>Docs: fix syntax error in space-before-function-paren (Fabrício Matté)</li>
+<li>Fix: <code>indent</code> rule to check for last line correctly (fixes #3327) (Gyandeep Singh)</li>
+<li>Fix: Inconsistent off-by-one errors with column numbers (fixes #3231) (Burak Yigit Kaya)</li>
+<li>Fix: Keyword "else" must not be followed by a newline (fixes #3226) (Burak Yigit Kaya)</li>
+<li>Fix: <code>id-length</code> does not work for most of the new ES6 patterns (fixes #3286) (Burak Yigit Kaya)</li>
+<li>Fix: Spaced Comment Exceptions Not Working (fixes #3276) (Jamund Ferguson)</li>
+</ul>
+<p>v1.1.0 - August 7, 2015</p>
+<ul>
+<li>Update: Added as-needed option to arrow-parens (fixes #3277) (Jamund Ferguson)</li>
+<li>Fix: curly-spacing missing import case (fixes #3302) (Jamund Ferguson)</li>
+<li>Fix: <code>eslint-env</code> in comments had not been setting <code>ecmaFeatures</code> (fixes #2134) (Toru Nagashima)</li>
+<li>Fix: <code>es6</code> env had been missing <code>spread</code> and <code>newTarget</code> (fixes #3281) (Toru Nagashima)</li>
+<li>Fix: Report no-spaced-func on last token before paren (fixes #3289) (Benjamin Woodruff)</li>
+<li>Fix: Check for null elements in indent rule (fixes #3272) (Gyandeep Singh)</li>
+<li>Docs: Use backticks for option heading (Gyandeep Singh)</li>
+<li>Fix: <code>no-invalid-this</code> had been missing jsdoc comment (fixes #3287) (Toru Nagashima)</li>
+<li>Fix: <code>indent</code> rule for multi-line objects and arrays (fixes #3236) (Gyandeep Singh)</li>
+<li>Update: add new <code>multi-or-nest</code> option for the <code>curly</code> rule (fixes #1806) (Ivan Nikulin)</li>
+<li>Fix: <code>no-cond-assign</code> had been missing simplest pattern (fixes #3249) (Toru Nagashima)</li>
+<li>Fix: id-length rule doesn't catch violations in arrow function parameters (fixes #3275) (Burak Yigit Kaya)</li>
+<li>New: Added grep-style formatter (fixes #2991) (Nobody Really)</li>
+<li>Update: Split out generic AST methods into utility (fixes #962) (Gyandeep Singh)</li>
+<li>Fix: <code>accessor-pairs</code> false positive (fixes #3262) (Toru Nagashima)</li>
+<li>Fix: <code>context.getScope()</code> returns correct scope in blockBindings (fixes #3254) (Toru Nagashima)</li>
+<li>Update: Expose <code>getErrorResults</code> as a static method on <code>CLIEngine</code> (fixes #3242) (Gyandeep Singh)</li>
+<li>Update: Expose <code>getFormatter</code> as a static method on <code>CLIEngine</code> (fixes #3239) (Gyandeep Singh)</li>
+<li>Docs: use correct encoding for id-match.md (fixes #3246) (Matthieu Larcher)</li>
+<li>Docs: place id-match rule at correct place in README.md (fixes #3245) (Matthieu Larcher)</li>
+<li>Docs: Update no-proto.md (Joe Zimmerman)</li>
+<li>Docs: Fix typo in object-shorthand docs (Gunnar Lium)</li>
+<li>Upgrade: inquirer dependency (fixes #3241) (Gyandeep Singh)</li>
+<li>Fix: <code>indent</code> rule for objects and nested one line blocks (fixes #3238, fixes #3237) (Gyandeep Singh)</li>
+<li>Docs: Fix wrong options in examples of key-spacing (keik)</li>
+<li>Docs: Adds missing "not" to semi.md (Marius Schulz)</li>
+<li>Docs: Update no-multi-spaces.md (Kenneth Powers)</li>
+<li>Fix: <code>indent</code> to not error on same line nodes (fixes #3228) (Gyandeep Singh)</li>
+<li>New: Jest environment (fixes #3212) (Darshak Parikh)</li>
+</ul>
+<p>v1.0.0 - July 31, 2015</p>
+<ul>
+<li>Update: merge <code>no-reserved-keys</code> into <code>quote-props</code> (fixes #1539) (Jose Roberto Vidal)</li>
+<li>Fix: <code>indent</code> error message (fixes #3220) (Gyandeep Singh)</li>
+<li>Update: Add embertest env (fixes #3205) (ismay)</li>
+<li>Docs: Correct documentation errors for <code>id-length</code> rule. (Jess Telford)</li>
+<li>Breaking: <code>indent</code> rule to have node specific options (fixes #3210) (Gyandeep Singh)</li>
+<li>Fix: space-after-keyword shouldn't allow newlines (fixes #3198) (Brandon Mills)</li>
+<li>New: Add JSON formatter (fixes #3036) (Burak Yigit Kaya)</li>
+<li>Breaking: Switch to RuleTester (fixes #3186) (Nicholas C. Zakas)</li>
+<li>Breaking: remove duplicate warnings of <code>no-undef</code> from <code>block-scoped-var</code> (fixes #3201) (Toru Nagashima)</li>
+<li>Fix: <code>init-declarations</code> ignores in for-in/of (fixes #3202) (Toru Nagashima)</li>
+<li>Fix: <code>quotes</code> with <code>"backtick"</code> ignores ModuleSpecifier and LiteralPropertyName (fixes #3181) (Toru Nagashima)</li>
+<li>Fix: space-in-parens in Template Strings (fixes #3182) (Ian VanSchooten)</li>
+<li>Fix: Check for concatenation in no-throw-literal (fixes #3099, fixes #3101) (Ian VanSchooten)</li>
+<li>Build: Remove <code>eslint-tester</code> from devDependencies (fixes #3189) (Gyandeep Singh)</li>
+<li>Fix: Use new ESLintTester (fixes #3187) (Nicholas C. Zakas)</li>
+<li>Update: <code>new-cap</code> supports fullnames (fixes #2584) (Toru Nagashima)</li>
+<li>Fix: Non object rule options merge (fixes #3179) (Gyandeep Singh)</li>
+<li>New: add id-match rule (fixes #2829) (Matthieu Larcher)</li>
+<li>Fix: Rule options merge (fixes #3175) (Gyandeep Singh)</li>
+<li>Fix: <code>spaced-comment</code> allows a mix of markers and exceptions (fixes #2895) (Toru Nagashima)</li>
+<li>Fix: <code>block-scoped-var</code> issues (fixes #2253, fixes #2747, fixes #2967) (Toru Nagashima)</li>
+<li>New: Add id-length rule (fixes #2784) (Burak Yigit Kaya)</li>
+<li>Update: New parameters for quote-props rule (fixes #1283, fixes #1658) (Tomasz Olędzki)</li>
+</ul>
+<p>v1.0.0-rc-3 - July 24, 2015</p>
+<ul>
+<li>Fix: Make Chai and Mocha as a dependency (fixes #3156) (Gyandeep Singh)</li>
+<li>Fix: traverse <code>ExperimentalSpread/RestProperty.argument</code> (fixes #3157) (Toru Nagashima)</li>
+<li>Fix: Check shareable config package prefix correctly (fixes #3146) (Gyandeep Singh)</li>
+<li>Update: move redeclaration checking for builtins (fixes #3070) (Toru Nagashima)</li>
+<li>Fix: <code>quotes</code> with <code>"backtick"</code> allows directive prologues (fixes #3132) (Toru Nagashima)</li>
+<li>Fix: <code>ESLintTester</code> path in exposed API (fixes #3149) (Gyandeep Singh)</li>
+<li>Docs: Remove AppVeyor badge (Gyandeep Singh)</li>
+<li>Fix: Check no-new-func on CallExpressions (fixes #3145) (Benjamin Woodruff)</li>
+</ul>
+<p>v1.0.0-rc-2 - July 23, 2015</p>
+<ul>
+<li>Docs: Mention eslint-tester in migration guide (Nicholas C. Zakas)</li>
+<li>Docs: Mention variables defined in a global comment (fixes #3137) (William Becker)</li>
+<li>Docs: add documentation about custom-formatters. (fixes #1260) (royriojas)</li>
+<li>Fix: Multi-line variable declarations indent (fixes #3139) (Gyandeep Singh)</li>
+<li>Fix: handles blocks in no-use-before-define (fixes #2960) (Jose Roberto Vidal)</li>
+<li>Update: <code>props</code> option of <code>no-param-reassign</code> (fixes #1600) (Toru Nagashima)</li>
+<li>New: Support shared configs named <code>@scope/eslint-config</code>, with shortcuts of <code>@scope</code> and <code>@scope/</code> (fixes #3123) (Jordan Harband)</li>
+<li>New: Add ignorePattern, ignoreComments, and ignoreUrls options to max-len (fixes #2934, fixes #2221, fixes #1661) (Benjamin Woodruff)</li>
+<li>Build: Increase Windows Mocha timeout (fixes #3133) (Ian VanSchooten)</li>
+<li>Docs: incorrect syntax in the example for rule «one-var» (Alexander Burtsev)</li>
+<li>Build: Check commit message format at end of tests (fixes #3058) (Ian VanSchooten)</li>
+<li>Update: Move eslint-tester into repo (fixes #3110) (Nicholas C. Zakas)</li>
+<li>Fix: Not load configs outside config with <code>root: true</code> (fixes #3109) (Gyandeep Singh)</li>
+<li>Docs: Add config information to README (fixes #3074) (Nicholas C. Zakas)</li>
+<li>Docs: Add mysticatea as committer (Nicholas C. Zakas)</li>
+<li>Docs: Grammar fixes in rule descriptions (refs #3038) (Greg Cochard)</li>
+<li>Fix: Update sort-vars to ignore Array and ObjectPattern (fixes #2954) (Harry Ho)</li>
+<li>Fix: block-scoped-var rule incorrectly flagging break/continue with label (fixes #3082) (Aparajita Fishman)</li>
+<li>Fix: spaces trigger wrong in <code>no-useless-call</code> and <code>prefer-spread</code> (fixes #3054) (Toru Nagashima)</li>
+<li>Fix: <code>arrow-spacing</code> allow multi-spaces and line-endings (fixes #3079) (Toru Nagashima)</li>
+<li>Fix: add missing loop scopes to one-var (fixes #3073) (Jose Roberto Vidal)</li>
+<li>New: the <code>no-invalid-this</code> rule (fixes #2815) (Toru Nagashima)</li>
+<li>Fix: allow empty loop body in no-extra-semi (fixes #3075) (Mathias Schreck)</li>
+<li>Update: Add qunit to environments (fixes #2870) (Nicholas C. Zakas)</li>
+<li>Fix: <code>space-before-blocks</code> to consider classes (fixes #3062) (Gyandeep Singh)</li>
+<li>Fix: Include phantomjs globals (fixes #3064) (Linus Unnebäck)</li>
+<li>Fix: no-else-return handles multiple else-if blocks (fixes #3015) (Jose Roberto Vidal)</li>
+<li>Fix: <code>no-*-assgin</code> rules support destructuring (fixes #3029) (Toru Nagashima)</li>
+<li>New: the <code>no-implicit-coercion</code> rule (fixes #1621) (Toru Nagashima)</li>
+<li>Fix: Make no-implied-eval match more types of strings (fixes #2898) (Benjamin Woodruff)</li>
+<li>Docs: Clarify that bot message is automatic (Ian VanSchooten)</li>
+<li>Fix: Skip rest properties in no-dupe-keys (fixes 3042) (Nicholas C. Zakas)</li>
+<li>Docs: New issue template (fixes #3048) (Nicholas C. Zakas)</li>
+<li>Fix: strict rule supports classes (fixes #2977) (Toru Nagashima)</li>
+<li>New: the <code>prefer-reflect</code> rule (fixes #2939) (Keith Cirkel)</li>
+<li>Docs: make grammar consistent in rules index (Greg Cochard)</li>
+<li>Docs: Fix unmatched paren in rule description (Greg Cochard)</li>
+<li>Docs: Small typo fix in no-useless-call documentation (Paul O’Shannessy)</li>
+<li>Build: readd phantomjs dependency with locked down version (fixes #3026) (Mathias Schreck)</li>
+<li>Docs: Add IanVS as committer (Nicholas C. Zakas)</li>
+<li>docs: additional computed-property-spacing documentation (fixes #2941) (Jamund Ferguson)</li>
+<li>Docs: Add let and const examples for newline-after-var (fixes #3020) (James Whitney)</li>
+<li>Build: Remove unnecessary phantomjs devDependency (fixes #3021) (Gyandeep Singh)</li>
+<li>Update: added shared builtins list (fixes #2972) (Jose Roberto Vidal)</li>
+</ul>
+<p>v1.0.0-rc-1 - July 15, 2015</p>
+<ul>
+<li>Upgrade: Espree to 2.2.0 (fixes #3011) (Nicholas C. Zakas)</li>
+<li>Docs: fix a typo (bartmichu)</li>
+<li>Fix: indent rule should recognize single line statements with ASI (fixes #3001, fixes #3000) (Mathias Schreck)</li>
+<li>Update: Handle CRLF line endings in spaced-comment rule - 2 (fixes #3005) (Burak Yigit Kaya)</li>
+<li>Fix: Indent rule error on empty block body (fixes #2999) (Gyandeep Singh)</li>
+<li>New: the <code>no-class-assign</code> rule (fixes #2718) (Toru Nagashima)</li>
+<li>New: the <code>no-const-assign</code> rule (fixes #2719) (Toru Nagashima)</li>
+<li>Docs: Add 1.0.0 migration guide (fixes #2994) (Nicholas C. Zakas)</li>
+<li>Docs: Update changelog for 0.24.1 (fixes #2976) (Nicholas C. Zakas)</li>
+<li>Breaking: Remove deprecated rules (fixes #1898) (Ian VanSchooten)</li>
+<li>Fix: multi-line + fat arrow indent (fixes #2239) (Gyandeep Singh)</li>
+<li>Breaking: Create eslint:recommended and add to &ndash;init (fixes #2713) (Greg Cochard)</li>
+<li>Fix: Indent rule (fixes #1797, fixes #1799, fixes #2248, fixes #2343, fixes #2278, fixes #1800) (Gyandeep Singh)</li>
+<li>New: <code>context.getDeclaredVariables(node)</code> (fixes #2801) (Toru Nagashima)</li>
+<li>New: the <code>no-useless-call</code> rule (fixes #1925) (Toru Nagashima)</li>
+<li>New: the <code>prefer-spread</code> rule (fixes #2946) (Toru Nagashima)</li>
+<li>Fix: <code>valid-jsdoc</code> counts <code>return</code> for arrow expressions (fixes #2952) (Toru Nagashima)</li>
+<li>New: Add exported comment option (fixes #1200) (Jamund Ferguson)</li>
+<li>Breaking: Default to &ndash;reset behavior (fixes #2100) (Brandon Mills)</li>
+<li>New: Add arrow-parens and arrow-spacing rule (fixes #2628) (Jxck)</li>
+<li>Fix: Shallow cloning issues in eslint config (fixes #2961) (Gyandeep Singh)</li>
+<li>Add: Warn on missing rule definition or deprecation (fixes #1549) (Ian VanSchooten)</li>
+<li>Update: adding some tests for no-redeclare to test named functions (fixes #2953) (Dominic Barnes)</li>
+<li>New: Add support for root: true in config files (fixes #2736) (Ian VanSchooten)</li>
+<li>Fix: workaround for leading and trailing comments in padded-block (fixes #2336 and fixes #2788) (Mathias Schreck)</li>
+<li>Fix: object-shorthand computed props (fixes #2937) (Jamund Ferguson)</li>
+<li>Fix: Remove invalid check inside <code>getJSDocComment</code> function (fixes #2938) (Gyandeep Singh)</li>
+<li>Docs: Clarify when not to use space-before-blocks (Ian VanSchooten)</li>
+<li>Update: <code>no-loop-func</code> allows block-scoped variables (fixes #2517) (Toru Nagashima)</li>
+<li>Docs: remove mistaken "off by default" (Jan Schär)</li>
+<li>Build: Add appveyor CI system (fixes #2923) (Gyandeep Singh)</li>
+<li>Docs: Fix typo in the shareable configs doc (Siddharth Kannan)</li>
+<li>Fix: max-len to report correct column number (fixes #2926) (Mathias Schreck)</li>
+<li>Fix: add destructuring support to comma-dangle rule (fixes #2911) (Mathias Schreck)</li>
+<li>Docs: clarification in no-unused-vars (Jan Schär)</li>
+<li>Fix: <code>no-redeclare</code> checks module scopes (fixes #2903) (Toru Nagashima)</li>
+<li>Docs: missing quotes in JSON (Jan Schär)</li>
+<li>Breaking: Switch to 1-based columns (fixes #2284) (Nicholas C. Zakas)</li>
+<li>Docs: array-bracket-spacing examples used space-in-brackets (Brandon Mills)</li>
+<li>Docs: Add spaced-line-comment deprecation notice (Brandon Mills)</li>
+<li>Docs: Add space-in-brackets deprecation notice (Brandon Mills)</li>
+<li>Fix: Include execScript in no-implied-eval rule (fixes #2873) (Frederik Braun)</li>
+<li>Fix: Support class syntax for line-around-comment rule (fixes #2894) (Gyandeep Singh)</li>
+<li>Fix: lines-around-comment was crashing in some cases due to a missing check (fixes #2892) (Mathieu M-Gosselin)</li>
+<li>New: Add init-declarations rule (fixes #2606) (cjihrig)</li>
+<li>Docs: Fix typo in array-bracket-spacing rule (zallek)</li>
+<li>Fix: Added missing export syntax support to the block-scoped-var rule. (fixes #2887) (Mathieu M-Gosselin)</li>
+<li>Build: gensite target supports rule removal (refs #1898) (Brandon Mills)</li>
+<li>Update: Handle CRLF line endings in spaced-comment rule (fixes #2884) (David Anson)</li>
+<li>Update: Attach parent in getNodeByRangeIndex (fixes #2863) (Brandon Mills)</li>
+<li>Docs: Fix typo (Bryan Smith)</li>
+<li>New: Add serviceworker environment (fixes #2557) (Gyandeep Singh)</li>
+<li>Fix: Yoda should ignore comparisons where both sides are constants (fixes #2867) (cjihrig)</li>
+<li>Update: Loosens regex rules around intentional fall through comments (Fixes #2811) (greg5green)</li>
+<li>Update: Add missing schema to rules (fixes #2858) (Ilya Volodin)</li>
+<li>New: <code>require-yield</code> rule (fixes #2822) (Toru Nagashima)</li>
+<li>New: add callback-return rule (fixes #994) (Jamund Ferguson)</li>
+</ul>
+<p>v0.24.1 - July 10, 2015</p>
+<ul>
+<li>Docs: Clarify when not to use space-before-blocks (Ian VanSchooten)</li>
+<li>Docs: remove mistaken "off by default" (Jan Schär)</li>
+<li>Docs: remove mistaken "off by default" (Jan Schär)</li>
+<li>Docs: Fix typo in the shareable configs doc (Siddharth Kannan)</li>
+<li>Docs: clarification in no-unused-vars (Jan Schär)</li>
+<li>Docs: missing quotes in JSON (Jan Schär)</li>
+<li>Fix: Revert 1-based column changes in tests for patch (refs #2284) (Nicholas C. Zakas)</li>
+<li>Fix: Shallow cloning issues in eslint config (fixes #2961) (Gyandeep Singh)</li>
+<li>Fix: object-shorthand computed props (fixes #2937) (Jamund Ferguson)</li>
+<li>Fix: Remove invalid check inside <code>getJSDocComment</code> function (fixes #2938) (Gyandeep Singh)</li>
+<li>Fix: max-len to report correct column number (fixes #2926) (Mathias Schreck)</li>
+<li>Fix: add destructuring support to comma-dangle rule (fixes #2911) (Mathias Schreck)</li>
+<li>Fix: <code>no-redeclare</code> checks module scopes (fixes #2903) (Toru Nagashima)</li>
+<li>Fix: Include execScript in no-implied-eval rule (fixes #2873) (Frederik Braun)</li>
+<li>Fix: Support class syntax for line-around-comment rule (fixes #2894) (Gyandeep Singh)</li>
+<li>Fix: lines-around-comment was crashing in some cases due to a missing check (fixes #2892) (Mathieu M-Gosselin)</li>
+<li>Fix: Added missing export syntax support to the block-scoped-var rule. (fixes #2887) (Mathieu M-Gosselin)</li>
+<li>Fix: Yoda should ignore comparisons where both sides are constants (fixes #2867) (cjihrig)</li>
+<li>Docs: array-bracket-spacing examples used space-in-brackets (Brandon Mills)</li>
+<li>Docs: Add spaced-line-comment deprecation notice (Brandon Mills)</li>
+<li>Docs: Add space-in-brackets deprecation notice (Brandon Mills)</li>
+</ul>
+<p>v0.24.0 - June 26, 2015</p>
+<ul>
+<li>Upgrade: eslint-tester to 0.8.1 (Nicholas C. Zakas)</li>
+<li>Fix: no-dupe-args sparse array crash (fixes #2848) (Chris Walker)</li>
+<li>Fix: space-after-keywords should ignore extra parens (fixes #2847) (Mathias Schreck)</li>
+<li>New: add no-unexpected-multiline rule (fixes #746) (Glen Mailer)</li>
+<li>Update: refactor handle-callback-err to improve performance (fixes #2841) (Mathias Schreck)</li>
+<li>Fix: Add &ndash;init to the CLI options (fixes #2817) (Gyandeep Singh)</li>
+<li>Update: Add <code>except-parens</code> option to <code>no-return-assign</code> rule (fixes #2809) (Toru Nagashima)</li>
+<li>Fix: handle-callback-err missing arrow functions (fixes #2823) (Jamund Ferguson)</li>
+<li>Fix: <code>no-extra-semi</code> in class bodies (fixes #2794) (Toru Nagashima)</li>
+<li>Fix: Check type to be file when looking for config files (fixes #2790) (Gyandeep Singh)</li>
+<li>Fix: valid-jsdoc to work for object getters (fixes #2407) (Gyandeep Singh)</li>
+<li>Update: Add an option as an object to <code>generator-star-spacing</code> rule (fixes #2787) (Toru Nagashima)</li>
+<li>Build: Update markdownlint dependency (David Anson)</li>
+<li>Fix: context report message to handle more scenarios (fixes #2746) (Gyandeep Singh)</li>
+<li>Update: Ignore JsDoc comments by default for <code>spaced-comment</code> (fixes #2766) (Gyandeep Singh)</li>
+<li>Fix: one-var 'never' option for mixed initialization (Fixes #2786) (Ian VanSchooten)</li>
+<li>Docs: Fix a minor typo in a prefer-const example (jviide)</li>
+<li>Fix: comma-dangle always-multiline: no comma right before the last brace (fixes #2091) (Benoît Zugmeyer)</li>
+<li>Fix: Allow blocked comments with markers and new-line (fixes #2777) (Gyandeep Singh)</li>
+<li>Docs: small fix in quote-props examples (Jose Roberto Vidal)</li>
+<li>Fix: object-shorthand rule should not warn for NFEs (fixes #2748) (Michael Ficarra)</li>
+<li>Fix: arraysInObjects for object-curly-spacing (fixes #2752) (Jamund Ferguson)</li>
+<li>Docs: Clarify &ndash;rule description (fixes #2773) (Nicholas C. Zakas)</li>
+<li>Fix: object literals in arrow function bodies (fixes #2702) (Jose Roberto Vidal)</li>
+<li>New: <code>constructor-super</code> rule (fixes #2720) (Toru Nagashima)</li>
+<li>New: <code>no-this-before-super</code> rule (fixes #2721) (Toru Nagashima)</li>
+<li>Fix: space-unary-ops flags expressions starting w/ keyword (fixes #2764) (Michael Ficarra)</li>
+<li>Update: Add block options to <code>lines-around-comment</code> rule (fixes #2667) (Gyandeep Singh)</li>
+<li>New: array-bracket-spacing (fixes #2226) (Jamund Ferguson)</li>
+<li>Fix: No-shadow rule duplicating error messages (fixes #2706) (Aliaksei Shytkin)</li>
+</ul>
+<p>v0.23.0 - June 14, 2015</p>
+<ul>
+<li>Build: Comment out auto publishing of release notes (refs #2640) (Ilya Volodin)</li>
+<li>Fix: "extends" within package.json (fixes #2754) (Gyandeep Singh)</li>
+<li>Upgrade: globals@8.0.0 (fixes #2759) (silverwind)</li>
+<li>Docs: eol-last docs fix (fixes #2755) (Gyandeep Singh)</li>
+<li>Docs: btmills is a reviewer (Nicholas C. Zakas)</li>
+<li>Build: Revert lock io.js to v2.1.0 (refs #2745) (Brandon Mills)</li>
+<li>New: computed-property-spacing (refs #2226) (Jamund Ferguson)</li>
+<li>Build: Pin Sinon version (fixes #2742) (Ilya Volodin)</li>
+<li>Fix: <code>prefer-const</code> treats <code>for-in</code>/<code>for-of</code> with the same way (Fixes #2739) (Toru Nagashima)</li>
+<li>Docs: Add links to team members profile (Gyandeep Singh)</li>
+<li>Docs: add team and ES7 info to readme (Nicholas C. Zakas)</li>
+<li>Fix: don't try to strip "line:" prefix from parser errors with no such prefix (fixes #2698) (Tim Cuthbertson)</li>
+<li>Fix: never ignore config comment options (fixes #2725) (Brandon Mills)</li>
+<li>Update: Add clarification to spaced-comment (refs #2588) (Greg Cochard)</li>
+<li>Update: Add markers to spaced-comment (fixes #2588) (Greg Cochard)</li>
+<li>Fix: no-trailing-spaces now handles skipBlankLines (fixes #2575) (Greg Cochard)</li>
+<li>Docs: Mark global-strict on by default (fixes #2629) (Ilya Volodin)</li>
+<li>New: Allow extends to be an array (fixes #2699) (Justin Morris)</li>
+<li>New: globals@7.1.0 (fixes #2682) (silverwind)</li>
+<li>New: <code>prefer-const</code> rule (fixes #2333) (Toru Nagashima)</li>
+<li>Fix: remove hard-coded list of unary keywords in space-unary-ops rule (fixes #2696) (Tim Cuthbertson)</li>
+<li>Breaking: Automatically validate rule options (fixes #2595) (Brandon Mills)</li>
+<li>Update: no-lone-blocks does not report block-level scopes (fixes #2119) (Jose Roberto Vidal)</li>
+<li>Update: yoda onlyEquality option (fixes #2638) (Denis Sokolov)</li>
+<li>Docs: update comment to align with source code it's referencing (Michael Ficarra)</li>
+<li>Fix: Misconfigured default option for lines-around-comment rule (fixes #2677) (Gyandeep Singh)</li>
+<li>Fix: <code>no-shadow</code> allows shadowing in the TDZ (fixes #2568) (Toru Nagashima)</li>
+<li>New: spaced-comment rule (fixes #1088) (Gyandeep Singh)</li>
+<li>Fix: Check unused vars in exported functions (fixes #2678) (Gyandeep Singh)</li>
+<li>Build: Stringify payload of release notes (fixes #2640) (Greg Cochard)</li>
+<li>Fix: Allowing u flag in regex to properly lint no-empty-character-class (fixes #2679) (Dominic Barnes)</li>
+<li>Docs: deprecate no-wrap-func (fixes #2644) (Jose Roberto Vidal)</li>
+<li>Docs: Fixing grammar: then -&gt; than (E)</li>
+<li>Fix: trailing commas in object-curly-spacing (fixes #2647) (Jamund Ferguson)</li>
+<li>Docs: be consistent about deprecation status (Matthew Dapena-Tretter)</li>
+<li>Docs: Fix mistakes in object-curly-spacing docs (Matthew Dapena-Tretter)</li>
+<li>New: run processors when calling executeOnText (fixes #2331) (Mordy Tikotzky)</li>
+<li>Update: move executeOnText() tests to the correct describe block (fixes #2648) (Mordy Tikotzky)</li>
+<li>Update: add tests to assert that the preprocessor is running (fixes #2651) (Mordy Tikotzky)</li>
+<li>Build: Lock io.js to v2.1.0 (fixes #2653) (Ilya Volodin)</li>
+</ul>
+<p>v0.22.1 - May 30, 2015</p>
+<ul>
+<li>Build: Remove release notes auto-publish (refs #2640) (Ilya Volodin)</li>
+</ul>
+<p>v0.22.0 - May 30, 2015</p>
+<ul>
+<li>Upgrade: escope 3.1.0 (fixes #2310, #2405) (Toru Nagashima)</li>
+<li>Fix: “consistent-this” incorrectly flagging destructuring of <code>this</code> (fixes #2633) (David Aurelio)</li>
+<li>Upgrade: eslint-tester to 0.7.0 (Ilya Volodin)</li>
+<li>Update: allow shadowed references in no-alert (fixes #1105) (Mathias Schreck)</li>
+<li>Fix: no-multiple-empty-lines and template strings (fixes #2605) (Jamund Ferguson)</li>
+<li>New: object-curly-spacing (fixes #2225) (Jamund Ferguson)</li>
+<li>Docs: minor fix for one-var rule (Jamund Ferguson)</li>
+<li>Fix: Shared config being clobbered by other config (fixes #2592) (Dominic Barnes)</li>
+<li>Update: adds "functions" option to no-extra-parens (fixes #2477) (Jose Roberto Vidal)</li>
+<li>Docs: Fix json formatting for lines-around-comments rule (Gyandeep Singh)</li>
+<li>Fix: Improve around function/class names of <code>no-shadow</code> (fixes #2556, #2552) (Toru Nagashima)</li>
+<li>Fix: Improve code coverage (fixes #2590) (Ilya Volodin)</li>
+<li>Fix: Allow scoped configs to have sub-configs (fixes #2594) (Greg Cochard)</li>
+<li>Build: Add auto-update of release tag on github (fixes #2566) (Greg Cochard)</li>
+<li>New: lines-around-comment (fixes #1344) (Jamund Ferguson)</li>
+<li>Build: Unblock build by increasing code coverage (Ilya Volodin)</li>
+<li>New: accessor-pairs rule to object initializations (fixes #1638) (Gyandeep Singh)</li>
+<li>Fix: counting of variables statements in one-var (fixes #2570) (Mathias Schreck)</li>
+<li>Build: Add sudo:false for Travis (fixes #2582) (Ilya Volodin)</li>
+<li>New: Add rule schemas (refs #2179) (Brandon Mills)</li>
+<li>Docs: Fix typo in shareable-configs example (fixes #2571) (Ted Piotrowski)</li>
+<li>Build: Relax markdownlint rules by disabling style-only items (David Anson)</li>
+<li>Fix: Object shorthand rule incorrectly flagging getters/setters (fixes #2563) (Brad Dougherty)</li>
+<li>New: Add config validator (refs #2179) (Brandon Mills)</li>
+<li>New: Add worker environment (fixes #2442) (Ilya Volodin)</li>
+<li>New no-empty-character class (fixes #2508) (Jamund Ferguson)</li>
+<li>New: Adds &ndash;ignore-pattern option. (fixes #1742) (Patrick McElhaney)</li>
+</ul>
+<p>v0.21.2 - May 18, 2015</p>
+<ul>
+<li>0.21.2 (Nicholas C. Zakas)</li>
+<li>Fix: one-var exception for ForStatement.init (fixes #2505) (Brandon Mills)</li>
+<li>Fix: Don't throw spurious shadow errors for classes (fixes #2545) (Jimmy Jia)</li>
+<li>Fix: valid-jsdoc rule to support exported functions (fixes #2522) (Gyandeep Singh)</li>
+<li>Fix: Allow scoped packages in configuration extends (fixes #2544) (Eric Isakson)</li>
+<li>Docs: Add chatroom to FAQ (Nicholas C. Zakas)</li>
+<li>Docs: Move Gitter badge (Nicholas C. Zakas)</li>
+</ul>
+<p>v0.21.1 - May 15, 2015</p>
+<ul>
+<li>0.21.1 (Nicholas C. Zakas)</li>
+<li>Fix: loc obj in report fn expects column (fixes #2481) (Varun Verma)</li>
+<li>Build: Make sure that all md files end with empty line (fixes #2520) (Ilya Volodin)</li>
+<li>Added Gitter badge (The Gitter Badger)</li>
+<li>Fix: forced no-shadow to check all scopes (fixes #2294) (Jose Roberto Vidal)</li>
+<li>Fix: &ndash;init indent setting (fixes #2493) (Nicholas C. Zakas)</li>
+<li>Docs: Mention bundling multiple shareable configs (Nicholas C. Zakas)</li>
+<li>Fix: Not to override the required extended config object directly (fixes #2487) (Gyandeep Singh)</li>
+<li>Build: Update markdownlint dependency (David Anson)</li>
+<li>Docs: added recursive function example to no-unused-vars (Jose Roberto Vidal)</li>
+<li>Docs: Fix typo (then -&gt; than) (Vladimir Agafonkin)</li>
+<li>Revert "Fix: sanitise Jekyll interpolation during site generation (fixes #2297)" (Nicholas C. Zakas)</li>
+<li>Fix: dot-location should use correct dot token (fixes #2504) (Mathias Schreck)</li>
+<li>Fix: Stop linebreak-style from crashing (fixes #2490) (James Whitney)</li>
+<li>Fix: rule no-duplicate-case problem with CallExpressions. (fixes #2499) (Matthias Osswald)</li>
+<li>Fix: Enable full support for eslint-env comments (refs #2134) (Ilya Volodin)</li>
+<li>Build: Speed up site generation (fixes #2475) (Ilya Volodin)</li>
+<li>Docs: Fixing trailing spaces (Fixes #2478) (Ilya Volodin)</li>
+<li>Docs: Update README FAQs (Nicholas C. Zakas)</li>
+<li>Fix: Allow comment before comma for comma-spacing rule (fixes #2408) (Gyandeep Singh)</li>
+</ul>
+<p>v0.21.0 - May 9, 2015</p>
+<ul>
+<li>0.21.0 (Nicholas C. Zakas)</li>
+<li>New: Shareable configs (fixes #2415) (Nicholas C. Zakas)</li>
+<li>Fix: Edge cases for no-wrap-func (fixes #2466) (Nicholas C. Zakas)</li>
+<li>Docs: Update ecmaFeatures description (Nicholas C. Zakas)</li>
+<li>New: Add dot-location rule. (fixes #1884) (Greg Cochard)</li>
+<li>New: Add addPlugin method to CLI-engine (Fixes #1971) (Ilya Volodin)</li>
+<li>Breaking: Do not check unset declaration types (Fixes #2448) (Ilya Volodin)</li>
+<li>Fix: no-redeclare switch scoping (fixes #2337) (Nicholas C. Zakas)</li>
+<li>Fix: Check extra scope in no-use-before-define (fixes #2372) (Nicholas C. Zakas)</li>
+<li>Fix: Ensure baseConfig isn't changed (fixes #2380) (Nicholas C. Zakas)</li>
+<li>Fix: Don't warn for member expression functions (fixes #2402) (Nicholas C. Zakas)</li>
+<li>New: Adds skipBlankLines option to the no-trailing-spaces rule (fixes #2303) (Andrew Vaughan)</li>
+<li>Fix: Adding exception for last line (Refs #2423) (Greg Cochard)</li>
+<li>Fix: crash on 0 max (fixes #2423) (gcochard)</li>
+<li>Fix object-shorthand arrow functions (fixes #2414) (Jamund Ferguson)</li>
+<li>Fix: Improves detection of self-referential functions (fixes #2363) (Jose Roberto Vidal)</li>
+<li>Update: key-spacing groups must be consecutive lines (fixes #1728) (Brandon Mills)</li>
+<li>Docs: grammar fix in no-sync (Tony Lukasavage)</li>
+<li>Docs: Update configuring.md to fix incorrect link. (Ans)</li>
+<li>New: Check &ndash;stdin-filename by ignore settings (fixes #2432) (Aliaksei Shytkin)</li>
+<li>Fix: <code>no-loop-func</code> rule allows functions at init part (fixes #2427) (Toru Nagashima)</li>
+<li>New: Add init command (fixes #2302) (Ilya Volodin)</li>
+<li>Fix: no-irregular-whitespace should work with irregular line breaks (fixes #2316) (Mathias Schreck)</li>
+<li>Fix: generator-star-spacing with class methods (fixes #2351) (Brandon Mills)</li>
+<li>New: no-unneeded-ternary rule to disallow boolean literals in conditional expressions (fixes #2391) (Gyandeep Singh)</li>
+<li>Docs: Add <code>restParams</code> to <code>ecmaFeatures</code> options list (refs: #2346) (Bogdan Savluk)</li>
+<li>Fix: space-in-brackets Cannot read property 'range' (fixes #2392) (Gyandeep Singh)</li>
+<li>Docs: Sort the rules (Lukas Böcker)</li>
+<li>Add: Exception option for <code>no-extend-native</code> and <code>no-native-reassign</code> (fixes #2355) (Gyandeep Singh)</li>
+<li>Fix: space-in-brackets import declaration (fixes #2378) (Gyandeep Singh)</li>
+<li>Update: Add uninitialized and initialized options (fixes #2206) (Ian VanSchooten)</li>
+<li>Fix: brace-style to not warn about curly mix ifStatements (fixes #1739) (Gyandeep Singh)</li>
+<li>Fix: npm run profile script should use espree (fixes #2150) (Mathias Schreck)</li>
+<li>New: Add support for extending configurations (fixes #1637) (Espen Hovlandsdal)</li>
+<li>Fix: Include string literal keys in object-shorthand (Fixes #2374) (Jamund Ferguson)</li>
+<li>Docs: Specify language for all code fences, enable corresponding markdownlint rule. (David Anson)</li>
+<li>New: linebreak-style rule (fixes #1255) (Erik Müller)</li>
+<li>Update: Add "none" option to operator-linebreak rule (fixes #2295) (Casey Visco)</li>
+<li>Fix: sanitise Jekyll interpolation during site generation (fixes #2297) (Michael Ficarra)</li>
+</ul>
+<p>v0.20.0 - April 24, 2015</p>
+<ul>
+<li>0.20.0 (Nicholas C. Zakas)</li>
+<li>Fix: support arrow functions in no-extra-parens (fixes #2367) (Michael Ficarra)</li>
+<li>Fix: Column position in space-infix-ops rule (fixes #2354) (Gyandeep Singh)</li>
+<li>Fix: allow plugins to be namespaced (fixes #2360) (Seth Pollack)</li>
+<li>Update: one-var: enable let &amp; const (fixes #2301) (Joey Baker)</li>
+<li>Docs: Add meteor to avaiable environments list (bartmichu)</li>
+<li>Update: Use <code>Object.assign()</code> polyfill for all object merging (fixes #2348) (Sindre Sorhus)</li>
+<li>Docs: Update markdownlint dependency, resolve/suppress new issues. (David Anson)</li>
+<li>Fix: newline-after-var declare and export (fixes #2325) (Gyandeep Singh)</li>
+<li>Docs: Some typos and grammar. (AlexKVal)</li>
+<li>Fix: newline-after-var to ignore declare in for specifiers (fixes #2317) (Gyandeep Singh)</li>
+<li>New: add &ndash;stdin-filename option (fixes #1950) (Mordy Tikotzky)</li>
+<li>Fix: Load .eslintrc in $HOME only if no other .eslintrc is found (fixes #2279) (Jasper Woudenberg)</li>
+<li>Fix: Add <code>v8</code> module to no-mixed-requires rule (fixes #2320) (Gyandeep Singh)</li>
+<li>Fix: key-spacing with single properties (fixes #2311) (Brandon Mills)</li>
+<li>Docs: <code>no-invalid-regexp</code>: add <code>ecmaFeatures</code> flags for <code>u</code>/<code>y</code> (Jordan Harband)</li>
+<li>New: object-shorthand rule (refs: #1617) (Jamund Ferguson)</li>
+<li>Update: backticks support for quotes rule (fixes #2153) (borislavjivkov)</li>
+<li>Fix: space-in-brackets to work with modules (fixes #2216) (Nicholas C. Zakas)</li>
+</ul>
+<p>v0.19.0 - April 11, 2015</p>
+<ul>
+<li>0.19.0 (Nicholas C. Zakas)</li>
+<li>Upgrade: Espree to 2.0.1 (Nicholas C. Zakas)</li>
+<li>Docs: Update one-var documentation (fixes #2210) (Nicholas C. Zakas)</li>
+<li>Update: Add test for no-undef (fixes #2214) (Nicholas C. Zakas)</li>
+<li>Fix: Report better location for padded-blocks error (fixes #2224) (Nicholas C. Zakas)</li>
+<li>Fix: Don't check concise methods in quote-props (fixes #2251) (Nicholas C. Zakas)</li>
+<li>Fix: Consider tabs for space-in-parens rule (fixes #2191) (Josh Quintana)</li>
+<li>Fix: block-scoped-var to work with classes (fixes #2280) (Nicholas C. Zakas)</li>
+<li>Docs: Remove trailing spaces, enable corresponding markdownlint rule. (David Anson)</li>
+<li>Fix: padded-blocks with ASI (fixes #2273) (Brandon Mills)</li>
+<li>Fix: Handle comment lines in newline-after-var (fixed #2237) (Casey Visco)</li>
+<li>Docs: Standardize on '*' for unordered lists, enable corresponding markdownlint rule. (David Anson)</li>
+<li>Fix: no-undef and no-underscore-dangle to use double quotes (fixes #2258) (Gyandeep Singh)</li>
+<li>Docs: Improve grammar and style in comma-dangle.md (Nate Eagleson)</li>
+<li>Docs: Improve grammar and style in padded-blocks.md (Nate Eagleson)</li>
+<li>Docs: Update URL in no-wrap-func.md to resolve 404 (Nate Eagleson)</li>
+<li>Docs: Fix typo in command-line-interface.md (Nate Eagleson)</li>
+<li>Docs: Fix typo in working-with-rules.md (Nate Eagleson)</li>
+<li>Docs: Remove hard tabs from *.md, enable corresponding markdownlint rule. (David Anson)</li>
+<li>Fix: Function id missing in parent scope when using ecmaFeature <code>modules</code> for rule block-scoped-var (fixes #2242) (Michael Ferris)</li>
+<li>Fix: Ignore single lines for vertical alignment (fixes #2018) (Ian VanSchooten)</li>
+<li>Fix: Allow inline comments in newline-after-var rule (fixes #2229) (Casey Visco)</li>
+<li>Upgrade: Espree 2.0.0 and escope 3.0.0 (fixes #2234, fixes #2201, fixes (Nicholas C. Zakas)</li>
+<li>Docs: Update &ndash;no-ignore warning (Brandon Mills)</li>
+<li>Build: Remove jshint files (fixes #2222) (Jeff Tan)</li>
+<li>Docs: no-empty fix comment change (refs #2188) (Gyandeep Singh)</li>
+<li>Fix: duplicate semi and no-extra-semi errors (fixes #2207) (Brandon Mills)</li>
+<li>Docs: Update processors description (Nicholas C. Zakas)</li>
+<li>Fix: semi error on export declaration (fixes #2194) (Brandon Mills)</li>
+<li>New: operator-linebreak rule (fixes #1405) (Benoît Zugmeyer)</li>
+<li>Docs: Fixing broken links in documentation (Ilya Volodin)</li>
+<li>Upgrade: Espree to 0.12.3 (fixes #2195) (Gyandeep Singh)</li>
+<li>Fix: camelcase rule with {properties: never} shouldn't check assignment (fixes #2189) (Gyandeep Singh)</li>
+<li>New: Allow modifying base config (fixes #2143) (Meo)</li>
+<li>New: no-continue rule (fixes #1945) (borislavjivkov)</li>
+<li>Fix: <code>no-empty</code> rule should allow any comments (fixes #2188) (Gyandeep Singh)</li>
+<li>Docs: Fix spell in camelcase doc (fixes #2190) (Gyandeep Singh)</li>
+<li>Fix: Require semicolon after import/export statements (fixes #2174) (Gyandeep Singh)</li>
+<li>Build: Add linting of Markdown files to "npm test" script (fixes #2182) (David Anson)</li>
+<li>Build: Fixing site generation (Ilya Volodin)</li>
+<li>Build: Fix gensite task to work even if files are missing (Nicholas C. Zakas)</li>
+</ul>
+<p>v0.18.0 - March 28, 2015</p>
+<ul>
+<li>0.18.0 (Nicholas C. Zakas)</li>
+<li>Fix: Mark variables as used in module scope (fixes #2137) (Nicholas C. Zakas)</li>
+<li>Fix: arrow functions need wrapping (fixes #2113) (Nicholas C. Zakas)</li>
+<li>Fix: Don't crash on empty array pattern item (fixes #2111) (Nicholas C. Zakas)</li>
+<li>Fix: Don't error on destructured params (fixes #2051) (Nicholas C. Zakas)</li>
+<li>Docs: Fixing broken links (Ilya Volodin)</li>
+<li>Fix: no-constant-condition should not flag += (fixes #2155) (Nicholas C. Zakas)</li>
+<li>Fix: Ensure piped in code will trigger correct errors (fixes #2154) (Nicholas C. Zakas)</li>
+<li>Fix: block-scoped-var to handle imports (fixes #2087) (Nicholas C. Zakas)</li>
+<li>Fix: no-dupe-args to work with destructuring (fixes #2148) (Nicholas C. Zakas)</li>
+<li>Fix: key-spacing crash on computed properties (fixes #2120) (Brandon Mills)</li>
+<li>Fix: indent crash on caseless switch (fixes #2144) (Brandon Mills)</li>
+<li>Fix: Don't warn about destructured catch params (fixes #2125) (Nicholas C. Zakas)</li>
+<li>Update: Omit setter param from no-unused-vars (fixes #2133) (Nicholas C. Zakas)</li>
+<li>Docs: Cleaning dead links (Ilya Volodin)</li>
+<li>Docs: Moving documentation out of the repository and modifying build scripts (Ilya Volodin)</li>
+<li>Docs: Update link to Documentation (Kate Lizogubova)</li>
+<li>Docs: Adding back deprecated space-unary-word-ops documentation (Ilya Volodin)</li>
+<li>Fix: Unused recursive functions should be flagged (issue2095) (Nicholas C. Zakas)</li>
+<li>Breaking: Remove JSX support from no-undef (fixes #2093) (Nicholas C. Zakas)</li>
+<li>Fix: markVariableAsUsed() should work in Node.js env (fixes #2089) (Nicholas C. Zakas)</li>
+<li>New: Add "always" and "never" options to "one-var" rule. (fixes #1619) (Danny Fritz)</li>
+<li>New: newline-after-var rule (fixes #2057) (Gopal Venkatesan)</li>
+<li>Fix: func-names with ES6 classes (fixes #2103) (Marsup)</li>
+<li>Fix: Add "Error" to the "new-cap" rule exceptions (fixes #2098) (Mickaël Tricot)</li>
+<li>Fix: vars-on-top conflict with ES6 import (fixes #2099) (Gyandeep Singh)</li>
+<li>Docs: Fixed JSON syntax (Sajin)</li>
+<li>New: space-before-function-paren rule (fixes #2028) (Brandon Mills)</li>
+<li>Breaking: rule no-empty also checking for empty catch blocks. (fixes #1841) (Dieter Oberkofler)</li>
+<li>Update: rule camelcase to allow snake_case in object literals. (fixes #1919) (Dieter Oberkofler)</li>
+<li>New: Added option int32Hint for space-infix-ops (fixes #1295) (Kirill Efimov)</li>
+<li>New: no-param-reassign rule (fixes #1599) (Nat Burns)</li>
+</ul>
+<p>v0.17.1 - March 17, 2015</p>
+<ul>
+<li>0.17.1 (Nicholas C. Zakas)</li>
+<li>Fix: no-func-assign should not fail on import declarations (fixes #2060) (Igor Zalutsky)</li>
+<li>Fix: block-scoped-var to work with destructuring (fixes #2059) (Nicholas C. Zakas)</li>
+<li>Fix: no-redeclare should check Node.js scope (fixes #2064) (Nicholas C. Zakas)</li>
+<li>Fix: space-before-function-parentheses generator methods (fixes #2082) (Brandon Mills)</li>
+<li>Fix: Method name resolution in complexity rule (fixes #2049) (Nicholas C. Zakas)</li>
+<li>Fix: no-unused-vars crash from escope workaround (fixes #2042) (Brandon Mills)</li>
+<li>Fix: restrict dot-notation keywords to actual ES3 keywords (fixes #2075) (Michael Ficarra)</li>
+<li>Fix: block-scoped-var to work with classes (fixes #2048) (Nicholas C. Zakas)</li>
+<li>Docs: Update no-new documentation (fixes #2044) (Nicholas C. Zakas)</li>
+<li>Fix: yoda range exceptions with this (fixes #2063) (Brandon Mills)</li>
+<li>Docs: Fix documentation on configuring eslint with comments (Miguel Ping)</li>
+<li>Fix: rule no-duplicate-case problem with MemberExpressions. (fixes #2038) (Dieter Oberkofler)</li>
+<li>Fix: Exempt \0 from no-octal-escape (fixes #1923) (Michael Ficarra)</li>
+</ul>
+<p>v0.17.0 - March 14, 2015</p>
+<ul>
+<li>0.17.0 (Nicholas C. Zakas)</li>
+<li>Fix: module import specifiers should be defined (refs #1978) (Nicholas C. Zakas)</li>
+<li>Fix: Ignore super in no-undef (refs #1968) (Nicholas C. Zakas)</li>
+<li>Upgrade: Espree to v0.12.0 (refs #1968) (Nicholas C. Zakas)</li>
+<li>Fix: destructured arguments should work in block-scoped-var (fixes #1996) (Nicholas C. Zakas)</li>
+<li>Fix: Line breaking with just carriage return (fixes #2005) (Nicholas C. Zakas)</li>
+<li>Fix: location of new-cap error messages (fixes #2025) (Mathias Schreck)</li>
+<li>Breaking: Stop checking JSX variable use, expose API instead (fixes #1911) (Glen Mailer)</li>
+<li>Fix: Check spacing of class methods (fixes #1989) (Nicholas C. Zakas)</li>
+<li>New: no-duplicate-case rule to disallow a duplicate case label (fixes #2015) (Dieter Oberkofler)</li>
+<li>Clarify issue requirement for doc pull requests (Ian)</li>
+<li>Add quotes around object key (Ian)</li>
+<li>Fix: Add comma-dangle allow-multiline (fixes #1984) (Keith Cirkel)</li>
+<li>Fix: Don't explode on default export function (fixes #1985) (Nicholas C. Zakas)</li>
+<li>Update: Add AST node exceptions to comma-style. (fixes #1932) (Evan Simmons)</li>
+<li>Docs: Add spread operator to available language options (Nicholas C. Zakas)</li>
+<li>New: generator-star-spacing rule (fixes #1680, fixes #1949) (Brandon Mills)</li>
+</ul>
+<p>v0.16.2 - March 10, 2015</p>
+<ul>
+<li>0.16.2 (Nicholas C. Zakas)</li>
+<li>Fix: Ensure globalReturn isn't on when node:false (fixes #1995) (Nicholas C. Zakas)</li>
+<li>Downgrade: escope pegged to 2.0.6 (refs #2001) (Nicholas C. Zakas)</li>
+<li>Upgrade: escope to 2.0.7 (fixes #1978) (Nicholas C. Zakas)</li>
+<li>Docs: Update descriptive text for &ndash;no-ignore option. (David Anson)</li>
+<li>Upgrade: estraverse to latest for ESTree support (fixes #1986) (Nicholas C. Zakas)</li>
+<li>Fix: Global block-scope-var check should work (fixes #1980) (Nicholas C. Zakas)</li>
+<li>Fix: Don't warn about parens around yield (fixes #1981) (Nicholas C. Zakas)</li>
+</ul>
+<p>v0.16.1 - March 8, 2015</p>
+<ul>
+<li>0.16.1 (Nicholas C. Zakas)</li>
+<li>Fix: Node.js scoping in block-scoped-var (fixes #1969) (Nicholas C. Zakas)</li>
+<li>Update: Enable ES6 scoping for more options (Nicholas C. Zakas)</li>
+<li>Fix: Ensure all export nodes are traversable (fixes #1965) (Nicholas C. Zakas)</li>
+<li>Fix: Ensure class names are marked as used (fixes #1967) (Nicholas C. Zakas)</li>
+<li>Fix: remove typo that caused a crash (fixes #1963) (Fabricio C Zuardi)</li>
+<li>Docs: Added missing "are" (Sean Wilkinson)</li>
+</ul>
+<p>v0.16.0 - March 7, 2015</p>
+<ul>
+<li>0.16.0 (Nicholas C. Zakas)</li>
+<li>Fix: Pass correct sourceType to escope (fixes #1959) (Nicholas C. Zakas)</li>
+<li>Fix: Scoping for Node.js (fixes #892) (Nicholas C. Zakas)</li>
+<li>Fix: strict rule should honor module code (fixes #1956) (Nicholas C. Zakas)</li>
+<li>New: Add es6 environment (fixes #1864, fixes #1944) (Nicholas C. Zakas)</li>
+<li>Docs: Update ecmaFeatures list (fixes #1942) (Nicholas C. Zakas)</li>
+<li>Fix: Make no-unused-vars ignore exports (fixes #1903) (Nicholas C. Zakas)</li>
+<li>Upgrade: Espree to v1.11.0 (Nicholas C. Zakas)</li>
+<li>Fix: Comment configuration of rule doesn't work (fixes #1792) (Jary)</li>
+<li>Fix: Rest args should work in no-undef and block-scoped-var (fixes #1543) (Nicholas C. Zakas)</li>
+<li>Breaking: change no-comma-dangle to comma-dangle (fixes #1350) (Mathias Schreck)</li>
+<li>Update: space-before-function-parentheses to support generators (fixes #1929) (Brandon Mills)</li>
+<li>New: Adding support for "// eslint-disable-line rule" style comments (Billy Matthews)</li>
+<li>Fix: Use unversioned sinon file in browser test (fixes #1947) (Nicholas C. Zakas)</li>
+<li>Docs: Add mention of compatible parsers (Nicholas C. Zakas)</li>
+<li>Fix: Better error when given null as rule config (fixes #1760) (Glen Mailer)</li>
+<li>Update: no-empty to check TryStatement.handler (fixes #1930) (Brandon Mills)</li>
+<li>Fix: space-before-function-parentheses and object methods (fixes #1920) (Brandon Mills)</li>
+<li>New: no-dupe-args rule (fixes #1880) (Jamund Ferguson)</li>
+<li>Fix: comma-spacing should ignore JSX text (fixes #1916) (Brandon Mills)</li>
+<li>Breaking: made eol-last less strict (fixes #1460) (Glen Mailer)</li>
+<li>New: generator-star middle option (fixes #1808) (Jamund Ferguson)</li>
+<li>Upgrade: Espree to 1.10.0 for classes support (Nicholas C. Zakas)</li>
+<li>Docs: no-plusplus.md - auto semicolon insertion (Miroslav Obradović)</li>
+<li>Docs: Use union types in TokenStore JSDoc (refs #1878) (Brandon Mills)</li>
+<li>Fix: block-scoped-var to work with destructuring (fixes #1863) (Nicholas C. Zakas)</li>
+<li>Docs: Update docs for token-related methods (fixes #1878) (Nicholas C. Zakas)</li>
+<li>Update: Remove preferGlobal from package.json (fixes #1877) (Nicholas C. Zakas)</li>
+<li>Fix: allow block bindings in no-inner-declarations (fixes #1893) (Roberto Vidal)</li>
+<li>Fix: getScope and no-use-before-define for arrow functions (fixes #1895) (Brandon Mills)</li>
+<li>Fix: Make no-inner-declarations look for arrow functions (fixes #1892) (Brandon Mills)</li>
+<li>Breaking: Change no-space-before-semi to semi-spacing and add "after" option (fixes #1671) (Mathias Schreck)</li>
+<li>Update: Add support for custom preprocessors (fixes #1817) (Ilya Volodin)</li>
+</ul>
+<p>v0.15.1 - February 26, 2015</p>
+<ul>
+<li>0.15.1 (Nicholas C. Zakas)</li>
+<li>Build: Fix release task (Nicholas C. Zakas)</li>
+<li>Fix: check all semicolons in no-space-before-semi (fixes #1885) (Mathias Schreck)</li>
+<li>Fix: Refactor comma-spacing (fixes #1587, fixes #1845) (Roberto Vidal)</li>
+<li>Fix: Allow globalReturn in consistent-return (fixes #1868) (Brandon Mills)</li>
+<li>Fix: semi rule should check throw statements (fixes #1873) (Mathias Schreck)</li>
+<li>Docs: Added HolidayCheck AG as user (0xPIT)</li>
+<li>Upgrade: <code>chalk</code> to 1.0.0 (Sindre Sorhus)</li>
+<li>Docs: Add CustomInk to the list of companies (Derek Lindahl)</li>
+<li>Docs: Alphabetize project &amp; company usage list (Derek Lindahl)</li>
+<li>Docs: fix typo (Henry Zhu)</li>
+<li>Docs: Fix typo (Brenard Cubacub)</li>
+</ul>
+<p>v0.15.0 - February 21, 2015</p>
+<ul>
+<li>0.15.0 (Nicholas C. Zakas)</li>
+<li>Upgrade: Espree to 1.9.1 (fixes #1816, fixes #1805) (Nicholas C. Zakas)</li>
+<li>Fix: make rules work with for-of statements (fixes #1859) (Mathias Schreck)</li>
+<li>Fix: Enable globalReturn for Node.js environment (fixes #1158) (Nicholas C. Zakas)</li>
+<li>Fix: Location of extra paren message (fixes #1814) (Nicholas C. Zakas)</li>
+<li>Fix: Remove unnecessary file exists check (fixes #1831) (Nicholas C. Zakas)</li>
+<li>Fix: Don't count else-if in max-depth (fixes #1835) (Nicholas C. Zakas)</li>
+<li>Fix: Don't flag for-of statement (fixes #1852) (Nicholas C. Zakas)</li>
+<li>Build: Test using io.js as well (Nicholas C. Zakas)</li>
+<li>Change customformat value to path (suisho)</li>
+<li>Docs: Add a missing word in the Contributing doc (Ben Linskey)</li>
+<li>Docs: Fix typo in wrap-iife rule doc title (Ben Linskey)</li>
+<li>Docs: Update pages to fix rendering of lists (David Anson)</li>
+<li>Fix: new-cap should allow defining exceptions (fixes #1424) (Brian Di Palma)</li>
+<li>Update: Add requireReturnDescription for valid-jsdoc (fixes #1833) (Brian Di Palma)</li>
+<li>New: rule no-throw-literal added (fixes #1791) (Dieter Oberkofler)</li>
+<li>New: multi-line option for the curly rule (fixes #1812) (Hugo Wood)</li>
+<li>Docs: fix typo in configuring docs (mendenhallmagic)</li>
+<li>Update: Backslashes in path (fixes #1818) (Jan Schär)</li>
+<li>Docs: Update pages to fix rendering of lists and fenced code blocks (David Anson)</li>
+<li>Docs: add webpack loader to the docs/integrations page (Maxime Thirouin)</li>
+<li>Breaking: space-before-function-parentheses replaces space-after-function-name and checkFunctionKeyword (fixes #1618) (Mathias Schreck)</li>
+</ul>
+<p>v0.14.1 - February 8, 2015</p>
+<ul>
+<li>0.14.1 (Nicholas C. Zakas)</li>
+<li>Fix: Exit code should be 1 for any number of errors (fixes #1795) (Nicholas C. Zakas)</li>
+<li>Fix: Check indentation of first line (fixes #1796) (Nicholas C. Zakas)</li>
+<li>Fix: strict rules shouldn't throw on arrow functions (fixes #1789) (Nicholas C. Zakas)</li>
+</ul>
+<p>v0.14.0 - February 7, 2015</p>
+<ul>
+<li>0.14.0 (Nicholas C. Zakas)</li>
+<li>Update: Fix indentation of comment (Nicholas C. Zakas)</li>
+<li>Fix: comma-spacing for template literals (fixes #1736) (Nicholas C. Zakas)</li>
+<li>Build: Add Node.js 0.12 testing (Nicholas C. Zakas)</li>
+<li>Breaking: Remove node from results (fixes #957) (Nicholas C. Zakas)</li>
+<li>Breaking: Exit code is now error count (Nicholas C. Zakas)</li>
+<li>Docs: Correct getFormatter() documentation (refs #1723) (Nicholas C. Zakas)</li>
+<li>Update: Make rules work with arrow functions (fixes #1508, fixes #1509, fixes #1493) (Nicholas C. Zakas)</li>
+<li>Fix: Ensure template string references count (fixes #1542) (Nicholas C. Zakas)</li>
+<li>Fix: no-undef to work with arrow functions (fixes #1604) (Nicholas C. Zakas)</li>
+<li>Upgrade: Espree to version 1.8.0 (Nicholas C. Zakas)</li>
+<li>Fix: Don't throw error for arguments (fixes #1759) (Nicholas C. Zakas)</li>
+<li>Fix: Don't warn on computed nonliteral properties (fixes #1762) (Nicholas C. Zakas)</li>
+<li>New: Allow parser to be configured (fixes #1624) (Nicholas C. Zakas)</li>
+<li>Docs: Added double quotes for JSON keys for comma-spacing and key-spacing rule (Dmitry Polovka)</li>
+<li>New: Rule indent (fixes #1022) (Dmitriy Shekhovtsov)</li>
+<li>Revert "New: Rule indent (fixes #1022)" (Nicholas C. Zakas)</li>
+<li>Update: fix eslint indentations (fixes #1770) (Dmitriy Shekhovtsov)</li>
+<li>Fix: Scoping issues for no-unused-vars (fixes #1741) (Nicholas C. Zakas)</li>
+<li>Docs: Added <code>eslint-enable</code> inline (Ivan Fraixedes)</li>
+<li>New: Add predefined Meteor globals (fixes #1763) (Johan Brook)</li>
+<li>New: Rule indent (fixes #1022) (Dmitriy Shekhovtsov)</li>
+<li>Update: Check all assignments for consistent-this (fixes #1513) (Timothy Jones)</li>
+<li>Fix: Support exceptions in no-multi-spaces (fixes #1755) (Brandon Mills)</li>
+<li>Docs: Forgotten parentheses in code snippet (Ivan Fraixedes)</li>
+<li>Update: CLIEngine results include warning and error count (fixes #1732) (gyandeeps)</li>
+<li>Fix: Scoping issues for no-unused-vars (fixes #1733) (Nicholas C. Zakas)</li>
+<li>Update: Add getNodeByRangeIndex method (refs #1755) (Brandon Mills)</li>
+<li>Update: Replace getTokenByRange(Index-&gt;Start) (refs #1721) (Brandon Mills)</li>
+<li>Update: Fast-path for empty input (fixes #546) (Nicholas C. Zakas)</li>
+<li>Fix: Allow single line else-if (fixes #1739) (Nicholas C. Zakas)</li>
+<li>Fix: Don't crash when $HOME isn't set (fixes #1465) (Nicholas C. Zakas)</li>
+<li>Fix: Make no-multi-spaces work for every case (fixes #1603, fixes #1659) (Nicholas C. Zakas)</li>
+<li>Breaking: Show error and warning counts in stylish summary (fixes #1746) (Brandon Mills)</li>
+<li>Docs: fixed typo in no-lone-blocks docs (Vitor Balocco)</li>
+<li>Docs: fixed typo in consistent-return docs (Vitor Balocco)</li>
+<li>Breaking: remove implied eval check from no-eval (fixes #1202) (Mathias Schreck)</li>
+<li>Update: Improve CLIEngine.getFormatter() (refs #1723) (Nicholas C. Zakas)</li>
+<li>Docs: Add Backbone plugin link (Ilya Volodin)</li>
+<li>Docs: use npm's keyword route (Tom Vincent)</li>
+<li>Build: Update sitegen script (Closes #1725) (Ilya Volodin)</li>
+</ul>
+<p>v0.13.0 - January 24, 2015</p>
+<ul>
+<li>0.13.0 (Nicholas C. Zakas)</li>
+<li>Update: The rule spaced-line-comment now also allows tabs and not only spaces as whitespace. (fixes #1713) (Dieter Oberkofler)</li>
+<li>Docs: add Jasmine rules and eslintplugin npm links (Tom Vincent)</li>
+<li>Fix: Make no-redeclare work with let (fixes #917) (Nicholas C. Zakas)</li>
+<li>Update: Add CLIEngine.getFormatter() (fixes #1653) (Nicholas C. Zakas)</li>
+<li>Breaking: Update escope (fixes #1642) (Nicholas C. Zakas)</li>
+<li>Update: Switch to using estraverse-fb (fixes #1712) (Nicholas C. Zakas)</li>
+<li>Docs: Update README FAQ (Nicholas C. Zakas)</li>
+<li>Update: no-warning-comments matches on whole word only (fixes #1709) (Nick Fisher)</li>
+<li>Build: Add JSDoc generation (fixes #1363) (Nicholas C. Zakas)</li>
+<li>Docs: Add more info about context (fixes #1330) (Nicholas C. Zakas)</li>
+<li>Upgrade: Espree to 1.7.1 (fixes #1706) (Nicholas C. Zakas)</li>
+<li>Docs: Make CLA notice more prominent (Nicholas C. Zakas)</li>
+<li>Update: Added globals for: phantom,jquery, prototypejs, shelljs (fixes #1704) (Dmitriy Shekhovtsov)</li>
+<li>Docs: Fixed example for the space-return-throw-case rule (mpal9000)</li>
+<li>Fix: Except object literal methods from func-names (fixes #1699) (Brandon Mills)</li>
+<li>Update: use global strict mode everywhere (fixes #1691) (Brandon Mills)</li>
+<li>Update: Add allowPattern option for dot-notation rule (fixes #1679) (Tim Schaub)</li>
+<li>Fix: Missing undeclared variables in JSX (fixes #1676) (Yannick Croissant)</li>
+<li>Fix: no-unused-expressions rule incorrectly flagging yield (fixes #1672) (Rémi Gérard-Marchant)</li>
+<li>Update: Combine strict mode rules (fixes #1246) (Brandon Mills)</li>
+<li>Fix: disregards leading './' in ignore pattern or file name (fixes #1685) (Chris Montrois)</li>
+<li>Upgrade: globals module to latest (fixes #1670) (Nicholas C. Zakas)</li>
+<li>Fix: generator-star should allow params (fixes #1677) (Brandon Mills)</li>
+<li>Fix: no-unused-vars for JSX (fixes #1673 and fixes #1534) (Yannick Croissant)</li>
+<li>Docs: Add angularjs-eslint link into the integration doc (Emmanuel DEMEY)</li>
+</ul>
+<p>v0.12.0 - January 17, 2015</p>
+<ul>
+<li>0.12.0 (Nicholas C. Zakas)</li>
+<li>Fix: Track JSX global variable correctly (fixes #1534) (Nicholas C. Zakas)</li>
+<li>Fix: Property regex flag checking (fixes #1537) (Nicholas C. Zakas)</li>
+<li>Docs: Add angularjs-eslint link into the integration doc (Emmanuel DEMEY)</li>
+<li>Update: Expose ecmaFeatures on context (fixes #1648) (Nicholas C. Zakas)</li>
+<li>Docs: Added Fitbit to the list of companies (Igor Zalutsky)</li>
+<li>New: gen-star rule (refs #1617) (Jamund Ferguson)</li>
+<li>New: no-var rule (refs #1617) (Jamund Ferguson)</li>
+<li>Fix: Support JSX spread operator (fixes #1634) (Nicholas C. Zakas)</li>
+<li>Docs: Document ecmaFeatures (Nicholas C. Zakas)</li>
+<li>Upgrade: several dependencies (fixes #1377) (Nicholas C. Zakas)</li>
+<li>Fix: Broken JSX test (Nicholas C. Zakas)</li>
+<li>Fix: no-bitwise reports on bitwise assignment expressions (fixes #1643) (Mathias Schreck)</li>
+<li>Fix: Find JSXIdentifier refs in no-unused-vars (fixes #1534) (Nicholas C. Zakas)</li>
+<li>Update: Add a couple JSX tests (Nicholas C. Zakas)</li>
+<li>Fix: quotes rule ignores JSX literals (fixes #1477) (Nicholas C. Zakas)</li>
+<li>Fix: Don't warn on JSX literals with newlines (fixes #1533) (Nicholas C. Zakas)</li>
+<li>Update: Fully enable JSX support (fixes #1640) (Nicholas C. Zakas)</li>
+<li>Breaking: Allow parser feature flips (fixes #1602) (Nicholas C. Zakas)</li>
+<li>Fix: Allow comments in key-spacing groups (fixes #1632) (Brandon Mills)</li>
+<li>Fix: block-scoped-var reports labels (fixes #1630) (Michael Ficarra)</li>
+<li>Docs: add newline to no-process-env (fixes #1627) (Tom Vincent)</li>
+<li>Fix: Update optionator, &ndash;no in help (fixes #1134) (George Zahariev)</li>
+<li>Fix: Allow individual newlines in space-in-brackets (fixes #1614) (Brandon Mills)</li>
+<li>Docs: Correct alignment in example project tree (Tim Schaub)</li>
+<li>Docs: Remove references to Esprima (Nicholas C. Zakas)</li>
+<li>Docs: Remove illegal code fence (Nicholas C. Zakas)</li>
+</ul>
+<p>v0.11.0 - December 30, 2014</p>
+<ul>
+<li>0.11.0 (Nicholas C. Zakas)</li>
+<li>Fix: Adding regexp literal exception (fixes #1589) (Greg Cochard)</li>
+<li>Fix: padded-blocks incorrectly complained on comments (fixes #1416) (Mathias Schreck)</li>
+<li>Fix: column location of key-spacing with additional tokens (fixes #1458) (Mathias Schreck)</li>
+<li>Build: tag correct commit (refs #1606) (Mathias Schreck)</li>
+<li>Upgrade: Updat Espree to 1.3.1 (Nicholas C. Zakas)</li>
+<li>Fix: add es3 config option to dot-notation rule (fixes #1484) (Michael Ficarra)</li>
+<li>Fix: valid-jsdoc should recognize C. Zakas)</li>
+<li>Update: Switch to use Espree (fixes #1595) (Nicholas C. Zakas)</li>
+<li>Fix: brace-style stroustrup should report on cuddled elseif (fixes #1583) (Ian Christian Myers)</li>
+<li>New: Configuration via package.json (fixes #698) (Michael Mclaughlin)</li>
+<li>Update: Set environments w/ globals (fixes #1577) (Elan Shanker)</li>
+<li>Fix: yoda treats negative numbers as literals (fixes #1571) (Brandon Mills)</li>
+<li>Fix: function arguments now count towards no-shadow check (fixes #1584) (Glen Mailer)</li>
+<li>Fix: check if next statement is on newline when warning against extra semicolons. (fixes #1580) (Evan You)</li>
+<li>Update: add yoda exception for range tests (fixes #1561) (Brandon Mills)</li>
+<li>New: space-after-function-name (fixes #1340) (Roberto Vidal)</li>
+</ul>
+<p>v0.10.2 - December 12, 2014</p>
+<ul>
+<li>0.10.2 (Nicholas C. Zakas)</li>
+<li>Fix: detect for...in in no-loop-func (fixes #1573) (Greg Cochard)</li>
+<li>Update: simplify comma-spacing logic (fixes #1562) (Brandon Mills)</li>
+<li>Fix: operator-assignment addition is non-commutative (fixes#1556) (Brandon Mills)</li>
+<li>0.10.1 (Nicholas C. Zakas)</li>
+<li>Update: Add new-cap exception configurations. (Fixes #1487) - <code>newCapsAllowed</code> - <code>nonNewCapsAllowed</code> (Jordan Harband)</li>
+</ul>
+<p>v0.10.1 - December 6, 2014</p>
+<ul>
+<li>0.10.1 (Nicholas C. Zakas)</li>
+<li>Docs: Fix v0.10.0 changelog (Nicholas C. Zakas)</li>
+<li>Build: Ensure changelog works with large semver versions (Nicholas C. Zakas)</li>
+<li>Fix: comma-spacing and comma-style to work with array literals (fixes #1492) (Nicholas C. Zakas)</li>
+<li>Update: better operator regex in use-isnan rule (fixes #1551) (Michael Ficarra)</li>
+<li>Fix: wrong op index in no-multi-spaces (fixes #1547) (Brandon Mills)</li>
+<li>Fix: Restrict use-isnan violations to comparison operators. (Fixes #1535) (Jordan Harband)</li>
+<li>Fix: comma-spacing has false positives when parenthesis are used (fixes #1457) (Jamund Ferguson)</li>
+<li>Docs: alphabetize the "Stylistic Issues" section (Jeff Williams)</li>
+<li>Build: make the "gensite" target work when DOCS_DIR does not exist (fixes #1530) (Jeff Williams)</li>
+<li>Docs: badges should only refer to master branch (Mathias Schreck)</li>
+<li>Fix: prevent crash on empty blocks in no-else-return (fixes #1527) (Mathias Schreck)</li>
+<li>Build: Fix md to html conversion regex (fixes #1525) (Brandon Mills)</li>
+<li>0.10.0 (Nicholas C. Zakas)</li>
+</ul>
+<p>v0.10.0 - November 27, 2014</p>
+<ul>
+<li>0.10.0 (Nicholas C. Zakas)</li>
+<li>Fix: Add Object and Function as exceptions in new-cap (refs #1487) (Nicholas C. Zakas)</li>
+<li>Breaking: Allow extensionless files to be passed on CLI (fixes #1131) (Nicholas C. Zakas)</li>
+<li>Fix: typo: iffe to iife, none to non (Michael Ficarra)</li>
+<li>Update: refactor tokens API (refs #1212) (Brandon Mills)</li>
+<li>New: Allow other file extensions (fixes #801) (Nicholas C. Zakas)</li>
+<li>Update: Add Event to browser globals (fixes #1474) (Nicholas C. Zakas)</li>
+<li>Fix: check function call arguments in comma-spacing (fixes #1515) (Mathias Schreck)</li>
+<li>Update: Add no-cond-assign option to disallow nested assignments in conditionals (fixes #1444) (Jeff Williams)</li>
+<li>Fix: crash in no-multi-spaces on empty array elements (fixes #1418) (Brandon Mills)</li>
+<li>Fix: Don't explode on directory traversal (fixes #1452) (Nicholas C. Zakas)</li>
+<li>Fix: no-fallthrough should work when semis are missing (fixes #1447) (Nicholas C. Zakas)</li>
+<li>Fix: JSDoc parsing by updating doctrine (fixes #1442) (Nicholas C. Zakas)</li>
+<li>Update: restore the "runs" global present in Jasmine 1.3 (fixes #1498) (Michał Gołębiowski)</li>
+<li>Fix: ignore undefined identifiers in typeof (fixes #1482) (Mathias Schreck)</li>
+<li>Fix: Ignoring empty comments. (fixes #1488) (Greg Cochard)</li>
+<li>New: Add space-unary-ops rules (#1346) (Marcin Kumorek)</li>
+<li>Update: Remove shebang workaround in spaced-line-comment (fixes #1433) (Michael Ficarra)</li>
+<li>Docs: change 'and' to 'an' in docs/rules/valid-jsdoc.md (fixes #1441) (Michael Ficarra)</li>
+<li>Update: Add <code>beforeAll</code> and <code>afterAll</code> to the Jasmine globals (fixes #1478) (Gyandeep Singh)</li>
+<li>Update: Add exception options to space-in-parens (fixes #1368) (David Clark)</li>
+<li>Build: Add check for license issues (fixes #782) (Brandon Mills)</li>
+<li>Docs: update badges (Yoshua Wuyts)</li>
+<li>Docs: Update pages to fix rendering of lists and fenced code blocks (David Anson)</li>
+<li>Fix: env rules merging for command line config (fixes #1271) (Roberto Vidal)</li>
+<li>Fix: Collect variables declare in switch-case.(fixes #1453) (chris)</li>
+<li>Fix: remove extra capture group (Nate-Wilkins)</li>
+<li>Update: allow distinct alignment groups in key-spacing (fixes #1439) (Brandon Mills)</li>
+<li>Fix: message for numeric property names in quote-props (fixes #1459) (Brandon Mills)</li>
+<li>Docs: Remove assumption about the rule config (Alexander Schmidt)</li>
+<li>New: Add ability to time individual rules (fixes #1437) (Brandon Mills)</li>
+<li>Fix: single quotes (Nate-Wilkins)</li>
+<li>Docs: Fix broken code fences in key-spacing docs (Brandon Mills)</li>
+<li>Docs: Explain .eslintignore features (fixes #1094) (Brandon Mills)</li>
+<li>Breaking: ignore node_modules by default (fixes #1163) (Brandon Mills)</li>
+<li>Fix: Adds clamping to getSource beforeCount (fixes #1427) (Greg Gianforcaro)</li>
+<li>New: add no-inline-comment rule (fixes #1366) (Greg Cochard)</li>
+<li>Fix: '.md' to '.html' with anchors (fixes #1415) (Nate-Wilkins)</li>
+<li>Build: Filter and sort versions in gensite (fixes #1430) (Brandon Mills)</li>
+<li>Build: Escape period in regex (fixes #1428) (Brandon Mills)</li>
+<li>Revert "Fix: '.md' to '.html' with anchors (fixes #1415)" (Nicholas C. Zakas)</li>
+<li>0.9.2 (Nicholas C. Zakas)</li>
+<li>New: Add operator-assignment rule (fixes #1420) (Brandon Mills)</li>
+</ul>
+<p>v0.9.2 - November 1, 2014</p>
+<ul>
+<li>0.9.2 (Nicholas C. Zakas)</li>
+<li>Fix: '.md' to '.html' with anchors (fixes #1415) (Nate-Wilkins)</li>
+<li>Fix: Allow line breaks in key-spacing rule (fixes #1407) (Brandon Mills)</li>
+<li>Build: add coveralls integration (fixes #1411) (Mathias Schreck)</li>
+<li>Fix: add severity flag for ignored file warning (fixes #1401) (Mathias Schreck)</li>
+<li>Fix: Keep sinon at ~1.10.3 (fixes #1406) (Brandon Mills)</li>
+<li>Fix: ! negates .eslintignore patterns (fixes #1093) (Brandon Mills)</li>
+<li>Fix: let fs.stat throw if a file does not exist (fixes #1296) (Mathias Schreck)</li>
+<li>Fix: check switch statements in space-before-blocks (fixes #1397) (Mathias Schreck)</li>
+<li>Docs: fix rule name in example configuration (Mathias Schreck)</li>
+<li>Fix: disable colors during test run (fixes #1395) (Mathias Schreck)</li>
+<li>New: add isPathIgnored method to CLIEngine (fixes #1392) (Mathias Schreck)</li>
+<li>Docs: changing eslint to ESLint and add missing backtick (Mathias Schreck)</li>
+<li>Docs: Documents the functionality to load a custom formatter from a file (Adam Baldwin)</li>
+<li>0.9.1 (Nicholas C. Zakas)</li>
+<li>Update: Option type for mixed tabs and spaces (fixes #1374) (Max Nordlund)</li>
+<li>Fix: Nested occurrences of no-else-return now show multiple reports (fixes #1369) (Jordan Hawker)</li>
+</ul>
+<p>v0.9.1 - October 25, 2014</p>
+<ul>
+<li>0.9.1 (Nicholas C. Zakas)</li>
+<li>Docs: fix link on governance model (azu)</li>
+<li>Fix: plugins without rulesConfig causes crash (fixes #1388) (Mathias Schreck)</li>
+<li>0.9.0 (Nicholas C. Zakas)</li>
+</ul>
+<p>v0.9.0 - October 24, 2014</p>
+<ul>
+<li>0.9.0 (Nicholas C. Zakas)</li>
+<li>New: Allow reading from STDIN (fixes #368) (Nicholas C. Zakas)</li>
+<li>New: add &ndash;quiet option (fixes #905) (Mathias Schreck)</li>
+<li>Update: Add support for plugin default configuration (fixes #1358) (Ilya Volodin)</li>
+<li>Fix: Make sure shebang comment node is removed (fixes #1352) (Nicholas C. Zakas)</li>
+<li>New: Adding in rule for irregular whitespace checking. (fixes #1024) (Jonathan Kingston)</li>
+<li>Fix: space-in-parens should not throw for multiline statements (fixes #1351) (Jary)</li>
+<li>Docs: Explain global vs. local plugins (fixes #1238) (Nicholas C. Zakas)</li>
+<li>Docs: Add docs on Node.js API (fixes #1247) (Nicholas C. Zakas)</li>
+<li>Docs: Add recommended keywords for plugins (fixes #1248) (Nicholas C. Zakas)</li>
+<li>Update: Add CLIEngine::getConfigForFile (fixes #1309) (Nicholas C. Zakas)</li>
+<li>Update: turn on comma-style for project (fixes #1316) (Nicholas C. Zakas)</li>
+<li>Fix: Ensure messages are sorted by line (fixes #1343) (Nicholas C. Zakas)</li>
+<li>Update: Added arraysInObjects and objectsInObjects options to space-in-brackets rule (fixes #1265, fixes #1302) (vegetableman)</li>
+<li>Breaking: Removed comma spacing check from space-infix-ops (fixes #1361) (vegetableman)</li>
+<li>Fix: addressed linting errors (Nicholas C. Zakas)</li>
+<li>Docs: Add Contributor Model (fixes #1341) (Nicholas C. Zakas)</li>
+<li>Docs: Add reference to CLA (Nicholas C. Zakas)</li>
+<li>Build: add version numbers to docs (fixes #1170) (Mathias Schreck)</li>
+<li>Fix: no-fallthrough incorrectly flagged falls through annotations (fixes #1353) (Mathias Schreck)</li>
+<li>Build: separate site publishing form generation (fixes #1356) (Mathias Schreck)</li>
+<li>New: Add key-spacing rule (fixes #1280) (Brandon Mills)</li>
+<li>New: add spaced-line-comment rule (fixes #1345) (Greg Cochard)</li>
+<li>Docs: added more Related Rules sections (fixes #1347) (Delapouite)</li>
+<li>Fix: resolve linting issue in (fixes #1339) (Nicholas C. Zakas)</li>
+<li>New: add space-before-blocks rule (fixes #1277) (Mathias Schreck)</li>
+<li>Docs: Remove moot integration plugins (Sindre Sorhus)</li>
+<li>New: add rule for multiple empty lines (fixes #1254) (Greg Cochard)</li>
+<li>Fix: no-shadow rule should consider function expressions (fixes #1322) (Mathias Schreck)</li>
+<li>Update: remove globals present only in Jasmine plugins (fixes #1326) (Michał Gołębiowski)</li>
+<li>New: added no-multi-spaces rule (fixes #630) (vegetableman)</li>
+<li>New: Added comma-spacing rule (Fixes #628, Fixes #1319) (vegetableman)</li>
+<li>New: add rule for padded blocks (fixes #1278) (Mathias Schreck)</li>
+<li>Docs: fix eqeqeq isNullCheck comment (Denis Sokolov)</li>
+<li>Fix: no-comma-dangle violation in unit test and Makefile.js/lint not checking return codes (fixes #1306) (David Anson)</li>
+<li>Fix: allow comma-last with object properties having line breaks (fixes #1314) (vegetableman)</li>
+<li>New: Added comma-style rule (fixes #1282) (vegetableman)</li>
+<li>Update: add space after function keyword check (fixes #1276) (Mathias Schreck)</li>
+<li>Update: Add missing environments and fix sorting/grouping of rules (fixes #1307, fixes #1308) (David Anson)</li>
+<li>Docs: Fix sorting of rules within each section (David Anson)</li>
+<li>Docs: Correct a few misspelled words (David Anson)</li>
+<li>Docs: Update multiple pages to fix rendering of fenced code blocks (David Anson)</li>
+<li>New: Added no-process-env rule (fixes #657) (vegetableman)</li>
+<li>Fix: add rule ensuring #1258 is fixed by recent rewrite (fixes #1258) (Michael Ficarra)</li>
+<li>Update: split propertyName from singleValue in space-in-brackets (fixes #1253) (Michael Ficarra)</li>
+<li>Update: add "as-needed" option to quote-props rule (fixes #1279) (Michael Ficarra)</li>
+<li>Docs: fixed broken link and changed warning level to error level (vegetableman)</li>
+<li>Docs: Added "the native web" to the list of companies that use ESLint. (Golo Roden)</li>
+<li>Docs: Add BountySource badge to README (Nicholas C. Zakas)</li>
+<li>0.8.2 (Nicholas C. Zakas)</li>
+</ul>
+<p>v0.8.2 - September 20, 2014</p>
+<ul>
+<li>0.8.2 (Nicholas C. Zakas)</li>
+<li>Docs: Updated contribution guidelines to add accepted/bounty issues descriptions (Nicholas C. Zakas)</li>
+<li>Docs: Update README with links and FAQs (Nicholas C. Zakas)</li>
+<li>Docs: add finally to space-after-keywords documentation (Mathias Schreck)</li>
+<li>New: add ignoreCase option to sort-vars (fixes #1272) (Mathias Schreck)</li>
+<li>Docs: fix typo (Barry Handelman)</li>
+<li>Docs: Fix broken Markdown on configuration page (Nicholas C. Zakas)</li>
+<li>Docs: Fix reference to wrong rule name (Harry Wolff)</li>
+<li>Upgrade: Most dev dependencies (Nicholas C. Zakas)</li>
+<li>Upgrade: shelljs to 0.3.0 (Nicholas C. Zakas)</li>
+<li>Upgrade: doctrine to 0.5.2 (Nicholas C. Zakas)</li>
+<li>Upgrade: esprima to 1.2.2 (Nicholas C. Zakas)</li>
+<li>Upgrade: eslint-tester to latest (Nicholas C. Zakas)</li>
+<li>Fix: Load .eslintrc in directory with $HOME as an ancestor (fixes #1266) (Beau Gunderson)</li>
+<li>Fix: load .eslintrc from HOME (fixes #1262) (Beau Gunderson)</li>
+<li>New: Add sharable rule settings (fixes #1233) (Ilya Volodin)</li>
+<li>Upgrade: upgrade outdated dependencies (fixes #1251) (Mathias Schreck)</li>
+<li>Docs: fix typo in no-ex-assign documentation (Michael Ficarra)</li>
+<li>Docs: add intellij plugin to integrations (ido)</li>
+<li>Docs: Changing NPM to npm (Peter deHaan)</li>
+<li>Fix: strict should check function expressions (fixes #1244) (Brandon Mills)</li>
+<li>Docs: fix vars-on-top documentation (fixes #1234) (Mathias Schreck)</li>
+<li>0.8.1 (Nicholas C. Zakas)</li>
+<li>Docs: Fixed a typo in brace-style.md (Anton Antonov)</li>
+</ul>
+<p>v0.8.1 - September 9, 2014</p>
+<ul>
+<li>0.8.1 (Nicholas C. Zakas)</li>
+<li>Fix: Ensure exit code is 1 when there's a syntax error (fixes #1239) (Nicholas C. Zakas)</li>
+<li>Docs: fix up vars-on-top documentation (fixes #1234) (Michael Ficarra)</li>
+<li>Fix: vars-on-top directive support (fixes #1235) (Michael Ficarra)</li>
+<li>Fix: Avoid mutating node.range in max-len (fixes #1224) (Brandon Mills)</li>
+<li>Docs: Typo, add missing quotation mark (Ádám Lippai)</li>
+<li>Update: space-in-brackets to allow exceptions (fixes #1142) (Brandyn Bennett)</li>
+<li>0.8.0 (Nicholas C. Zakas)</li>
+</ul>
+<p>v0.8.0 - September 5, 2014</p>
+<ul>
+<li>0.8.0 (Nicholas C. Zakas)</li>
+<li>Perf-related revert "Fix: Speed up tokens API (refs #1212)" (Nicholas C. Zakas)</li>
+<li>Fix: no-fallthrough: continue affects control flow, too (fixes #1220) (Michael Ficarra)</li>
+<li>Fix: rewrite no-unused-vars rule (refs #1212) (Michael Ficarra)</li>
+<li>Fix: Error when there's a \r in .eslintrc (#1172) (Gyandeep Singh)</li>
+<li>Added rule disallowing reserved words being used as keys (fixes #1144) (Emil Bay)</li>
+<li>Fix: rewrite no-spaced-func rule (refs #1212) (Michael Ficarra)</li>
+<li>Fix: Speed up getScope() (refs #1212) (Brandon Mills)</li>
+<li>Fix: no-extra-strict behavior for named function expressions (fixes #1209) (Mathias Schreck)</li>
+<li>Add Date.UTC to allowed capitalized functions (David Brockman Smoliansky)</li>
+<li>New: Adding 'vars-on-top' rule (fixes #1148) (Gyandeep Singh)</li>
+<li>Fix: Speed up tokens API (refs #1212) (Brandon Mills)</li>
+<li>Docs: document plugin usage (fixes #1117) (Mathias Schreck)</li>
+<li>New: accept plugins from cli (fixes #1113) (Mathias Schreck)</li>
+<li>Docs: fix some typos. (Mathias Schreck)</li>
+<li>New: Load plugins from configs (fixes #1115). (Mathias Schreck)</li>
+<li>Fix: no-unused-expressions better directive detection (fixes #1195) (Michael Ficarra)</li>
+<li>Fix: no-unused-expressions directive support (fixes #1185) (Michael Ficarra)</li>
+<li>Update: Add 'allowSingleLine' option to brace-style (fixes #1089) (John Gozde)</li>
+<li>Docs: Spell checking and one extra closing curly in code example (Juga Paazmaya)</li>
+<li>Fix: mergeConfigs ensures the plugins property exists (fixes #1191). (Mathias Schreck)</li>
+<li>Update: Declare ES6 collections (Map, Set, WeakMap, WeakSet) as built-in globals (fixes #1189) (Michał Gołębiowski)</li>
+<li>New: Adding 'plugin' CLI option (fixes #1112) (Greg)</li>
+<li>Fix: Correct a typo in the error message in tests (Michał Gołębiowski)</li>
+<li>New: Add no-extra-bind rule to flag unnecessary bind calls (fixes #982) (Bence Dányi)</li>
+<li>Fix: Useless bind call in cli-engine (fixes #1181) (Bence Dányi)</li>
+<li>Docs: Updates <code>amd</code> description (fixes #1175) (James Whitney)</li>
+<li>New: Adds support for the <code>jasmine</code> env (fixes #1176) (James Whitney)</li>
+<li>Fix: for-in support to no-empty-label rule (fixes #1161) (Marc Harter)</li>
+<li>docs: Update link (Mathias Bynens)</li>
+<li>Fix: crash when loading empty eslintrc file (fixes #1164) (Michael Ficarra)</li>
+<li>Fix: no-unused-var should respect compound assignments (fixes #1166) (Michael Ficarra)</li>
+<li>Update: ES3 <code>ReservedWord</code>s (fixes #1151) Adds ES3 <code>ReservedWord</code>s to the list of keywords in the <code>dot-notation</code> rule (fixes #1151) (Emil Bay)</li>
+<li>Update: Update comment parser to read rule slashes (fixes #1116) (Jary)</li>
+<li>New: add no-void rule (fixes #1017). (Mike Sidorov)</li>
+<li>New: Add rules.import() (fixes #1114) (Mathias Schreck)</li>
+<li>New: Make mergeConfigs() merge plugin entries (fixes #1111) (Mathias Schreck)</li>
+<li>Breaking: Change no-global-strict to global-strict and add "always" option (fixes #989) (Brandon Mills)</li>
+<li>Fix: no-unreachable should check top-level statements (fixes #1138) (Brandon Mills)</li>
+<li>Fix: Speed up no-unreachable (fixes #1135) (Brandon Mills)</li>
+<li>New: advanced handle-callback-err configuration (fixes #1124) (Mathias Schreck)</li>
+<li>New: Expose CLIEngine (fixes #1083) (Gyandeep Singh)</li>
+<li>Docs: Add link to new Atom linter (fixes #1125) (Gil Pedersen)</li>
+<li>Fix: space-after-keywords checks finally of TryStatement (fixes #1122) (Michael Ficarra)</li>
+<li>Fix: space-after-keywords checks while of DoWhileStatement (fixes #1120) (Michael Ficarra)</li>
+<li>Fix: space-after-keywords w/ "never" should allow else-if (fixes #1118) (Michael Ficarra)</li>
+<li>Fix: dot-notation rule flags non-keyword reserved words (fixes #1102) (Michael Ficarra)</li>
+<li>Update: Use xml-escape instead of inline helper (Ref #848) (jrajav)</li>
+<li>Update: Added comments support to .eslintignore (fixes #1084) (Vitaly Puzrin)</li>
+<li>Update: enabled 'no-trailing-spaces' rule by default (fixes #1051) (Vitaly Puzrin)</li>
+<li>Breaking: Ignore children of all patterns by adding "/**" (Fixes #1069) (jrajav)</li>
+<li>Fix: skip dot files and ignored dirs on traverse (fixes #1077, related to #814) (Vitaly Puzrin)</li>
+<li>Docs: Added Gruntjs plugin on integrations page (Gyandeep Singh)</li>
+<li>Fix: don't break node offsets if hasbang present (fixes #1078) (Vitaly Puzrin)</li>
+<li>Build: Exclude readme/index from rules Resources generation (Fixes #1072) (jrajav)</li>
+<li>Docs: Change eol-last examples to <code>&lt;pre&gt;</code> (Fixes #1068) (jrajav)</li>
+<li>0.7.4 (Nicholas C. Zakas)</li>
+<li>New: space-in-parens rule (Closes #627) (jrajav)</li>
+</ul>
+<p>v0.7.4 - July 10, 2014</p>
+<ul>
+<li>0.7.4 (Nicholas C. Zakas)</li>
+<li>Docs: Fix 'lintinging' typo and ref links (Tom Vincent)</li>
+<li>Fix: Transform envs option to object in Config (Fixes #1064) (jrajav)</li>
+<li>0.7.3 (Nicholas C. Zakas)</li>
+</ul>
+<p>v0.7.3 - July 9, 2014</p>
+<ul>
+<li>0.7.3 (Nicholas C. Zakas)</li>
+<li>Update: Address code review comment for strict rule (refs #1011) (Nicholas C. Zakas)</li>
+<li>Docs: Update copyright policy (Nicholas C. Zakas)</li>
+<li>Docs: Update documentation for max-len to include description of second option (fixes #1006) (Nicholas C. Zakas)</li>
+<li>Fix: Avoid double warnings for strict rule (fixes #1011) (Nicholas C. Zakas)</li>
+<li>Fix: Check envs for true/false (Fixes #1059) (jrajav)</li>
+<li>0.7.2 (Nicholas C. Zakas)</li>
+</ul>
+<p>v0.7.2 - July 8, 2014</p>
+<ul>
+<li>0.7.2 (Nicholas C. Zakas)</li>
+<li>Fix: no-mixed-spaces-and-tabs incorrectly flagging multiline comments (fixes #1055) (Nicholas C. Zakas)</li>
+<li>Fix: new-cap error that throws on non-string member (fixes #1056) (Nicholas C. Zakas)</li>
+<li>Fix: Always make globals an object (Fixes #1049) (jrajav)</li>
+<li>0.7.1 (Nicholas C. Zakas)</li>
+</ul>
+<p>v0.7.1 - July 7, 2014</p>
+<ul>
+<li>0.7.1 (Nicholas C. Zakas)</li>
+<li>Docs: Add Related Rules sections (Fixes #990) (jrajav)</li>
+<li>Fix: Check output file isn't dir, fix tests (Fixes #1034) (jrajav)</li>
+<li>Docs: Updated documentation for several rules (Nicholas C. Zakas)</li>
+<li>Docs: Updated contributor guide and dev env setup guide (Nicholas C. Zakas)</li>
+<li>Breaking: Implement configuration hierarchy (fixes #963) (Nicholas C. Zakas)</li>
+<li>Update: greatly simplify eqeqeq's operator finding logic (fixes #1037) (Michael Ficarra)</li>
+<li>New: Add getSourceLines() to core and rule context (fixed #1005) (Jary)</li>
+<li>Build + Docs: Adding generated resource links to rule docs (Fixes #1021) (jrajav)</li>
+<li>Fix: Ignore unused params for args: 'none' (Fixes #1026) (jrajav)</li>
+<li>Fix: Point eqeqeq error at operator (Fixes #1029) (jrajav)</li>
+<li>New: report output to a file (fixes #1027) (Gyandeep Singh)</li>
+<li>Breaking: CLIEngine abstraction for CLI operations; formatters no longer are passed configs (fixes #935) (Nicholas C. Zakas)</li>
+<li>Fix: Allow stdout to drain before exiting (fixes #317) (Nicholas C. Zakas)</li>
+<li>New: add no-undefined rule (fixes #1020) (Michael Ficarra)</li>
+<li>New: Added no-mixed-spaces-and-tabs rule (fixes #1003) (Jary)</li>
+<li>New: Added no-trailing-spaces rule (fixes #995) (Vitaly Puzrin)</li>
+<li>Update: Factor ignores out of Config (fixes #958) (jrajav)</li>
+<li>Fix: rewrite eol-last rule (fixes #1007) (fixes #1008) (Michael Ficarra)</li>
+<li>Fix: add additional IIFE exception in no-extra-parens (fixes #1004) (Michael Ficarra)</li>
+<li>Docs: Removed reference to brace-style Stroustrup default (fixes #1000) (Caleb Troughton)</li>
+<li>New: Added eol-last rule (Fixes #996) (Vitaly Puzrin)</li>
+<li>Fix: Put rule severity in messages (Fixes #984); deprecates passing full config to Formatters (jrajav)</li>
+<li>Fix: no-unused-vars to check only file globals (fixes #975) (Aliaksei Shytkin)</li>
+<li>Build: Makefile - Check for rule ids in docs titles (Fixes #969) (Delapouite)</li>
+<li>Docs: guard-for-in - added missing id in title (Fixes #969) (Delapouite)</li>
+<li>Breaking: Change 'no-yoda' rule to 'yoda' and add "always" option (Fixes #959) (jrajav)</li>
+<li>Fix: Fixes no-unused-vars to check /*globals*/ (Fixes #955) (jrajav)</li>
+<li>Update: no-eval to also warn on setTimeout and setInterval (fixes #721) (Nicholas C. Zakas)</li>
+<li>Remove: experimental match() method (Nicholas C. Zakas)</li>
+<li>Update: space-in-brackets now always allows empty object and array literals to have no spaces (fixes #797) (Nicholas C. Zakas)</li>
+<li>New: Allow the cli parameter "color" and "no-color" (fixes #954) (Tom Gallacher)</li>
+<li>Fix: valid-jsdoc no more warning for multi-level params (Fixes #925) (Delapouite)</li>
+<li>Update: Search parent directories for .eslintignore (Fixes #933) (jrajav)</li>
+<li>Fix: Correct order of arguments passed to assert.equal (fixes #945) (Michał Gołębiowski)</li>
+<li>Update: Write the summary in stylish formatter in yellow if no errors (fixes #906); test coloring of messages (Michał Gołębiowski)</li>
+<li>Fix: Corrects configs merging into base config (Fixes #838) (jrajav)</li>
+<li>Fix: Adding check if char is non-alphabetic to new-cap (Fixes #940) (jrajav)</li>
+<li>Docs: Update about page description (fixes #936) (Nicholas C. Zakas)</li>
+<li>Docs: Add '/', forgotten in first commit (Fixes #931) (jrajav)</li>
+<li>Update: Rule <code>new-cap</code> checks capitalized functions (fixes #904) (Aliaksei Shytkin)</li>
+<li>Docs: Mention allowed semicolons in "never" mode for 'semi' rule (fixes #931) (jrajav)</li>
+<li>Docs: Mention Yeoman generator in dev setup (fixes #914) (Nicholas C. Zakas)</li>
+<li>Build: Remove flaky perf test from Travis (Nicholas C. Zakas)</li>
+<li>Breaking: Refactor .eslintignore functionality (refs #928, fixes #901, fixes #837, fixes #853) (Nicholas C. Zakas)</li>
+<li>0.6.2 (Nicholas C. Zakas)</li>
+<li>Breaking: Remove JSON support for .eslintignore (fixes #883) (icebox)</li>
+</ul>
+<p>v0.6.2 - May 23, 2014</p>
+<ul>
+<li>0.6.2 (Nicholas C. Zakas)</li>
+<li>Fix: Adding per-environment rule configs to docs and doc validation (Fixes #918) (jrajav)</li>
+<li>Docs: Updated contribution guidelines (Nicholas C. Zakas)</li>
+<li>Docs: Update description of eqeqeq to mention special cases (fixes #924) (Nicholas C. Zakas)</li>
+<li>Fix: block-scoped-var CatchClause handling (fixes #922) (Michael Ficarra)</li>
+<li>Fix: block-scoped-var respects decls in for and for-in (fixes #919) (Michael Ficarra)</li>
+<li>Update: Implement eqeqeq option "allow-null" (fixes #910) (Michał Gołębiowski)</li>
+<li>Fix: new-cap should allow non-alpha characters (fixes #897) (Michael Ficarra)</li>
+<li>Update: Refactor ESLintTester to fix dependency hell (fixes #602) (Nicholas C. Zakas)</li>
+<li>Fix: Merge configs with ancestors (Fixes #820) (jrajav)</li>
+<li>Fix: no-fallthrough should respect block statements in case statements (fixes #893) (Nicholas C. Zakas)</li>
+<li>Docs: Fix layout issue in configuration docs (fixes #889) (Nicholas C. Zakas)</li>
+<li>Build: Enable default-case rule (fixes #881) (icebox)</li>
+<li>Build: Enable space-after-keywords (fixes #884) (icebox)</li>
+<li>Fix api double emit on comment nodes (fixes #876) (Aliaksei Shytkin)</li>
+<li>0.6.1 (Nicholas C. Zakas)</li>
+</ul>
+<p>v0.6.1 - May 17, 2014</p>
+<ul>
+<li>0.6.1 (Nicholas C. Zakas)</li>
+<li>Upgrade: Optionator to 0.4.0 (fixes #885) (Nicholas C. Zakas)</li>
+<li>0.6.0 (Nicholas C. Zakas)</li>
+</ul>
+<p>v0.6.0 - May 17, 2014</p>
+<ul>
+<li>0.6.0 (Nicholas C. Zakas)</li>
+<li>Fix: Remove -r alias for &ndash;rule (fixes #882) (Nicholas C. Zakas)</li>
+<li>Docs: Update dev setup, contributing, default-case descriptions (Nicholas C. Zakas)</li>
+<li>Update: valid-jsdoc now allows you to optionally turn off parameter description checks (fixes #822) (Nicholas C. Zakas)</li>
+<li>Breaking: brace-style now disallows block statements where curlies are on the same line (fixes #758) (Nicholas C. Zakas)</li>
+<li>Add linting Makefile.js (fixes #870) (icebox)</li>
+<li>add rule flag, closes #692 (George Zahariev)</li>
+<li>Add check between rules doc and index (fixes #865) (icebox)</li>
+<li>Add Build Next mention in integrations README. (icebox)</li>
+<li>document new IIFE exception for no-extra parens added as part of #655 (Michael Ficarra)</li>
+<li>(fixes #622) Add rule ID on documentation pages (Delapouite)</li>
+<li>fixes #655: add IIFE exception to no-extra-parens (Michael Ficarra)</li>
+<li>add new rule "no-new-require" (Wil Moore III)</li>
+<li>exit with non-zero status when tests fail (fixes #858) (Márton Salomváry)</li>
+<li>removed unicode zero width space character from messages (fixes #857) (Márton Salomváry)</li>
+<li>Change: &ndash;rulesdir now can be specified multiple times (fixes #830) (Nicholas C. Zakas)</li>
+<li>Update: <a class="el" href="class_node.html" title="Clase Nodo ligada a la clase LinkedList que guarda una referencia al nodo siguiente y el dato que gua...">Node</a> 0.8 no longer supported (fixes #734) (Nicholas C. Zakas)</li>
+<li>Update: Add typed arrays into builtin environment globals (fixes #846) (Nicholas C. Zakas)</li>
+<li>Fix: Add prototype methods to global scope (fixes #700) (Nicholas C. Zakas)</li>
+<li>Rule: no-restricted-modules (fixes #791) (Christian)</li>
+<li>Upgrade: Esprima to 1.2 (fixes #842) (Nicholas C. Zakas)</li>
+<li>Docs: reporting level 2 is an error (fixes #843) (Brandon Mills)</li>
+<li>Upgrade: Esprima to 1.2, switch to using Esprima comment attachment (fixes #730) (Nicholas C. Zakas)</li>
+<li>Fix: Semi rule incorrectly flagging extra semicolon (fixes #840) (Nicholas C. Zakas)</li>
+<li>Build: Update Travis to only test <a class="el" href="class_node.html" title="Clase Nodo ligada a la clase LinkedList que guarda una referencia al nodo siguiente y el dato que gua...">Node</a> 0.10 (refs #734) (Nicholas C. Zakas)</li>
+<li>Add "nofunc" option (fixes #829) (Conrad Zimmerman)</li>
+<li>Rule: no-inner-declarations (fixes #587) (Brandon Mills)</li>
+<li>Rule 'block-scoped-var': correct scope for functions, arguments (fixes #832) (Aliaksei Shytkin)</li>
+<li>Rule: default-case (fixes #787) (Aliaksei Shytkin)</li>
+<li>Ignored files are excluded unless &ndash;force is passed on the CLI (Nick Fisher)</li>
+<li>Fixes a typo and a broken link in the documentation (Nick Fisher)</li>
+<li>Replaces .some() with .indexOf() where appropriate (Nick Fisher)</li>
+<li>Fix correct config merge for array values (fixes #819) (Aliaksei Shytkin)</li>
+<li>Remove warning about ESLint being in Alpha (Nick Fisher)</li>
+<li>Adds <code>space-after-keywords</code> rule (fixes #807) (Nick Fisher)</li>
+<li>Rule: no-lonely-if (fixes #790) (Brandon Mills)</li>
+<li>Add ignore comments in file (fixes #305) (Aliaksei Shytkin)</li>
+<li>0.5.1 (Nicholas C. Zakas)</li>
+<li>Change: no-unused-vars default to 'all' (fixes #760) (Nicholas C. Zakas)</li>
+</ul>
+<p>v0.5.1 - April 17, 2014</p>
+<ul>
+<li>0.5.1 (Nicholas C. Zakas)</li>
+<li>Fix general config not to be modified by comment config in files (fixes #806) (Aliaksei Shytkin)</li>
+<li>SVG badges (Ryuichi Okumura)</li>
+<li>fixes #804: clean up implementation of #803 (which fixed #781) (Michael Ficarra)</li>
+<li>Build: Fix perf test to take median of three runs (fixes #781) (Nicholas C. Zakas)</li>
+<li>Fix: &ndash;reset will now properly ignore default rules in environments.json (fixes #800) (Nicholas C. Zakas)</li>
+<li>Docs: Updated contributor guidelines (Nicholas C. Zakas)</li>
+<li>Added Mocha global variables for TDD style. Fixes #793. (Golo Roden)</li>
+<li>Rule: no-sequences (fixes #561) (Brandon Mills)</li>
+<li>Change .eslintignore to plain text (fixes #761) (Brandon Mills)</li>
+<li>Change 'no-spaced-func' message (fixes #762) (Aliaksei Shytkin)</li>
+<li>Rule 'block-scoped-var' works correct when object inits (fixes #783) (Aliaksei Shytkin)</li>
+<li>Build: Always build docs site on top of origin/master (Nicholas C. Zakas)</li>
+<li>0.5.0 (Nicholas C. Zakas)</li>
+</ul>
+<p>v0.5.0 - April 10, 2014</p>
+<ul>
+<li>0.5.0 (Nicholas C. Zakas)</li>
+<li>Build: Bump perf limit so Travis won't fail every time (fixes #780) (Nicholas C. Zakas)</li>
+<li>Add tests to cover 100% of eslint.js (Aliaksei Shytkin)</li>
+<li>Fix: Make sure no-path-concat doesn't flag non-concat operations (fixes #776) (Nicholas C. Zakas)</li>
+<li>Rule 'no-unused-var' in functional expression with identifier (fixes #775) (Aliaksei Shytkin)</li>
+<li>Rule: valid-typeof (Ian Christian Myers)</li>
+<li>Add global cli flag (ref #692) (Brandon Mills)</li>
+<li>update to latest Optionator (George Zahariev)</li>
+<li>Add options for rule 'no-unused-vars' to check all arguments in functions (fixes #728) (Aliaksei Shytkin)</li>
+<li>Fix: Cleanup package.json (Nicholas C. Zakas)</li>
+<li>New: Experimental support for CSS Auron (fixes #765) (Nicholas C. Zakas)</li>
+<li>Lint tests on build (fixes #764) (Aliaksei Shytkin)</li>
+<li>Rule block-scoped-var works correct with object properties (fixes #755) (Aliaksei Shytkin)</li>
+<li>Breaking: implement eslint-env and remove jshint/jslint environment comment support (fixes #759) (Aliaksei Shytkin)</li>
+<li>readme: npm i -&gt; npm install (Linus Unnebäck)</li>
+<li>Add env flag to cli options summary (fixes #752) (Brandon Mills)</li>
+<li>Fix: Give the perf test a better calculated budget (fixes #749) (Nicholas C. Zakas)</li>
+<li>give the <code>env</code> flag type <code>[String]</code>, improve code (fixes #748) (George Zahariev)</li>
+<li>fixes #735: add new, more efficient getTokens interfaces (Michael Ficarra)</li>
+<li>Add &ndash;env cli flag (ref #692) (Brandon Mills)</li>
+<li>Fixes #740 - Make sure callbacks exist before marking them as 'handled'. (mstuart)</li>
+<li>fixes #743: wrap-regex rule warns on regex used in dynamic member access (Michael Ficarra)</li>
+<li>replace tab indents with 4 spaces in lib/rules/handle-callback-err.js (Michael Ficarra)</li>
+<li>Adding homepage and bugs links to package.json (Peter deHaan)</li>
+<li>JSDoc for rules (Anton Rudeshko)</li>
+<li>0.4.5 (Nicholas C. Zakas)</li>
+</ul>
+<p>v0.4.5 - March 29, 2014</p>
+<ul>
+<li>0.4.5 (Nicholas C. Zakas)</li>
+<li>Build: Add perf check into Travis build to better monitor performance regressions (fixes #732) (Nicholas C. Zakas)</li>
+<li>Fix: Make sure semi reports correct location of missing semicolon (fixes #726) (Nicholas C. Zakas)</li>
+<li>Add &ndash;no-eslintrc cli flag (ref #717) (Brandon Mills)</li>
+<li>Fix #716 crash with reset flag (Brandon Mills)</li>
+<li>Fixed JSON formatting and highlighting (Anton Rudeshko (Tesla))</li>
+<li>fixes #723: block-scoped-var throws on unnamed function expression (Michael Ficarra)</li>
+<li>Fix: Make stroustrup brace-style closing message make sense (fixes #719) (Nicholas C. Zakas)</li>
+<li>no-comma-dangle reports correct line number (Andrey Popp)</li>
+<li>Upgrade: Esprima to 1.1.1 and EScope to 1.0.1 (fixes #718) (Nicholas C. Zakas)</li>
+<li>Add reset cli flag (refs #692) (Brandon Mills)</li>
+<li>Relax eqeqeq null check (fixes #669) (Brandon Mills)</li>
+<li>0.4.4 (Nicholas C. Zakas)</li>
+<li>New Rule: handle-callback-err (fixes #567) (Jamund Ferguson)</li>
+</ul>
+<p>v0.4.4 - March 25, 2014</p>
+<ul>
+<li>0.4.4 (Nicholas C. Zakas)</li>
+<li>Fix no-used-vars to report FunctionExpression params (fixes #697). (Andrey Popp)</li>
+<li>fixes #711: eslint reports wrong line number for files with shebang (Michael Ficarra)</li>
+<li>Fix for no-unused-vars and MemberExpression (Andrey Popp)</li>
+<li>added no-warning-comments rule (Alexander Schmidt)</li>
+<li>fixes #699: brace-style does not check function expressions (Michael Ficarra)</li>
+<li>rewrite block-scoped-var (Michael Ficarra)</li>
+<li>recommend using hasOwnProperty from Object.prototype in guard-for-in docs (Michael Ficarra)</li>
+<li>change conf/environments.json spacing to be simpler and more consistent (Michael Ficarra)</li>
+<li>Update API to use context.getFilename() instead of .filename. (Loren Segal)</li>
+<li>Small changes, JSDoc is clarified (Aliaksei Shytkin)</li>
+<li>Move FileFinder to separate file (Aliaksei Shytkin)</li>
+<li>Cache if file is not found (Aliaksei Shytkin)</li>
+<li>Use cache on config files seach (Aliaksei Shytkin)</li>
+<li>Added .eslintignore to load from parents folders (fixes #681) (Aliaksei Shytkin)</li>
+<li>fix 'node-modules' typo in docs (Fred K. Schott)</li>
+<li>Upgrade to the latest version of doctrine. (Brian Di Palma)</li>
+<li>Document optional filename and default it to <code>input</code>. (Loren Segal)</li>
+<li>Fix: Compatibility for <a class="el" href="class_node.html" title="Clase Nodo ligada a la clase LinkedList que guarda una referencia al nodo siguiente y el dato que gua...">Node</a> 0.8 (Nicholas C. Zakas)</li>
+<li>Update: Makefile.js now uses shelljs-nodecli (Nicholas C. Zakas)</li>
+<li>#681 apply all .eslintignore exclusions (Aliaksei Shytkin)</li>
+<li>Add RuleContext.filename property (for eslint/eslint#468). (Loren Segal)</li>
+<li>0.4.3 (Nicholas C. Zakas)</li>
+</ul>
+<p>v0.4.3 - March 18, 2014</p>
+<ul>
+<li>0.4.3 (Nicholas C. Zakas)</li>
+<li>fixes #682: rewrite no-constant-condition rule (Michael Ficarra)</li>
+<li>Fixes #673 allow configuration of <dl class="section return"><dt>Devuelve</dt><dd>errors via requireReturn - (fixes #673) (Brian Di Palma)</dd></dl>
+</li>
+<li>Tweaking inline code formatting for "if, while, dowhile" (Peter deHaan)</li>
+<li>Fixes #677 getJSDocComment() should not search beyond FunctionExpression or FunctionDeclaration parent nodes. (Brian Di Palma)</li>
+<li>Relaxed enforcement of camelcase rule (Ian Christian Myers)</li>
+<li>Fixing issue #675. Incorrect triggering of no-else-return rule. (Brian Di Palma)</li>
+<li>Added style option for wrap-iife (Mathias Schreck)</li>
+<li>Fix: Issues with named function expressions in no-unused-vars and no-shadow (fixes #662) (Nicholas C. Zakas)</li>
+<li>Update: camelcase rule now doesn't flag function calls (fixes #656) (Nicholas C. Zakas)</li>
+<li>Updating documentation description for: no-space-before-semi rule, changing rules to exempt strings with semicolons and test for that condition. Fixes #629. (Jonathan Kingston)</li>
+<li>Adding in rule no-space-before-semi to prevent spaces before semicolons. fixes #629 (Jonathan Kingston)</li>
+<li>show NPM version (Paul Verest)</li>
+<li>adapt code formatting (Mathias Schreck)</li>
+<li>Added a TextMate 2 integration to the docs (Nate Silva)</li>
+<li>0.4.2 (Nicholas C. Zakas)</li>
+</ul>
+<p>v0.4.2 - March 3, 2014</p>
+<ul>
+<li>0.4.2 (Nicholas C. Zakas)</li>
+<li>fixes #651: disable no-catch-shadow rule in node environment (Michael Ficarra)</li>
+<li>Fixed context.report message parsing (Ian Christian Myers)</li>
+<li>fixe #648: wrap-iife rule should actually check that IIFEs are wrapped (Michael Ficarra)</li>
+<li>Added "stroustrup" option for brace-style (Ian Christian Myers)</li>
+<li>0.4.1 (Nicholas C. Zakas)</li>
+</ul>
+<p>v0.4.1 - February 27, 2014</p>
+<ul>
+<li>0.4.1 (Nicholas C. Zakas)</li>
+<li>Created space-in-brackets rule (Ian Christian Myers)</li>
+<li>Update: Allow valid-jsdoc to specify replacement tags (fixes #637) (Nicholas C. Zakas)</li>
+<li>Fix: Ensure getJSDocComment() works for all function declarations (fixes #638) (Nicholas C. Zakas)</li>
+<li>Added broccoli-eslint to integration docs (Christian)</li>
+<li>fixes #634: getters/setters shouldn't trigger no-dupe-keys (Michael Ficarra)</li>
+<li>Update: semi to also enforce not using semicolons (fixes #618) (Nicholas C. Zakas)</li>
+<li>New Rule: no-constant-condition - removed SwitchStatement discriminant check - removed AssignmentExpression with right Identifier - fixed copy paste error - added DoWhileStatement, ForStatement based on discussion: <a href="https://github.com/eslint/eslint/pull/624">https://github.com/eslint/eslint/pull/624</a> (fixes #621) (Christian)</li>
+<li>New Rule: no-constant-condition (fixes #621) (Christian)</li>
+<li>Adding mimosa-eslint to Build System list (dbashford)</li>
+<li>Fix: Make sure semi flags return statements without a semicolon (fixes #616) (Nicholas C. Zakas)</li>
+<li>Fix: stylish formatter blue text -&gt; white text (fixes #607) (Nicholas C. Zakas)</li>
+<li>Fix: radix rule should warn (not throw error) when parseInt() is called without arguments (fixes #611) (Nicholas C. Zakas)</li>
+<li>Update README.md (Dmitry)</li>
+<li>Adding JSDoc comments for TAP format helper functions (Jonathan Kingston)</li>
+<li>Updating documentation to include TAP format option (Jonathan Kingston)</li>
+<li>Fixing validation issues to TAP formatter (Jonathan Kingston)</li>
+<li>Adding TAP formatter and basic tests (Jonathan Kingston)</li>
+<li>Docs: Updated integrations page (Nicholas C. Zakas)</li>
+<li>0.4.0 (Nicholas C. Zakas)</li>
+</ul>
+<p>v0.4.0 - February 12, 2014</p>
+<ul>
+<li>0.4.0 (Nicholas C. Zakas)</li>
+<li>Change: Switch :after to :exit (fixes #605) (Nicholas C. Zakas)</li>
+<li>Fix: Make sure no-unused-vars doesn't get confused by nested functions (fixes #584) (Nicholas C. Zakas)</li>
+<li>Update: .eslintrc to check more things (Nicholas C. Zakas)</li>
+<li>Fix: Make sure JSDoc parser accepts JSDoc3-style optional parameters (Nicholas C. Zakas)</li>
+<li>Docs: Update documentation with linking instructions for ESLintTester (Nicholas C. Zakas)</li>
+<li>New Rule: valid-jsdoc (fixes #536) (Nicholas C. Zakas)</li>
+<li>#595 improved func-names documentation (Kyle Nunery)</li>
+<li>#595 added more func-names tests (Kyle Nunery)</li>
+<li>#595 fix rule message and add more tests (Kyle Nunery)</li>
+<li>use optionator for option parsing, not optimist (George Zahariev)</li>
+<li>Include instructions for working with ESLintTester (Nicholas C. Zakas)</li>
+<li>#595 remove needless 'function Foo() {}' in tests (Kyle Nunery)</li>
+<li>#595 fix whitespace (Kyle Nunery)</li>
+<li>#595 fix markdown for js code blocks (Kyle Nunery)</li>
+<li>Adding information about Yeomen generator (Ilya Volodin)</li>
+<li>#595 add docs for rule func-names (Kyle Nunery)</li>
+<li>#595 add func-names rule (Kyle Nunery)</li>
+<li>migrate variables array to map (Brandon Mills)</li>
+<li>Perf: Move try-catch out of verify() function to allow V8 optimization (refs #574) (Nicholas C. Zakas)</li>
+<li>Docs: Added instructions for running npm run profile (Nicholas C. Zakas)</li>
+<li>refactor variable name lookup into a separate function (Brandon Mills)</li>
+<li>optimize findVariable() in no-unused-vars (Brandon Mills)</li>
+<li>move to tests/bench (Chris Dickinson)</li>
+<li>add <code>npm run profile</code>. (Chris Dickinson)</li>
+<li>#586 refactor based on <a href="https://github.com/eslint/eslint/pull/590#discussion_r9476367">https://github.com/eslint/eslint/pull/590#discussion_r9476367</a> (Christian)</li>
+<li>#586 added no-unreachable jsdoc, documentation note on hoisting case (Christian)</li>
+<li>#586 add hoisting check to no-unreachable (Christian)</li>
+<li>readme: Remove stray asterisk (Timo Tijhof)</li>
+<li>#580 Remove eslint.getAllComments(), related docs, related tests (Christian)</li>
+<li>Added test for bug fix #582. Test Passes (Shmueli Englard)</li>
+<li>Added curly braces to if statment (Shmueli Englard)</li>
+<li>Added new test for fix to #582 (fixes 582) (Shmueli Englard)</li>
+<li>Bug #582: Added check if node.value isn't a string just exit (Shmueli Englard)</li>
+<li>Update Rule: implement curly options for single-statement bodies (fixes #511) (Nicholas C. Zakas)</li>
+<li>New Rule: no-extra-boolean-cast (fixes #557) (Brandon Mills)</li>
+<li>New Rule: no-sparse-arrays (fixes #499) (Nicholas C. Zakas)</li>
+<li>Fix: no-spaced-func is now an error (Nicholas C. Zakas)</li>
+<li>New Rule: no-process-exit (fixes #568) (Nicholas C. Zakas)</li>
+<li>New Rule: no-labels (fixes #550) (Nicholas C. Zakas)</li>
+<li>New Rule: no-lone-blocks (fixes #512) (Brandon Mills)</li>
+<li>Added Emacs/Flycheck integration (Nikolai Prokoschenko)</li>
+<li>Build: Add perf test (Nicholas C. Zakas)</li>
+<li>Fix: no-cond-assign shouldn't throw error when there's a for loop with an empty conditional (fixes #53) (Nicholas C. Zakas)</li>
+<li>Docs: Add docs for no-regex-spaces and all doc errors now break build (closes #562) (Nicholas C. Zakas)</li>
+<li>Rename: regex-spaces to no-regex-spaces (Nicholas C. Zakas)</li>
+<li>Docs: Add docs for no-underscore-dangle (refs #562) (Nicholas C. Zakas)</li>
+<li>Docs: Add docs for no-undef-init (refs #562) (Nicholas C. Zakas)</li>
+<li>Docs: Add docs for no-return-assign (refs #562) (Nicholas C. Zakas)</li>
+<li>Fix: Misspelling in no-return-assign message (Nicholas C. Zakas)</li>
+<li>Docs: Add docs for no-new-wrappers (refs #562) (Nicholas C. Zakas)</li>
+<li>Docs: Add docs for no-new-object (refs #562) (Nicholas C. Zakas)</li>
+<li>Docs: Add docs for no-implied-eval (refs #562) (Nicholas C. Zakas)</li>
+<li>Docs: Updated documentation for developing rules (Nicholas C. Zakas)</li>
+<li>Testing: Move ESLintTester to be external dependency (fixes #480) (Nicholas C. Zakas)</li>
+<li>Docs: Add list of known integrations (Nicholas C. Zakas)</li>
+<li>Fix #570 (dmp42)</li>
+<li>document no-array-constructor rule (Michael Ficarra)</li>
+<li>fixes #500: no-array-constructor should not flag 1-argument construction (Michael Ficarra)</li>
+<li>fixes #501: no-array-constructor recognises CallExpression form (Michael Ficarra)</li>
+<li>rename no-new-array rule to no-array-constructor; ref #501 (Michael Ficarra)</li>
+<li>Fix: Make radix rule warn on invalid second parameter (fixes #563) (Nicholas C. Zakas)</li>
+<li>Docs: Added no-floating-decimal docs (refs #562) (Nicholas C. Zakas)</li>
+<li>New Rule: no-path-concat (fixes #540) (Nicholas C. Zakas)</li>
+<li>Docs: Add some missing rule docs (refs #562) (Nicholas C. Zakas)</li>
+<li>Fix: CLI should not output anything when there are no warnings (fixes #558) (Nicholas C. Zakas)</li>
+<li>New Rule: no-yoda (fixes #504) (Nicholas C. Zakas)</li>
+<li>New Rule: consistent-return (fixes #481) (Nicholas C. Zakas)</li>
+<li>Rewrite configuration documentation to include information about globals (fixes #555) (Nicholas C. Zakas)</li>
+<li>Allow YAML configuration files (fixes #491) (Nicholas C. Zakas)</li>
+<li>0.3.0 (Nicholas C. Zakas)</li>
+</ul>
+<p>v0.3.0 - January 20, 2014</p>
+<ul>
+<li>0.3.0 (Nicholas C. Zakas)</li>
+<li>Config: Allow comments in JSON configuration files (fixes #492) (Nicholas C. Zakas)</li>
+<li>Bug: max-len fix to report correct line number (fixes #552) (Nicholas C. Zakas)</li>
+<li>Build: Use browserify to create browser-ready ESLint (fixes #119) (Nicholas C. Zakas)</li>
+<li>Docs: Ensure all rules have entry on top-level rules index page (Nicholas C. Zakas)</li>
+<li>Docs: Add docs for no-fallthrough rule (Nicholas C. Zakas)</li>
+<li>Update README.md (Peter deHaan)</li>
+<li>Update README.md (Peter deHaan)</li>
+<li>Update package.json (Peter deHaan)</li>
+<li>Docs: Added documentation for semi rule (Nicholas C. Zakas)</li>
+<li>Build: Reset branch coverage target (Nicholas C. Zakas)</li>
+<li>Update build system to generate eslint.org during release (Nicholas C. Zakas)</li>
+<li>Updated setup doc (Nicholas C. Zakas)</li>
+<li>Fix #525 &amp; #528 (Mangled Deutz)</li>
+<li>Improve no-negated-in-lhs description (David Bruant)</li>
+<li>Fixing typo (David Bruant)</li>
+<li>Update no-new.md (Tamas Fodor)</li>
+<li>Update no-extra-semi.md (Tamas Fodor)</li>
+<li>Fixing broken links in documentation (Ilya Volodin)</li>
+<li>Update about page (Nicholas C. Zakas)</li>
+<li>Site generation build step and documentation updates to support it (fixes #478) (Nicholas C. Zakas)</li>
+<li>Change message for brace-style rule (fixes #490) (Nicholas C. Zakas)</li>
+<li>Add question about ES6 support to FAQ (fixes #530) (Nicholas C. Zakas)</li>
+<li>Set unlimited number of listeners for event emitter (fixes #524) (Nicholas C. Zakas)</li>
+<li>Add support for comment events (fixes #531) Add :after events for comments (Nicholas C. Zakas)</li>
+<li>Add :after events for comments (Nicholas C. Zakas)</li>
+<li>Allow config files to have any name (fixes #486). (Aparajita Fishman)</li>
+<li>List available formatters (fixes #533). (Aparajita Fishman)</li>
+<li>Add support for comment events (fixes #531) (Nicholas C. Zakas)</li>
+<li>Add Stylish formatter and make it default. Fixes #517 (Sindre Sorhus)</li>
+<li>Fix missing code exit (Mangled Deutz)</li>
+<li>Added unit test for calling Config.getConfig with no arguments. (Aparajita Fishman)</li>
+<li>Typo (Mangled Deutz)</li>
+<li>Fixed docs typo (Nicholas C. Zakas)</li>
+<li>Mark functions as used when any method is called on them (Nicholas C. Zakas)</li>
+<li>Fixed: Config.getConfig is called either with a file path or with no args (fixes #520) (Aparajita Fishman)</li>
+<li>Fix minor bug in no-empty rule (Nicholas C. Zakas)</li>
+<li>add more info for failure messages (Nicholas C. Zakas)</li>
+<li>Add ruleId to all formatters output (fixes #472) (Nicholas C. Zakas)</li>
+<li>Remove unused code (Nicholas C. Zakas)</li>
+<li>Correctly handle case with both finally and catch in no-empty (Nicholas C. Zakas)</li>
+<li>Update documentation for no-unused-vars (Nicholas C. Zakas)</li>
+<li>Ensure that bound function expressions are reported as being used (fixes #510) (Nicholas C. Zakas)</li>
+<li>Allow empty catch/finally blocks (fixes #514) and update documentation (fixes #513) (Nicholas C. Zakas)</li>
+<li>Updated contribution guidelines (Nicholas C. Zakas)</li>
+<li>Add default setting for no-cond-assign (Nicholas C. Zakas)</li>
+<li>Add build step to check rule consistency (Nicholas C. Zakas)</li>
+<li>update docs: explicit cli args are exempt from eslintignore exclusions (Michael Ficarra)</li>
+<li>fixes #505: no-cond-assign should ignore doubly parenthesised tests (Michael Ficarra)</li>
+<li>Renamed unnecessary-strict to no-extra-strict (Nicholas C. Zakas)</li>
+<li>Fixed missing documentation links (Nicholas C. Zakas)</li>
+<li>Add build task to check for missing docs and tests for rules (Nicholas C. Zakas)</li>
+<li>Slight reorganization of rule groups (Nicholas C. Zakas)</li>
+<li>Added one-var and sorted some rules (Nicholas C. Zakas)</li>
+<li>Updated Travis badge for new location (Nicholas C. Zakas)</li>
+<li>fixes #494: allow shebangs in processed JS files (Michael Ficarra)</li>
+<li>fixes #496: lint ignored files when explicitly specified via the CLI (Michael Ficarra)</li>
+<li>More tests (Ilya Volodin)</li>
+<li>Upgrade Istanbul (Ilya Volodin)</li>
+<li>fixes #495: holey arrays cause no-comma-dangle rule to throw (Michael Ficarra)</li>
+<li>Documentation and minor changes (Ilya Volodin)</li>
+<li>Adding missing package registration (Ilya Volodin)</li>
+<li>Adding support for .eslintignore and .jshintignore (Closes #484) (Ilya Volodin)</li>
+<li>fixes #482: brace-style bug with multiline conditions (Michael Ficarra)</li>
+<li>Switching Travis to use ESLint (Closes #462) (Ilya Volodin)</li>
+<li>0.2.0 (Nicholas C. Zakas)</li>
+</ul>
+<p>v0.2.0 - January 1, 2014</p>
+<ul>
+<li>0.2.0 (Nicholas C. Zakas)</li>
+<li>Bump code coverage checks (Nicholas C. Zakas)</li>
+<li>Take care of unreachable code in case statement (Nicholas C. Zakas)</li>
+<li>Updated rule messaging and added extra tests (Nicholas C. Zakas)</li>
+<li>Fixing eslint errors and unittests (Ilya Volodin)</li>
+<li>Rule: max-nested-callbacks (Ian Christian Myers)</li>
+<li>Fix fall-through rule with nested switch statements (fixes #430) (Nicholas C. Zakas)</li>
+<li>Fixed trailing comma (Nicholas C. Zakas)</li>
+<li>Added more tests for func-style (Nicholas C. Zakas)</li>
+<li>Fixed documentation for func-style (Nicholas C. Zakas)</li>
+<li>Fixed linting error (Nicholas C. Zakas)</li>
+<li>Rule to enforce function style (fixes #460) (Nicholas C. Zakas)</li>
+<li>Rule is off by default. Updated documentation (Ilya Volodin)</li>
+<li>Rule: sort variables. Closes #457 (Ilya Volodin)</li>
+<li>Update architecture.md (Nicholas C. Zakas)</li>
+<li>Change quotes option to avoid-escapes and update docs (fixes #199) (Brandon Payton)</li>
+<li>Add allow-avoiding-escaped-quotes option to quotes rule (fixes #199) (Brandon Payton)</li>
+<li>Update no-empty-class.md (Nicholas C. Zakas)</li>
+<li>Updated titles on all rule documentation (fixes #348) (Nicholas C. Zakas)</li>
+<li>Fixing eslint errors in codebase (Ilya Volodin)</li>
+<li>fixes #464: space-infix-ops checks for VariableDeclarator init spacing (Michael Ficarra)</li>
+<li>Add options to no-unused-vars. Fixes #367 (Ilya Volodin)</li>
+<li>rename escape function to xmlEscape in checkstyle formatter (Michael Ficarra)</li>
+<li>The semi rule now reports correct line number (Ian Christian Myers)</li>
+<li>context.report now takes optional location (Ian Christian Myers)</li>
+<li>fixes #454: escape values for XML in checkstyle formatter (Michael Ficarra)</li>
+<li>Add color to Mocha test reporting (Ian Christian Myers)</li>
+<li>Rule no-nested-ternary (Ian Christian Myers)</li>
+<li>Fixing no-unused-var and no-redeclare (Ilya Volodin)</li>
+<li>fixes #449: no-mixed-requires throws TypeError when grouping is enabled (Michael Ficarra)</li>
+<li>Fixed reported line number for trailing comma error (Ian Christian Myers)</li>
+<li>Update doc title for quote (Matthew DuVall)</li>
+<li>fixes #446: join paths without additional delimiters (Michael Ficarra)</li>
+<li>docs: add documentation for quotes rule (Matthew DuVall)</li>
+<li>minor style changes to lib/rules/space-infix-ops.js as requested in #444 (Michael Ficarra)</li>
+<li>remove "function invalid(){ return D }" from some tests (Michael Ficarra)</li>
+<li>fixes #429: require spaces around infix operators; enabled by default (Michael Ficarra)</li>
+<li>simplify fix for #442 (Michael Ficarra)</li>
+<li>Fix broken test, ensure tests get run before a release is pushed (Nicholas C. Zakas)</li>
+<li>0.1.4 (Nicholas C. Zakas)</li>
+</ul>
+<p>v0.1.4 - December 5, 2013</p>
+<ul>
+<li>0.1.4 (Nicholas C. Zakas)</li>
+<li>Add release scripts to package.json (Nicholas C. Zakas)</li>
+<li>Fixed release error in Makefile (Nicholas C. Zakas)</li>
+<li>Fix JSHint warnings (Nicholas C. Zakas)</li>
+<li>Make sure 'default' isn't flagged by no-space-returns-throw rule (fixes #442) (Nicholas C. Zakas)</li>
+<li>Fixing documentation (Ilya Volodin)</li>
+<li>Fixing disabling rules with invalid comments Closes #435 (Ilya Volodin)</li>
+<li>improve assertion on wrong number of errors (Christoph Neuroth)</li>
+<li>fixes #431: no-unused-expressions should not flag statement level void (Michael Ficarra)</li>
+<li>fixes #437: fragile no-extend-native rule (Michael Ficarra)</li>
+<li>change space-* rule documentation headers to be more descriptive (Michael Ficarra)</li>
+<li>Moved to tabs, added comments, a few more tests (Jamund Ferguson)</li>
+<li>split GH-332 rule into space-unary-word-ops and space-return-throw-case (Michael Ficarra)</li>
+<li>fixes #346: validate strings passed to the RegExp constructor (Michael Ficarra)</li>
+<li>change some documentation extensions from js to md (Michael Ficarra)</li>
+<li>fixes #332: unary word operators must be followed by whitespace (Michael Ficarra)</li>
+<li>Add some docs (Jamund Ferguson)</li>
+<li>DRYing cli tests and improving code coverage (Ilya Volodin)</li>
+<li>fixes #371: add no-shadow-restricted-names rule (Michael Ficarra)</li>
+<li>Added Support for Object.defineProperty() checking (Jamund Ferguson)</li>
+<li>fixes #333: add rule to disallow gratuitously parenthesised expressions (Michael Ficarra)</li>
+<li>improve rule test coverage (Michael Ficarra)</li>
+<li>No Extend Native (Jamund Ferguson)</li>
+<li>change getTokens 2nd/3rd arguments to count tokens, not characters (Michael Ficarra)</li>
+<li>fixes #416: no-fallthrough flagging last case + reporting wrong line num (Michael Ficarra)</li>
+<li>fixes #415: fix unnecessary-strict rule false positives (Michael Ficarra)</li>
+<li>Add missing dependency (Nicholas C. Zakas)</li>
+<li>Update docs related to running unit tests (Nicholas C. Zakas)</li>
+<li>Add JSHint as missing dependency (Nicholas C. Zakas)</li>
+<li>Switch to using ShellJS makefile (fixes #418) (Nicholas C. Zakas)</li>
+<li>Updated documentation to reflect test changes (refs #417) (Nicholas C. Zakas)</li>
+<li>Change to eslintTester.addRuleTest (fixes #417) (Nicholas C. Zakas)</li>
+<li>Fix false positives for no-script-url (fixes #400) (Nicholas C. Zakas)</li>
+<li>Fix lint warning (Nicholas C. Zakas)</li>
+<li>Fixing ESLint warnings, introducing Makefile.js (not yet wired in) (Nicholas C. Zakas)</li>
+<li>fixes #384: include builtin module list to avoid repl dependency (Michael Ficarra)</li>
+<li>0.1.3 (Nicholas C. Zakas)</li>
+</ul>
+<p>v0.1.3 - November 25, 2013</p>
+<ul>
+<li>0.1.3 (Nicholas C. Zakas)</li>
+<li>Updated changelog (Nicholas C. Zakas)</li>
+<li>Vows is gone. Mocha is now default (Ilya Volodin)</li>
+<li>fixes #412: remove last remaining false positives in no-spaced-func (Michael Ficarra)</li>
+<li>fixes #407: no-spaced-func rule flagging non-argument-list spaced parens (Michael Ficarra)</li>
+<li>Add no-extra-semi to configuration (fixes #386) (Nicholas C. Zakas)</li>
+<li>Converting formatter tests and core (Ilya Volodin)</li>
+<li>Don't output anything when there are no errors in compact formatter (fixes #408) (Nicholas C. Zakas)</li>
+<li>Removing <a class="el" href="class_node.html" title="Clase Nodo ligada a la clase LinkedList que guarda una referencia al nodo siguiente y el dato que gua...">Node</a> 0.11 test - it fails all the time (Nicholas C. Zakas)</li>
+<li>Completing conversion of rule's tests to mocha (Ilya Volodin)</li>
+<li>added mocha conversion tests for strict, quote-props and one-var; enhanced one of the invalid one-var tests that was expecting two messages (Michael Paulukonis)</li>
+</ul>
+<p>v0.1.2 - November 23, 2013</p>
+<ul>
+<li>0.1.2 (Nicholas C. Zakas)</li>
+<li>added mocha tests for radix and quotes; fixed some of the internals on quotes from vows annotations (Michael Paulukonis)</li>
+<li>added tests for regex-spaces, strict, unnecessary-strict; fixed some types in overview/author notes in other tests. (Michael Paulukonis)</li>
+<li>Converting unittests to mocha (Ilya Volodin)</li>
+<li>mocha conversions of tests for 'use-isnan' and 'wrap-iife' (Michael Paulukonis)</li>
+<li>added mocha tests semi.js and wrap-regex.js (Michael Paulukonis)</li>
+<li>Converting more tests to mocha (Ilya Volodin)</li>
+<li>Update CONTRIBUTING.md (Nicholas C. Zakas)</li>
+<li>Cleaning up eslintTester (Ilya Volodin)</li>
+<li>DRYing unittests and converting them to mocha (Ilya Volodin)</li>
+<li>Reformatted Gruntfile (Nicholas C. Zakas)</li>
+<li>Add tests to config load order: base, env, user. (icebox)</li>
+<li>Fixing indent in gruntfile (Ilya Volodin)</li>
+<li>Removing jake, adding Grunt, Travis now runs grunt (Ilya Volodin)</li>
+<li>Add rules per environments to config. (icebox)</li>
+<li>Add globals property to the environments. (icebox)</li>
+<li>Fix error about IIFE if the function is in a new (Marsup)</li>
+<li>Fix a broken link in the docs (Brian J Brennan)</li>
+<li>Add test coverage for additional cases, fix open paren at beginning of expr (Matthew DuVall)</li>
+<li>Fixing no-undef for eval use case (Ilya Volodin)</li>
+<li>fixes #372: disallow negated left operand in <code>in</code> operator (Michael Ficarra)</li>
+<li>Fixing no-self-compare rule to check for operator (Ilya Volodin)</li>
+<li>bug: open parens in args causes no-spaced-func to trigger (Matthew DuVall)</li>
+<li>fixes #369: restrict UnaryExpressions to delete in no-unused-expressions (Michael Ficarra)</li>
+<li>Make sure delete operator isn't flagged as unused expression (fixes #364) (Nicholas C. Zakas)</li>
+<li>Don't flag ++ or &ndash; as unused expressions (fixes #366) (Nicholas C. Zakas)</li>
+<li>Ensure that 'use strict' isn't flagged as an unused expression (fixes #361) (Nicholas C. Zakas)</li>
+<li>Increase test coverage for strict-related rules (refs #361) (Nicholas C. Zakas)</li>
+<li>Up code coverage numbers (Nicholas C. Zakas)</li>
+<li>Fixes error in new-cap rule when 'new' is used without a constructor (fixes #360) (Nicholas C. Zakas)</li>
+<li>added files array in package json (Christian)</li>
+<li>removed unused jshint dependency (Christian)</li>
+<li>Add test coverage for new Foo constructor usage (Matt DuVall)</li>
+<li>Pull code coverage up by removing unused method (Matt DuVall)</li>
+<li>recognise CallExpression variant of RegExp ctor in no-control-regex rule (Michael Ficarra)</li>
+<li>Merge smart-eqeqeq into eqeqeq (Matt DuVall)</li>
+<li>Catch additional cases for a.b, new F, iife (Matt DuVall)</li>
+<li>0.2.0-dev (Nicholas C. Zakas)</li>
+<li>Version 0.1.0 (Nicholas C. Zakas)</li>
+<li>rule: no-spaced-func disallow spaces between function identifier and application (Matt DuVall)</li>
+</ul>
+<p>v0.1.1 - November 09, 2013</p>
+<ul>
+<li>Ensure mergeConfigs() doesn't thrown an error when keys are missing in base config (fixes #358) (Nicholas C. Zakas)</li>
+</ul>
+<p>v0.1.0 - November 03, 2013</p>
+<ul>
+<li>Version 0.1.0 (Nicholas C. Zakas)</li>
+<li>Updated Readme for v0.1.0 (Nicholas C. Zakas)</li>
+<li>Bump code coverage verification to 95% across the board (Nicholas C. Zakas)</li>
+<li>Fixed broken links (Nicholas C. Zakas)</li>
+<li>Added information about runtime rules (Nicholas C. Zakas)</li>
+<li>Added documentation about configuration files (Nicholas C. Zakas)</li>
+<li>Added description of -v option (Nicholas C. Zakas)</li>
+<li>Updated architecture documentation (Nicholas C. Zakas)</li>
+<li>Fix bug in no-control-regex (fixes #347) (Nicholas C. Zakas)</li>
+<li>Fix link to architecture doc in readme (azu)</li>
+<li>Rule: No control characters in regular expressions (fixes #338) (Nicholas C. Zakas)</li>
+<li>Add escaping = test (Matt DuVall)</li>
+<li>Add docs for rule (Matt DuVall)</li>
+<li>rule: no-div-regex for catching ambiguous division operators in regexes (Matt DuVall)</li>
+<li>Change context-var to block-scoped-var (Matt DuVall)</li>
+<li>Implement config.globals (Oleg Grenrus)</li>
+<li>Add 'config-declared global' test (Oleg Grenrus)</li>
+<li>Adding ability to separate rules with comma (Ilya Volodin)</li>
+<li>Added rule for missing 'use strict' (fixes #321) (Nicholas C. Zakas)</li>
+<li>Fixing unittests and finishing code (Ilya Volodin)</li>
+<li>Disabling/enabling rules through comments (Ilya Volodin)</li>
+<li>Rename rule to context-var and add documentation (Matt DuVall)</li>
+<li>Added link to no-global-strict doc in readme (Nicholas C. Zakas)</li>
+<li>Add try-catch scoping with tests (Matt DuVall)</li>
+<li>Fix linting error (Matt DuVall)</li>
+<li>Store FunctionDeclarations in scope as they can be used as literals (Matt DuVall)</li>
+<li>Fix to use getTokens and add test for MemberExpression usage (Matt DuVall)</li>
+<li>rule: block-scope-var to check for variables declared in block-scope (Matt DuVall)</li>
+<li>no-unused-expressions rule: add test and doc mention for <code>a &amp;&amp; b()</code> (Michael Ficarra)</li>
+<li>rule: wrap-regex for parens around regular expression literals (Matt DuVall)</li>
+<li>fixes #308: implement no-unused-expressions rule; ref. jshint rule W030 (Michael Ficarra)</li>
+<li>Updated change log script to filter out merge messages (Nicholas C. Zakas)</li>
+<li>Updated changelog (Nicholas C. Zakas)</li>
+<li>0.1.0-dev (Nicholas C. Zakas)</li>
+</ul>
+<p>v0.0.9 - October 5, 2013</p>
+<ul>
+<li>Version 0.0.9 release (Nicholas C. Zakas)</li>
+<li>Added rule for no global strict mode (fixes #322) (Nicholas C. Zakas)</li>
+<li>Change default on to be errors instead of warnings (fixes #326) (Nicholas C. Zakas)</li>
+<li>Fixed bug where JSHint was using the wrong file in lint task (Nicholas C. Zakas)</li>
+<li>Updated docs for no-unused vars rule. (Andrew de Andrade)</li>
+<li>Removed console.log in tests. (Andrew de Andrade)</li>
+<li>Added link to roadmap and JSHint feature parity list. (Andrew de Andrade)</li>
+<li>Fixed warning when unused var declared as param in FunctionExpression/Declaration can be ignored because later param is used (Andrew de Andrade)</li>
+<li>Rename test for smartereqeqeq.js to smarter-eqeqeq.js (Andrew de Andrade)</li>
+<li>Keep test filename inline with rule name (Andrew de Andrade)</li>
+<li>Added further instructions for multiline test cases. (Andrew de Andrade)</li>
+<li>Protecting private method (Seth McLaughlin)</li>
+<li>Updating look up algorithm for local config files (Seth McLaughlin)</li>
+<li>Fixing ESLint errors (Ilya Volodin)</li>
+<li>Implemented local default config file (Seth McLaughlin)</li>
+<li>Upgrading escope version and fixing related bugs (Ilya Volodin)</li>
+<li>Fixing assignment during initialization issue (Ilya Volodin)</li>
+<li>add plain-English regexp description to no-empty-class rule (Michael Ficarra)</li>
+<li>fixes #289: no-empty-class flags regexps with... flags (Michael Ficarra)</li>
+<li>Rule: no-catch-shadow (Ian Christian Myers)</li>
+<li>Update no-empty for compatibility with esprima@1.0.4 (fixes #290) (Mark Macdonald)</li>
+<li>Fixing bug with _ in MemberExpression (Ilya Volodin)</li>
+<li>Rule: no-func-assign (Ian Christian Myers)</li>
+<li>Fix false warning from no-undef rule (fixes #283) (Mark Macdonald)</li>
+<li>Adding eslint to jake (Ilya Volodin)</li>
+<li>Rule no redeclare (Ilya Volodin)</li>
+<li>Fixing no use before define issues (Ilya Volodin)</li>
+<li>Rule: no-octal-escape (Ian Christian Myers)</li>
+<li>Fix for <code>no-proto</code> and <code>no-iterator</code> false positive (Ian Christian Myers)</li>
+<li>Rule: no-iterator (Ian Christian Myers)</li>
+<li>Fixing type in guard-for-in documentation (Ilya Volodin)</li>
+<li>Rule No use before define (Ilya Volodin)</li>
+<li>Added documentation for the <code>no-new</code> rule (Ian Christian Myers)</li>
+<li>Added documentation for the <code>no-eval</code> rule (Ian Christian Myers)</li>
+<li>Added documentation for the <code>no-caller</code> rule (Ian Christian Myers)</li>
+<li>Added documentation for the <code>no-bitwise</code> rule (Ian Christian Myers)</li>
+<li>simplify no-empty-class rule (Michael Ficarra)</li>
+<li>Fix <code>no-empty-class</code> false negatives (Ian Christian Myers)</li>
+<li>Added documentation for the <code>no-alert</code> rule (Ian Christian Myers)</li>
+<li>Added documentation for the <code>new-parens</code> rule (Ian Christian Myers)</li>
+<li>Added documentation for the <code>max-params</code> rule (Ian Christian Myers)</li>
+<li>Added documentation for <code>max-len</code> rule (Ian Christian Myers)</li>
+<li>Created link from rules README.md to no-plusplus.md documentation (Ian Christian Myers)</li>
+<li>Added documentation for <code>guard-for-in</code> rule (Ian Christian Myers)</li>
+<li>Added documentation for <code>dot-notation</code> rule (Ian Christian Myers)</li>
+<li>Added documentation for <code>curly</code> rule (Ian Christian Myers)</li>
+<li>Updated <code>camelcase</code> rule documentation (Ian Christian Myers)</li>
+<li>Added documentation for <code>complexity</code> rule (Ian Christian Myers)</li>
+<li>Changed <code>no-dangle</code> documentation to <code>no-comma-dangle</code> (Ian Christian Myers)</li>
+<li>Rule: no-empty-class (Ian Christian Myers)</li>
+<li>Increased test coverage for max-depth (Ian Christian Myers)</li>
+<li>Increased test coverage for no-shadow (Ian Christian Myers)</li>
+<li>Increased test coverage on no-mixed-requires (Ian Christian Myers)</li>
+<li>Added docs for eqeqeq and no-with (fixes #262) (Raphael Pigulla)</li>
+<li>Create camelcase.md (Micah Eschbacher)</li>
+<li>Fix issues with function in no-unused-vars (Ilya Volodin)</li>
+<li>Rule: No shadow (Ilya Volodin)</li>
+<li>fixes #252: semi rule errors on VariableDeclarations in ForInStatements (Michael Ficarra)</li>
+<li>rule: max-len to lint maximum length of a line (Matt DuVall)</li>
+<li>Fixes #249 (Raphael Pigulla)</li>
+<li>Merge branch 'master' of <a href="https://github.com/beardtwizzle/eslint">https://github.com/beardtwizzle/eslint</a> (Jonathan Mahoney)</li>
+<li>Re-add lines that were accidentally deleted from config (Jonathan Mahoney)</li>
+<li>Add support for pre-defined environment globals (re: #228) (Jonathan Mahoney)</li>
+<li>Rule: no-else-return (Ian Christian Myers)</li>
+<li>Re-add lines that were accidentally deleted from config (Jonathan Mahoney)</li>
+<li>Add support for pre-defined environment globals (re: #228) (Jonathan Mahoney)</li>
+<li>Fix no-unused-vars to report correct line numbers (Ilya Volodin)</li>
+<li>Rule: no proto (Ilya Volodin)</li>
+<li>Rule: No Script URL (Ilya Volodin)</li>
+<li>Rule: max-depth (Ian Christian Myers)</li>
+<li>Fix: Error severity for rules with options. (Ian Christian Myers)</li>
+<li>Rule: No wrap func (Ilya Volodin)</li>
+<li>bug: Fixes semi rule for VariableDeclaration in ForStatement (Matt DuVall)</li>
+<li>Individual perf tests for rules (Ilya Volodin)</li>
+<li>Fix loading rules from a rules directory (Ian Christian Myers)</li>
+<li>Rule no-mixed-requires (fixes #221) (Raphael Pigulla)</li>
+<li>bug: Add ForStatement for no-cond-assign check (Matthew DuVall)</li>
+<li>JSLint XML formatter now escapes special characters in the evidence and reason attributes. (Ian Christian Myers)</li>
+<li>Formatter: JSLint XML (Ian Christian Myers)</li>
+<li>Refactored <code>max-statements</code> rule. (Ian Christian Myers)</li>
+<li>Fix tests broken due to new rule message text (James Allardice)</li>
+<li>Merge branch 'master' into match-jshint-messages (James Allardice)</li>
+<li>Refactored <code>one-var</code> rule. (Ian Christian Myers)</li>
+<li>split eslint.define into eslint.defineRule and eslint.defineRules (Michael Ficarra)</li>
+<li>Removed unnecessary rules.js test. (Ian Christian Myers)</li>
+<li>Rule: one-var (Ian Christian Myers)</li>
+<li>Rule: No unused variables (Ilya Volodin)</li>
+<li>expose interface for defining new rules at runtime without fs access (Michael Ficarra)</li>
+<li>disallow 00 in no-octal rule (Michael Ficarra)</li>
+<li>Increased test coverage for <code>lib/cli.js</code>. (Ian Christian Myers)</li>
+<li>Increased test coverage for <code>lib/rules.js</code> (Ian Christian Myers)</li>
+<li>Increased test coverage for jUnit formatter. (Ian Christian Myers)</li>
+<li>scripts/bundle: output bundle+map to /build directory (Michael Ficarra)</li>
+<li>add test for 0X... hex literals in no-octal tests (Michael Ficarra)</li>
+<li>fixes #200: no-octals should not see leading-0 floats as violations (Michael Ficarra)</li>
+<li>add back tests for loading rules from a directory (Michael Ficarra)</li>
+<li>add back in ability to load rules from a directory (Michael Ficarra)</li>
+<li>Increased test coverage for <code>complexity</code> rule. (Ian Christian Myers)</li>
+<li>Increased test coverage for <code>max-params</code> rule. (Ian Christian Myers)</li>
+<li>also output source map when generating bundle (Michael Ficarra)</li>
+<li>Rule: unnecessary-strict (Ian Christian Myers)</li>
+<li>Improve performance of getTokens (Ilya Volodin)</li>
+<li>Performance jake task (Ilya Volodin)</li>
+<li>don't force explicit listing of rules; generate listing for bundle (Michael Ficarra)</li>
+<li>Rule: no-dupe-keys (Ian Christian Myers)</li>
+<li>fixes #145: create a browser bundle (Michael Ficarra)</li>
+<li>Fixing no-caller bug (Ilya Volodin)</li>
+<li>Check for use of underscore library as an exception for var declarations (Matthew DuVall)</li>
+<li>Merge branch 'master' of <a href="https://github.com/nzakas/eslint">https://github.com/nzakas/eslint</a> into no-underscore-dangle (Matthew DuVall)</li>
+<li>Fixing spelling (Ilya Volodin)</li>
+<li>Rule: no-empty-label (Ilya Volodin)</li>
+<li>Add builtin globals to the global scope (fixes #185) (Mark Macdonald)</li>
+<li>Rule: no-loop-func (Ilya Volodin)</li>
+<li>Merge branch 'master' of <a href="https://github.com/nzakas/eslint">https://github.com/nzakas/eslint</a> into no-underscore-dangle (Matt DuVall)</li>
+<li>Use proper node declarations and <b>proto</b> exception (Matt DuVall)</li>
+<li>Updating no-undef patch (see pull request #164) - Simplify parseBoolean() - Make knowledge of<code>/*jshint*/</code> and <code>/*global */</code> internal to eslint object - Put user-declared globals in Program scope (Mark Macdonald)</li>
+<li>Rule: no-eq-null (Ian Christian Myers)</li>
+<li>fixed broken merge (Raphael Pigulla)</li>
+<li>fixes #143 (Raphael Pigulla)</li>
+<li>added consistent-this rule (Raphael Pigulla)</li>
+<li>Rule: no-sync to encourage async usage (Matt DuVall)</li>
+<li>Update eslint.json with no-underscore-dangle rule (Matt DuVall)</li>
+<li>Rule: no-underscore-dangle for func/var declarations (Matt DuVall)</li>
+<li>Warn on finding the bitwise NOT operator (James Allardice)</li>
+<li>Updating no-undef patch (see pull request #164) 3. Move parsing of <code>/*global */</code> and <code>/*jshint */</code> to eslint.js (Mark Macdonald)</li>
+<li>Warn on finding a bitwise shift operator (fixes #170) (James Allardice)</li>
+<li>Fix broken test (James Allardice)</li>
+<li>Add support for the do-while statement to the curly rule (closes #167) (James Allardice)</li>
+<li>Removing nasty leading underscores (Patrick Brosset)</li>
+<li>Added tests and test cases for a few files (Patrick Brosset)</li>
+<li>CLI: -f now accepts a file path (Ian Christian Myers)</li>
+<li>Updating no-undef patch (see pull request #164) 1. Move predefined globals to <code>conf/environments.json</code> 2. Move mixin() to <code>lib/util.js</code> (Mark Macdonald)</li>
+<li>Match messages to JS[LH]int where appropriate, and ensure consistent message formatting (closes #163) (James Allardice)</li>
+<li>Add support for the do-while statement to the curly rule (closes #167) (James Allardice)</li>
+<li>Removing nasty leading underscores (Patrick Brosset)</li>
+<li>Added tests and test cases for a few files (Patrick Brosset)</li>
+<li>Merge branch 'master' of github.com:nzakas/jscheck (Nicholas C. Zakas)</li>
+<li>Added acceptance criteria for rules to docs (Nicholas C. Zakas)</li>
+<li>Add no-undef (fixes #6) (Mark Macdonald)</li>
+<li>Fixing no-self-compare (Ilya Volodin)</li>
+<li>Rule: No multiline strings (Ilya Volodin)</li>
+<li>CLI refactor to remove process.exit(), file not found now a regular error message, updated formatters to handle this case (Nicholas C. Zakas)</li>
+<li>Rule: no-self-compare (Ilya Volodin)</li>
+<li>Rule: No unnecessary semicolons (fixes #158) (Nicholas C. Zakas)</li>
+<li>Fixed error in no-ex-assign when return statement as found in catch clause (Nicholas C. Zakas)</li>
+<li>Rename no-exc-assign to no-ex-assign and add to config (Nicholas C. Zakas)</li>
+<li>Renamed count-spaces to regex-spaces (Nicholas C. Zakas)</li>
+<li>Documentation updates (Nicholas C. Zakas)</li>
+<li>Put all rules into strict mode and update docs accordingly (Nicholas C. Zakas)</li>
+<li>Merge branch 'master' of github.com:nzakas/jscheck (Nicholas C. Zakas)</li>
+<li>Ensure getScope() works properly when called from Program node (fixes #148) (Nicholas C. Zakas)</li>
+<li>Rule: wrap-iife (Ilya Volodin)</li>
+<li>add additional test for no-cond-assign rule (Stephen Murray)</li>
+<li>Merge branch 'master' of github.com:nzakas/jscheck (Nicholas C. Zakas)</li>
+<li>Experimental support for Jake as a build system (fixes #151) (Nicholas C. Zakas)</li>
+<li>fixes #152 (Stephen Murray)</li>
+<li>add docs for no-exc-assign (Stephen Murray)</li>
+<li>Merge branch 'master' of <a href="https://github.com/nzakas/eslint">https://github.com/nzakas/eslint</a> into no-new-object-array-literals (Matt DuVall)</li>
+<li>Merge branch 'master' of <a href="https://github.com/nzakas/eslint">https://github.com/nzakas/eslint</a> into count-spaces (Matt DuVall)</li>
+<li>Added a test for getting global scope from Program node (refs #148) (Nicholas C. Zakas)</li>
+<li>Add positive test case for <code>object.Array</code> (Matthew DuVall)</li>
+<li>Only support space characters for repetitions (Matthew DuVall)</li>
+<li>fix line length per code conventions (Stephen Murray)</li>
+<li>fix indentation per code conventions (Stephen Murray)</li>
+<li>fixes #149 (Stephen Murray)</li>
+<li>Rule: no-ternary (Ian Christian Myers)</li>
+<li>Check that the return statement has an argument before checking its type (James Allardice)</li>
+<li>Rule: count-spaces for multiple spaces in regular expressions (Matt DuVall)</li>
+<li>Update eslint.json configuration file for literal rules (Matt DuVall)</li>
+<li>Created no-label-var rule. (Ian Christian Myers)</li>
+<li>Rule: no-new-array and no-new-object (Matt DuVall)</li>
+<li>Added ability to retrieve scope using escope. (Ian Christian Myers)</li>
+<li>Corrected unused arguments (Patrick Brosset)</li>
+<li>Reporting function complexity on function:after and using array push/pop to handle nesting (Patrick Brosset)</li>
+<li>Fixing style issues discovered while npm testing (Patrick Brosset)</li>
+<li>First draft proposal for a cyclomatic complexity ESLint rule (Patrick Brosset)</li>
+<li>Corrected file extension on no-plusplus rule documentation. (Ian Christian Myers)</li>
+<li>Documentation for no-delete-var rule. Closes #129 (Ilya Volodin)</li>
+<li>Rule: max-statements (Ian Christian Myers)</li>
+<li>Better documentation for the <code>no-plusplus</code> rule. (Ian Christian Myers)</li>
+<li>Rule: no-plusplus (Ian Christian Myers)</li>
+<li>Rule: no assignment in return statement (Ilya Volodin)</li>
+<li>Updating max-params rule name (Ilya Volodin)</li>
+<li>Rule: Function has too many parameters (Ilya Volodin)</li>
+<li>Removing merge originals (Ilya Volodin)</li>
+<li>Rebasing on master (Ilya Volodin)</li>
+<li>Rule: Variables should not be deleted (Ilya Volodin)</li>
+<li>Fixes incorrect reporting of missing semicolon (Ian Christian Myers)</li>
+<li>Rebase against master branch (Mathias Bynens)</li>
+<li>Rule to warn on use of Math and JSON as functions (James Allardice)</li>
+<li>Formatter: Checkstyle (Ian Christian Myers)</li>
+<li>docs: Clean up structure (Mathias Bynens)</li>
+<li>Merging no-native-reassign and no-redefine (Ilya Volodin)</li>
+<li>Rule: no native reassignment (Ilya Volodin)</li>
+<li>0.0.8-dev (Nicholas C. Zakas)</li>
+<li>v0.0.7 released (Nicholas C. Zakas)</li>
+<li>Updated Tests, etc. (Jamund Ferguson)</li>
+<li>Added jUnit Support (Fixes #16) (Jamund Ferguson)</li>
+</ul>
+<p>v0.0.7 - July 22, 2013</p>
+<ul>
+<li>0.0.7 (Nicholas C. Zakas)</li>
+<li>Add code coverage checks to npm test and update rule tests to have better coverage (Nicholas C. Zakas)</li>
+<li>Fixed CLI output on serial programatic executions (Ian Christian Myers)</li>
+<li>Removes line length from code style convention docs (Josh Perez)</li>
+<li>Adds escapeRegExp and fixes documentation (Josh Perez)</li>
+<li>Add quotes rule and test coverage for configuration options (Matt DuVall)</li>
+<li>Adds templating for lint messages and refactors rules to use it (Josh Perez)</li>
+<li>Fixes lint rules for unchecked test file (Josh Perez)</li>
+<li>Changes dotnotation rule to match JSHint style (Josh Perez)</li>
+<li>Change configInfo to options and add test coverage (Matt DuVall)</li>
+<li>Merge branch 'master' of <a href="https://github.com/nzakas/eslint">https://github.com/nzakas/eslint</a> into optional-args-for-rule (Matt DuVall)</li>
+<li>Adds dot notation lint rule (Josh Perez)</li>
+<li>Strip trailing underscores in camelcase rule - Fixes #94 (Patrick Brosset)</li>
+<li>add mailing list link (Douglas Campos)</li>
+<li>Strip leading underscores in camelcase rule - Fixes #94 (Patrick Brosset)</li>
+<li>Created no-dangle rule. (Ian Christian Myers)</li>
+<li>Fixed rule name (James Allardice)</li>
+<li>Make sure the callee type is Identifier (James Allardice)</li>
+<li>Add rule for implied eval via setTimeout/Interval (James Allardice)</li>
+<li>Fix rule name in config (James Allardice)</li>
+<li>Fixes #90 &ndash; updates docstrings (Stephen Murray)</li>
+<li>Fixes issue with fs.existsSync on NodeJS 0.6 (Ian Christian Myers)</li>
+<li>Fixing -c config option. (Ian Christian Myers)</li>
+<li>Allow arrays to be passed as multiple args to rule (Matt DuVall)</li>
+<li>Test to make sure empty case with one line break is safe (Matt DuVall)</li>
+<li>Rule: The Function constructor is eval (Ilya Volodin)</li>
+<li>Enabled require("eslint") and exposed out CLI. (Ian Christian Myers)</li>
+<li>Adds test and fix for issue #82 (Mark Macdonald)</li>
+<li>Merge branch 'master' of <a href="https://github.com/nzakas/eslint">https://github.com/nzakas/eslint</a> into ok (Yusuke Suzuki)</li>
+<li>Created brace-style rule. (Ian Christian Myers)</li>
+<li>Formatters can now process multiple files at once (Jamund Ferguson)</li>
+<li>Rule: Do not use 'new' for side effects (Ilya Volodin)</li>
+<li>Adds smarter-eqeqeq rule (Josh Perez)</li>
+<li>Add EditorConfig file for consistent editor/IDE behavior (Jed Hunsaker)</li>
+<li>Fix the positive case for no-unreachable where there is no return statement at all, or if the return is at the end. Those cases should not return any errors. The error condition was not be checked before throwing the rule error. (Joel Feenstra)</li>
+<li>Adds test and fix for no-octal on 0 literal (Mark Macdonald)</li>
+<li>Don't report no-empty warnings when a parent is FunctionExpression / FunctionDeclaration (Yusuke Suzuki)</li>
+<li>Add api.getAncestors (Yusuke Suzuki)</li>
+<li>Ensure estraverse version 1.2.0 or later (Yusuke Suzuki)</li>
+<li>Fixes no-alert lint rule for non identifier calls (Josh Perez)</li>
+<li>Fixes exception when init is null (Josh Perez)</li>
+<li>Fixes no-octal check to only check for numbers (Josh Perez)</li>
+<li>0.0.7-dev (Nicholas C. Zakas)</li>
+<li>0.0.6 (Nicholas C. Zakas)</li>
+<li>Follow the rule naming conventions (James Allardice)</li>
+<li>Add rule for missing radix argument to parseInt (James Allardice)</li>
+<li>Allow return, falls-through comment, and throw for falls-through (Matt DuVall)</li>
+<li>Merge branch 'master' of <a href="https://github.com/nzakas/eslint">https://github.com/nzakas/eslint</a> into rule-fall-through (Matt DuVall)</li>
+<li>Globals are not good, declare len (Matt DuVall)</li>
+<li>Rule to add no-fall-through (Matt DuVall)</li>
+</ul>
+<p>v0.0.6 - July 16, 2013</p>
+<ul>
+<li>0.0.6 (Nicholas C. Zakas)</li>
+<li>Changed semi rule to use tokens instead of source (Nicholas C. Zakas)</li>
+<li>Renaming new-parens rule (Ilya Volodin)</li>
+<li>Renaming no-new-wrappers rule and adding tests (Ilya Volodin)</li>
+<li>Add license URL (Nick Schonning)</li>
+<li>Remove unused sinon requires (Nick Schonning)</li>
+<li>Remove redundant JSHint directives (Nick Schonning)</li>
+<li>Rule: Do not use constructor for wrapper objects (Ilya Volodin)</li>
+<li>Test node 0.11 unstable but allow it to fail (Nick Schonning)</li>
+<li>Rule: Constructor should use parentheses (Ilya Volodin)</li>
+<li>Fix reference to "CSS Lint" in Contributing documentation (Brian McKenna)</li>
+<li>Add git attributes file for line endings (Andy Hu)</li>
+<li>Rename to create an 'index' file in GH web view (Evan Goer)</li>
+<li>Avoid accidentally creating a markdown link (Evan Goer)</li>
+<li>Add headings and correct internal links (Evan Goer)</li>
+<li>Add wiki files to docs directory (Evan Goer)</li>
+<li>Add rules for leading/trailing decimal points (James Allardice)</li>
+<li>Add rule to prevent comparisons with value NaN (James Allardice)</li>
+<li>Fixing jshint error (Ilya Volodin)</li>
+<li>Rule: no octal literals (Ilya Volodin)</li>
+<li>Rule: no undefined when initializing variables (Ilya Volodin)</li>
+<li>Updated CONTRIBUTING.md (Nicholas C. Zakas)</li>
+<li>Make sure namespaces are honored in new-cap (Nicholas C. Zakas)</li>
+<li>Make sure no-empty also checks for ';;' (Nicholas C. Zakas)</li>
+<li>Add CLI option to output version (Nicholas C. Zakas)</li>
+<li>Updated contribution guidelines (Nicholas C. Zakas)</li>
+<li>Fixing jshint complaints. (Joel Feenstra)</li>
+<li>Converting to a switch statement and declaring variables. (Joel Feenstra)</li>
+<li>Added .jshintrc file (until ESLint can lint itself) and cleaned up JSHint warnings (Nicholas C. Zakas)</li>
+<li>Merge branch 'master' of github.com:nzakas/jscheck (Nicholas C. Zakas)</li>
+<li>A bit of cleanup (Nicholas C. Zakas)</li>
+<li>Add unreachable code detection for switch cases and after continue/break. (Joel Feenstra)</li>
+<li>Add support for detecting unreachable code after a throw or return statement. (Joel Feenstra)</li>
+<li>Fix curly brace check when an if statement is the alternate. (Joel Feenstra)</li>
+<li>Check for empty switch statements with no cases. (Matt DuVall)</li>
+<li>Added CONTRIBUTING.md (Nicholas C. Zakas)</li>
+<li>Added rule to check for missing semicolons (fixes #9) (Nicholas C. Zakas)</li>
+<li>Verify that file paths exist before reading the file (Matt DuVall)</li>
+<li>Added guard-for-in rule (fixes #1) (Nicholas C. Zakas)</li>
+<li>Run linting with npm test as well (Nicholas C. Zakas)</li>
+<li>Removed foo.txt (Nicholas C. Zakas)</li>
+<li>Updated config file with new no-caller ID (Nicholas C. Zakas)</li>
+<li>Changed name of no-arg to no-caller (Nicholas C. Zakas)</li>
+<li>Increased test coverage (Nicholas C. Zakas)</li>
+<li>Got npm test to work with istanbul, huzzah! (Nicholas C. Zakas)</li>
+<li>Moved /config to /conf (Nicholas C. Zakas)</li>
+<li>Added script to auto-generate changelog (Nicholas C. Zakas)</li>
+<li>Add <code>quote-props</code> rule (Mathias Bynens)</li>
+<li>Cleaned up relationship between bin/eslint, lib/cli.js, and lib/eslint.js (Nicholas C. Zakas)</li>
+<li>Add problem count to compact formatter (Nicholas C. Zakas)</li>
+<li>Fix merge conflict (Nicholas C. Zakas)</li>
+<li>Change reporters to formatters, add format command line option. Also added tests for compact format. (Nicholas C. Zakas)</li>
+<li>Change reporters to formatters, add format command line option (Nicholas C. Zakas)</li>
+<li>Start development of 0.0.6-dev (Nicholas C. Zakas) </li>
+</ul>
+</div><hr/>La documentación para esta clase fue generada a partir del siguiente fichero:<ul>
+<li>heap-visualizer/node_modules/eslint/CHANGELOG.md</li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.18
+</small></address>
+</body>
+</html>

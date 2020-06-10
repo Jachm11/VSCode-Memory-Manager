@@ -2,6 +2,10 @@
 using namespace std;
 #include "login.cpp"
 
+///
+/// @brief Clase que sen encarga de manejar los clientes de la extension
+/// @author Natalia
+///
 class ServerManager
 {
     private:

@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['gcinit_409',['GCInit',['../class_garbage_collector.html#a42699623204a45b75225e14fa1ed5fc7',1,'GarbageCollector']]],
+  ['gcinitimp_410',['GCInitImp',['../class_garbage_collector.html#a3507b62b07ddddfd2791c1d15461246c',1,'GarbageCollector']]],
+  ['generateid_411',['generateID',['../class_garbage_collector.html#a2a283013e15237ccb8f438dd9a28fc52',1,'GarbageCollector']]],
+  ['generateidimp_412',['generateIDImp',['../class_garbage_collector.html#a1bd6d244e06a8a64255c3312e2736f4f',1,'GarbageCollector']]],
+  ['getaccess_413',['getAccess',['../class_user.html#a85b0ba19108255a3bf4bb4f96ccc6d97',1,'User']]],
+  ['gethead_414',['getHead',['../class_linked_list.html#a66e8657412447dfe945f5234e072b20f',1,'LinkedList::getHead()'],['../class_linked_list.html#aa4614ce35a543b74afb3c5bff8b018d4',1,'LinkedList::getHead()']]],
+  ['getidfromptr_415',['getIdfromPtr',['../class_server_manager.html#a06ae41e52f4d432ea87edc084867ab9b',1,'ServerManager']]],
+  ['getidref_416',['getIDref',['../class_v_s_ptr.html#a65989459453b58264a3e2e9c4bbed22b',1,'VSPtr']]],
+  ['getinstance_417',['getInstance',['../class_garbage_collector.html#ade4bccdf41223cc395b646db3f60ac8b',1,'GarbageCollector']]],
+  ['getpointerinfo_418',['getPointerInfo',['../class_user.html#a3f2ef7fd069efd4caf005db9778a413b',1,'User']]],
+  ['getptr_419',['getPtr',['../class_server_manager.html#a524600061d60cb3ae1d860696859c775',1,'ServerManager']]],
+  ['getsize_420',['getSize',['../class_linked_list.html#ab56d59b74c8d24cd223a4a49a2b5cfb1',1,'LinkedList::getSize()'],['../class_linked_list.html#ab56d59b74c8d24cd223a4a49a2b5cfb1',1,'LinkedList::getSize()']]],
+  ['getsocketnumb_421',['getSocketNumb',['../class_user.html#a77a41d50325065e4c81a59affe845fb1',1,'User']]],
+  ['gettail_422',['getTail',['../class_linked_list.html#a0ab66d5b6fa180ad2d207e5b975c3d71',1,'LinkedList::getTail()'],['../class_linked_list.html#abe32c4c1e8c9f373a77421938276a284',1,'LinkedList::getTail()']]],
+  ['getuserbysocket_423',['getUserBySocket',['../class_server_manager.html#a0292d32fccb34e812aed61ef535d472c',1,'ServerManager']]],
+  ['getuserindex_424',['getUserIndex',['../class_server_manager.html#aa1ddc43d98129d2f7d451123c9e566ea',1,'ServerManager']]]
+];

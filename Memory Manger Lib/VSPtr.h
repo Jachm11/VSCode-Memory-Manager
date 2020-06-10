@@ -2,6 +2,11 @@
 #include <iostream>
 using namespace std;
 
+
+///
+///@brief Implementacion especial del concepto de punteros para la libreria
+///@author Natalia
+///
 template <class T>
 class VSPtr
 {

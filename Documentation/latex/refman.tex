@@ -1,0 +1,1462 @@
+\let\mypdfximage\pdfximage\def\pdfximage{\immediate\mypdfximage}\documentclass[twoside]{book}
+
+%% moved from doxygen.sty due to workaround for LaTex 2019 version and unmaintained tabu package
+\usepackage{ifthen}
+\ifx\requestedLaTeXdate\undefined
+\usepackage{array}
+\else
+\usepackage{array}[=2016-10-06]
+\fi
+%%
+% Packages required by doxygen
+\usepackage{fixltx2e}
+\usepackage{calc}
+\usepackage{doxygen}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{makeidx}
+\usepackage{multicol}
+\usepackage{multirow}
+\PassOptionsToPackage{warn}{textcomp}
+\usepackage{textcomp}
+\usepackage[nointegrals]{wasysym}
+\usepackage[table]{xcolor}
+\usepackage{ifpdf,ifxetex}
+
+% NLS support packages
+\usepackage[spanish]{babel}
+% Font selection
+\usepackage[T1]{fontenc}
+\usepackage[scaled=.90]{helvet}
+\usepackage{courier}
+\usepackage{amssymb}
+\usepackage{sectsty}
+\renewcommand{\familydefault}{\sfdefault}
+\allsectionsfont{%
+  \fontseries{bc}\selectfont%
+  \color{darkgray}%
+}
+\renewcommand{\DoxyLabelFont}{%
+  \fontseries{bc}\selectfont%
+  \color{darkgray}%
+}
+\newcommand{\+}{\discretionary{\mbox{\scriptsize$\hookleftarrow$}}{}{}}
+
+% Arguments of doxygenemoji:
+% 1) ':<text>:' form of the emoji, already "LaTeX"-escaped
+% 2) file with the name of the emoji without the .png extension
+% in case image exist use this otherwise use the ':<text>:' form
+\newcommand{\doxygenemoji}[2]{%
+  \IfFileExists{./#2.png}{\raisebox{-0.1em}{\includegraphics[height=0.9em]{./#2.png}}}{#1}%
+}
+% Page & text layout
+\usepackage{geometry}
+\geometry{%
+  a4paper,%
+  top=2.5cm,%
+  bottom=2.5cm,%
+  left=2.5cm,%
+  right=2.5cm%
+}
+\tolerance=750
+\hfuzz=15pt
+\hbadness=750
+\setlength{\emergencystretch}{15pt}
+\setlength{\parindent}{0cm}
+\newcommand{\doxynormalparskip}{\setlength{\parskip}{3ex plus 2ex minus 2ex}}
+\newcommand{\doxytocparskip}{\setlength{\parskip}{1ex plus 0ex minus 0ex}}
+\doxynormalparskip
+\makeatletter
+\renewcommand{\paragraph}{%
+  \@startsection{paragraph}{4}{0ex}{-1.0ex}{1.0ex}{%
+    \normalfont\normalsize\bfseries\SS@parafont%
+  }%
+}
+\renewcommand{\subparagraph}{%
+  \@startsection{subparagraph}{5}{0ex}{-1.0ex}{1.0ex}{%
+    \normalfont\normalsize\bfseries\SS@subparafont%
+  }%
+}
+\makeatother
+
+\makeatletter
+\newcommand\hrulefilll{\leavevmode\leaders\hrule\hskip 0pt plus 1filll\kern\z@}
+\makeatother
+
+% Headers & footers
+\usepackage{fancyhdr}
+\pagestyle{fancyplain}
+\fancyhead[LE]{\fancyplain{}{\bfseries\thepage}}
+\fancyhead[CE]{\fancyplain{}{}}
+\fancyhead[RE]{\fancyplain{}{\bfseries\leftmark}}
+\fancyhead[LO]{\fancyplain{}{\bfseries\rightmark}}
+\fancyhead[CO]{\fancyplain{}{}}
+\fancyhead[RO]{\fancyplain{}{\bfseries\thepage}}
+\fancyfoot[LE]{\fancyplain{}{}}
+\fancyfoot[CE]{\fancyplain{}{}}
+\fancyfoot[RE]{\fancyplain{}{\bfseries\scriptsize Generado por Doxygen }}
+\fancyfoot[LO]{\fancyplain{}{\bfseries\scriptsize Generado por Doxygen }}
+\fancyfoot[CO]{\fancyplain{}{}}
+\fancyfoot[RO]{\fancyplain{}{}}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\chaptermark}[1]{%
+  \markboth{#1}{}%
+}
+\renewcommand{\sectionmark}[1]{%
+  \markright{\thesection\ #1}%
+}
+
+% Indices & bibliography
+\usepackage{natbib}
+\usepackage[titles]{tocloft}
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{5}
+\makeindex
+
+\usepackage{newunicodechar}
+  \newunicodechar{⁻}{${}^{-}$}% Superscript minus
+  \newunicodechar{²}{${}^{2}$}% Superscript two
+  \newunicodechar{³}{${}^{3}$}% Superscript three
+
+% Hyperlinks (required, but should be loaded last)
+\ifpdf
+  \usepackage[pdftex,pagebackref=true]{hyperref}
+\else
+  \ifxetex
+    \usepackage[pagebackref=true]{hyperref}
+  \else
+    \usepackage[ps2pdf,pagebackref=true]{hyperref}
+  \fi
+\fi
+
+\hypersetup{%
+  colorlinks=true,%
+  linkcolor=blue,%
+  citecolor=blue,%
+  unicode%
+}
+
+% Custom commands
+\newcommand{\clearemptydoublepage}{%
+  \newpage{\pagestyle{empty}\cleardoublepage}%
+}
+
+\usepackage{caption}
+\captionsetup{labelsep=space,justification=centering,font={bf},singlelinecheck=off,skip=4pt,position=top}
+
+\usepackage{etoc}
+\etocsettocstyle{\doxytocparskip}{\doxynormalparskip}
+\renewcommand{\numberline}[1]{#1~}
+%===== C O N T E N T S =====
+
+\begin{document}
+
+% Titlepage & ToC
+\hypersetup{pageanchor=false,
+             bookmarksnumbered=true,
+             pdfencoding=unicode
+            }
+\pagenumbering{alph}
+\begin{titlepage}
+\vspace*{7cm}
+\begin{center}%
+{\Large Heap Visualizer \\[1ex]\large 1.\+0.\+0 }\\
+\vspace*{1cm}
+{\large Generado por Doxygen 1.8.18}\\
+\end{center}
+\end{titlepage}
+\clearemptydoublepage
+\pagenumbering{roman}
+\tableofcontents
+\clearemptydoublepage
+\pagenumbering{arabic}
+\hypersetup{pageanchor=true}
+
+%--- Begin generated contents ---
+\chapter{Change Log}
+\label{md_heap-visualizer__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer__c_h_a_n_g_e_l_o_g}
+\chapter{@babel/code-\/frame}
+\label{md_heap-visualizer_node_modules__0dbabel_code-frame__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules__0dbabel_code-frame__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules__0dbabel_code-frame__r_e_a_d_m_e}
+\chapter{@babel/helper-\/validator-\/identifier}
+\label{md_heap-visualizer_node_modules__0dbabel_helper-validator-identifier__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules__0dbabel_helper-validator-identifier__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules__0dbabel_helper-validator-identifier__r_e_a_d_m_e}
+\chapter{@babel/highlight}
+\label{md_heap-visualizer_node_modules__0dbabel_highlight__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules__0dbabel_highlight__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules__0dbabel_highlight__r_e_a_d_m_e}
+\chapter{Installation}
+\label{md_heap-visualizer_node_modules__0dtypes_color-name__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules__0dtypes_color-name__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules__0dtypes_color-name__r_e_a_d_m_e}
+\chapter{Installation}
+\label{md_heap-visualizer_node_modules__0dtypes_events__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules__0dtypes_events__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules__0dtypes_events__r_e_a_d_m_e}
+\chapter{Installation}
+\label{md_heap-visualizer_node_modules__0dtypes_glob__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules__0dtypes_glob__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules__0dtypes_glob__r_e_a_d_m_e}
+\chapter{Installation}
+\label{md_heap-visualizer_node_modules__0dtypes_minimatch__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules__0dtypes_minimatch__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules__0dtypes_minimatch__r_e_a_d_m_e}
+\chapter{Installation}
+\label{md_heap-visualizer_node_modules__0dtypes_mocha__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules__0dtypes_mocha__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules__0dtypes_mocha__r_e_a_d_m_e}
+\chapter{Installation}
+\label{md_heap-visualizer_node_modules__0dtypes_node__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules__0dtypes_node__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules__0dtypes_node__r_e_a_d_m_e}
+\chapter{Installation}
+\label{md_heap-visualizer_node_modules__0dtypes_vscode__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules__0dtypes_vscode__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules__0dtypes_vscode__r_e_a_d_m_e}
+\chapter{7.2.0 (2020-\/05-\/09)}
+\label{md_heap-visualizer_node_modules_acorn__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_acorn__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_acorn__c_h_a_n_g_e_l_o_g}
+\chapter{Acorn}
+\label{md_heap-visualizer_node_modules_acorn__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_acorn__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_acorn__r_e_a_d_m_e}
+\chapter{Acorn-\/\+J\+SX}
+\label{md_heap-visualizer_node_modules_acorn-jsx__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_acorn-jsx__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_acorn-jsx__r_e_a_d_m_e}
+\chapter{4.2.0 / 2018-\/01-\/15}
+\label{md_heap-visualizer_node_modules_agent-base__history}
+\Hypertarget{md_heap-visualizer_node_modules_agent-base__history}
+\input{md_heap-visualizer_node_modules_agent-base__history}
+\chapter{agent-\/base}
+\label{md_heap-visualizer_node_modules_agent-base__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_agent-base__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_agent-base__r_e_a_d_m_e}
+\chapter{R\+E\+A\+D\+ME}
+\label{md_heap-visualizer_node_modules_ajv_lib_dotjs__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_ajv_lib_dotjs__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_ajv_lib_dotjs__r_e_a_d_m_e}
+\chapter{R\+E\+A\+D\+ME}
+\label{md_heap-visualizer_node_modules_ajv__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_ajv__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_ajv__r_e_a_d_m_e}
+\chapter{ansi-\/colors $<$a href=\char`\"{}https\+://www.\+npmjs.\+com/package/ansi-\/colors\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/npm/v/ansi-\/colors.\+svg?style=flat\char`\"{} alt=\char`\"{}\+N\+P\+M version\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://npmjs.\+org/package/ansi-\/colors\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/npm/dm/ansi-\/colors.\+svg?style=flat\char`\"{} alt=\char`\"{}\+N\+P\+M monthly downloads\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://npmjs.\+org/package/ansi-\/colors\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/npm/dt/ansi-\/colors.\+svg?style=flat\char`\"{} alt=\char`\"{}\+N\+P\+M total downloads\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://travis-\/ci.\+org/doowb/ansi-\/colors\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/travis/doowb/ansi-\/colors.\+svg?style=flat\&label=\+Travis\char`\"{} alt=\char`\"{}\+Linux Build Status\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://ci.\+appveyor.\+com/project/doowb/ansi-\/colors\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/appveyor/ci/doowb/ansi-\/colors.\+svg?style=flat\&label=\+App\+Veyor\char`\"{} alt=\char`\"{}\+Windows Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_ansi-colors__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_ansi-colors__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_ansi-colors__r_e_a_d_m_e}
+\chapter{readme}
+\label{md_heap-visualizer_node_modules_ansi-escapes_node_modules_type-fest_readme}
+\Hypertarget{md_heap-visualizer_node_modules_ansi-escapes_node_modules_type-fest_readme}
+\input{md_heap-visualizer_node_modules_ansi-escapes_node_modules_type-fest_readme}
+\chapter{ansi-\/escapes $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/ansi-\/escapes\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/ansi-\/escapes.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_ansi-escapes_readme}
+\Hypertarget{md_heap-visualizer_node_modules_ansi-escapes_readme}
+\input{md_heap-visualizer_node_modules_ansi-escapes_readme}
+\chapter{ansi-\/regex $<$a href=\char`\"{}https\+://travis-\/ci.\+org/chalk/ansi-\/regex\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/chalk/ansi-\/regex.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_ansi-regex_readme}
+\Hypertarget{md_heap-visualizer_node_modules_ansi-regex_readme}
+\input{md_heap-visualizer_node_modules_ansi-regex_readme}
+\chapter{ansi-\/styles $<$a href=\char`\"{}https\+://travis-\/ci.\+org/chalk/ansi-\/styles\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/chalk/ansi-\/styles.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_ansi-styles_readme}
+\Hypertarget{md_heap-visualizer_node_modules_ansi-styles_readme}
+\input{md_heap-visualizer_node_modules_ansi-styles_readme}
+\chapter{anymatch $<$a href=\char`\"{}https\+://travis-\/ci.\+org/micromatch/anymatch\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/micromatch/anymatch.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://coveralls.\+io/r/micromatch/anymatch?branch=master\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/coveralls/micromatch/anymatch.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Coverage Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_anymatch__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_anymatch__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_anymatch__r_e_a_d_m_e}
+\chapter{1.0.10 / 2018-\/02-\/15}
+\label{md_heap-visualizer_node_modules_argparse__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_argparse__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_argparse__c_h_a_n_g_e_l_o_g}
+\chapter{argparse}
+\label{md_heap-visualizer_node_modules_argparse__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_argparse__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_argparse__r_e_a_d_m_e}
+\chapter{astral-\/regex $<$a href=\char`\"{}https\+://travis-\/ci.\+org/kevva/astral-\/regex\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/kevva/astral-\/regex.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_astral-regex_readme}
+\Hypertarget{md_heap-visualizer_node_modules_astral-regex_readme}
+\input{md_heap-visualizer_node_modules_astral-regex_readme}
+\chapter{L\+I\+C\+E\+N\+SE}
+\label{md_heap-visualizer_node_modules_balanced-match__l_i_c_e_n_s_e}
+\Hypertarget{md_heap-visualizer_node_modules_balanced-match__l_i_c_e_n_s_e}
+\input{md_heap-visualizer_node_modules_balanced-match__l_i_c_e_n_s_e}
+\chapter{balanced-\/match}
+\label{md_heap-visualizer_node_modules_balanced-match__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_balanced-match__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_balanced-match__r_e_a_d_m_e}
+\chapter{binary-\/extensions $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/binary-\/extensions\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/binary-\/extensions.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_binary-extensions_readme}
+\Hypertarget{md_heap-visualizer_node_modules_binary-extensions_readme}
+\input{md_heap-visualizer_node_modules_binary-extensions_readme}
+\chapter{brace-\/expansion}
+\label{md_heap-visualizer_node_modules_brace-expansion__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_brace-expansion__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_brace-expansion__r_e_a_d_m_e}
+\chapter{Release history}
+\label{md_heap-visualizer_node_modules_braces__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_braces__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_braces__c_h_a_n_g_e_l_o_g}
+\chapter{braces $<$a href=\char`\"{}https\+://www.\+paypal.\+com/cgi-\/bin/webscr?cmd=\+\_\+s-\/xclick\&hosted\+\_\+button\+\_\+id=\+W8\+Y\+F\+Z425\+K\+N\+D68\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/badge/\+Donate-\/\+Pay\+Pal-\/green.\+svg\char`\"{} alt=\char`\"{}\+Donate\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://www.\+npmjs.\+com/package/braces\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/npm/v/braces.\+svg?style=flat\char`\"{} alt=\char`\"{}\+N\+P\+M version\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://npmjs.\+org/package/braces\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/npm/dm/braces.\+svg?style=flat\char`\"{} alt=\char`\"{}\+N\+P\+M monthly downloads\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://npmjs.\+org/package/braces\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/npm/dt/braces.\+svg?style=flat\char`\"{} alt=\char`\"{}\+N\+P\+M total downloads\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://travis-\/ci.\+org/micromatch/braces\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/travis/micromatch/braces.\+svg?style=flat\&label=\+Travis\char`\"{} alt=\char`\"{}\+Linux Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_braces__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_braces__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_braces__r_e_a_d_m_e}
+\chapter{wat?}
+\label{md_heap-visualizer_node_modules_browser-stdout__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_browser-stdout__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_browser-stdout__r_e_a_d_m_e}
+\chapter{callsites $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/callsites\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/callsites.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_callsites_readme}
+\Hypertarget{md_heap-visualizer_node_modules_callsites_readme}
+\input{md_heap-visualizer_node_modules_callsites_readme}
+\chapter{camelcase $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/camelcase\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/camelcase.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_camelcase_readme}
+\Hypertarget{md_heap-visualizer_node_modules_camelcase_readme}
+\input{md_heap-visualizer_node_modules_camelcase_readme}
+\chapter{readme}
+\label{md_heap-visualizer_node_modules_chalk_readme}
+\Hypertarget{md_heap-visualizer_node_modules_chalk_readme}
+\input{md_heap-visualizer_node_modules_chalk_readme}
+\chapter{chardet $<$a href=\char`\"{}https\+://travis-\/ci.\+org/runk/node-\/chardet\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/runk/node-\/chardet.\+png\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_chardet__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_chardet__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_chardet__r_e_a_d_m_e}
+\chapter{Chokidar $<$a href=\char`\"{}https\+://github.\+com/paulmillr/chokidar\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/npm/dw/chokidar.\+svg\char`\"{} alt=\char`\"{}\+Weekly downloads\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://github.\+com/paulmillr/chokidar\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/npm/dy/chokidar.\+svg\char`\"{} alt=\char`\"{}\+Yearly downloads\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_chokidar__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_chokidar__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_chokidar__r_e_a_d_m_e}
+\chapter{cli-\/cursor $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/cli-\/cursor\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/cli-\/cursor.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_cli-cursor_readme}
+\Hypertarget{md_heap-visualizer_node_modules_cli-cursor_readme}
+\input{md_heap-visualizer_node_modules_cli-cursor_readme}
+\chapter{Changelog}
+\label{md_heap-visualizer_node_modules_cli-width__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_cli-width__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_cli-width__c_h_a_n_g_e_l_o_g}
+\chapter{cli-\/width}
+\label{md_heap-visualizer_node_modules_cli-width__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_cli-width__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_cli-width__r_e_a_d_m_e}
+\chapter{Change Log}
+\label{md_heap-visualizer_node_modules_cliui__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_cliui__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_cliui__c_h_a_n_g_e_l_o_g}
+\chapter{emoji-\/regex $<$a href=\char`\"{}https\+://travis-\/ci.\+org/mathiasbynens/emoji-\/regex\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/mathiasbynens/emoji-\/regex.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_cliui_node_modules_emoji-regex__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_cliui_node_modules_emoji-regex__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_cliui_node_modules_emoji-regex__r_e_a_d_m_e}
+\chapter{is-\/fullwidth-\/code-\/point $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/is-\/fullwidth-\/code-\/point\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/is-\/fullwidth-\/code-\/point.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_cliui_node_modules_is-fullwidth-code-point_readme}
+\Hypertarget{md_heap-visualizer_node_modules_cliui_node_modules_is-fullwidth-code-point_readme}
+\input{md_heap-visualizer_node_modules_cliui_node_modules_is-fullwidth-code-point_readme}
+\chapter{string-\/width $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/string-\/width\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/string-\/width.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_cliui_node_modules_string-width_readme}
+\Hypertarget{md_heap-visualizer_node_modules_cliui_node_modules_string-width_readme}
+\input{md_heap-visualizer_node_modules_cliui_node_modules_string-width_readme}
+\chapter{cliui}
+\label{md_heap-visualizer_node_modules_cliui__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_cliui__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_cliui__r_e_a_d_m_e}
+\chapter{1.0.0 -\/ 2016-\/01-\/07}
+\label{md_heap-visualizer_node_modules_color-convert__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_color-convert__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_color-convert__c_h_a_n_g_e_l_o_g}
+\chapter{color-\/convert}
+\label{md_heap-visualizer_node_modules_color-convert__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_color-convert__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_color-convert__r_e_a_d_m_e}
+\chapter{R\+E\+A\+D\+ME}
+\label{md_heap-visualizer_node_modules_color-name__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_color-name__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_color-name__r_e_a_d_m_e}
+\chapter{concat-\/map}
+\label{md_heap-visualizer_node_modules_concat-map__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_concat-map__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_concat-map__r_e_a_d_m_e}
+\chapter{Change Log}
+\label{md_heap-visualizer_node_modules_cross-spawn__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_cross-spawn__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_cross-spawn__c_h_a_n_g_e_l_o_g}
+\chapter{changes log}
+\label{md_heap-visualizer_node_modules_cross-spawn_node_modules_semver__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_cross-spawn_node_modules_semver__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_cross-spawn_node_modules_semver__c_h_a_n_g_e_l_o_g}
+\chapter{semver(1) -- The semantic versioner for npm}
+\label{md_heap-visualizer_node_modules_cross-spawn_node_modules_semver__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_cross-spawn_node_modules_semver__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_cross-spawn_node_modules_semver__r_e_a_d_m_e}
+\chapter{cross-\/spawn}
+\label{md_heap-visualizer_node_modules_cross-spawn__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_cross-spawn__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_cross-spawn__r_e_a_d_m_e}
+\chapter{3.1.0 / 2017-\/09-\/26}
+\label{md_heap-visualizer_node_modules_debug__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_debug__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_debug__c_h_a_n_g_e_l_o_g}
+\chapter{debug}
+\label{md_heap-visualizer_node_modules_debug__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_debug__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_debug__r_e_a_d_m_e}
+\chapter{decamelize $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/decamelize\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/decamelize.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_decamelize_readme}
+\Hypertarget{md_heap-visualizer_node_modules_decamelize_readme}
+\input{md_heap-visualizer_node_modules_decamelize_readme}
+\chapter{deep-\/is}
+\label{md_heap-visualizer_node_modules_deep-is__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_deep-is__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_deep-is__r_e_a_d_m_e}
+\chapter{1.1.3 / 2018-\/08-\/14}
+\label{md_heap-visualizer_node_modules_define-properties__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_define-properties__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_define-properties__c_h_a_n_g_e_l_o_g}
+\chapter{R\+E\+A\+D\+ME}
+\label{md_heap-visualizer_node_modules_define-properties__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_define-properties__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_define-properties__r_e_a_d_m_e}
+\chapter{How to Contribute}
+\label{md_heap-visualizer_node_modules_diff__c_o_n_t_r_i_b_u_t_i_n_g}
+\Hypertarget{md_heap-visualizer_node_modules_diff__c_o_n_t_r_i_b_u_t_i_n_g}
+\input{md_heap-visualizer_node_modules_diff__c_o_n_t_r_i_b_u_t_i_n_g}
+\chapter{jsdiff}
+\label{md_heap-visualizer_node_modules_diff__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_diff__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_diff__r_e_a_d_m_e}
+\chapter{Release Notes}
+\label{md_heap-visualizer_node_modules_diff_release-notes}
+\Hypertarget{md_heap-visualizer_node_modules_diff_release-notes}
+\input{md_heap-visualizer_node_modules_diff_release-notes}
+\chapter{C\+H\+A\+N\+G\+E\+L\+OG}
+\label{md_heap-visualizer_node_modules_doctrine__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_doctrine__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_doctrine__c_h_a_n_g_e_l_o_g}
+\chapter{R\+E\+A\+D\+ME}
+\label{md_heap-visualizer_node_modules_doctrine__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_doctrine__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_doctrine__r_e_a_d_m_e}
+\chapter{emoji-\/regex $<$a href=\char`\"{}https\+://travis-\/ci.\+org/mathiasbynens/emoji-\/regex\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/mathiasbynens/emoji-\/regex.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_emoji-regex__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_emoji-regex__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_emoji-regex__r_e_a_d_m_e}
+\chapter{1.17.5 / 2020-\/03-\/22}
+\label{md_heap-visualizer_node_modules_es-abstract__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_es-abstract__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_es-abstract__c_h_a_n_g_e_l_o_g}
+\chapter{es-\/abstract $<$sup$>$$<$a href=\char`\"{}https\+://npmjs.\+org/package/es-\/abstract\char`\"{}$>$$<$img src=\char`\"{}http\+://versionbadg.\+es/ljharb/es-\/abstract.\+svg\char`\"{} alt=\char`\"{}\+Version Badge\char`\"{}/$>$$<$/a$>$$<$/sup$>$}
+\label{md_heap-visualizer_node_modules_es-abstract__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_es-abstract__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_es-abstract__r_e_a_d_m_e}
+\chapter{1.2.1 / 2019-\/11-\/08}
+\label{md_heap-visualizer_node_modules_es-to-primitive__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_es-to-primitive__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_es-to-primitive__c_h_a_n_g_e_l_o_g}
+\chapter{es-\/to-\/primitive $<$sup$>$$<$a href=\char`\"{}https\+://npmjs.\+org/package/es-\/to-\/primitive\char`\"{}$>$$<$img src=\char`\"{}http\+://versionbadg.\+es/ljharb/es-\/to-\/primitive.\+svg\char`\"{} alt=\char`\"{}\+Version Badge\char`\"{}/$>$$<$/a$>$$<$/sup$>$}
+\label{md_heap-visualizer_node_modules_es-to-primitive__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_es-to-primitive__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_es-to-primitive__r_e_a_d_m_e}
+\chapter{Master}
+\label{md_heap-visualizer_node_modules_es6-promise__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_es6-promise__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_es6-promise__c_h_a_n_g_e_l_o_g}
+\chapter{E\+S6-\/\+Promise (subset of $<$a href=\char`\"{}https\+://github.\+com/tildeio/rsvp.\+js\char`\"{}$>$rsvp.\+js$<$/a$>$) $<$a href=\char`\"{}https\+://travis-\/ci.\+org/stefanpenner/es6-\/promise\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/stefanpenner/es6-\/promise.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_es6-promise__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_es6-promise__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_es6-promise__r_e_a_d_m_e}
+\chapter{R\+E\+A\+D\+ME}
+\label{md_heap-visualizer_node_modules_es6-promisify__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_es6-promisify__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_es6-promisify__r_e_a_d_m_e}
+\chapter{escape-\/string-\/regexp $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/escape-\/string-\/regexp\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/escape-\/string-\/regexp.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_escape-string-regexp_readme}
+\Hypertarget{md_heap-visualizer_node_modules_escape-string-regexp_readme}
+\input{md_heap-visualizer_node_modules_escape-string-regexp_readme}
+\chapter{C\+H\+A\+N\+G\+E\+L\+OG}
+\label{md_heap-visualizer_node_modules_eslint__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_eslint__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_eslint__c_h_a_n_g_e_l_o_g}
+\chapter{R\+E\+A\+D\+ME}
+\label{md_heap-visualizer_node_modules_eslint__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_eslint__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_eslint__r_e_a_d_m_e}
+\chapter{C\+H\+A\+N\+G\+E\+L\+OG}
+\label{md_heap-visualizer_node_modules_eslint-scope__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_eslint-scope__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_eslint-scope__c_h_a_n_g_e_l_o_g}
+\chapter{E\+S\+Lint Scope}
+\label{md_heap-visualizer_node_modules_eslint-scope__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_eslint-scope__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_eslint-scope__r_e_a_d_m_e}
+\chapter{eslint-\/utils}
+\label{md_heap-visualizer_node_modules_eslint-utils__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_eslint-utils__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_eslint-utils__r_e_a_d_m_e}
+\chapter{C\+H\+A\+N\+G\+E\+L\+OG}
+\label{md_heap-visualizer_node_modules_eslint-visitor-keys__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_eslint-visitor-keys__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_eslint-visitor-keys__c_h_a_n_g_e_l_o_g}
+\chapter{eslint-\/visitor-\/keys}
+\label{md_heap-visualizer_node_modules_eslint-visitor-keys__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_eslint-visitor-keys__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_eslint-visitor-keys__r_e_a_d_m_e}
+\chapter{C\+H\+A\+N\+G\+E\+L\+OG}
+\label{md_heap-visualizer_node_modules_espree__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_espree__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_espree__c_h_a_n_g_e_l_o_g}
+\chapter{R\+E\+A\+D\+ME}
+\label{md_heap-visualizer_node_modules_espree__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_espree__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_espree__r_e_a_d_m_e}
+\chapter{R\+E\+A\+D\+ME}
+\label{md_heap-visualizer_node_modules_esprima__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_esprima__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_esprima__r_e_a_d_m_e}
+\chapter{Estraverse $<$a href=\char`\"{}http\+://travis-\/ci.\+org/estools/estraverse\char`\"{}$>$$<$img src=\char`\"{}https\+://secure.\+travis-\/ci.\+org/estools/estraverse.\+svg\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_esquery_node_modules_estraverse__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_esquery_node_modules_estraverse__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_esquery_node_modules_estraverse__r_e_a_d_m_e}
+\chapter{R\+E\+A\+D\+ME}
+\label{md_heap-visualizer_node_modules_esquery__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_esquery__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_esquery__r_e_a_d_m_e}
+\chapter{Esrecurse $<$a href=\char`\"{}https\+://travis-\/ci.\+org/estools/esrecurse\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/estools/esrecurse.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_esrecurse__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_esrecurse__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_esrecurse__r_e_a_d_m_e}
+\chapter{Estraverse $<$a href=\char`\"{}http\+://travis-\/ci.\+org/estools/estraverse\char`\"{}$>$$<$img src=\char`\"{}https\+://secure.\+travis-\/ci.\+org/estools/estraverse.\+svg\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_estraverse__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_estraverse__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_estraverse__r_e_a_d_m_e}
+\chapter{esutils $<$a href=\char`\"{}http\+://travis-\/ci.\+org/estools/esutils\char`\"{}$>$$<$img src=\char`\"{}https\+://secure.\+travis-\/ci.\+org/estools/esutils.\+svg\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_esutils__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_esutils__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_esutils__r_e_a_d_m_e}
+\chapter{External Editor}
+\label{md_heap-visualizer_node_modules_external-editor__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_external-editor__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_external-editor__r_e_a_d_m_e}
+\chapter{fast-\/deep-\/equal}
+\label{md_heap-visualizer_node_modules_fast-deep-equal__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_fast-deep-equal__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_fast-deep-equal__r_e_a_d_m_e}
+\chapter{fast-\/json-\/stable-\/stringify}
+\label{md_heap-visualizer_node_modules_fast-json-stable-stringify__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_fast-json-stable-stringify__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_fast-json-stable-stringify__r_e_a_d_m_e}
+\chapter{L\+I\+C\+E\+N\+SE}
+\label{md_heap-visualizer_node_modules_fast-levenshtein__l_i_c_e_n_s_e}
+\Hypertarget{md_heap-visualizer_node_modules_fast-levenshtein__l_i_c_e_n_s_e}
+\input{md_heap-visualizer_node_modules_fast-levenshtein__l_i_c_e_n_s_e}
+\chapter{fast-\/levenshtein -\/ Levenshtein algorithm in Javascript}
+\label{md_heap-visualizer_node_modules_fast-levenshtein__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_fast-levenshtein__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_fast-levenshtein__r_e_a_d_m_e}
+\chapter{figures $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/figures\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/figures.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_figures_readme}
+\Hypertarget{md_heap-visualizer_node_modules_figures_readme}
+\input{md_heap-visualizer_node_modules_figures_readme}
+\chapter{file-\/entry-\/cache -\/ Changelog}
+\label{md_heap-visualizer_node_modules_file-entry-cache_changelog}
+\Hypertarget{md_heap-visualizer_node_modules_file-entry-cache_changelog}
+\input{md_heap-visualizer_node_modules_file-entry-cache_changelog}
+\chapter{file-\/entry-\/cache}
+\label{md_heap-visualizer_node_modules_file-entry-cache__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_file-entry-cache__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_file-entry-cache__r_e_a_d_m_e}
+\chapter{fill-\/range $<$a href=\char`\"{}https\+://www.\+paypal.\+com/cgi-\/bin/webscr?cmd=\+\_\+s-\/xclick\&hosted\+\_\+button\+\_\+id=\+W8\+Y\+F\+Z425\+K\+N\+D68\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/badge/\+Donate-\/\+Pay\+Pal-\/green.\+svg\char`\"{} alt=\char`\"{}\+Donate\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://www.\+npmjs.\+com/package/fill-\/range\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/npm/v/fill-\/range.\+svg?style=flat\char`\"{} alt=\char`\"{}\+N\+P\+M version\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://npmjs.\+org/package/fill-\/range\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/npm/dm/fill-\/range.\+svg?style=flat\char`\"{} alt=\char`\"{}\+N\+P\+M monthly downloads\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://npmjs.\+org/package/fill-\/range\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/npm/dt/fill-\/range.\+svg?style=flat\char`\"{} alt=\char`\"{}\+N\+P\+M total downloads\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://travis-\/ci.\+org/jonschlinkert/fill-\/range\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/travis/jonschlinkert/fill-\/range.\+svg?style=flat\&label=\+Travis\char`\"{} alt=\char`\"{}\+Linux Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_fill-range__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_fill-range__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_fill-range__r_e_a_d_m_e}
+\chapter{find-\/up $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/find-\/up\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/find-\/up.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\+: Linux and mac\+O\+S\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://ci.\+appveyor.\+com/project/sindresorhus/find-\/up/branch/master\char`\"{}$>$$<$img src=\char`\"{}https\+://ci.\+appveyor.\+com/api/projects/status/l0cyjmvh5lq72vq2/branch/master?svg=true\char`\"{} alt=\char`\"{}\+Build Status\+: Windows\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_find-up_readme}
+\Hypertarget{md_heap-visualizer_node_modules_find-up_readme}
+\input{md_heap-visualizer_node_modules_find-up_readme}
+\chapter{flat $<$a href=\char`\"{}http\+://travis-\/ci.\+org/hughsk/flat\char`\"{}$>$$<$img src=\char`\"{}https\+://secure.\+travis-\/ci.\+org/hughsk/flat.\+png?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_flat__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_flat__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_flat__r_e_a_d_m_e}
+\chapter{flat-\/cache -\/ Changelog}
+\label{md_heap-visualizer_node_modules_flat-cache_changelog}
+\Hypertarget{md_heap-visualizer_node_modules_flat-cache_changelog}
+\input{md_heap-visualizer_node_modules_flat-cache_changelog}
+\chapter{flat-\/cache}
+\label{md_heap-visualizer_node_modules_flat-cache__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_flat-cache__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_flat-cache__r_e_a_d_m_e}
+\chapter{flatted}
+\label{md_heap-visualizer_node_modules_flatted__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_flatted__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_flatted__r_e_a_d_m_e}
+\chapter{Flatted Specifications}
+\label{md_heap-visualizer_node_modules_flatted__s_p_e_c_s}
+\Hypertarget{md_heap-visualizer_node_modules_flatted__s_p_e_c_s}
+\input{md_heap-visualizer_node_modules_flatted__s_p_e_c_s}
+\chapter{fs.\+realpath}
+\label{md_heap-visualizer_node_modules_fs_8realpath__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_fs_8realpath__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_fs_8realpath__r_e_a_d_m_e}
+\chapter{function-\/bind}
+\label{md_heap-visualizer_node_modules_function-bind__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_function-bind__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_function-bind__r_e_a_d_m_e}
+\chapter{functional-\/red-\/black-\/tree}
+\label{md_heap-visualizer_node_modules_functional-red-black-tree__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_functional-red-black-tree__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_functional-red-black-tree__r_e_a_d_m_e}
+\chapter{L\+I\+C\+E\+N\+SE}
+\label{md_heap-visualizer_node_modules_get-caller-file__l_i_c_e_n_s_e}
+\Hypertarget{md_heap-visualizer_node_modules_get-caller-file__l_i_c_e_n_s_e}
+\input{md_heap-visualizer_node_modules_get-caller-file__l_i_c_e_n_s_e}
+\chapter{get-\/caller-\/file}
+\label{md_heap-visualizer_node_modules_get-caller-file__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_get-caller-file__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_get-caller-file__r_e_a_d_m_e}
+\chapter{7.0}
+\label{md_heap-visualizer_node_modules_glob_changelog}
+\Hypertarget{md_heap-visualizer_node_modules_glob_changelog}
+\input{md_heap-visualizer_node_modules_glob_changelog}
+\chapter{Glob}
+\label{md_heap-visualizer_node_modules_glob__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_glob__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_glob__r_e_a_d_m_e}
+\chapter{R\+E\+A\+D\+ME}
+\label{md_heap-visualizer_node_modules_glob-parent__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_glob-parent__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_glob-parent__r_e_a_d_m_e}
+\chapter{globals $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/globals\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/globals.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_globals_readme}
+\Hypertarget{md_heap-visualizer_node_modules_globals_readme}
+\input{md_heap-visualizer_node_modules_globals_readme}
+\chapter{1.10.5 / 2018-\/04-\/04}
+\label{md_heap-visualizer_node_modules_growl__history}
+\Hypertarget{md_heap-visualizer_node_modules_growl__history}
+\input{md_heap-visualizer_node_modules_growl__history}
+\chapter{Growl for nodejs}
+\label{md_heap-visualizer_node_modules_growl__readme}
+\Hypertarget{md_heap-visualizer_node_modules_growl__readme}
+\input{md_heap-visualizer_node_modules_growl__readme}
+\chapter{has}
+\label{md_heap-visualizer_node_modules_has__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_has__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_has__r_e_a_d_m_e}
+\chapter{has-\/flag $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/has-\/flag\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/has-\/flag.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_has-flag_readme}
+\Hypertarget{md_heap-visualizer_node_modules_has-flag_readme}
+\input{md_heap-visualizer_node_modules_has-flag_readme}
+\chapter{Changelog}
+\label{md_heap-visualizer_node_modules_has-symbols__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_has-symbols__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_has-symbols__c_h_a_n_g_e_l_o_g}
+\chapter{has-\/symbols $<$sup$>$$<$a href=\char`\"{}https\+://npmjs.\+org/package/has-\/symbols\char`\"{}$>$$<$img src=\char`\"{}http\+://versionbadg.\+es/ljharb/has-\/symbols.\+svg\char`\"{} alt=\char`\"{}\+Version Badge\char`\"{}/$>$$<$/a$>$$<$/sup$>$}
+\label{md_heap-visualizer_node_modules_has-symbols__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_has-symbols__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_has-symbols__r_e_a_d_m_e}
+\chapter{he $<$a href=\char`\"{}https\+://travis-\/ci.\+org/mathiasbynens/he\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/mathiasbynens/he.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build status\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://codecov.\+io/github/mathiasbynens/he?branch=master\char`\"{}$>$$<$img src=\char`\"{}https\+://codecov.\+io/github/mathiasbynens/he/coverage.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Code coverage status\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://gemnasium.\+com/mathiasbynens/he\char`\"{}$>$$<$img src=\char`\"{}https\+://gemnasium.\+com/mathiasbynens/he.\+svg\char`\"{} alt=\char`\"{}\+Dependency status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_he__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_he__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_he__r_e_a_d_m_e}
+\chapter{2.1.0 / 2018-\/03-\/03}
+\label{md_heap-visualizer_node_modules_http-proxy-agent__history}
+\Hypertarget{md_heap-visualizer_node_modules_http-proxy-agent__history}
+\input{md_heap-visualizer_node_modules_http-proxy-agent__history}
+\chapter{3.1.0 / 2017-\/09-\/26}
+\label{md_heap-visualizer_node_modules_http-proxy-agent_node_modules_debug__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_http-proxy-agent_node_modules_debug__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_http-proxy-agent_node_modules_debug__c_h_a_n_g_e_l_o_g}
+\chapter{debug}
+\label{md_heap-visualizer_node_modules_http-proxy-agent_node_modules_debug__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_http-proxy-agent_node_modules_debug__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_http-proxy-agent_node_modules_debug__r_e_a_d_m_e}
+\chapter{license}
+\label{md_heap-visualizer_node_modules_http-proxy-agent_node_modules_ms_license}
+\Hypertarget{md_heap-visualizer_node_modules_http-proxy-agent_node_modules_ms_license}
+\input{md_heap-visualizer_node_modules_http-proxy-agent_node_modules_ms_license}
+\chapter{ms}
+\label{md_heap-visualizer_node_modules_http-proxy-agent_node_modules_ms_readme}
+\Hypertarget{md_heap-visualizer_node_modules_http-proxy-agent_node_modules_ms_readme}
+\input{md_heap-visualizer_node_modules_http-proxy-agent_node_modules_ms_readme}
+\chapter{http-\/proxy-\/agent}
+\label{md_heap-visualizer_node_modules_http-proxy-agent__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_http-proxy-agent__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_http-proxy-agent__r_e_a_d_m_e}
+\chapter{2.2.0 / 2018-\/03-\/03}
+\label{md_heap-visualizer_node_modules_https-proxy-agent__history}
+\Hypertarget{md_heap-visualizer_node_modules_https-proxy-agent__history}
+\input{md_heap-visualizer_node_modules_https-proxy-agent__history}
+\chapter{3.1.0 / 2017-\/09-\/26}
+\label{md_heap-visualizer_node_modules_https-proxy-agent_node_modules_debug__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_https-proxy-agent_node_modules_debug__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_https-proxy-agent_node_modules_debug__c_h_a_n_g_e_l_o_g}
+\chapter{debug}
+\label{md_heap-visualizer_node_modules_https-proxy-agent_node_modules_debug__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_https-proxy-agent_node_modules_debug__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_https-proxy-agent_node_modules_debug__r_e_a_d_m_e}
+\chapter{https-\/proxy-\/agent}
+\label{md_heap-visualizer_node_modules_https-proxy-agent__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_https-proxy-agent__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_https-proxy-agent__r_e_a_d_m_e}
+\chapter{0.4.24 / 2018-\/08-\/22}
+\label{md_heap-visualizer_node_modules_iconv-lite__changelog}
+\Hypertarget{md_heap-visualizer_node_modules_iconv-lite__changelog}
+\input{md_heap-visualizer_node_modules_iconv-lite__changelog}
+\chapter{Pure JS character encoding conversion $<$a href=\char`\"{}https\+://travis-\/ci.\+org/ashtuchkin/iconv-\/lite\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/ashtuchkin/iconv-\/lite.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_iconv-lite__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_iconv-lite__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_iconv-lite__r_e_a_d_m_e}
+\chapter{$<$tt$>$node-\/ignore$<$/tt$>$ 4 Change\+Log}
+\label{md_heap-visualizer_node_modules_ignore__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_ignore__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_ignore__c_h_a_n_g_e_l_o_g}
+\chapter{R\+E\+A\+D\+ME}
+\label{md_heap-visualizer_node_modules_ignore__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_ignore__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_ignore__r_e_a_d_m_e}
+\chapter{import-\/fresh $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/import-\/fresh\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/import-\/fresh.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_import-fresh_readme}
+\Hypertarget{md_heap-visualizer_node_modules_import-fresh_readme}
+\input{md_heap-visualizer_node_modules_import-fresh_readme}
+\chapter{i\+Murmur\+Hash.\+js}
+\label{md_heap-visualizer_node_modules_imurmurhash__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_imurmurhash__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_imurmurhash__r_e_a_d_m_e}
+\chapter{inflight}
+\label{md_heap-visualizer_node_modules_inflight__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_inflight__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_inflight__r_e_a_d_m_e}
+\chapter{R\+E\+A\+D\+ME}
+\label{md_heap-visualizer_node_modules_inherits__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_inherits__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_inherits__r_e_a_d_m_e}
+\chapter{ansi-\/styles $<$a href=\char`\"{}https\+://travis-\/ci.\+org/chalk/ansi-\/styles\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/chalk/ansi-\/styles.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_inquirer_node_modules_ansi-styles_readme}
+\Hypertarget{md_heap-visualizer_node_modules_inquirer_node_modules_ansi-styles_readme}
+\input{md_heap-visualizer_node_modules_inquirer_node_modules_ansi-styles_readme}
+\chapter{readme}
+\label{md_heap-visualizer_node_modules_inquirer_node_modules_chalk_readme}
+\Hypertarget{md_heap-visualizer_node_modules_inquirer_node_modules_chalk_readme}
+\input{md_heap-visualizer_node_modules_inquirer_node_modules_chalk_readme}
+\chapter{1.0.0 -\/ 2016-\/01-\/07}
+\label{md_heap-visualizer_node_modules_inquirer_node_modules_color-convert__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_inquirer_node_modules_color-convert__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_inquirer_node_modules_color-convert__c_h_a_n_g_e_l_o_g}
+\chapter{color-\/convert}
+\label{md_heap-visualizer_node_modules_inquirer_node_modules_color-convert__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_inquirer_node_modules_color-convert__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_inquirer_node_modules_color-convert__r_e_a_d_m_e}
+\chapter{R\+E\+A\+D\+ME}
+\label{md_heap-visualizer_node_modules_inquirer_node_modules_color-name__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_inquirer_node_modules_color-name__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_inquirer_node_modules_color-name__r_e_a_d_m_e}
+\chapter{has-\/flag $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/has-\/flag\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/has-\/flag.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_inquirer_node_modules_has-flag_readme}
+\Hypertarget{md_heap-visualizer_node_modules_inquirer_node_modules_has-flag_readme}
+\input{md_heap-visualizer_node_modules_inquirer_node_modules_has-flag_readme}
+\chapter{strip-\/ansi $<$a href=\char`\"{}https\+://travis-\/ci.\+org/chalk/strip-\/ansi\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/chalk/strip-\/ansi.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_inquirer_node_modules_strip-ansi_readme}
+\Hypertarget{md_heap-visualizer_node_modules_inquirer_node_modules_strip-ansi_readme}
+\input{md_heap-visualizer_node_modules_inquirer_node_modules_strip-ansi_readme}
+\chapter{supports-\/color $<$a href=\char`\"{}https\+://travis-\/ci.\+org/chalk/supports-\/color\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/chalk/supports-\/color.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_inquirer_node_modules_supports-color_readme}
+\Hypertarget{md_heap-visualizer_node_modules_inquirer_node_modules_supports-color_readme}
+\input{md_heap-visualizer_node_modules_inquirer_node_modules_supports-color_readme}
+\chapter{R\+E\+A\+D\+ME}
+\label{md_heap-visualizer_node_modules_inquirer__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_inquirer__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_inquirer__r_e_a_d_m_e}
+\chapter{is-\/binary-\/path $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/is-\/binary-\/path\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/is-\/binary-\/path.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_is-binary-path_readme}
+\Hypertarget{md_heap-visualizer_node_modules_is-binary-path_readme}
+\input{md_heap-visualizer_node_modules_is-binary-path_readme}
+\chapter{is-\/buffer $<$a href=\char`\"{}https\+://travis-\/ci.\+org/feross/is-\/buffer\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/travis/feross/is-\/buffer/master.\+svg\char`\"{} alt=\char`\"{}travis\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://npmjs.\+org/package/is-\/buffer\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/npm/v/is-\/buffer.\+svg\char`\"{} alt=\char`\"{}npm\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://npmjs.\+org/package/is-\/buffer\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/npm/dm/is-\/buffer.\+svg\char`\"{} alt=\char`\"{}downloads\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://standardjs.\+com\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/badge/code\+\_\+style-\/standard-\/brightgreen.\+svg\char`\"{} alt=\char`\"{}javascript style guide\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_is-buffer__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_is-buffer__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_is-buffer__r_e_a_d_m_e}
+\chapter{1.1.5 / 2019-\/12-\/18}
+\label{md_heap-visualizer_node_modules_is-callable__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_is-callable__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_is-callable__c_h_a_n_g_e_l_o_g}
+\chapter{is-\/callable $<$sup$>$$<$a href=\char`\"{}https\+://npmjs.\+org/package/is-\/callable\char`\"{}$>$$<$img src=\char`\"{}http\+://versionbadg.\+es/ljharb/is-\/callable.\+svg\char`\"{} alt=\char`\"{}\+Version Badge\char`\"{}/$>$$<$/a$>$$<$/sup$>$}
+\label{md_heap-visualizer_node_modules_is-callable__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_is-callable__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_is-callable__r_e_a_d_m_e}
+\chapter{Changelog}
+\label{md_heap-visualizer_node_modules_is-date-object__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_is-date-object__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_is-date-object__c_h_a_n_g_e_l_o_g}
+\chapter{is-\/date-\/object $<$sup$>$$<$a href=\char`\"{}https\+://npmjs.\+org/package/is-\/date-\/object\char`\"{}$>$$<$img src=\char`\"{}http\+://versionbadg.\+es/ljharb/is-\/date-\/object.\+svg\char`\"{} alt=\char`\"{}\+Version Badge\char`\"{}/$>$$<$/a$>$$<$/sup$>$}
+\label{md_heap-visualizer_node_modules_is-date-object__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_is-date-object__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_is-date-object__r_e_a_d_m_e}
+\chapter{is-\/extglob $<$a href=\char`\"{}https\+://www.\+npmjs.\+com/package/is-\/extglob\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/npm/v/is-\/extglob.\+svg?style=flat\char`\"{} alt=\char`\"{}\+N\+P\+M version\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://npmjs.\+org/package/is-\/extglob\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/npm/dm/is-\/extglob.\+svg?style=flat\char`\"{} alt=\char`\"{}\+N\+P\+M downloads\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://travis-\/ci.\+org/jonschlinkert/is-\/extglob\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/travis/jonschlinkert/is-\/extglob.\+svg?style=flat\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_is-extglob__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_is-extglob__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_is-extglob__r_e_a_d_m_e}
+\chapter{is-\/fullwidth-\/code-\/point $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/is-\/fullwidth-\/code-\/point\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/is-\/fullwidth-\/code-\/point.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_is-fullwidth-code-point_readme}
+\Hypertarget{md_heap-visualizer_node_modules_is-fullwidth-code-point_readme}
+\input{md_heap-visualizer_node_modules_is-fullwidth-code-point_readme}
+\chapter{is-\/glob $<$a href=\char`\"{}https\+://www.\+npmjs.\+com/package/is-\/glob\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/npm/v/is-\/glob.\+svg?style=flat\char`\"{} alt=\char`\"{}\+N\+P\+M version\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://npmjs.\+org/package/is-\/glob\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/npm/dm/is-\/glob.\+svg?style=flat\char`\"{} alt=\char`\"{}\+N\+P\+M monthly downloads\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://npmjs.\+org/package/is-\/glob\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/npm/dt/is-\/glob.\+svg?style=flat\char`\"{} alt=\char`\"{}\+N\+P\+M total downloads\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://travis-\/ci.\+org/micromatch/is-\/glob\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/travis/micromatch/is-\/glob.\+svg?style=flat\&label=\+Travis\char`\"{} alt=\char`\"{}\+Linux Build Status\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://ci.\+appveyor.\+com/project/micromatch/is-\/glob\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/appveyor/ci/micromatch/is-\/glob.\+svg?style=flat\&label=\+App\+Veyor\char`\"{} alt=\char`\"{}\+Windows Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_is-glob__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_is-glob__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_is-glob__r_e_a_d_m_e}
+\chapter{is-\/number $<$a href=\char`\"{}https\+://www.\+npmjs.\+com/package/is-\/number\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/npm/v/is-\/number.\+svg?style=flat\char`\"{} alt=\char`\"{}\+N\+P\+M version\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://npmjs.\+org/package/is-\/number\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/npm/dm/is-\/number.\+svg?style=flat\char`\"{} alt=\char`\"{}\+N\+P\+M monthly downloads\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://npmjs.\+org/package/is-\/number\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/npm/dt/is-\/number.\+svg?style=flat\char`\"{} alt=\char`\"{}\+N\+P\+M total downloads\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://travis-\/ci.\+org/jonschlinkert/is-\/number\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/travis/jonschlinkert/is-\/number.\+svg?style=flat\&label=\+Travis\char`\"{} alt=\char`\"{}\+Linux Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_is-number__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_is-number__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_is-number__r_e_a_d_m_e}
+\chapter{Changelog}
+\label{md_heap-visualizer_node_modules_is-regex__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_is-regex__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_is-regex__c_h_a_n_g_e_l_o_g}
+\chapter{R\+E\+A\+D\+ME}
+\label{md_heap-visualizer_node_modules_is-regex__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_is-regex__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_is-regex__r_e_a_d_m_e}
+\chapter{Changelog}
+\label{md_heap-visualizer_node_modules_is-symbol__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_is-symbol__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_is-symbol__c_h_a_n_g_e_l_o_g}
+\chapter{R\+E\+A\+D\+ME}
+\label{md_heap-visualizer_node_modules_is-symbol__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_is-symbol__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_is-symbol__r_e_a_d_m_e}
+\chapter{isexe}
+\label{md_heap-visualizer_node_modules_isexe__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_isexe__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_isexe__r_e_a_d_m_e}
+\chapter{Version 4.0.0 (2018-\/01-\/28)}
+\label{md_heap-visualizer_node_modules_js-tokens__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_js-tokens__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_js-tokens__c_h_a_n_g_e_l_o_g}
+\chapter{Overview $<$a href=\char`\"{}https\+://travis-\/ci.\+org/lydell/js-\/tokens\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/lydell/js-\/tokens.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_js-tokens__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_js-tokens__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_js-tokens__r_e_a_d_m_e}
+\chapter{Changelog}
+\label{md_heap-visualizer_node_modules_js-yaml__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_js-yaml__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_js-yaml__c_h_a_n_g_e_l_o_g}
+\chapter{J\+S-\/\+Y\+A\+ML -\/ Y\+A\+ML 1.2 parser / writer for Java\+Script}
+\label{md_heap-visualizer_node_modules_js-yaml__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_js-yaml__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_js-yaml__r_e_a_d_m_e}
+\chapter{json-\/schema-\/traverse}
+\label{md_heap-visualizer_node_modules_json-schema-traverse__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_json-schema-traverse__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_json-schema-traverse__r_e_a_d_m_e}
+\chapter{json-\/stable-\/stringify}
+\label{md_heap-visualizer_node_modules_json-stable-stringify-without-jsonify_readme}
+\Hypertarget{md_heap-visualizer_node_modules_json-stable-stringify-without-jsonify_readme}
+\input{md_heap-visualizer_node_modules_json-stable-stringify-without-jsonify_readme}
+\chapter{levn $<$a href=\char`\"{}https\+://travis-\/ci.\+org/gkz/levn\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/gkz/levn.\+png\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$ $<$a name=\char`\"{}levn\char`\"{} /$>$}
+\label{md_heap-visualizer_node_modules_levn__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_levn__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_levn__r_e_a_d_m_e}
+\chapter{locate-\/path $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/locate-\/path\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/locate-\/path.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_locate-path_readme}
+\Hypertarget{md_heap-visualizer_node_modules_locate-path_readme}
+\input{md_heap-visualizer_node_modules_locate-path_readme}
+\chapter{lodash v4.17.15}
+\label{md_heap-visualizer_node_modules_lodash__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_lodash__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_lodash__r_e_a_d_m_e}
+\chapter{log-\/symbols $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/log-\/symbols\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/log-\/symbols.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_log-symbols_readme}
+\Hypertarget{md_heap-visualizer_node_modules_log-symbols_readme}
+\input{md_heap-visualizer_node_modules_log-symbols_readme}
+\chapter{mimic-\/fn $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/mimic-\/fn\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/mimic-\/fn.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_mimic-fn_readme}
+\Hypertarget{md_heap-visualizer_node_modules_mimic-fn_readme}
+\input{md_heap-visualizer_node_modules_mimic-fn_readme}
+\chapter{minimatch}
+\label{md_heap-visualizer_node_modules_minimatch__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_minimatch__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_minimatch__r_e_a_d_m_e}
+\chapter{minimist}
+\label{md_heap-visualizer_node_modules_minimist_readme}
+\Hypertarget{md_heap-visualizer_node_modules_minimist_readme}
+\input{md_heap-visualizer_node_modules_minimist_readme}
+\chapter{mkdirp}
+\label{md_heap-visualizer_node_modules_mkdirp_readme}
+\Hypertarget{md_heap-visualizer_node_modules_mkdirp_readme}
+\input{md_heap-visualizer_node_modules_mkdirp_readme}
+\chapter{7.2.0 / 2020-\/05-\/22}
+\label{md_heap-visualizer_node_modules_mocha__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_mocha__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_mocha__c_h_a_n_g_e_l_o_g}
+\chapter{3.1.0 / 2017-\/09-\/26}
+\label{md_heap-visualizer_node_modules_mocha_node_modules_debug__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_mocha_node_modules_debug__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_mocha_node_modules_debug__c_h_a_n_g_e_l_o_g}
+\chapter{debug}
+\label{md_heap-visualizer_node_modules_mocha_node_modules_debug__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_mocha_node_modules_debug__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_mocha_node_modules_debug__r_e_a_d_m_e}
+\chapter{7.0}
+\label{md_heap-visualizer_node_modules_mocha_node_modules_glob_changelog}
+\Hypertarget{md_heap-visualizer_node_modules_mocha_node_modules_glob_changelog}
+\input{md_heap-visualizer_node_modules_mocha_node_modules_glob_changelog}
+\chapter{Glob}
+\label{md_heap-visualizer_node_modules_mocha_node_modules_glob__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_mocha_node_modules_glob__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_mocha_node_modules_glob__r_e_a_d_m_e}
+\chapter{3.13.1 / 2019-\/04-\/05}
+\label{md_heap-visualizer_node_modules_mocha_node_modules_js-yaml__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_mocha_node_modules_js-yaml__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_mocha_node_modules_js-yaml__c_h_a_n_g_e_l_o_g}
+\chapter{J\+S-\/\+Y\+A\+ML -\/ Y\+A\+ML 1.2 parser / writer for Java\+Script}
+\label{md_heap-visualizer_node_modules_mocha_node_modules_js-yaml__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_mocha_node_modules_js-yaml__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_mocha_node_modules_js-yaml__r_e_a_d_m_e}
+\chapter{license}
+\label{md_heap-visualizer_node_modules_mocha_node_modules_ms_license}
+\Hypertarget{md_heap-visualizer_node_modules_mocha_node_modules_ms_license}
+\input{md_heap-visualizer_node_modules_mocha_node_modules_ms_license}
+\chapter{ms}
+\label{md_heap-visualizer_node_modules_mocha_node_modules_ms_readme}
+\Hypertarget{md_heap-visualizer_node_modules_mocha_node_modules_ms_readme}
+\input{md_heap-visualizer_node_modules_mocha_node_modules_ms_readme}
+\chapter{strip-\/json-\/comments $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/strip-\/json-\/comments\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/strip-\/json-\/comments.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_mocha_node_modules_strip-json-comments_readme}
+\Hypertarget{md_heap-visualizer_node_modules_mocha_node_modules_strip-json-comments_readme}
+\input{md_heap-visualizer_node_modules_mocha_node_modules_strip-json-comments_readme}
+\chapter{supports-\/color $<$a href=\char`\"{}https\+://travis-\/ci.\+org/chalk/supports-\/color\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/chalk/supports-\/color.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_mocha_node_modules_supports-color_readme}
+\Hypertarget{md_heap-visualizer_node_modules_mocha_node_modules_supports-color_readme}
+\input{md_heap-visualizer_node_modules_mocha_node_modules_supports-color_readme}
+\chapter{R\+E\+A\+D\+ME}
+\label{md_heap-visualizer_node_modules_mocha__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_mocha__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_mocha__r_e_a_d_m_e}
+\chapter{license}
+\label{md_heap-visualizer_node_modules_ms_license}
+\Hypertarget{md_heap-visualizer_node_modules_ms_license}
+\input{md_heap-visualizer_node_modules_ms_license}
+\chapter{ms}
+\label{md_heap-visualizer_node_modules_ms_readme}
+\Hypertarget{md_heap-visualizer_node_modules_ms_readme}
+\input{md_heap-visualizer_node_modules_ms_readme}
+\chapter{mute-\/stream}
+\label{md_heap-visualizer_node_modules_mute-stream__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_mute-stream__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_mute-stream__r_e_a_d_m_e}
+\chapter{R\+E\+A\+D\+ME}
+\label{md_heap-visualizer_node_modules_natural-compare__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_natural-compare__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_natural-compare__r_e_a_d_m_e}
+\chapter{Changelog}
+\label{md_heap-visualizer_node_modules_nice-try__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_nice-try__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_nice-try__c_h_a_n_g_e_l_o_g}
+\chapter{nice-\/try}
+\label{md_heap-visualizer_node_modules_nice-try__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_nice-try__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_nice-try__r_e_a_d_m_e}
+\chapter{changes log}
+\label{md_heap-visualizer_node_modules_node-environment-flags_node_modules_semver__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_node-environment-flags_node_modules_semver__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_node-environment-flags_node_modules_semver__c_h_a_n_g_e_l_o_g}
+\chapter{semver(1) -- The semantic versioner for npm}
+\label{md_heap-visualizer_node_modules_node-environment-flags_node_modules_semver__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_node-environment-flags_node_modules_semver__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_node-environment-flags_node_modules_semver__r_e_a_d_m_e}
+\chapter{node-\/environment-\/flags}
+\label{md_heap-visualizer_node_modules_node-environment-flags__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_node-environment-flags__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_node-environment-flags__r_e_a_d_m_e}
+\chapter{normalize-\/path $<$a href=\char`\"{}https\+://www.\+npmjs.\+com/package/normalize-\/path\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/npm/v/normalize-\/path.\+svg?style=flat\char`\"{} alt=\char`\"{}\+N\+P\+M version\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://npmjs.\+org/package/normalize-\/path\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/npm/dm/normalize-\/path.\+svg?style=flat\char`\"{} alt=\char`\"{}\+N\+P\+M monthly downloads\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://npmjs.\+org/package/normalize-\/path\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/npm/dt/normalize-\/path.\+svg?style=flat\char`\"{} alt=\char`\"{}\+N\+P\+M total downloads\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://travis-\/ci.\+org/jonschlinkert/normalize-\/path\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/travis/jonschlinkert/normalize-\/path.\+svg?style=flat\&label=\+Travis\char`\"{} alt=\char`\"{}\+Linux Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_normalize-path__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_normalize-path__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_normalize-path__r_e_a_d_m_e}
+\chapter{object-\/inspect}
+\label{md_heap-visualizer_node_modules_object-inspect_readme}
+\Hypertarget{md_heap-visualizer_node_modules_object-inspect_readme}
+\input{md_heap-visualizer_node_modules_object-inspect_readme}
+\chapter{1.1.1 / 2019-\/04-\/06}
+\label{md_heap-visualizer_node_modules_object-keys__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_object-keys__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_object-keys__c_h_a_n_g_e_l_o_g}
+\chapter{R\+E\+A\+D\+ME}
+\label{md_heap-visualizer_node_modules_object-keys__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_object-keys__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_object-keys__r_e_a_d_m_e}
+\chapter{4.0.4 / 2017-\/12-\/21}
+\label{md_heap-visualizer_node_modules_object_8assign__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_object_8assign__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_object_8assign__c_h_a_n_g_e_l_o_g}
+\chapter{R\+E\+A\+D\+ME}
+\label{md_heap-visualizer_node_modules_object_8assign__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_object_8assign__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_object_8assign__r_e_a_d_m_e}
+\chapter{2.1.0 / 2019-\/12-\/12}
+\label{md_heap-visualizer_node_modules_object_8getownpropertydescriptors__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_object_8getownpropertydescriptors__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_object_8getownpropertydescriptors__c_h_a_n_g_e_l_o_g}
+\chapter{Object.\+get\+Own\+Property\+Descriptors $<$sup$>$$<$a href=\char`\"{}https\+://npmjs.\+org/package/object.\+getownpropertydescriptors\char`\"{}$>$$<$img src=\char`\"{}http\+://versionbadg.\+es/es-\/shims/object.\+getownpropertydescriptors.\+svg\char`\"{} alt=\char`\"{}\+Version Badge\char`\"{}/$>$$<$/a$>$$<$/sup$>$}
+\label{md_heap-visualizer_node_modules_object_8getownpropertydescriptors__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_object_8getownpropertydescriptors__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_object_8getownpropertydescriptors__r_e_a_d_m_e}
+\chapter{once}
+\label{md_heap-visualizer_node_modules_once__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_once__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_once__r_e_a_d_m_e}
+\chapter{onetime $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/onetime\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/onetime.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_onetime_readme}
+\Hypertarget{md_heap-visualizer_node_modules_onetime_readme}
+\input{md_heap-visualizer_node_modules_onetime_readme}
+\chapter{0.8.3}
+\label{md_heap-visualizer_node_modules_optionator__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_optionator__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_optionator__c_h_a_n_g_e_l_o_g}
+\chapter{Optionator}
+\label{md_heap-visualizer_node_modules_optionator__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_optionator__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_optionator__r_e_a_d_m_e}
+\chapter{os-\/tmpdir $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/os-\/tmpdir\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/os-\/tmpdir.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_os-tmpdir_readme}
+\Hypertarget{md_heap-visualizer_node_modules_os-tmpdir_readme}
+\input{md_heap-visualizer_node_modules_os-tmpdir_readme}
+\chapter{p-\/limit $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/p-\/limit\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/p-\/limit.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_p-limit_readme}
+\Hypertarget{md_heap-visualizer_node_modules_p-limit_readme}
+\input{md_heap-visualizer_node_modules_p-limit_readme}
+\chapter{p-\/locate $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/p-\/locate\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/p-\/locate.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_p-locate_readme}
+\Hypertarget{md_heap-visualizer_node_modules_p-locate_readme}
+\input{md_heap-visualizer_node_modules_p-locate_readme}
+\chapter{p-\/try $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/p-\/try\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/p-\/try.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_p-try_readme}
+\Hypertarget{md_heap-visualizer_node_modules_p-try_readme}
+\input{md_heap-visualizer_node_modules_p-try_readme}
+\chapter{parent-\/module $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/parent-\/module\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/parent-\/module.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_parent-module_readme}
+\Hypertarget{md_heap-visualizer_node_modules_parent-module_readme}
+\input{md_heap-visualizer_node_modules_parent-module_readme}
+\chapter{path-\/exists $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/path-\/exists\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/path-\/exists.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_path-exists_readme}
+\Hypertarget{md_heap-visualizer_node_modules_path-exists_readme}
+\input{md_heap-visualizer_node_modules_path-exists_readme}
+\chapter{path-\/is-\/absolute $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/path-\/is-\/absolute\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/path-\/is-\/absolute.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_path-is-absolute_readme}
+\Hypertarget{md_heap-visualizer_node_modules_path-is-absolute_readme}
+\input{md_heap-visualizer_node_modules_path-is-absolute_readme}
+\chapter{path-\/key $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/path-\/key\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/path-\/key.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_path-key_readme}
+\Hypertarget{md_heap-visualizer_node_modules_path-key_readme}
+\input{md_heap-visualizer_node_modules_path-key_readme}
+\chapter{Release history}
+\label{md_heap-visualizer_node_modules_picomatch__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_picomatch__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_picomatch__c_h_a_n_g_e_l_o_g}
+\chapter{R\+E\+A\+D\+ME}
+\label{md_heap-visualizer_node_modules_picomatch__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_picomatch__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_picomatch__r_e_a_d_m_e}
+\chapter{1.1.2}
+\label{md_heap-visualizer_node_modules_prelude-ls__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_prelude-ls__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_prelude-ls__c_h_a_n_g_e_l_o_g}
+\chapter{prelude.\+ls $<$a href=\char`\"{}https\+://travis-\/ci.\+org/gkz/prelude-\/ls\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/gkz/prelude-\/ls.\+png?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_prelude-ls__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_prelude-ls__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_prelude-ls__r_e_a_d_m_e}
+\chapter{2.0.0 / 2017-\/04-\/04}
+\label{md_heap-visualizer_node_modules_progress__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_progress__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_progress__c_h_a_n_g_e_l_o_g}
+\chapter{Readme}
+\label{md_heap-visualizer_node_modules_progress__readme}
+\Hypertarget{md_heap-visualizer_node_modules_progress__readme}
+\input{md_heap-visualizer_node_modules_progress__readme}
+\chapter{Punycode.\+js $<$a href=\char`\"{}https\+://travis-\/ci.\+org/bestiejs/punycode.\+js\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/bestiejs/punycode.\+js.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build status\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://codecov.\+io/gh/bestiejs/punycode.\+js\char`\"{}$>$$<$img src=\char`\"{}http\+://img.\+shields.\+io/codecov/c/github/bestiejs/punycode.\+js.\+svg\char`\"{} alt=\char`\"{}\+Code coverage status\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://gemnasium.\+com/bestiejs/punycode.\+js\char`\"{}$>$$<$img src=\char`\"{}https\+://gemnasium.\+com/bestiejs/punycode.\+js.\+svg\char`\"{} alt=\char`\"{}\+Dependency status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_punycode__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_punycode__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_punycode__r_e_a_d_m_e}
+\chapter{readdirp $<$a href=\char`\"{}https\+://github.\+com/paulmillr/readdirp\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/npm/dw/readdirp.\+svg\char`\"{} alt=\char`\"{}\+Weekly downloads\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_readdirp__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_readdirp__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_readdirp__r_e_a_d_m_e}
+\chapter{regexpp}
+\label{md_heap-visualizer_node_modules_regexpp__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_regexpp__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_regexpp__r_e_a_d_m_e}
+\chapter{require-\/directory}
+\label{md_heap-visualizer_node_modules_require-directory__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_require-directory__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_require-directory__r_e_a_d_m_e}
+\chapter{Change Log}
+\label{md_heap-visualizer_node_modules_require-main-filename__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_require-main-filename__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_require-main-filename__c_h_a_n_g_e_l_o_g}
+\chapter{require-\/main-\/filename}
+\label{md_heap-visualizer_node_modules_require-main-filename__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_require-main-filename__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_require-main-filename__r_e_a_d_m_e}
+\chapter{resolve-\/from $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/resolve-\/from\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/resolve-\/from.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_resolve-from_readme}
+\Hypertarget{md_heap-visualizer_node_modules_resolve-from_readme}
+\input{md_heap-visualizer_node_modules_resolve-from_readme}
+\chapter{restore-\/cursor $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/restore-\/cursor\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/restore-\/cursor.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_restore-cursor_readme}
+\Hypertarget{md_heap-visualizer_node_modules_restore-cursor_readme}
+\input{md_heap-visualizer_node_modules_restore-cursor_readme}
+\chapter{R\+E\+A\+D\+ME}
+\label{md_heap-visualizer_node_modules_rimraf__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_rimraf__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_rimraf__r_e_a_d_m_e}
+\chapter{Run Async}
+\label{md_heap-visualizer_node_modules_run-async__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_run-async__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_run-async__r_e_a_d_m_e}
+\chapter{$<$img src=\char`\"{}docs\+\_\+app/assets/\+Rx\+\_\+\+Logo\+\_\+\+S.\+png\char`\"{} alt=\char`\"{}\+Rx\+J\+S Logo\char`\"{} width=\char`\"{}86\char`\"{} height=\char`\"{}86\char`\"{}$>$ Rx\+JS\+: Reactive Extensions For Java\+Script}
+\label{md_heap-visualizer_node_modules_rxjs__esm2015__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_rxjs__esm2015__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_rxjs__esm2015__r_e_a_d_m_e}
+\chapter{$<$img src=\char`\"{}docs\+\_\+app/assets/\+Rx\+\_\+\+Logo\+\_\+\+S.\+png\char`\"{} alt=\char`\"{}\+Rx\+J\+S Logo\char`\"{} width=\char`\"{}86\char`\"{} height=\char`\"{}86\char`\"{}$>$ Rx\+JS\+: Reactive Extensions For Java\+Script}
+\label{md_heap-visualizer_node_modules_rxjs__esm5__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_rxjs__esm5__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_rxjs__esm5__r_e_a_d_m_e}
+\chapter{$<$img src=\char`\"{}docs\+\_\+app/assets/\+Rx\+\_\+\+Logo\+\_\+\+S.\+png\char`\"{} alt=\char`\"{}\+Rx\+J\+S Logo\char`\"{} width=\char`\"{}86\char`\"{} height=\char`\"{}86\char`\"{}$>$ Rx\+JS\+: Reactive Extensions For Java\+Script}
+\label{md_heap-visualizer_node_modules_rxjs__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_rxjs__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_rxjs__r_e_a_d_m_e}
+\chapter{$<$img src=\char`\"{}docs\+\_\+app/assets/\+Rx\+\_\+\+Logo\+\_\+\+S.\+png\char`\"{} alt=\char`\"{}\+Rx\+J\+S Logo\char`\"{} width=\char`\"{}86\char`\"{} height=\char`\"{}86\char`\"{}$>$ Rx\+JS\+: Reactive Extensions For Java\+Script}
+\label{md_heap-visualizer_node_modules_rxjs_src__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_rxjs_src__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_rxjs_src__r_e_a_d_m_e}
+\chapter{Porting to the Buffer.\+from/\+Buffer.alloc A\+PI}
+\label{md_heap-visualizer_node_modules_safer-buffer__porting-_buffer}
+\Hypertarget{md_heap-visualizer_node_modules_safer-buffer__porting-_buffer}
+\input{md_heap-visualizer_node_modules_safer-buffer__porting-_buffer}
+\chapter{safer-\/buffer $<$a href=\char`\"{}https\+://travis-\/ci.\+org/\+Ch\+A\+Lke\+R/safer-\/buffer\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/\+Ch\+A\+Lke\+R/safer-\/buffer.\+svg?branch=master\char`\"{} alt=\char`\"{}travis\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://npmjs.\+org/package/safer-\/buffer\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/npm/v/safer-\/buffer.\+svg\char`\"{} alt=\char`\"{}npm\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://standardjs.\+com\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/badge/code\+\_\+style-\/standard-\/brightgreen.\+svg\char`\"{} alt=\char`\"{}javascript style guide\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://github.\+com/nodejs/security-\/wg/blob/master/processes/responsible\+\_\+disclosure\+\_\+template.\+md\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/badge/\+Security-\/\+Responsible\%20\+Disclosure-\/green.\+svg\char`\"{} alt=\char`\"{}\+Security Responsible Disclosure\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_safer-buffer__readme}
+\Hypertarget{md_heap-visualizer_node_modules_safer-buffer__readme}
+\input{md_heap-visualizer_node_modules_safer-buffer__readme}
+\chapter{changes log}
+\label{md_heap-visualizer_node_modules_semver__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_semver__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_semver__c_h_a_n_g_e_l_o_g}
+\chapter{semver(1) -- The semantic versioner for npm}
+\label{md_heap-visualizer_node_modules_semver__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_semver__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_semver__r_e_a_d_m_e}
+\chapter{Change Log}
+\label{md_heap-visualizer_node_modules_set-blocking__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_set-blocking__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_set-blocking__c_h_a_n_g_e_l_o_g}
+\chapter{set-\/blocking}
+\label{md_heap-visualizer_node_modules_set-blocking__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_set-blocking__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_set-blocking__r_e_a_d_m_e}
+\chapter{shebang-\/command $<$a href=\char`\"{}https\+://travis-\/ci.\+org/kevva/shebang-\/command\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/kevva/shebang-\/command.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_shebang-command_readme}
+\Hypertarget{md_heap-visualizer_node_modules_shebang-command_readme}
+\input{md_heap-visualizer_node_modules_shebang-command_readme}
+\chapter{shebang-\/regex $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/shebang-\/regex\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/shebang-\/regex.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_shebang-regex_readme}
+\Hypertarget{md_heap-visualizer_node_modules_shebang-regex_readme}
+\input{md_heap-visualizer_node_modules_shebang-regex_readme}
+\chapter{Changelog}
+\label{md_heap-visualizer_node_modules_signal-exit__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_signal-exit__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_signal-exit__c_h_a_n_g_e_l_o_g}
+\chapter{signal-\/exit}
+\label{md_heap-visualizer_node_modules_signal-exit__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_signal-exit__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_signal-exit__r_e_a_d_m_e}
+\chapter{is-\/fullwidth-\/code-\/point $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/is-\/fullwidth-\/code-\/point\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/is-\/fullwidth-\/code-\/point.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_slice-ansi_node_modules_is-fullwidth-code-point_readme}
+\Hypertarget{md_heap-visualizer_node_modules_slice-ansi_node_modules_is-fullwidth-code-point_readme}
+\input{md_heap-visualizer_node_modules_slice-ansi_node_modules_is-fullwidth-code-point_readme}
+\chapter{slice-\/ansi $<$a href=\char`\"{}https\+://travis-\/ci.\+org/chalk/slice-\/ansi\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/chalk/slice-\/ansi.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://github.\+com/xojs/xo\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/badge/xo-\/linted-\/blue.\+svg\char`\"{} alt=\char`\"{}\+X\+O\+: Linted\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_slice-ansi_readme}
+\Hypertarget{md_heap-visualizer_node_modules_slice-ansi_readme}
+\input{md_heap-visualizer_node_modules_slice-ansi_readme}
+\chapter{sprintf.\+js}
+\label{md_heap-visualizer_node_modules_sprintf-js__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_sprintf-js__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_sprintf-js__r_e_a_d_m_e}
+\chapter{strip-\/ansi $<$a href=\char`\"{}https\+://travis-\/ci.\+org/chalk/strip-\/ansi\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/chalk/strip-\/ansi.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_string-width_node_modules_strip-ansi_readme}
+\Hypertarget{md_heap-visualizer_node_modules_string-width_node_modules_strip-ansi_readme}
+\input{md_heap-visualizer_node_modules_string-width_node_modules_strip-ansi_readme}
+\chapter{string-\/width $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/string-\/width\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/string-\/width.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_string-width_readme}
+\Hypertarget{md_heap-visualizer_node_modules_string-width_readme}
+\input{md_heap-visualizer_node_modules_string-width_readme}
+\chapter{Changelog}
+\label{md_heap-visualizer_node_modules_string_8prototype_8trimend__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_string_8prototype_8trimend__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_string_8prototype_8trimend__c_h_a_n_g_e_l_o_g}
+\chapter{R\+E\+A\+D\+ME}
+\label{md_heap-visualizer_node_modules_string_8prototype_8trimend__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_string_8prototype_8trimend__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_string_8prototype_8trimend__r_e_a_d_m_e}
+\chapter{2.1.1 / 2019-\/12-\/17}
+\label{md_heap-visualizer_node_modules_string_8prototype_8trimleft__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_string_8prototype_8trimleft__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_string_8prototype_8trimleft__c_h_a_n_g_e_l_o_g}
+\chapter{R\+E\+A\+D\+ME}
+\label{md_heap-visualizer_node_modules_string_8prototype_8trimleft__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_string_8prototype_8trimleft__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_string_8prototype_8trimleft__r_e_a_d_m_e}
+\chapter{2.1.1 / 2019-\/12-\/17}
+\label{md_heap-visualizer_node_modules_string_8prototype_8trimright__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_string_8prototype_8trimright__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_string_8prototype_8trimright__c_h_a_n_g_e_l_o_g}
+\chapter{R\+E\+A\+D\+ME}
+\label{md_heap-visualizer_node_modules_string_8prototype_8trimright__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_string_8prototype_8trimright__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_string_8prototype_8trimright__r_e_a_d_m_e}
+\chapter{Changelog}
+\label{md_heap-visualizer_node_modules_string_8prototype_8trimstart__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_string_8prototype_8trimstart__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_string_8prototype_8trimstart__c_h_a_n_g_e_l_o_g}
+\chapter{R\+E\+A\+D\+ME}
+\label{md_heap-visualizer_node_modules_string_8prototype_8trimstart__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_string_8prototype_8trimstart__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_string_8prototype_8trimstart__r_e_a_d_m_e}
+\chapter{ansi-\/regex $<$a href=\char`\"{}https\+://travis-\/ci.\+org/chalk/ansi-\/regex\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/chalk/ansi-\/regex.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_strip-ansi_node_modules_ansi-regex_readme}
+\Hypertarget{md_heap-visualizer_node_modules_strip-ansi_node_modules_ansi-regex_readme}
+\input{md_heap-visualizer_node_modules_strip-ansi_node_modules_ansi-regex_readme}
+\chapter{strip-\/ansi $<$a href=\char`\"{}https\+://travis-\/ci.\+org/chalk/strip-\/ansi\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/chalk/strip-\/ansi.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_strip-ansi_readme}
+\Hypertarget{md_heap-visualizer_node_modules_strip-ansi_readme}
+\input{md_heap-visualizer_node_modules_strip-ansi_readme}
+\chapter{strip-\/json-\/comments $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/strip-\/json-\/comments\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/strip-\/json-\/comments.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_strip-json-comments_readme}
+\Hypertarget{md_heap-visualizer_node_modules_strip-json-comments_readme}
+\input{md_heap-visualizer_node_modules_strip-json-comments_readme}
+\chapter{supports-\/color $<$a href=\char`\"{}https\+://travis-\/ci.\+org/chalk/supports-\/color\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/chalk/supports-\/color.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_supports-color_readme}
+\Hypertarget{md_heap-visualizer_node_modules_supports-color_readme}
+\input{md_heap-visualizer_node_modules_supports-color_readme}
+\chapter{emoji-\/regex $<$a href=\char`\"{}https\+://travis-\/ci.\+org/mathiasbynens/emoji-\/regex\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/mathiasbynens/emoji-\/regex.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_table_node_modules_emoji-regex__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_table_node_modules_emoji-regex__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_table_node_modules_emoji-regex__r_e_a_d_m_e}
+\chapter{is-\/fullwidth-\/code-\/point $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/is-\/fullwidth-\/code-\/point\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/is-\/fullwidth-\/code-\/point.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_table_node_modules_is-fullwidth-code-point_readme}
+\Hypertarget{md_heap-visualizer_node_modules_table_node_modules_is-fullwidth-code-point_readme}
+\input{md_heap-visualizer_node_modules_table_node_modules_is-fullwidth-code-point_readme}
+\chapter{string-\/width $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/string-\/width\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/string-\/width.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_table_node_modules_string-width_readme}
+\Hypertarget{md_heap-visualizer_node_modules_table_node_modules_string-width_readme}
+\input{md_heap-visualizer_node_modules_table_node_modules_string-width_readme}
+\chapter{R\+E\+A\+D\+ME}
+\label{md_heap-visualizer_node_modules_table__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_table__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_table__r_e_a_d_m_e}
+\chapter{text-\/table}
+\label{md_heap-visualizer_node_modules_text-table_readme}
+\Hypertarget{md_heap-visualizer_node_modules_text-table_readme}
+\input{md_heap-visualizer_node_modules_text-table_readme}
+\chapter{readme}
+\label{md_heap-visualizer_node_modules_through_readme}
+\Hypertarget{md_heap-visualizer_node_modules_through_readme}
+\input{md_heap-visualizer_node_modules_through_readme}
+\chapter{Tmp}
+\label{md_heap-visualizer_node_modules_tmp__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_tmp__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_tmp__r_e_a_d_m_e}
+\chapter{to-\/regex-\/range $<$a href=\char`\"{}https\+://www.\+paypal.\+com/cgi-\/bin/webscr?cmd=\+\_\+s-\/xclick\&hosted\+\_\+button\+\_\+id=\+W8\+Y\+F\+Z425\+K\+N\+D68\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/badge/\+Donate-\/\+Pay\+Pal-\/green.\+svg\char`\"{} alt=\char`\"{}\+Donate\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://www.\+npmjs.\+com/package/to-\/regex-\/range\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/npm/v/to-\/regex-\/range.\+svg?style=flat\char`\"{} alt=\char`\"{}\+N\+P\+M version\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://npmjs.\+org/package/to-\/regex-\/range\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/npm/dm/to-\/regex-\/range.\+svg?style=flat\char`\"{} alt=\char`\"{}\+N\+P\+M monthly downloads\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://npmjs.\+org/package/to-\/regex-\/range\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/npm/dt/to-\/regex-\/range.\+svg?style=flat\char`\"{} alt=\char`\"{}\+N\+P\+M total downloads\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://travis-\/ci.\+org/micromatch/to-\/regex-\/range\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/travis/micromatch/to-\/regex-\/range.\+svg?style=flat\&label=\+Travis\char`\"{} alt=\char`\"{}\+Linux Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_to-regex-range__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_to-regex-range__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_to-regex-range__r_e_a_d_m_e}
+\chapter{tslib}
+\label{md_heap-visualizer_node_modules_tslib__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_tslib__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_tslib__r_e_a_d_m_e}
+\chapter{type-\/check $<$a href=\char`\"{}https\+://travis-\/ci.\+org/gkz/type-\/check\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/gkz/type-\/check.\+png?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_type-check__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_type-check__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_type-check__r_e_a_d_m_e}
+\chapter{readme}
+\label{md_heap-visualizer_node_modules_type-fest_readme}
+\Hypertarget{md_heap-visualizer_node_modules_type-fest_readme}
+\input{md_heap-visualizer_node_modules_type-fest_readme}
+\chapter{A\+U\+T\+H\+O\+RS}
+\label{md_heap-visualizer_node_modules_typescript__a_u_t_h_o_r_s}
+\Hypertarget{md_heap-visualizer_node_modules_typescript__a_u_t_h_o_r_s}
+\input{md_heap-visualizer_node_modules_typescript__a_u_t_h_o_r_s}
+\chapter{C\+O\+D\+E\+\_\+\+O\+F\+\_\+\+C\+O\+N\+D\+U\+CT}
+\label{md_heap-visualizer_node_modules_typescript__c_o_d_e__o_f__c_o_n_d_u_c_t}
+\Hypertarget{md_heap-visualizer_node_modules_typescript__c_o_d_e__o_f__c_o_n_d_u_c_t}
+\input{md_heap-visualizer_node_modules_typescript__c_o_d_e__o_f__c_o_n_d_u_c_t}
+\chapter{Read This!}
+\label{md_heap-visualizer_node_modules_typescript_lib__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_typescript_lib__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_typescript_lib__r_e_a_d_m_e}
+\chapter{Type\+Script}
+\label{md_heap-visualizer_node_modules_typescript__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_typescript__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_typescript__r_e_a_d_m_e}
+\chapter{U\+R\+I.\+js}
+\label{md_heap-visualizer_node_modules_uri-js__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_uri-js__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_uri-js__r_e_a_d_m_e}
+\chapter{$<$tt$>$v8-\/module-\/cache$<$/tt$>$ Changelog}
+\label{md_heap-visualizer_node_modules_v8-compile-cache__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_v8-compile-cache__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_v8-compile-cache__c_h_a_n_g_e_l_o_g}
+\chapter{v8-\/compile-\/cache}
+\label{md_heap-visualizer_node_modules_v8-compile-cache__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_v8-compile-cache__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_v8-compile-cache__r_e_a_d_m_e}
+\chapter{Changelog}
+\label{md_heap-visualizer_node_modules_vscode-test__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_vscode-test__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_vscode-test__c_h_a_n_g_e_l_o_g}
+\chapter{R\+E\+A\+D\+ME}
+\label{md_heap-visualizer_node_modules_vscode-test__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_vscode-test__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_vscode-test__r_e_a_d_m_e}
+\chapter{Changes}
+\label{md_heap-visualizer_node_modules_which__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_which__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_which__c_h_a_n_g_e_l_o_g}
+\chapter{which}
+\label{md_heap-visualizer_node_modules_which__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_which__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_which__r_e_a_d_m_e}
+\chapter{Change Log}
+\label{md_heap-visualizer_node_modules_which-module__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_which-module__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_which-module__c_h_a_n_g_e_l_o_g}
+\chapter{which-\/module}
+\label{md_heap-visualizer_node_modules_which-module__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_which-module__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_which-module__r_e_a_d_m_e}
+\chapter{ansi-\/regex $<$a href=\char`\"{}https\+://travis-\/ci.\+org/chalk/ansi-\/regex\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/chalk/ansi-\/regex.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_wide-align_node_modules_ansi-regex_readme}
+\Hypertarget{md_heap-visualizer_node_modules_wide-align_node_modules_ansi-regex_readme}
+\input{md_heap-visualizer_node_modules_wide-align_node_modules_ansi-regex_readme}
+\chapter{is-\/fullwidth-\/code-\/point $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/is-\/fullwidth-\/code-\/point\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/is-\/fullwidth-\/code-\/point.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_wide-align_node_modules_is-fullwidth-code-point_readme}
+\Hypertarget{md_heap-visualizer_node_modules_wide-align_node_modules_is-fullwidth-code-point_readme}
+\input{md_heap-visualizer_node_modules_wide-align_node_modules_is-fullwidth-code-point_readme}
+\chapter{string-\/width $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/string-\/width\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/string-\/width.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_wide-align_node_modules_string-width_readme}
+\Hypertarget{md_heap-visualizer_node_modules_wide-align_node_modules_string-width_readme}
+\input{md_heap-visualizer_node_modules_wide-align_node_modules_string-width_readme}
+\chapter{strip-\/ansi $<$a href=\char`\"{}https\+://travis-\/ci.\+org/chalk/strip-\/ansi\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/chalk/strip-\/ansi.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_wide-align_node_modules_strip-ansi_readme}
+\Hypertarget{md_heap-visualizer_node_modules_wide-align_node_modules_strip-ansi_readme}
+\input{md_heap-visualizer_node_modules_wide-align_node_modules_strip-ansi_readme}
+\chapter{wide-\/align}
+\label{md_heap-visualizer_node_modules_wide-align__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_wide-align__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_wide-align__r_e_a_d_m_e}
+\chapter{word-\/wrap $<$a href=\char`\"{}https\+://www.\+npmjs.\+com/package/word-\/wrap\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/npm/v/word-\/wrap.\+svg?style=flat\char`\"{} alt=\char`\"{}\+N\+P\+M version\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://npmjs.\+org/package/word-\/wrap\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/npm/dm/word-\/wrap.\+svg?style=flat\char`\"{} alt=\char`\"{}\+N\+P\+M monthly downloads\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://npmjs.\+org/package/word-\/wrap\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/npm/dt/word-\/wrap.\+svg?style=flat\char`\"{} alt=\char`\"{}\+N\+P\+M total downloads\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://travis-\/ci.\+org/jonschlinkert/word-\/wrap\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/travis/jonschlinkert/word-\/wrap.\+svg?style=flat\&label=\+Travis\char`\"{} alt=\char`\"{}\+Linux Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_word-wrap__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_word-wrap__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_word-wrap__r_e_a_d_m_e}
+\chapter{emoji-\/regex $<$a href=\char`\"{}https\+://travis-\/ci.\+org/mathiasbynens/emoji-\/regex\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/mathiasbynens/emoji-\/regex.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_wrap-ansi_node_modules_emoji-regex__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_wrap-ansi_node_modules_emoji-regex__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_wrap-ansi_node_modules_emoji-regex__r_e_a_d_m_e}
+\chapter{is-\/fullwidth-\/code-\/point $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/is-\/fullwidth-\/code-\/point\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/is-\/fullwidth-\/code-\/point.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_wrap-ansi_node_modules_is-fullwidth-code-point_readme}
+\Hypertarget{md_heap-visualizer_node_modules_wrap-ansi_node_modules_is-fullwidth-code-point_readme}
+\input{md_heap-visualizer_node_modules_wrap-ansi_node_modules_is-fullwidth-code-point_readme}
+\chapter{string-\/width $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/string-\/width\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/string-\/width.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_wrap-ansi_node_modules_string-width_readme}
+\Hypertarget{md_heap-visualizer_node_modules_wrap-ansi_node_modules_string-width_readme}
+\input{md_heap-visualizer_node_modules_wrap-ansi_node_modules_string-width_readme}
+\chapter{wrap-\/ansi $<$a href=\char`\"{}https\+://travis-\/ci.\+org/chalk/wrap-\/ansi\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/chalk/wrap-\/ansi.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://coveralls.\+io/github/chalk/wrap-\/ansi?branch=master\char`\"{}$>$$<$img src=\char`\"{}https\+://coveralls.\+io/repos/github/chalk/wrap-\/ansi/badge.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Coverage Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_wrap-ansi_readme}
+\Hypertarget{md_heap-visualizer_node_modules_wrap-ansi_readme}
+\input{md_heap-visualizer_node_modules_wrap-ansi_readme}
+\chapter{wrappy}
+\label{md_heap-visualizer_node_modules_wrappy__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_wrappy__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_wrappy__r_e_a_d_m_e}
+\chapter{write $<$a href=\char`\"{}https\+://www.\+npmjs.\+com/package/write\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/npm/v/write.\+svg?style=flat\char`\"{} alt=\char`\"{}\+N\+P\+M version\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://npmjs.\+org/package/write\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/npm/dm/write.\+svg?style=flat\char`\"{} alt=\char`\"{}\+N\+P\+M monthly downloads\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://npmjs.\+org/package/write\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/npm/dt/write.\+svg?style=flat\char`\"{} alt=\char`\"{}\+N\+P\+M total downloads\char`\"{}/$>$$<$/a$>$ $<$a href=\char`\"{}https\+://travis-\/ci.\+org/jonschlinkert/write\char`\"{}$>$$<$img src=\char`\"{}https\+://img.\+shields.\+io/travis/jonschlinkert/write.\+svg?style=flat\&label=\+Travis\char`\"{} alt=\char`\"{}\+Linux Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_write__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_write__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_write__r_e_a_d_m_e}
+\chapter{Change Log}
+\label{md_heap-visualizer_node_modules_y18n__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_y18n__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_y18n__c_h_a_n_g_e_l_o_g}
+\chapter{y18n}
+\label{md_heap-visualizer_node_modules_y18n__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_y18n__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_y18n__r_e_a_d_m_e}
+\chapter{Changelog}
+\label{md_heap-visualizer_node_modules_yargs__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_yargs__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_yargs__c_h_a_n_g_e_l_o_g}
+\chapter{emoji-\/regex $<$a href=\char`\"{}https\+://travis-\/ci.\+org/mathiasbynens/emoji-\/regex\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/mathiasbynens/emoji-\/regex.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_yargs_node_modules_emoji-regex__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_yargs_node_modules_emoji-regex__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_yargs_node_modules_emoji-regex__r_e_a_d_m_e}
+\chapter{is-\/fullwidth-\/code-\/point $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/is-\/fullwidth-\/code-\/point\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/is-\/fullwidth-\/code-\/point.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_yargs_node_modules_is-fullwidth-code-point_readme}
+\Hypertarget{md_heap-visualizer_node_modules_yargs_node_modules_is-fullwidth-code-point_readme}
+\input{md_heap-visualizer_node_modules_yargs_node_modules_is-fullwidth-code-point_readme}
+\chapter{string-\/width $<$a href=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/string-\/width\char`\"{}$>$$<$img src=\char`\"{}https\+://travis-\/ci.\+org/sindresorhus/string-\/width.\+svg?branch=master\char`\"{} alt=\char`\"{}\+Build Status\char`\"{}/$>$$<$/a$>$}
+\label{md_heap-visualizer_node_modules_yargs_node_modules_string-width_readme}
+\Hypertarget{md_heap-visualizer_node_modules_yargs_node_modules_string-width_readme}
+\input{md_heap-visualizer_node_modules_yargs_node_modules_string-width_readme}
+\chapter{R\+E\+A\+D\+ME}
+\label{md_heap-visualizer_node_modules_yargs__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_yargs__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_yargs__r_e_a_d_m_e}
+\chapter{Changelog}
+\label{md_heap-visualizer_node_modules_yargs-parser__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_yargs-parser__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_yargs-parser__c_h_a_n_g_e_l_o_g}
+\chapter{yargs-\/parser}
+\label{md_heap-visualizer_node_modules_yargs-parser__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_yargs-parser__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_yargs-parser__r_e_a_d_m_e}
+\chapter{Changelog}
+\label{md_heap-visualizer_node_modules_yargs-unparser__c_h_a_n_g_e_l_o_g}
+\Hypertarget{md_heap-visualizer_node_modules_yargs-unparser__c_h_a_n_g_e_l_o_g}
+\input{md_heap-visualizer_node_modules_yargs-unparser__c_h_a_n_g_e_l_o_g}
+\chapter{yargs-\/unparser}
+\label{md_heap-visualizer_node_modules_yargs-unparser__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer_node_modules_yargs-unparser__r_e_a_d_m_e}
+\input{md_heap-visualizer_node_modules_yargs-unparser__r_e_a_d_m_e}
+\chapter{heap-\/visualizer R\+E\+A\+D\+ME}
+\label{md_heap-visualizer__r_e_a_d_m_e}
+\Hypertarget{md_heap-visualizer__r_e_a_d_m_e}
+\input{md_heap-visualizer__r_e_a_d_m_e}
+\chapter{Welcome to your VS Code Extension}
+\label{md_heap-visualizer_vsc-extension-quickstart}
+\Hypertarget{md_heap-visualizer_vsc-extension-quickstart}
+\input{md_heap-visualizer_vsc-extension-quickstart}
+\chapter{R\+E\+A\+D\+ME}
+\label{md__r_e_a_d_m_e}
+\Hypertarget{md__r_e_a_d_m_e}
+\input{md__r_e_a_d_m_e}
+\chapter{Indice jerárquico}
+\input{hierarchy}
+\chapter{Índice de clases}
+\input{annotated}
+\chapter{Documentación de las clases}
+\input{classfixes}
+\input{class_garbage_collector}
+\input{class_linked_list}
+\input{class_login}
+\input{class_m_d5}
+\input{class_node}
+\input{class_server_manager}
+\input{class_user}
+\input{struct_v_s_data}
+\input{struct_v_s_pointers}
+\input{class_v_s_ptr}
+%--- End generated contents ---
+
+% Index
+\backmatter
+\newpage
+\phantomsection
+\clearemptydoublepage
+\addcontentsline{toc}{chapter}{\indexname}
+\printindex
+
+\end{document}

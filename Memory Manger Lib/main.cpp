@@ -4,10 +4,10 @@
 
 using namespace std;
 
-struct cosa
-{
+//struct cosa
+//{
     /* data */
-};
+//};
 
 
 ///
@@ -27,7 +27,7 @@ int main(int argc, char const *argv[])
     VSPtr<float> myPtr5= VSPtr<float>::New();
     VSPtr<short> myPtr6= VSPtr<short>::New();
     VSPtr<unsigned> myPtr7= VSPtr<unsigned>::New();
-    VSPtr<cosa> myPtr8= VSPtr<cosa>::New();
+    //VSPtr<cosa> myPtr8= VSPtr<cosa>::New();
 
     VSPtr<int> myPtr9= VSPtr<int>::New();
     VSPtr<int> myPtr10= VSPtr<int>::New();
@@ -35,7 +35,7 @@ int main(int argc, char const *argv[])
 
     short shr = 123;
     unsigned usg = 12;
-    cosa hola;
+    //cosa hola;
 
 
     myPtr0.init();
@@ -59,12 +59,12 @@ int main(int argc, char const *argv[])
     myPtr5.init();
     myPtr6.init();
     myPtr7.init();
-    myPtr8.init();
+    //myPtr8.init();
 
     myPtr5 = 54.4;
     myPtr6 = shr;
     myPtr7 = usg;
-    myPtr8 = hola;
+    //myPtr8 = hola;
 
     sleep(10);
 

@@ -1,0 +1,60 @@
+\doxysection*{What\textquotesingle{}s in the folder}
+
+
+\begin{DoxyItemize}
+\item This folder contains all of the files necessary for your extension.
+\item {\ttfamily package.\+json} -\/ this is the manifest file in which you declare your extension and command.
+\begin{DoxyItemize}
+\item The sample plugin registers a command and defines its title and command name. With this information VS Code can show the command in the command palette. It doesn’t yet need to load the plugin.
+\end{DoxyItemize}
+\item {\ttfamily extension.\+js} -\/ this is the main file where you will provide the implementation of your command.
+\begin{DoxyItemize}
+\item The file exports one function, {\ttfamily activate}, which is called the very first time your extension is activated (in this case by executing the command). Inside the {\ttfamily activate} function we call {\ttfamily register\+Command}.
+\item We pass the function containing the implementation of the command as the second parameter to {\ttfamily register\+Command}.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+\doxysection*{Get up and running straight away}
+
+
+\begin{DoxyItemize}
+\item Press {\ttfamily F5} to open a new window with your extension loaded.
+\item Run your command from the command palette by pressing ({\ttfamily Ctrl+\+Shift+P} or {\ttfamily Cmd+\+Shift+P} on Mac) and typing {\ttfamily Hello World}.
+\item Set breakpoints in your code inside {\ttfamily extension.\+js} to debug your extension.
+\item Find output from your extension in the debug console.
+\end{DoxyItemize}
+
+\doxysection*{Make changes}
+
+
+\begin{DoxyItemize}
+\item You can relaunch the extension from the debug toolbar after changing code in {\ttfamily extension.\+js}.
+\item You can also reload ({\ttfamily Ctrl+R} or {\ttfamily Cmd+R} on Mac) the VS Code window with your extension to load your changes.
+\end{DoxyItemize}
+
+\doxysection*{Explore the A\+PI}
+
+
+\begin{DoxyItemize}
+\item You can open the full set of our A\+PI when you open the file {\ttfamily node\+\_\+modules/@types/vscode/index.\+d.\+ts}.
+\end{DoxyItemize}
+
+\doxysection*{Run tests}
+
+
+\begin{DoxyItemize}
+\item Open the debug viewlet ({\ttfamily Ctrl+\+Shift+D} or {\ttfamily Cmd+\+Shift+D} on Mac) and from the launch configuration dropdown pick {\ttfamily Extension Tests}.
+\item Press {\ttfamily F5} to run the tests in a new window with your extension loaded.
+\item See the output of the test result in the debug console.
+\item Make changes to {\ttfamily src/test/suite/extension.\+test.\+js} or create new test files inside the {\ttfamily test/suite} folder.
+\begin{DoxyItemize}
+\item The provided test runner will only consider files matching the name pattern {\ttfamily $\ast$$\ast$.test.\+ts}.
+\item You can create folders inside the {\ttfamily test} folder to structure your tests any way you want. \doxysection*{Go further}
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item \href{https://code.visualstudio.com/api/working-with-extensions/publishing-extension}{\texttt{ Publish your extension}} on the V\+S\+Code extension marketplace.
+\item Automate builds by setting up \href{https://code.visualstudio.com/api/working-with-extensions/continuous-integration}{\texttt{ Continuous Integration}}. 
+\end{DoxyItemize}
+\end{DoxyItemize}

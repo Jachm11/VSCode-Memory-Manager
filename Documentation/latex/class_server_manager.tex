@@ -1,0 +1,322 @@
+\hypertarget{class_server_manager}{}\doxysection{Referencia de la Clase Server\+Manager}
+\label{class_server_manager}\index{ServerManager@{ServerManager}}
+
+
+Clase que sen encarga de manejar los clientes de la extension.  
+
+
+
+
+{\ttfamily \#include $<$Server\+Manager.\+h$>$}
+
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_server_manager_ae693d004086fc4b9818fe139f2a9ca4a}{add\+User}} (\mbox{\hyperlink{class_user}{User}} new\+User)
+\begin{DoxyCompactList}\small\item\em Añade un usuario a la lista de users del server manager. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_server_manager_a1a342e54a030b607cfeb615b201f1e95}{delete\+User}} (int socket)
+\begin{DoxyCompactList}\small\item\em Elimina un usuario a la lista de users del server manager. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_server_manager_ae25704a1007a86881a9b36afda0f480f}{server\+Response}} (string client\+Request, int socket)
+\begin{DoxyCompactList}\small\item\em Verifica el camndo que llega al servidor y dependiendo de cual es llama a la funcion que contruye la respuesta. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Métodos privados}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_node}{Node}}$<$ \mbox{\hyperlink{class_user}{User}} $>$ $\ast$ \mbox{\hyperlink{class_server_manager_a0292d32fccb34e812aed61ef535d472c}{get\+User\+By\+Socket}} (int socket)
+\begin{DoxyCompactList}\small\item\em Retorna el nodo de la lista en que se uncuentra el socket con el ID dado por el servidor. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_server_manager_aa1ddc43d98129d2f7d451123c9e566ea}{get\+User\+Index}} (int socket)
+\begin{DoxyCompactList}\small\item\em Retorna la posicion en la lista en la que se encuentra el socket especificado. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_server_manager_a99ed76c437fc8902b252af861b9b841b}{to\+Json}} (string ptr)
+\begin{DoxyCompactList}\small\item\em Transforma el formato del string del puntero a Json. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_server_manager_ad259f90bef271fcb94765cee59d5868c}{ptr\+Format}} (string ptr)
+\begin{DoxyCompactList}\small\item\em Transforma el formato del json. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_server_manager_a06ae41e52f4d432ea87edc084867ab9b}{get\+Idfrom\+Ptr}} (string ptr)
+\begin{DoxyCompactList}\small\item\em Obtiene el id aislado de un punter. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_server_manager_a524600061d60cb3ae1d860696859c775}{get\+Ptr}} (string all\+Ptr, string id)
+\begin{DoxyCompactList}\small\item\em Retorna los datos del puntero con la id que se solicita. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_server_manager_a02be43261239b6d16d45ff499d13ec19}{id\+Response}} (string ptr\+Id, int socket)
+\begin{DoxyCompactList}\small\item\em Respuesta cuando se solicita la información de un puntero por id, auxiliar de server\+Response. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_server_manager_ac09f0f7a6033dddb9e2c1a3d47e9ef6d}{password\+Response}} (string attempt, int socket)
+\begin{DoxyCompactList}\small\item\em Respuesta cuando se escribe la contraseña, auxiliar de server\+Response. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_server_manager_a29cf50195c8cf34cd843ee0680931dba}{json\+Response}} (string ptr\+Info, int socket)
+\begin{DoxyCompactList}\small\item\em Respuesta cuando se solicita guardar los punteros en el server, auxiliar de server\+Response. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_server_manager_a4d41e2a25a24f890a423172cfe870062}\label{class_server_manager_a4d41e2a25a24f890a423172cfe870062}} 
+\mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ \mbox{\hyperlink{class_user}{User}} $>$ {\bfseries users}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Clase que sen encarga de manejar los clientes de la extension. 
+
+\begin{DoxyAuthor}{Autor}
+Natalia 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{class_server_manager_ae693d004086fc4b9818fe139f2a9ca4a}\label{class_server_manager_ae693d004086fc4b9818fe139f2a9ca4a}} 
+\index{ServerManager@{ServerManager}!addUser@{addUser}}
+\index{addUser@{addUser}!ServerManager@{ServerManager}}
+\doxysubsubsection{\texorpdfstring{addUser()}{addUser()}}
+{\footnotesize\ttfamily void Server\+Manager\+::add\+User (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_user}{User}}}]{new\+User }\end{DoxyParamCaption})}
+
+
+
+Añade un usuario a la lista de users del server manager. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em usuario} & que se quiere añadir, inicializado con el socket que el servidor le asigna \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Autor}
+Natalia 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_server_manager_a1a342e54a030b607cfeb615b201f1e95}\label{class_server_manager_a1a342e54a030b607cfeb615b201f1e95}} 
+\index{ServerManager@{ServerManager}!deleteUser@{deleteUser}}
+\index{deleteUser@{deleteUser}!ServerManager@{ServerManager}}
+\doxysubsubsection{\texorpdfstring{deleteUser()}{deleteUser()}}
+{\footnotesize\ttfamily void Server\+Manager\+::delete\+User (\begin{DoxyParamCaption}\item[{int}]{socket }\end{DoxyParamCaption})}
+
+
+
+Elimina un usuario a la lista de users del server manager. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em socket} & id del usuario que se quiere eliminar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Autor}
+Natalia 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_server_manager_a06ae41e52f4d432ea87edc084867ab9b}\label{class_server_manager_a06ae41e52f4d432ea87edc084867ab9b}} 
+\index{ServerManager@{ServerManager}!getIdfromPtr@{getIdfromPtr}}
+\index{getIdfromPtr@{getIdfromPtr}!ServerManager@{ServerManager}}
+\doxysubsubsection{\texorpdfstring{getIdfromPtr()}{getIdfromPtr()}}
+{\footnotesize\ttfamily string Server\+Manager\+::get\+Idfrom\+Ptr (\begin{DoxyParamCaption}\item[{string}]{ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Obtiene el id aislado de un punter. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em puntero} & con el formato tipo\+:1.\+valor\+:6.\+id\+:76766 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+el dato de id del puntero 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Autor}
+Natalia 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_server_manager_a524600061d60cb3ae1d860696859c775}\label{class_server_manager_a524600061d60cb3ae1d860696859c775}} 
+\index{ServerManager@{ServerManager}!getPtr@{getPtr}}
+\index{getPtr@{getPtr}!ServerManager@{ServerManager}}
+\doxysubsubsection{\texorpdfstring{getPtr()}{getPtr()}}
+{\footnotesize\ttfamily string Server\+Manager\+::get\+Ptr (\begin{DoxyParamCaption}\item[{string}]{all\+Ptr,  }\item[{string}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Retorna los datos del puntero con la id que se solicita. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em all\+Ptrs\+Info} & la informacion de todos los punteros \\
+\hline
+{\em id} & del puntero que se quiere encontrar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+La información del puntero solicitado 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Autor}
+Natalia 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_server_manager_a0292d32fccb34e812aed61ef535d472c}\label{class_server_manager_a0292d32fccb34e812aed61ef535d472c}} 
+\index{ServerManager@{ServerManager}!getUserBySocket@{getUserBySocket}}
+\index{getUserBySocket@{getUserBySocket}!ServerManager@{ServerManager}}
+\doxysubsubsection{\texorpdfstring{getUserBySocket()}{getUserBySocket()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_node}{Node}}$<$ \mbox{\hyperlink{class_user}{User}} $>$ $\ast$ Server\+Manager\+::get\+User\+By\+Socket (\begin{DoxyParamCaption}\item[{int}]{socket }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Retorna el nodo de la lista en que se uncuentra el socket con el ID dado por el servidor. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em numero} & de socket \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nodo con el usuario 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Autor}
+Natalia 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_server_manager_aa1ddc43d98129d2f7d451123c9e566ea}\label{class_server_manager_aa1ddc43d98129d2f7d451123c9e566ea}} 
+\index{ServerManager@{ServerManager}!getUserIndex@{getUserIndex}}
+\index{getUserIndex@{getUserIndex}!ServerManager@{ServerManager}}
+\doxysubsubsection{\texorpdfstring{getUserIndex()}{getUserIndex()}}
+{\footnotesize\ttfamily int Server\+Manager\+::get\+User\+Index (\begin{DoxyParamCaption}\item[{int}]{socket }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Retorna la posicion en la lista en la que se encuentra el socket especificado. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em numero} & de socket \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+indice del usuario el la lista 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Autor}
+Natalia 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_server_manager_a02be43261239b6d16d45ff499d13ec19}\label{class_server_manager_a02be43261239b6d16d45ff499d13ec19}} 
+\index{ServerManager@{ServerManager}!idResponse@{idResponse}}
+\index{idResponse@{idResponse}!ServerManager@{ServerManager}}
+\doxysubsubsection{\texorpdfstring{idResponse()}{idResponse()}}
+{\footnotesize\ttfamily string Server\+Manager\+::id\+Response (\begin{DoxyParamCaption}\item[{string}]{ptr\+Id,  }\item[{int}]{socket }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Respuesta cuando se solicita la información de un puntero por id, auxiliar de server\+Response. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em id} & solicitada \\
+\hline
+{\em socket} & que lo solicita \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+json con la información del puntero 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Autor}
+Natalia 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_server_manager_a29cf50195c8cf34cd843ee0680931dba}\label{class_server_manager_a29cf50195c8cf34cd843ee0680931dba}} 
+\index{ServerManager@{ServerManager}!jsonResponse@{jsonResponse}}
+\index{jsonResponse@{jsonResponse}!ServerManager@{ServerManager}}
+\doxysubsubsection{\texorpdfstring{jsonResponse()}{jsonResponse()}}
+{\footnotesize\ttfamily string Server\+Manager\+::json\+Response (\begin{DoxyParamCaption}\item[{string}]{ptr\+Info,  }\item[{int}]{socket }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Respuesta cuando se solicita guardar los punteros en el server, auxiliar de server\+Response. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em info} & del puntero que se quiere guardar en forma de json \\
+\hline
+{\em socket} & que lo solicita \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+ptrsaved cuando guarda la informacion 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Autor}
+Natalia 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_server_manager_ac09f0f7a6033dddb9e2c1a3d47e9ef6d}\label{class_server_manager_ac09f0f7a6033dddb9e2c1a3d47e9ef6d}} 
+\index{ServerManager@{ServerManager}!passwordResponse@{passwordResponse}}
+\index{passwordResponse@{passwordResponse}!ServerManager@{ServerManager}}
+\doxysubsubsection{\texorpdfstring{passwordResponse()}{passwordResponse()}}
+{\footnotesize\ttfamily string Server\+Manager\+::password\+Response (\begin{DoxyParamCaption}\item[{string}]{attempt,  }\item[{int}]{socket }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Respuesta cuando se escribe la contraseña, auxiliar de server\+Response. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em intento} & del usuario de escribir la contraseña \\
+\hline
+{\em socket} & que lo solicita \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+goodpass si la contraseña es correcta, badpass si es incorrecta y hasaccess si ya tenia acceso 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Autor}
+Natalia 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_server_manager_ad259f90bef271fcb94765cee59d5868c}\label{class_server_manager_ad259f90bef271fcb94765cee59d5868c}} 
+\index{ServerManager@{ServerManager}!ptrFormat@{ptrFormat}}
+\index{ptrFormat@{ptrFormat}!ServerManager@{ServerManager}}
+\doxysubsubsection{\texorpdfstring{ptrFormat()}{ptrFormat()}}
+{\footnotesize\ttfamily string Server\+Manager\+::ptr\+Format (\begin{DoxyParamCaption}\item[{string}]{ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Transforma el formato del json. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em puntero} & con el formato \{\textbackslash{}ntipo\+:3,\textbackslash{}nvalor\+:4,\textbackslash{}nid\+:3246766~\newline
+\} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+puntero con el formato tipo\+:1.\+valor\+:6.\+id\+:76766 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Autor}
+Natalia 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_server_manager_ae25704a1007a86881a9b36afda0f480f}\label{class_server_manager_ae25704a1007a86881a9b36afda0f480f}} 
+\index{ServerManager@{ServerManager}!serverResponse@{serverResponse}}
+\index{serverResponse@{serverResponse}!ServerManager@{ServerManager}}
+\doxysubsubsection{\texorpdfstring{serverResponse()}{serverResponse()}}
+{\footnotesize\ttfamily string Server\+Manager\+::server\+Response (\begin{DoxyParamCaption}\item[{string}]{client\+Request,  }\item[{int}]{socket }\end{DoxyParamCaption})}
+
+
+
+Verifica el camndo que llega al servidor y dependiendo de cual es llama a la funcion que contruye la respuesta. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em mensaje} & del cliente \\
+\hline
+{\em socket} & que envia el mensaje \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+mensaje segun la respuesta 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Autor}
+Natalia 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_server_manager_a99ed76c437fc8902b252af861b9b841b}\label{class_server_manager_a99ed76c437fc8902b252af861b9b841b}} 
+\index{ServerManager@{ServerManager}!toJson@{toJson}}
+\index{toJson@{toJson}!ServerManager@{ServerManager}}
+\doxysubsubsection{\texorpdfstring{toJson()}{toJson()}}
+{\footnotesize\ttfamily string Server\+Manager\+::to\+Json (\begin{DoxyParamCaption}\item[{string}]{ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Transforma el formato del string del puntero a Json. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em puntero} & con el formato tipo\+:1.\+valor\+:6.\+id\+:76766 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+puntero con el formato \{\textbackslash{}ntipo\+:3,\textbackslash{}nvalor\+:4,\textbackslash{}nid\+:3246766~\newline
+\} 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Autor}
+Natalia 
+\end{DoxyAuthor}
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+Memory Manager Server/\+Server/Server\+Manager.\+h\item 
+Memory Manager Server/\+Server/Server\+Manager.\+cpp\end{DoxyCompactItemize}
